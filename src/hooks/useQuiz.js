@@ -1,5 +1,5 @@
 import { useReducer, useCallback, useEffect } from 'react';
-import questions, { getVocabularyQuestions } from '../data/questions';
+import questions, { getVocabularyQuestions, DEFAULT_EXAM } from '../data/questions';
 import { checkAnswer, calculatePoints, getMaxPoints } from '../utils/scoring';
 import { saveHighscore, saveStudentSession, saveDraftSession, clearDraftSession, getDraftSession, addSavedRound, getSavedRounds, getStudentHistory } from '../utils/storage';
 
@@ -19,6 +19,7 @@ const initialState = {
   phase: 'welcome',
   playerName: '',
   mode: 'normal',           // 'normal' | 'vocabulary'
+  exam: DEFAULT_EXAM,       // 'sa2' | 'sa4'
   questions: [],
   currentIndex: 0,
   score: 0,
@@ -30,14 +31,16 @@ function reducer(state, action) {
   switch (action.type) {
     case 'START_QUIZ': {
       const mode = action.mode || 'normal';
+      const exam = action.exam || DEFAULT_EXAM;
       if (mode === 'vocabulary') {
-        const pool = getVocabularyQuestions();
+        const pool = getVocabularyQuestions(exam);
         const shuffled = shuffle(pool);
         return {
           ...state,
           phase: 'quiz',
           playerName: action.name,
           mode,
+          exam,
           questions: shuffled,
           currentIndex: 0,
           score: 0,
@@ -47,7 +50,7 @@ function reducer(state, action) {
       }
 
       // Normal-Modus: nach Möglichkeit keine Wiederholung von Fragen für denselben Schüler
-      let candidatePool = questions;
+      let candidatePool = questions.filter((q) => q.exam === exam);
       try {
         const history = getStudentHistory();
         const student = history[action.name];
@@ -73,6 +76,7 @@ function reducer(state, action) {
         phase: 'quiz',
         playerName: action.name,
         mode,
+        exam,
         questions: shuffled,
         currentIndex: 0,
         score: 0,
@@ -163,8 +167,8 @@ export default function useQuiz() {
     }
   }, [state.phase, state.playerName, state.answers, state.score, state.questions, state.mode]);
 
-  const startQuiz = useCallback((name, mode = 'normal') => {
-    dispatch({ type: 'START_QUIZ', name, mode });
+  const startQuiz = useCallback((name, mode = 'normal', exam = DEFAULT_EXAM) => {
+    dispatch({ type: 'START_QUIZ', name, mode, exam });
   }, []);
 
   const startVocabReview = useCallback((playerName, questionIds) => {

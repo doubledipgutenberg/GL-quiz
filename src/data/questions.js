@@ -747,7 +747,42 @@ const questions = [
   }
 ];
 
-/** Wortschatz-Quiz: eine Frage pro Vokabel aus der offiziellen Vokabelliste (jede mind. 1x) */
-export { getVocabularyQuestions } from './vocabList';
+import { getVocabularyQuestions as getVocabSA2 } from './vocabList';
+import questionsSA4 from './questionsSA4';
+import { getVocabularyQuestionsSA4 } from './vocabListSA4';
 
-export default questions;
+// Metadaten der Schulaufgaben (Reihenfolge = Anzeige im Auswahlmenü)
+export const EXAMS = {
+  sa2: {
+    id: 'sa2',
+    label: '2. Schulaufgabe',
+    units: 'Units 2 & 3',
+    subtitle: 'Vorbereitung auf die 2. Schulaufgabe',
+  },
+  sa4: {
+    id: 'sa4',
+    label: '4. Schulaufgabe',
+    units: 'Units 5–6 · Across Cultures 2 · Focus 2',
+    subtitle: 'Vorbereitung auf die 4. Schulaufgabe',
+  },
+};
+
+export const DEFAULT_EXAM = 'sa4';
+
+// Alle Fragen mit ihrer Schulaufgabe taggen und zusammenführen.
+const allQuestions = [
+  ...questions.map((q) => ({ ...q, exam: 'sa2' })),
+  ...questionsSA4.map((q) => ({ ...q, exam: 'sa4' })),
+];
+
+/**
+ * Wortschatz-Quiz: eine Frage pro Vokabel.
+ * @param {string} [exam] 'sa2' | 'sa4' | undefined (= beide)
+ */
+export function getVocabularyQuestions(exam) {
+  if (exam === 'sa4') return getVocabularyQuestionsSA4();
+  if (exam === 'sa2') return getVocabSA2();
+  return [...getVocabSA2(), ...getVocabularyQuestionsSA4()];
+}
+
+export default allQuestions;

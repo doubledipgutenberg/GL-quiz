@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { EXAMS, DEFAULT_EXAM } from '../data/questions';
 import { getDraftSession, getSavedRounds, getFullExportPayload } from '../utils/storage';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
@@ -20,11 +21,14 @@ export default function WelcomeScreen({ onStart, onAdmin, onRestoreDraft, onRest
   const [step, setStep] = useState(1);
   const [name, setName] = useState('');
   const [quizMode, setQuizMode] = useState('normal');
+  const [exam, setExam] = useState(DEFAULT_EXAM);
   const [showRoundList, setShowRoundList] = useState(false);
+
+  const examInfo = EXAMS[exam] || EXAMS[DEFAULT_EXAM];
 
   const handleNameSubmit = (e) => {
     e.preventDefault();
-    if (name.trim()) onStart(name.trim(), quizMode);
+    if (name.trim()) onStart(name.trim(), quizMode, exam);
   };
 
   const showResume = hasDraft || hasSavedRounds;
@@ -102,12 +106,33 @@ export default function WelcomeScreen({ onStart, onAdmin, onRestoreDraft, onRest
     <div className="max-w-[400px] mx-auto space-y-8">
       <header className="text-center space-y-1">
         <h1 className="text-2xl font-bold tracking-tight">English Quiz Challenge</h1>
-        <h2 className="text-lg text-muted-foreground font-medium">English Topic 1 — Units 2 & 3</h2>
-        <p className="text-sm text-muted-foreground">Vorbereitung auf die 2. Schulaufgabe</p>
+        <h2 className="text-lg text-muted-foreground font-medium">English Topic 1 — {examInfo.units}</h2>
+        <p className="text-sm text-muted-foreground">{examInfo.subtitle}</p>
       </header>
 
       {step === 1 && (
         <>
+          <Card>
+            <CardHeader>
+              <CardTitle>Welche Schulaufgabe?</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <RadioGroup value={exam} onValueChange={setExam} className="grid gap-3">
+                {Object.values(EXAMS).map((ex) => (
+                  <label
+                    key={ex.id}
+                    className="flex items-start gap-3 rounded-lg border border-border p-4 cursor-pointer hover:bg-accent/50 has-[:checked]:border-primary has-[:checked]:bg-accent/50"
+                  >
+                    <RadioGroupItem value={ex.id} className="mt-0.5" />
+                    <div className="flex flex-col gap-0.5">
+                      <span className="font-semibold">{ex.label}</span>
+                      <span className="text-sm text-muted-foreground">{ex.units}</span>
+                    </div>
+                  </label>
+                ))}
+              </RadioGroup>
+            </CardContent>
+          </Card>
           <Card>
             <CardHeader>
               <CardTitle>Quiz-Modus</CardTitle>
