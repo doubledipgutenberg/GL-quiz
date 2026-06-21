@@ -2,21 +2,43 @@
 // Detects weaknesses and generates recommendations
 
 import { VOCAB_LIST } from '../data/vocabList';
+import { VOCAB_LIST_SA4 } from '../data/vocabListSA4';
 
-const VOCAB_IDS = new Set(VOCAB_LIST.map(v => v.id));
+const VOCAB_IDS_SA2 = new Set(VOCAB_LIST.map(v => v.id));
+const VOCAB_IDS_SA4 = new Set(VOCAB_LIST_SA4.map(v => v.id));
 
-/** Wie viele Vokabeln aus der Liste hat der Schüler mind. 1x richtig beantwortet? (beide Richtungen zählen) */
+/**
+ * Wie viele Vokabeln hat der Schüler mind. 1x richtig beantwortet? (beide Richtungen zählen)
+ * Zählt pro Schulaufgabe: nur die Vokabel-Listen, die der Schüler tatsächlich geübt hat.
+ */
 export function getVocabMastery(sessions) {
-  if (!sessions || sessions.length === 0) return { total: VOCAB_LIST.length, mastered: 0 };
-  const masteredIds = new Set();
-  sessions.forEach(session => {
+  const masteredSA2 = new Set();
+  const masteredSA4 = new Set();
+  let playedSA2 = false;
+  let playedSA4 = false;
+
+  (sessions || []).forEach(session => {
     (session.answers || []).forEach(a => {
-      if (!a.isCorrect) return;
       const baseId = a.questionId.replace(/_en$|_de$|_second$/, '');
-      if (VOCAB_IDS.has(baseId)) masteredIds.add(baseId);
+      if (VOCAB_IDS_SA2.has(baseId)) {
+        playedSA2 = true;
+        if (a.isCorrect) masteredSA2.add(baseId);
+      } else if (VOCAB_IDS_SA4.has(baseId)) {
+        playedSA4 = true;
+        if (a.isCorrect) masteredSA4.add(baseId);
+      }
     });
   });
-  return { total: VOCAB_LIST.length, mastered: masteredIds.size };
+
+  // Gesamtzahl = nur die Listen, die der Schüler geübt hat.
+  // Wenn (noch) keine Vokabeln geübt wurden, beide Listen als Universum zeigen.
+  let total = 0;
+  let mastered = 0;
+  if (playedSA2) { total += VOCAB_IDS_SA2.size; mastered += masteredSA2.size; }
+  if (playedSA4) { total += VOCAB_IDS_SA4.size; mastered += masteredSA4.size; }
+  if (!playedSA2 && !playedSA4) total = VOCAB_IDS_SA2.size + VOCAB_IDS_SA4.size;
+
+  return { total, mastered };
 }
 
 const TOPIC_RECOMMENDATIONS = {

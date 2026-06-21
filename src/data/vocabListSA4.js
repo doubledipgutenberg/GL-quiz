@@ -284,3 +284,6 @@ export function getVocabularyQuestionsSA4() {
 }
 
 export const vocabCountSA4 = unique.length;
+
+// Für die Lehrer-Analytics (Vokabel-Beherrschung): Liste der eindeutigen Vokabeln.
+export const VOCAB_LIST_SA4 = unique;
