@@ -1,4 +1,4 @@
-// Vokabelliste Green Line 1 – jede Vokabel mind. 1x im Wortschatz-Quiz
+// Vokabelliste English Topic 1 – jede Vokabel mind. 1x im Wortschatz-Quiz
 // Format: { id, en, de } – id = eindeutig für Admin-Auswertung "X von Y gekonnt"
 
 function slug(s) {

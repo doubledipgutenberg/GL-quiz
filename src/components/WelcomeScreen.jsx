@@ -44,7 +44,7 @@ export default function WelcomeScreen({ onStart, onAdmin, onRestoreDraft, onRest
         const a = document.createElement('a');
         const ts = new Date().toISOString().slice(0, 10);
         a.href = url;
-        a.download = `greenline-quiz-data-${ts}.json`;
+        a.download = `english-topic-quiz-data-${ts}.json`;
         document.body.appendChild(a);
         a.click();
         a.remove();
@@ -102,7 +102,7 @@ export default function WelcomeScreen({ onStart, onAdmin, onRestoreDraft, onRest
     <div className="max-w-[400px] mx-auto space-y-8">
       <header className="text-center space-y-1">
         <h1 className="text-2xl font-bold tracking-tight">English Quiz Challenge</h1>
-        <h2 className="text-lg text-muted-foreground font-medium">Green Line 1 — Units 2 & 3</h2>
+        <h2 className="text-lg text-muted-foreground font-medium">English Topic 1 — Units 2 & 3</h2>
         <p className="text-sm text-muted-foreground">Vorbereitung auf die 2. Schulaufgabe</p>
       </header>
 

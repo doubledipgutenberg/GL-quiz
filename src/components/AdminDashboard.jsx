@@ -7,7 +7,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 
 const ADMIN_PASSWORD = 'lehrer2024';
-const ADMIN_AUTH_KEY = 'greenline_quiz_admin_auth_until';
+const ADMIN_AUTH_KEY = 'english_topic_quiz_admin_auth_until';
 
 export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz }) {
   const [authenticated, setAuthenticated] = useState(false);
@@ -119,7 +119,7 @@ export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz }) {
       const a = document.createElement('a');
       const ts = new Date().toISOString().slice(0, 10);
       a.href = url;
-      a.download = `greenline-quiz-data-${ts}.json`;
+      a.download = `english-topic-quiz-data-${ts}.json`;
       document.body.appendChild(a);
       a.click();
       a.remove();

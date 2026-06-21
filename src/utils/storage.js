@@ -1,11 +1,11 @@
 // localStorage helpers for persisting quiz data
 
-const HIGHSCORES_KEY = 'greenline_quiz_highscores';
-const HISTORY_KEY = 'greenline_quiz_history';
-const DRAFT_KEY = 'greenline_quiz_draft';
-const SAVED_ROUNDS_KEY = 'greenline_quiz_saved_rounds';
-const TEACHER_DISMISSALS_KEY = 'greenline_quiz_teacher_dismissals';
-const TEACHER_MARKED_CORRECT_KEY = 'greenline_quiz_teacher_marked_correct';
+const HIGHSCORES_KEY = 'english_topic_quiz_highscores';
+const HISTORY_KEY = 'english_topic_quiz_history';
+const DRAFT_KEY = 'english_topic_quiz_draft';
+const SAVED_ROUNDS_KEY = 'english_topic_quiz_saved_rounds';
+const TEACHER_DISMISSALS_KEY = 'english_topic_quiz_teacher_dismissals';
+const TEACHER_MARKED_CORRECT_KEY = 'english_topic_quiz_teacher_marked_correct';
 
 // ==========================================
 // Highscores
