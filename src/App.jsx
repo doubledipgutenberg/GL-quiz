@@ -29,6 +29,11 @@ export default function App() {
     quiz.startVocabReview(studentName, questionIds);
   };
 
+  const handleCreateNormalReviewQuiz = (studentName, questionIds) => {
+    setShowAdmin(false);
+    quiz.startNormalReview(studentName, questionIds);
+  };
+
   const handleSaveRoundSubmit = (e) => {
     e.preventDefault();
     const name = saveRoundName.trim();
@@ -44,6 +49,7 @@ export default function App() {
       <AdminDashboard
         onBack={() => setShowAdmin(false)}
         onCreateVocabReviewQuiz={handleCreateVocabReviewQuiz}
+        onCreateNormalReviewQuiz={handleCreateNormalReviewQuiz}
       />
     );
   }

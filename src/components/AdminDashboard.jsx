@@ -9,7 +9,7 @@ import { Input } from './ui/input';
 const ADMIN_PASSWORD = 'lehrer2024';
 const ADMIN_AUTH_KEY = 'english_topic_quiz_admin_auth_until';
 
-export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz }) {
+export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz, onCreateNormalReviewQuiz }) {
   const [authenticated, setAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState(false);
@@ -98,6 +98,7 @@ export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz }) {
         sessions={studentData?.sessions || []}
         onBack={() => setSelectedStudent(null)}
         onCreateVocabReviewQuiz={onCreateVocabReviewQuiz}
+        onCreateNormalReviewQuiz={onCreateNormalReviewQuiz}
       />
     );
   }

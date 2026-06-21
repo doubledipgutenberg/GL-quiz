@@ -192,6 +192,27 @@ export default function useQuiz() {
     });
   }, []);
 
+  // Übungs-Quiz aus normalen (nicht-Vokabel-)Fragen, z.B. gezielt für Schwächen.
+  const startNormalReview = useCallback((playerName, questionIds) => {
+    if (!playerName || !Array.isArray(questionIds) || questionIds.length === 0) return;
+    const byId = Object.fromEntries(questions.map((q) => [q.id, q]));
+    const restoredQuestions = questionIds.map((id) => byId[id]).filter(Boolean);
+    if (restoredQuestions.length === 0) return;
+    const maxScore = getMaxPoints(restoredQuestions);
+    dispatch({
+      type: 'RESTORE_SAVED',
+      payload: {
+        name: playerName,
+        playerName,
+        questionIds: restoredQuestions.map((q) => q.id),
+        answers: [],
+        score: 0,
+        maxScore,
+        mode: 'normal',
+      },
+    });
+  }, []);
+
   const submitAnswer = useCallback((answer) => {
     dispatch({ type: 'SUBMIT_ANSWER', answer });
   }, []);
@@ -246,6 +267,7 @@ export default function useQuiz() {
     progress,
     startQuiz,
     startVocabReview,
+    startNormalReview,
     submitAnswer,
     nextQuestion,
     restart,

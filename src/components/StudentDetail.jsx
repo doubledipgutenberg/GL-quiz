@@ -6,7 +6,7 @@ import questions, { getVocabularyQuestions } from '../data/questions';
 import { Card, CardContent } from './ui/card';
 import { Button } from './ui/button';
 
-export default function StudentDetail({ name, sessions, onBack, onCreateVocabReviewQuiz }) {
+export default function StudentDetail({ name, sessions, onBack, onCreateVocabReviewQuiz, onCreateNormalReviewQuiz }) {
   const [dismissals, setDismissals] = useState({});
   const [markedCorrect, setMarkedCorrect] = useState({});
 
@@ -52,6 +52,59 @@ export default function StudentDetail({ name, sessions, onBack, onCreateVocabRev
     });
     return Array.from(ids);
   }, [analysis, studentDismissals, questionById]);
+
+  // Welche Schulaufgabe(n) hat der Schüler tatsächlich gespielt?
+  const playedExams = useMemo(() => {
+    const set = new Set();
+    sessions.forEach((s) => (s.answers || []).forEach((a) => {
+      const def = questionById[a.questionId];
+      if (def?.exam) set.add(def.exam);
+    }));
+    return set;
+  }, [sessions, questionById]);
+
+  // Übungs-Quiz für SCHWÄCHEN (normale, nicht-Vokabel-Fragen):
+  // schwache/mittlere Themen -> echte Fehler + frische Fragen aus denselben Themen.
+  const NORMAL_REVIEW_MAX = 20;
+  const normalReviewIds = useMemo(() => {
+    if (!analysis) return [];
+    const weakTopics = new Set(
+      analysis.topicResults
+        .filter((t) => t.strength !== 'strong' && t.topic !== 'vocabulary')
+        .map((t) => t.topic)
+    );
+    if (weakTopics.size === 0) return [];
+
+    const ids = new Set();
+    // 1) Genau die normalen Fragen, die der Schüler falsch hatte (nicht ausgeblendet)
+    (analysis.questionMistakes || []).forEach((q) => {
+      if (studentDismissals.questions?.[q.questionId]) return;
+      const def = questionById[q.questionId];
+      if (!def || def.type === 'vocab_card' || def.category === 'vocabulary') return;
+      if (!weakTopics.has(def.topic)) return;
+      const dismissedAttempts = studentDismissals.wrongAttempts?.[q.questionId] || [];
+      const visibleAttempts = (q.wrongAttempts || []).filter(
+        (a) => !dismissedAttempts.includes(a.date)
+      );
+      if (visibleAttempts.length === 0) return;
+      ids.add(q.questionId);
+    });
+    // 2) Zusätzliche frische Fragen aus denselben Schwäche-Themen (nur gespielte Schulaufgaben)
+    questions.forEach((q) => {
+      if (q.type === 'vocab_card' || q.category === 'vocabulary') return;
+      if (!weakTopics.has(q.topic)) return;
+      if (playedExams.size > 0 && q.exam && !playedExams.has(q.exam)) return;
+      ids.add(q.id);
+    });
+
+    // Mischen und begrenzen
+    const arr = Array.from(ids);
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr.slice(0, NORMAL_REVIEW_MAX);
+  }, [analysis, studentDismissals, questionById, playedExams]);
 
   if (!analysis) {
     return (
@@ -164,21 +217,41 @@ export default function StudentDetail({ name, sessions, onBack, onCreateVocabRev
         </div>
       )}
 
-      {/* Per-question mistakes */}
-      {analysis.questionMistakes && analysis.questionMistakes.length > 0 && (
+      {/* Übungs-Quiz erstellen (gezielt für Schwächen) */}
+      {((onCreateNormalReviewQuiz && normalReviewIds.length > 0) ||
+        (onCreateVocabReviewQuiz && vocabReviewIds.length > 0)) && (
         <div className="detail-section">
-          <div className="flex items-center justify-between gap-2 mb-1">
-            <h3>Falsch beantwortete Fragen</h3>
+          <h3>Übungs-Quiz erstellen</h3>
+          <p className="admin-hint">
+            Startet sofort eine Übungsrunde, die gezielt die Schwächen von {name} wiederholt –
+            echte Fehler plus weitere Fragen aus denselben Themen.
+          </p>
+          <div className="flex flex-wrap gap-2 mt-2">
+            {onCreateNormalReviewQuiz && normalReviewIds.length > 0 && (
+              <Button
+                size="sm"
+                onClick={() => onCreateNormalReviewQuiz(name, normalReviewIds)}
+              >
+                Schwächen üben – Grammatik & Co. ({normalReviewIds.length} Fragen)
+              </Button>
+            )}
             {onCreateVocabReviewQuiz && vocabReviewIds.length > 0 && (
               <Button
                 size="sm"
                 variant="outline"
                 onClick={() => onCreateVocabReviewQuiz(name, vocabReviewIds)}
               >
-                Erstelle Wiederholung Quiz
+                Vokabeln wiederholen ({vocabReviewIds.length})
               </Button>
             )}
           </div>
+        </div>
+      )}
+
+      {/* Per-question mistakes */}
+      {analysis.questionMistakes && analysis.questionMistakes.length > 0 && (
+        <div className="detail-section">
+          <h3>Falsch beantwortete Fragen</h3>
           <p className="admin-hint">
             Jede Zeile = ein konkretes Item. „Später richtig“ bedeutet, dass die Frage nach einem
             ersten Fehler mindestens einmal korrekt beantwortet wurde.
