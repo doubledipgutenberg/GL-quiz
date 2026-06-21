@@ -1,0 +1,180 @@
+/* Admin, Highscore, Student Detail – legacy styles (shadcn vars from index.css) */
+
+.btn-back {
+  background: none;
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-lg);
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+.btn-back:hover { opacity: 0.9; }
+
+.btn-start {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-lg);
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+}
+.btn-start:hover { opacity: 0.9; }
+
+.btn-detail {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-size: 0.8125rem;
+  padding: 0.375rem 0.875rem;
+  border-radius: var(--radius-lg);
+  border: none;
+  cursor: pointer;
+}
+.btn-detail:hover { opacity: 0.9; }
+
+.btn-danger {
+  background: var(--destructive);
+  color: var(--destructive-foreground);
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-lg);
+  border: none;
+  cursor: pointer;
+}
+.btn-danger:hover { opacity: 0.9; }
+
+/* Highscore */
+.highscore-table {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  padding: var(--space);
+  border: 1px solid var(--border);
+  margin: var(--space) 0;
+}
+.highscore-table h3 { text-align: center; margin-bottom: var(--space); font-size: 1rem; color: var(--foreground); }
+.rank-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 1.75rem; height: 1.75rem; border-radius: 50%;
+  font-size: 0.85rem; font-weight: 700; color: #fff;
+}
+.rank-badge.rank-1 { background: #c9a227; }
+.rank-badge.rank-2 { background: #7d7d7d; }
+.rank-badge.rank-3 { background: #b87333; }
+.rank-badge.rank-4, .rank-badge.rank-5, .rank-badge.rank-6,
+.rank-badge.rank-7, .rank-badge.rank-8, .rank-badge.rank-9, .rank-badge.rank-10 { background: var(--muted-foreground); }
+.highscore-table table, .admin-table { width: 100%; border-collapse: collapse; }
+.highscore-table th, .highscore-table td, .admin-table th, .admin-table td {
+  padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border);
+}
+.highscore-table th, .admin-table th { font-weight: 700; color: var(--muted-foreground); font-size: 0.85rem; text-transform: uppercase; }
+.top-1 td, .top-2 td, .top-3 td { background: var(--background); }
+.no-scores { text-align: center; color: var(--muted-foreground); padding: 20px; }
+
+/* Admin */
+.admin-login { text-align: center; padding: 60px 20px; }
+.admin-login input {
+  width: 100%; max-width: 300px; padding: 14px 18px;
+  border: 2px solid var(--border); border-radius: 12px; font-size: 1.1rem;
+  margin-bottom: 12px; outline: none; background: var(--background); color: var(--foreground);
+}
+.admin-login input:focus { border-color: var(--primary); }
+.admin-login-buttons { display: flex; gap: 12px; justify-content: center; margin-top: 12px; }
+.error-text { color: var(--destructive); font-weight: 600; margin-bottom: 8px; }
+
+.admin-dashboard { padding: 20px 0; }
+.admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+.admin-header h2 { font-size: 1.5rem; }
+.admin-empty { text-align: center; padding: 40px; color: var(--muted-foreground); }
+.admin-section {
+  background: var(--card); border-radius: var(--radius-lg); padding: 24px;
+  box-shadow: var(--shadow); margin-bottom: 24px; border: 1px solid var(--border);
+}
+.admin-section h3 { margin-bottom: 16px; }
+.admin-hint { font-size: 0.85rem; color: var(--muted-foreground); margin-bottom: 12px; }
+.pct-badge { padding: 4px 10px; border-radius: 12px; font-weight: 700; font-size: 0.85rem; }
+.pct-good { background: #d4f5e9; color: #00a878; }
+.pct-ok { background: #fff8e1; color: #b37400; }
+.pct-bad { background: #fff0ee; color: #c0392b; }
+.weakness-count { color: var(--destructive); font-weight: 600; }
+.no-weakness { color: var(--success); }
+
+.heatmap-container { overflow-x: auto; }
+.heatmap-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.heatmap-table th, .heatmap-table td { padding: 8px 10px; text-align: center; border: 1px solid var(--border); }
+.heatmap-label { text-align: left !important; font-weight: 600; white-space: nowrap; }
+.heatmap-strong { background: #d4f5e9; color: #00a878; font-weight: 700; }
+.heatmap-medium { background: #fff8e1; color: #b37400; font-weight: 700; }
+.heatmap-weak { background: #ffe0dc; color: #c0392b; font-weight: 700; }
+.heatmap-na { color: var(--muted-foreground); }
+.admin-footer { text-align: center; margin-top: 30px; }
+
+/* Student Detail */
+.student-detail { padding: 20px 0; }
+.detail-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+.detail-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+.stat-card { background: var(--card); border-radius: var(--radius-lg); padding: 20px; text-align: center; box-shadow: var(--shadow); border: 1px solid var(--border); }
+.stat-number { display: block; font-size: 2rem; font-weight: 800; color: var(--primary); }
+.stat-label { display: block; font-size: 0.85rem; color: var(--muted-foreground); margin-top: 4px; }
+.detail-section { background: var(--card); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow); margin-bottom: 24px; border: 1px solid var(--border); }
+.detail-section h3 { margin-bottom: 16px; }
+
+.trend-chart { display: flex; align-items: flex-end; gap: 8px; height: 180px; padding-top: 20px; }
+.trend-bar-container { flex: 1; display: flex; flex-direction: column; align-items: center; height: 100%; justify-content: flex-end; }
+.trend-bar {
+  width: 100%; max-width: 60px; background: var(--primary); border-radius: 8px 8px 0 0;
+  display: flex; align-items: flex-start; justify-content: center; min-height: 20px;
+}
+.trend-value { color: white; font-size: 0.75rem; font-weight: 700; padding: 4px; }
+.trend-date { font-size: 0.7rem; color: var(--muted-foreground); margin-top: 4px; text-align: center; }
+
+.category-bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.cat-label { width: 100px; font-weight: 600; font-size: 0.9rem; }
+.cat-bar-bg { flex: 1; height: 24px; background: var(--muted); border-radius: 12px; overflow: hidden; }
+.cat-bar-fill { height: 100%; border-radius: 12px; transition: width 0.5s ease; }
+.bar-good { background: linear-gradient(90deg, #00b894, #55efc4); }
+.bar-ok { background: linear-gradient(90deg, #fdcb6e, #ffeaa7); }
+.bar-bad { background: linear-gradient(90deg, #e17055, #fab1a0); }
+.cat-pct { font-size: 0.85rem; color: var(--muted-foreground); width: 120px; text-align: right; }
+
+.topic-detail-item { padding: 12px 16px; border-radius: 12px; margin-bottom: 8px; }
+.topic-detail-header { display: flex; align-items: center; gap: 8px; }
+.strength-dot { width: 12px; height: 12px; border-radius: 50%; }
+.strength-strong { background: var(--success); }
+.strength-medium { background: var(--muted-foreground); }
+.strength-weak { background: var(--destructive); }
+.topic-pct { margin-left: auto; font-size: 0.9rem; color: var(--muted-foreground); }
+.topic-practice { margin-top: 6px; margin-left: 20px; font-size: 0.85rem; color: var(--muted-foreground); }
+
+.rec-item { display: flex; gap: 12px; padding: 12px 16px; border-radius: 12px; margin-bottom: 8px; }
+.rec-high { background: #fff0ee; }
+.rec-medium { background: #fff8e1; }
+.rec-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; margin-top: 0.25rem; }
+.rec-dot-high { background: var(--destructive); }
+.rec-dot-medium { background: var(--muted-foreground); }
+.rec-item p { margin: 2px 0; }
+.rec-practice { font-size: 0.85rem; color: var(--muted-foreground); }
+
+.vocab-mastery { font-size: 0.85rem; color: var(--muted-foreground); }
+
+.mistake-dismiss {
+  background: transparent;
+  border: none;
+  color: var(--muted-foreground);
+  border-radius: 999px;
+  padding: 0.1rem 0.45rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.mistake-dismiss:hover {
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--foreground);
+}
+
+@media (max-width: 600px) {
+  .detail-stats { grid-template-columns: 1fr; }
+  .admin-header { flex-direction: column; gap: 12px; }
+  .heatmap-table { font-size: 0.75rem; }
+}
