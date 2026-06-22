@@ -139,17 +139,19 @@ export default function QuizQuestion({ question, onSubmit }) {
           </form>
         )}
 
-        <div className="pt-2">
-          {!showHint ? (
-            <Button variant="ghost" size="sm" onClick={() => setShowHint(true)}>
-              Tipp anzeigen
-            </Button>
-          ) : (
-            <div className="rounded-lg border border-border bg-muted/50 p-3 text-sm">
-              <strong>Tipp:</strong> {question.hint}
-            </div>
-          )}
-        </div>
+        {question.type !== 'vocab_card' && (
+          <div className="pt-2">
+            {!showHint ? (
+              <Button variant="ghost" size="sm" onClick={() => setShowHint(true)}>
+                Tipp anzeigen
+              </Button>
+            ) : (
+              <div className="rounded-lg border border-border bg-muted/50 p-3 text-sm">
+                <strong>Tipp:</strong> {question.hint}
+              </div>
+            )}
+          </div>
+        )}
       </CardContent>
     </Card>
   );
