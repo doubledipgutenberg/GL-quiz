@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { getStudentHistory, clearAllData, getFullExportPayload } from '../utils/storage';
+import { useState, useEffect, useRef } from 'react';
+import { getStudentHistory, clearAllData, getFullExportPayload, importFullPayload } from '../utils/storage';
 import { getAllStudentOverview } from '../utils/analytics';
 import StudentDetail from './StudentDetail';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
@@ -15,6 +15,7 @@ export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz, onCrea
   const [passwordError, setPasswordError] = useState(false);
   const [selectedStudent, setSelectedStudent] = useState(null);
   const [refreshKey, setRefreshKey] = useState(0);
+  const fileInputRef = useRef(null);
 
   useEffect(() => {
     try {
@@ -110,6 +111,34 @@ export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz, onCrea
     }
   };
 
+  const handleImportData = (e) => {
+    const file = e.target.files?.[0];
+    e.target.value = '';
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const payload = JSON.parse(String(reader.result));
+        const s = importFullPayload(payload);
+        const parts = [];
+        if (s.students) parts.push(`${s.students} neue Schüler`);
+        if (s.sessions) parts.push(`${s.sessions} neue Runden`);
+        if (s.savedRounds) parts.push(`${s.savedRounds} gespeicherte Runden`);
+        if (s.highscores) parts.push(`${s.highscores} Highscores`);
+        if (s.draft) parts.push('aktuelle Runde übernommen');
+        window.alert(
+          parts.length
+            ? `Import erfolgreich:\n${parts.join('\n')}.`
+            : 'Import erfolgreich – alle Daten waren schon vorhanden.'
+        );
+        setRefreshKey((k) => k + 1);
+      } catch {
+        window.alert('Import fehlgeschlagen: Die Datei ist keine gültige Quiz-Datensicherung.');
+      }
+    };
+    reader.readAsText(file);
+  };
+
   const handleExportData = () => {
     try {
       const payload = getFullExportPayload();
@@ -137,6 +166,16 @@ export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz, onCrea
         <div className="flex gap-2">
           <Button variant="outline" size="sm" onClick={onBack}>
             Zurück zum Quiz
+          </Button>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="application/json,.json"
+            className="hidden"
+            onChange={handleImportData}
+          />
+          <Button variant="outline" size="sm" onClick={() => fileInputRef.current?.click()}>
+            Daten importieren
           </Button>
           <Button variant="outline" size="sm" onClick={handleExportData}>
             Daten exportieren

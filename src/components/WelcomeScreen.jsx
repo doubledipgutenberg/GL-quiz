@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { EXAMS, DEFAULT_EXAM } from '../data/questions';
-import { getDraftSession, getSavedRounds, getFullExportPayload } from '../utils/storage';
+import { getDraftSession, getSavedRounds, getFullExportPayload, importFullPayload } from '../utils/storage';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
@@ -23,8 +23,36 @@ export default function WelcomeScreen({ onStart, onAdmin, onRestoreDraft, onRest
   const [quizMode, setQuizMode] = useState('normal');
   const [exam, setExam] = useState(DEFAULT_EXAM);
   const [showRoundList, setShowRoundList] = useState(false);
+  const fileInputRef = useRef(null);
 
   const examInfo = EXAMS[exam] || EXAMS[DEFAULT_EXAM];
+
+  const handleImportFile = (e) => {
+    const file = e.target.files?.[0];
+    e.target.value = '';
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const payload = JSON.parse(String(reader.result));
+        const s = importFullPayload(payload);
+        const parts = [];
+        if (s.students) parts.push(`${s.students} neue Schüler`);
+        if (s.sessions) parts.push(`${s.sessions} neue Runden`);
+        if (s.savedRounds) parts.push(`${s.savedRounds} gespeicherte Runden`);
+        if (s.draft) parts.push('aktuelle Runde übernommen');
+        window.alert(
+          parts.length
+            ? `Import erfolgreich:\n${parts.join('\n')}.`
+            : 'Import erfolgreich – alle Daten waren schon vorhanden.'
+        );
+        window.location.reload();
+      } catch {
+        window.alert('Import fehlgeschlagen: Die Datei ist keine gültige Quiz-Datensicherung.');
+      }
+    };
+    reader.readAsText(file);
+  };
 
   const handleNameSubmit = (e) => {
     e.preventDefault();
@@ -88,13 +116,25 @@ export default function WelcomeScreen({ onStart, onAdmin, onRestoreDraft, onRest
                 ))}
               </ul>
             )}
-            <div className="flex justify-between gap-2 pt-2">
+            <div className="flex flex-wrap items-center justify-between gap-2 pt-2">
               <Button variant="outline" size="sm" onClick={() => setShowRoundList(false)}>
                 Zurück
               </Button>
-              <Button variant="link" size="sm" className="text-muted-foreground px-0" onClick={handleExport}>
-                Daten exportieren (JSON)
-              </Button>
+              <div className="flex items-center gap-3">
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept="application/json,.json"
+                  className="hidden"
+                  onChange={handleImportFile}
+                />
+                <Button variant="link" size="sm" className="text-muted-foreground px-0" onClick={() => fileInputRef.current?.click()}>
+                  Daten importieren
+                </Button>
+                <Button variant="link" size="sm" className="text-muted-foreground px-0" onClick={handleExport}>
+                  Daten exportieren (JSON)
+                </Button>
+              </div>
             </div>
           </CardContent>
         </Card>
