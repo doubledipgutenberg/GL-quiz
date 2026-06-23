@@ -130,7 +130,8 @@ function reducer(state, action) {
       const draft = action.payload;
       if (!draft || !draft.questionIds || !draft.name) return state;
       const mode = draft.mode || 'normal';
-      const pool = mode === 'vocabulary' ? getVocabularyQuestions() : questions;
+      // Union-Pool: löst jede Frage-ID auf – normale Fragen UND generierte Vokabelkarten.
+      const pool = [...questions, ...getVocabularyQuestions()];
       const byId = Object.fromEntries(pool.map(q => [q.id, q]));
       const restoredQuestions = draft.questionIds.map(id => byId[id]).filter(Boolean);
       if (restoredQuestions.length === 0) return state;
@@ -173,7 +174,8 @@ export default function useQuiz() {
 
   const startVocabReview = useCallback((playerName, questionIds) => {
     if (!playerName || !Array.isArray(questionIds) || questionIds.length === 0) return;
-    const pool = getVocabularyQuestions();
+    // Union-Pool: Vokabel-Fehler können vocab_card ODER normale Fragen (fill_gap/picture) sein.
+    const pool = [...questions, ...getVocabularyQuestions()];
     const byId = Object.fromEntries(pool.map(q => [q.id, q]));
     const restoredQuestions = questionIds.map(id => byId[id]).filter(Boolean);
     if (restoredQuestions.length === 0) return;
