@@ -36,21 +36,42 @@ export default function StudentDetail({ name, sessions, onBack, onCreateVocabRev
     return map;
   }, []);
 
-  const vocabReviewIds = useMemo(() => {
-    if (!analysis?.questionMistakes?.length) return [];
-    const ids = new Set();
-    analysis.questionMistakes.forEach((q) => {
+  // Falsch beantwortete VOKABELN, nach Erfolgsquote in 5 Stufen (am schwersten zuerst).
+  // Jede Stufe trägt ihre kumulativen IDs: diese Stufe + alle schwierigeren darüber.
+  const VOCAB_TIER_DEFS = [
+    { key: 'never',  label: 'Nie richtig',      hint: '0 % richtig',          test: (r) => r === 0 },
+    { key: 'rare',   label: 'Selten richtig',   hint: 'bis 33 % richtig',     test: (r) => r > 0 && r <= 1 / 3 },
+    { key: 'some',   label: 'Manchmal richtig', hint: '34–50 % richtig',      test: (r) => r > 1 / 3 && r <= 0.5 },
+    { key: 'often',  label: 'Oft richtig',      hint: '51–75 % richtig',      test: (r) => r > 0.5 && r <= 0.75 },
+    { key: 'mostly', label: 'Meistens richtig', hint: '76–99 % richtig',      test: (r) => r > 0.75 && r < 1 },
+  ];
+
+  const vocabTiers = useMemo(() => {
+    const items = [];
+    (analysis?.questionMistakes || []).forEach((q) => {
       if (studentDismissals.questions?.[q.questionId]) return;
       const def = questionById[q.questionId];
       if (!def || def.type !== 'vocab_card') return;
       const dismissedAttempts = studentDismissals.wrongAttempts?.[q.questionId] || [];
-      const visibleAttempts = (q.wrongAttempts || []).filter(
-        (a) => !dismissedAttempts.includes(a.date)
-      );
-      if (visibleAttempts.length === 0) return;
-      ids.add(q.questionId);
+      const visible = (q.wrongAttempts || []).filter((a) => !dismissedAttempts.includes(a.date));
+      if (visible.length === 0) return;
+      const total = q.totalAttempts || (q.wrongCount + q.correctCount) || 1;
+      const rate = total > 0 ? q.correctCount / total : 0;
+      items.push({ id: q.questionId, word: def.word, correct: def.correct, rate });
     });
-    return Array.from(ids);
+
+    const buckets = VOCAB_TIER_DEFS.map((d) => ({ ...d, items: [] }));
+    items.forEach((it) => {
+      let i = VOCAB_TIER_DEFS.findIndex((d) => d.test(it.rate));
+      if (i === -1) i = buckets.length - 1;
+      buckets[i].items.push(it);
+    });
+    // kumulativ von oben (am schwersten) nach unten aufsummieren
+    let cum = [];
+    return buckets.map((b) => {
+      cum = cum.concat(b.items.map((i) => i.id));
+      return { ...b, cumulativeIds: [...cum] };
+    });
   }, [analysis, studentDismissals, questionById]);
 
   // Welche Schulaufgabe(n) hat der Schüler tatsächlich gespielt?
@@ -114,6 +135,92 @@ export default function StudentDetail({ name, sessions, onBack, onCreateVocabRev
       </div>
     );
   }
+
+  const visibleMistakes = (analysis.questionMistakes || [])
+    .filter((q) => !studentDismissals.questions?.[q.questionId])
+    .map((q) => {
+      const dismissedAttempts = studentDismissals.wrongAttempts?.[q.questionId] || [];
+      const visibleAttempts = (q.wrongAttempts || []).filter((a) => !dismissedAttempts.includes(a.date));
+      return { q, visibleAttempts, def: questionById[q.questionId] };
+    })
+    .filter((m) => m.visibleAttempts.length > 0);
+
+  const nonVocabMistakes = visibleMistakes.filter((m) => m.def?.type !== 'vocab_card');
+
+  const renderMistakeCard = ({ q, visibleAttempts, def }) => {
+    const primaryAttempt = visibleAttempts[visibleAttempts.length - 1];
+    return (
+      <Card
+        key={q.questionId}
+        className={`max-w-[500px] ${q.eventuallyCorrect ? 'border-amber-300/80' : 'border-destructive/40'}`}
+      >
+        <CardContent className="py-4 space-y-4">
+          <div className="flex items-start justify-between gap-4">
+            <div className="space-y-2">
+              <p className="flex items-baseline justify-between text-sm font-semibold">
+                <span>{q.topicLabel}</span>
+                {def?.type === 'vocab_card' && (
+                  <span className="text-xs text-muted-foreground ml-4">Vokabelkarte</span>
+                )}
+              </p>
+              {def && (
+                <div className="text-sm text-foreground/90">
+                  {def.type === 'vocab_card' ? (
+                    <p className="text-base font-semibold">{def.word}</p>
+                  ) : (
+                    <p>{def.question}</p>
+                  )}
+                </div>
+              )}
+              {primaryAttempt && (
+                <div className="mt-1 space-y-0.5 text-xs text-muted-foreground">
+                  <p><strong>Antwort:</strong> „{primaryAttempt.userAnswer}“</p>
+                  <p><strong>Korrekt:</strong> „{primaryAttempt.correctAnswer}“</p>
+                </div>
+              )}
+            </div>
+            <div className="flex items-center gap-1">
+              <button
+                type="button"
+                className="mistake-dismiss text-green-600 hover:text-green-700 hover:bg-green-100 dark:text-green-400 dark:hover:bg-green-900/30"
+                onClick={() => {
+                  markAttemptsAsCorrect(name, q.questionId, visibleAttempts.map((a) => a.date));
+                  setMarkedCorrect(getTeacherMarkedCorrect());
+                }}
+                aria-label="Als richtig werten"
+              >
+                <Check className="size-5" />
+              </button>
+              <button
+                type="button"
+                className="mistake-dismiss"
+                onClick={() => {
+                  dismissQuestionForStudent(name, q.questionId);
+                  setDismissals(getTeacherDismissals());
+                }}
+                aria-label="Frage ausblenden"
+              >
+                ×
+              </button>
+            </div>
+          </div>
+
+          <div className="flex items-end justify-between pt-4 text-xs text-muted-foreground">
+            <div className="space-y-0.5">
+              <p>Falsch: {q.wrongCount}× · Richtig: {q.correctCount}× · Versuche gesamt: {q.totalAttempts}</p>
+              <p>
+                Später richtig beantwortet:{' '}
+                {q.eventuallyCorrect ? 'Ja (Kontext wurde später getroffen)' : 'Nein, bisher nie.'}
+              </p>
+            </div>
+            {primaryAttempt && (
+              <span className="text-[11px]">{new Date(primaryAttempt.date).toLocaleDateString('de-DE')}</span>
+            )}
+          </div>
+        </CardContent>
+      </Card>
+    );
+  };
 
   return (
     <div className="student-detail">
@@ -217,144 +324,80 @@ export default function StudentDetail({ name, sessions, onBack, onCreateVocabRev
         </div>
       )}
 
-      {/* Übungs-Quiz erstellen (gezielt für Schwächen) */}
-      {((onCreateNormalReviewQuiz && normalReviewIds.length > 0) ||
-        (onCreateVocabReviewQuiz && vocabReviewIds.length > 0)) && (
+      {/* Übungs-Quiz erstellen (gezielt für Grammatik-Schwächen) */}
+      {onCreateNormalReviewQuiz && normalReviewIds.length > 0 && (
         <div className="detail-section">
           <h3>Übungs-Quiz erstellen</h3>
           <p className="admin-hint">
-            Startet sofort eine Übungsrunde, die gezielt die Schwächen von {name} wiederholt –
-            echte Fehler plus weitere Fragen aus denselben Themen.
+            Startet sofort eine Übungsrunde, die gezielt die Grammatik-Schwächen von {name}{' '}
+            wiederholt – echte Fehler plus weitere Fragen aus denselben Themen.
+            (Vokabeln: siehe unten nach Schwierigkeit.)
           </p>
           <div className="flex flex-wrap gap-2 mt-2">
-            {onCreateNormalReviewQuiz && normalReviewIds.length > 0 && (
-              <Button
-                size="sm"
-                onClick={() => onCreateNormalReviewQuiz(name, normalReviewIds)}
-              >
-                Schwächen üben – Grammatik & Co. ({normalReviewIds.length} Fragen)
-              </Button>
-            )}
-            {onCreateVocabReviewQuiz && vocabReviewIds.length > 0 && (
-              <Button
-                size="sm"
-                variant="outline"
-                onClick={() => onCreateVocabReviewQuiz(name, vocabReviewIds)}
-              >
-                Vokabeln wiederholen ({vocabReviewIds.length})
-              </Button>
-            )}
+            <Button size="sm" onClick={() => onCreateNormalReviewQuiz(name, normalReviewIds)}>
+              Schwächen üben – Grammatik & Co. ({normalReviewIds.length} Fragen)
+            </Button>
           </div>
         </div>
       )}
 
-      {/* Per-question mistakes */}
-      {analysis.questionMistakes && analysis.questionMistakes.length > 0 && (
+      {/* Falsch beantwortete Fragen — A) Grammatik/Reading/Mediation */}
+      {nonVocabMistakes.length > 0 && (
         <div className="detail-section">
-          <h3>Falsch beantwortete Fragen</h3>
+          <h3>Falsch beantwortet: Grammatik, Reading &amp; Mediation</h3>
           <p className="admin-hint">
-            Jede Zeile = ein konkretes Item. „Später richtig“ bedeutet, dass die Frage nach einem
+            Jede Karte = ein konkretes Item. „Später richtig“ bedeutet, dass die Frage nach einem
             ersten Fehler mindestens einmal korrekt beantwortet wurde.
           </p>
           <div className="space-y-3">
-            {analysis.questionMistakes
-              .filter(q => !studentDismissals.questions?.[q.questionId])
-              .map((q) => {
-                const dismissedAttempts = studentDismissals.wrongAttempts?.[q.questionId] || [];
-                const visibleAttempts = (q.wrongAttempts || []).filter(
-                  (a) => !dismissedAttempts.includes(a.date)
-                );
-                if (visibleAttempts.length === 0) return null;
-                const def = questionById[q.questionId];
-                const primaryAttempt = visibleAttempts[visibleAttempts.length - 1];
-                return (
-                  <Card
-                    key={q.questionId}
-                    className={`max-w-[500px] ${
-                      q.eventuallyCorrect ? 'border-amber-300/80' : 'border-destructive/40'
-                    }`}
-                  >
-                    <CardContent className="py-4 space-y-4">
-                      <div className="flex items-start justify-between gap-4">
-                        <div className="space-y-2">
-                          <p className="flex items-baseline justify-between text-sm font-semibold">
-                            <span>{q.topicLabel}</span>
-                            {def?.type === 'vocab_card' && (
-                              <span className="text-xs text-muted-foreground ml-4">
-                                Vokabelkarte
-                              </span>
-                            )}
-                          </p>
-                          {def && (
-                            <div className="text-sm text-foreground/90">
-                              {def.type === 'vocab_card' ? (
-                                <p className="text-base font-semibold">{def.word}</p>
-                              ) : (
-                                <p>{def.question}</p>
-                              )}
-                            </div>
-                          )}
-                          {primaryAttempt && (
-                            <div className="mt-1 space-y-0.5 text-xs text-muted-foreground">
-                              <p>
-                                <strong>Antwort:</strong> „{primaryAttempt.userAnswer}“
-                              </p>
-                              <p>
-                                <strong>Korrekt:</strong> „{primaryAttempt.correctAnswer}“
-                              </p>
-                            </div>
-                          )}
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <button
-                            type="button"
-                            className="mistake-dismiss text-green-600 hover:text-green-700 hover:bg-green-100 dark:text-green-400 dark:hover:bg-green-900/30"
-                            onClick={() => {
-                              markAttemptsAsCorrect(name, q.questionId, visibleAttempts.map(a => a.date));
-                              setMarkedCorrect(getTeacherMarkedCorrect());
-                            }}
-                            aria-label="Als richtig werten"
-                          >
-                            <Check className="size-5" />
-                          </button>
-                          <button
-                            type="button"
-                            className="mistake-dismiss"
-                            onClick={() => {
-                              dismissQuestionForStudent(name, q.questionId);
-                              setDismissals(getTeacherDismissals());
-                            }}
-                            aria-label="Frage ausblenden"
-                          >
-                            ×
-                          </button>
-                        </div>
-                      </div>
+            {nonVocabMistakes.map(renderMistakeCard)}
+          </div>
+        </div>
+      )}
 
-                      {/* Metadaten + Datum mit Abstand unterhalb der Antwort/Korrektur */}
-                      <div className="flex items-end justify-between pt-4 text-xs text-muted-foreground">
-                        <div className="space-y-0.5">
-                          <p>
-                            Falsch: {q.wrongCount}× · Richtig: {q.correctCount}× · Versuche gesamt:{' '}
-                            {q.totalAttempts}
-                          </p>
-                          <p>
-                            Später richtig beantwortet:{' '}
-                            {q.eventuallyCorrect
-                              ? 'Ja (Kontext wurde später getroffen)'
-                              : 'Nein, bisher nie.'}
-                          </p>
-                        </div>
-                        {primaryAttempt && (
-                          <span className="text-[11px]">
-                            {new Date(primaryAttempt.date).toLocaleDateString('de-DE')}
-                          </span>
-                        )}
+      {/* Falsch beantwortete Fragen — B) Vokabeln nach Erfolgsquote */}
+      {vocabTiers.some((t) => t.items.length > 0) && (
+        <div className="detail-section">
+          <h3>Falsch beantwortet: Vokabeln nach Schwierigkeit</h3>
+          <p className="admin-hint">
+            Vokabeln nach Erfolgsquote ({name}) – am schwersten zuerst. Jeder Button erstellt ein
+            Wiederholungs-Quiz mit dieser Stufe <strong>und allen schwierigeren darüber</strong>.
+          </p>
+          <div className="space-y-3">
+            {vocabTiers.map((tier) => {
+              if (tier.items.length === 0) return null;
+              const preview = tier.items.slice(0, 24);
+              const rest = tier.items.length - preview.length;
+              return (
+                <Card key={tier.key} className="max-w-[640px] border-border">
+                  <CardContent className="py-4 space-y-3">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <div>
+                        <p className="text-sm font-semibold">
+                          {tier.label}{' '}
+                          <span className="font-normal text-muted-foreground">({tier.hint})</span>
+                        </p>
+                        <p className="text-xs text-muted-foreground">
+                          {tier.items.length} Vokabel{tier.items.length === 1 ? '' : 'n'} auf dieser Stufe
+                        </p>
                       </div>
-                    </CardContent>
-                  </Card>
-                );
-              })}
+                      {onCreateVocabReviewQuiz && (
+                        <Button
+                          size="sm"
+                          onClick={() => onCreateVocabReviewQuiz(name, tier.cumulativeIds)}
+                        >
+                          Wiederholen: ab hier ({tier.cumulativeIds.length})
+                        </Button>
+                      )}
+                    </div>
+                    <p className="text-xs text-foreground/80 leading-relaxed">
+                      {preview.map((it) => `${it.word} → ${it.correct}`).join('  ·  ')}
+                      {rest > 0 ? `  · +${rest} weitere` : ''}
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       )}
