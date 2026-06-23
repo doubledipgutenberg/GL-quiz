@@ -46,34 +46,6 @@ export default function StudentDetail({ name, sessions, onBack, onCreateVocabRev
     { key: 'mostly', label: 'Meistens richtig', hint: '76–99 % richtig',      test: (r) => r > 0.75 && r < 1 },
   ];
 
-  const vocabTiers = useMemo(() => {
-    const items = [];
-    (analysis?.questionMistakes || []).forEach((q) => {
-      if (studentDismissals.questions?.[q.questionId]) return;
-      const def = questionById[q.questionId];
-      if (!def || def.type !== 'vocab_card') return;
-      const dismissedAttempts = studentDismissals.wrongAttempts?.[q.questionId] || [];
-      const visible = (q.wrongAttempts || []).filter((a) => !dismissedAttempts.includes(a.date));
-      if (visible.length === 0) return;
-      const total = q.totalAttempts || (q.wrongCount + q.correctCount) || 1;
-      const rate = total > 0 ? q.correctCount / total : 0;
-      items.push({ id: q.questionId, word: def.word, correct: def.correct, rate });
-    });
-
-    const buckets = VOCAB_TIER_DEFS.map((d) => ({ ...d, items: [] }));
-    items.forEach((it) => {
-      let i = VOCAB_TIER_DEFS.findIndex((d) => d.test(it.rate));
-      if (i === -1) i = buckets.length - 1;
-      buckets[i].items.push(it);
-    });
-    // kumulativ von oben (am schwersten) nach unten aufsummieren
-    let cum = [];
-    return buckets.map((b) => {
-      cum = cum.concat(b.items.map((i) => i.id));
-      return { ...b, cumulativeIds: [...cum] };
-    });
-  }, [analysis, studentDismissals, questionById]);
-
   // Welche Schulaufgabe(n) hat der Schüler tatsächlich gespielt?
   const playedExams = useMemo(() => {
     const set = new Set();
@@ -145,7 +117,28 @@ export default function StudentDetail({ name, sessions, onBack, onCreateVocabRev
     })
     .filter((m) => m.visibleAttempts.length > 0);
 
-  const nonVocabMistakes = visibleMistakes.filter((m) => m.def?.type !== 'vocab_card');
+  // Trennung nach KATEGORIE (nicht Typ): alle Vokabel-Items (vocab_card, fill_gap, picture …)
+  // gehen in den Vokabel-Bereich; Grammatik/Reading/Mediation in den anderen.
+  const vocabMistakes = visibleMistakes.filter((m) => m.def?.category === 'vocabulary');
+  const nonVocabMistakes = visibleMistakes.filter((m) => m.def?.category !== 'vocabulary');
+
+  // Vokabel-Karten in 5 Stufen nach Erfolgsquote (am schwersten zuerst),
+  // jede Stufe mit kumulativen IDs (diese Stufe + alle schwierigeren darüber).
+  const vocabTierGroups = (() => {
+    const buckets = VOCAB_TIER_DEFS.map((d) => ({ ...d, items: [] }));
+    vocabMistakes.forEach((m) => {
+      const total = m.q.totalAttempts || (m.q.wrongCount + m.q.correctCount) || 1;
+      const rate = total > 0 ? m.q.correctCount / total : 0;
+      let i = VOCAB_TIER_DEFS.findIndex((d) => d.test(rate));
+      if (i === -1) i = buckets.length - 1;
+      buckets[i].items.push(m);
+    });
+    let cum = [];
+    return buckets.map((b) => {
+      cum = cum.concat(b.items.map((m) => m.q.questionId));
+      return { ...b, cumulativeIds: [...cum] };
+    });
+  })();
 
   const renderMistakeCard = ({ q, visibleAttempts, def }) => {
     const primaryAttempt = visibleAttempts[visibleAttempts.length - 1];
@@ -324,27 +317,17 @@ export default function StudentDetail({ name, sessions, onBack, onCreateVocabRev
         </div>
       )}
 
-      {/* Übungs-Quiz erstellen (gezielt für Grammatik-Schwächen) */}
-      {onCreateNormalReviewQuiz && normalReviewIds.length > 0 && (
-        <div className="detail-section">
-          <h3>Übungs-Quiz erstellen</h3>
-          <p className="admin-hint">
-            Startet sofort eine Übungsrunde, die gezielt die Grammatik-Schwächen von {name}{' '}
-            wiederholt – echte Fehler plus weitere Fragen aus denselben Themen.
-            (Vokabeln: siehe unten nach Schwierigkeit.)
-          </p>
-          <div className="flex flex-wrap gap-2 mt-2">
-            <Button size="sm" onClick={() => onCreateNormalReviewQuiz(name, normalReviewIds)}>
-              Schwächen üben – Grammatik & Co. ({normalReviewIds.length} Fragen)
-            </Button>
-          </div>
-        </div>
-      )}
-
-      {/* Falsch beantwortete Fragen — A) Grammatik/Reading/Mediation */}
+      {/* Falsch beantwortet — A) Grammatik / Reading / Mediation */}
       {nonVocabMistakes.length > 0 && (
         <div className="detail-section">
-          <h3>Falsch beantwortet: Grammatik, Reading &amp; Mediation</h3>
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <h3>Falsch beantwortet: Grammatik, Reading &amp; Mediation</h3>
+            {onCreateNormalReviewQuiz && normalReviewIds.length > 0 && (
+              <Button size="sm" onClick={() => onCreateNormalReviewQuiz(name, normalReviewIds)}>
+                Schwächen üben ({normalReviewIds.length})
+              </Button>
+            )}
+          </div>
           <p className="admin-hint">
             Jede Karte = ein konkretes Item. „Später richtig“ bedeutet, dass die Frage nach einem
             ersten Fehler mindestens einmal korrekt beantwortet wurde.
@@ -355,49 +338,42 @@ export default function StudentDetail({ name, sessions, onBack, onCreateVocabRev
         </div>
       )}
 
-      {/* Falsch beantwortete Fragen — B) Vokabeln nach Erfolgsquote */}
-      {vocabTiers.some((t) => t.items.length > 0) && (
+      {/* Falsch beantwortet — B) Vokabeln, in 5 Stufen nach Erfolgsquote */}
+      {vocabMistakes.length > 0 && (
         <div className="detail-section">
-          <h3>Falsch beantwortet: Vokabeln nach Schwierigkeit</h3>
+          <h3>Falsch beantwortet: Vokabeln (nach Schwierigkeit)</h3>
           <p className="admin-hint">
-            Vokabeln nach Erfolgsquote ({name}) – am schwersten zuerst. Jeder Button erstellt ein
+            5 Stufen nach Erfolgsquote – am schwersten zuerst. Der Button je Stufe erstellt ein
             Wiederholungs-Quiz mit dieser Stufe <strong>und allen schwierigeren darüber</strong>.
           </p>
-          <div className="space-y-3">
-            {vocabTiers.map((tier) => {
-              if (tier.items.length === 0) return null;
-              const preview = tier.items.slice(0, 24);
-              const rest = tier.items.length - preview.length;
-              return (
-                <Card key={tier.key} className="max-w-[640px] border-border">
-                  <CardContent className="py-4 space-y-3">
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <div>
-                        <p className="text-sm font-semibold">
-                          {tier.label}{' '}
-                          <span className="font-normal text-muted-foreground">({tier.hint})</span>
-                        </p>
-                        <p className="text-xs text-muted-foreground">
-                          {tier.items.length} Vokabel{tier.items.length === 1 ? '' : 'n'} auf dieser Stufe
-                        </p>
-                      </div>
-                      {onCreateVocabReviewQuiz && (
-                        <Button
-                          size="sm"
-                          onClick={() => onCreateVocabReviewQuiz(name, tier.cumulativeIds)}
-                        >
-                          Wiederholen: ab hier ({tier.cumulativeIds.length})
-                        </Button>
-                      )}
-                    </div>
-                    <p className="text-xs text-foreground/80 leading-relaxed">
-                      {preview.map((it) => `${it.word} → ${it.correct}`).join('  ·  ')}
-                      {rest > 0 ? `  · +${rest} weitere` : ''}
-                    </p>
-                  </CardContent>
-                </Card>
-              );
-            })}
+          <div className="space-y-6">
+            {vocabTierGroups.map((tier) => (
+              <div key={tier.key} className="space-y-3">
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border pb-1">
+                  <div>
+                    <span className="text-sm font-semibold">{tier.label}</span>{' '}
+                    <span className="text-xs text-muted-foreground">
+                      ({tier.hint}) · {tier.items.length} Vokabel{tier.items.length === 1 ? '' : 'n'}
+                    </span>
+                  </div>
+                  {onCreateVocabReviewQuiz && tier.items.length > 0 && (
+                    <Button
+                      size="sm"
+                      onClick={() => onCreateVocabReviewQuiz(name, tier.cumulativeIds)}
+                    >
+                      Wiederholen: ab hier ({tier.cumulativeIds.length})
+                    </Button>
+                  )}
+                </div>
+                {tier.items.length > 0 ? (
+                  <div className="space-y-3">
+                    {tier.items.map(renderMistakeCard)}
+                  </div>
+                ) : (
+                  <p className="text-xs text-muted-foreground italic">Keine Vokabeln auf dieser Stufe.</p>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       )}
