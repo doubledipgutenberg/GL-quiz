@@ -10,6 +10,8 @@ export PATH="$HOME/.local/node22/bin:$PATH"
 SPACE="${SF_SPACE:-klasse-6d}"
 MESSAGE="${1:-publish}"
 
+scripts/check-names.sh
+
 VITE_BASE=/ npm run build
 
 OUT=.sf-out
