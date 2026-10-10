@@ -1,10 +1,9 @@
-import { useState, useRef } from 'react';
-import { EXAMS, DEFAULT_EXAM } from '../data/questions';
-import { getDraftSession, getSavedRounds, getFullExportPayload, importFullPayload } from '../utils/storage';
+import { useState } from 'react';
+import { EXAMS, COURSES, DEFAULT_COURSE, examsForCourse, defaultExamForCourse } from '../data/questions';
+import { getDraftSession, getSavedRounds, getFullExportPayload } from '../utils/storage';
 import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Label } from './ui/label';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { SPACE_TITLE } from './KidLogin';
 import { RadioGroup, RadioGroupItem } from './ui/radio-group';
 
 function formatSavedAt(iso) {
@@ -17,46 +16,30 @@ function formatSavedAt(iso) {
   return `${day}.${month}. ${hours}:${mins}`;
 }
 
-export default function WelcomeScreen({ onStart, onAdmin, onRestoreDraft, onRestoreSavedRound, hasDraft, hasSavedRounds }) {
-  const [step, setStep] = useState(1);
-  const [name, setName] = useState('');
+export default function WelcomeScreen({
+  playerName,
+  onSwitchProfile,
+  notice,
+  syncBadge,
+  onStart,
+  onAdmin,
+  onRestoreDraft,
+  onRestoreSavedRound,
+  hasDraft,
+  hasSavedRounds,
+}) {
   const [quizMode, setQuizMode] = useState('normal');
-  const [exam, setExam] = useState(DEFAULT_EXAM);
+  const [courseId, setCourseId] = useState(DEFAULT_COURSE);
+  const [exam, setExam] = useState(() => defaultExamForCourse(DEFAULT_COURSE));
   const [showRoundList, setShowRoundList] = useState(false);
-  const fileInputRef = useRef(null);
 
-  const examInfo = EXAMS[exam] || EXAMS[DEFAULT_EXAM];
+  const course = COURSES.find((c) => c.id === courseId) || COURSES[0];
+  const courseExams = examsForCourse(course.id);
+  const examInfo = exam ? EXAMS[exam] : null;
 
-  const handleImportFile = (e) => {
-    const file = e.target.files?.[0];
-    e.target.value = '';
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = () => {
-      try {
-        const payload = JSON.parse(String(reader.result));
-        const s = importFullPayload(payload);
-        const parts = [];
-        if (s.students) parts.push(`${s.students} neue Schüler`);
-        if (s.sessions) parts.push(`${s.sessions} neue Runden`);
-        if (s.savedRounds) parts.push(`${s.savedRounds} gespeicherte Runden`);
-        if (s.draft) parts.push('aktuelle Runde übernommen');
-        window.alert(
-          parts.length
-            ? `Import erfolgreich:\n${parts.join('\n')}.`
-            : 'Import erfolgreich – alle Daten waren schon vorhanden.'
-        );
-        window.location.reload();
-      } catch {
-        window.alert('Import fehlgeschlagen: Die Datei ist keine gültige Quiz-Datensicherung.');
-      }
-    };
-    reader.readAsText(file);
-  };
-
-  const handleNameSubmit = (e) => {
-    e.preventDefault();
-    if (name.trim()) onStart(name.trim(), quizMode, exam);
+  const chooseCourse = (id) => {
+    setCourseId(id);
+    setExam(defaultExamForCourse(id));
   };
 
   const showResume = hasDraft || hasSavedRounds;
@@ -120,21 +103,9 @@ export default function WelcomeScreen({ onStart, onAdmin, onRestoreDraft, onRest
               <Button variant="outline" size="sm" onClick={() => setShowRoundList(false)}>
                 Zurück
               </Button>
-              <div className="flex items-center gap-3">
-                <input
-                  ref={fileInputRef}
-                  type="file"
-                  accept="application/json,.json"
-                  className="hidden"
-                  onChange={handleImportFile}
-                />
-                <Button variant="link" size="sm" className="text-muted-foreground px-0" onClick={() => fileInputRef.current?.click()}>
-                  Daten importieren
-                </Button>
-                <Button variant="link" size="sm" className="text-muted-foreground px-0" onClick={handleExport}>
-                  Daten exportieren (JSON)
-                </Button>
-              </div>
+              <Button variant="link" size="sm" className="text-muted-foreground px-0" onClick={handleExport}>
+                Daten exportieren (JSON)
+              </Button>
             </div>
           </CardContent>
         </Card>
@@ -142,27 +113,63 @@ export default function WelcomeScreen({ onStart, onAdmin, onRestoreDraft, onRest
     );
   }
 
+  const optionClass =
+    'flex items-start gap-3 rounded-lg border border-border p-4 cursor-pointer hover:bg-accent/50 has-[:checked]:border-primary has-[:checked]:bg-accent/50';
+
   return (
     <div className="max-w-[400px] mx-auto space-y-8">
       <header className="text-center space-y-1">
-        <h1 className="text-2xl font-bold tracking-tight">English Quiz Challenge</h1>
-        <h2 className="text-lg text-muted-foreground font-medium">English Topic 1 — {examInfo.units}</h2>
-        <p className="text-sm text-muted-foreground">{examInfo.subtitle}</p>
+        <h1 className="text-2xl font-bold tracking-tight">Quiz Challenge</h1>
+        <p className="text-sm text-muted-foreground">
+          {SPACE_TITLE} · Hallo {playerName}!
+        </p>
+        {examInfo && (
+          <p className="text-sm text-muted-foreground">
+            {course.label} — {examInfo.units}
+          </p>
+        )}
       </header>
 
-      {step === 1 && (
+      {notice && <p className="text-sm text-center text-destructive">{notice}</p>}
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Was übst du?</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <RadioGroup value={course.id} onValueChange={chooseCourse} className="grid gap-3">
+            {COURSES.map((c) => {
+              const soon = examsForCourse(c.id).length === 0;
+              return (
+                <label key={c.id} className={optionClass}>
+                  <RadioGroupItem value={c.id} className="mt-0.5" />
+                  <div className="flex flex-col gap-0.5">
+                    <span className="font-semibold">{c.label}</span>
+                    {soon && <span className="text-sm text-muted-foreground">Inhalte kommen bald</span>}
+                  </div>
+                </label>
+              );
+            })}
+          </RadioGroup>
+        </CardContent>
+      </Card>
+
+      {courseExams.length === 0 ? (
+        <Card>
+          <CardContent className="py-6 text-sm text-muted-foreground text-center">
+            Für {course.label} gibt es noch keine Fragen. Sobald der Stoff da ist, geht es hier los.
+          </CardContent>
+        </Card>
+      ) : (
         <>
           <Card>
             <CardHeader>
               <CardTitle>Welche Schulaufgabe?</CardTitle>
             </CardHeader>
             <CardContent>
-              <RadioGroup value={exam} onValueChange={setExam} className="grid gap-3">
-                {Object.values(EXAMS).map((ex) => (
-                  <label
-                    key={ex.id}
-                    className="flex items-start gap-3 rounded-lg border border-border p-4 cursor-pointer hover:bg-accent/50 has-[:checked]:border-primary has-[:checked]:bg-accent/50"
-                  >
+              <RadioGroup value={exam ?? ''} onValueChange={setExam} className="grid gap-3">
+                {courseExams.map((ex) => (
+                  <label key={ex.id} className={optionClass}>
                     <RadioGroupItem value={ex.id} className="mt-0.5" />
                     <div className="flex flex-col gap-0.5">
                       <span className="font-semibold">{ex.label}</span>
@@ -179,14 +186,14 @@ export default function WelcomeScreen({ onStart, onAdmin, onRestoreDraft, onRest
             </CardHeader>
             <CardContent>
               <RadioGroup value={quizMode} onValueChange={setQuizMode} className="grid gap-3">
-                <label className="flex items-start gap-3 rounded-lg border border-border p-4 cursor-pointer hover:bg-accent/50 has-[:checked]:border-primary has-[:checked]:bg-accent/50">
+                <label className={optionClass}>
                   <RadioGroupItem value="normal" className="mt-0.5" />
                   <div className="flex flex-col gap-0.5">
                     <span className="font-semibold">Normales Quiz</span>
                     <span className="text-sm text-muted-foreground">Gemischte Fragen (Grammar, Vokabeln, Reading, Mediation)</span>
                   </div>
                 </label>
-                <label className="flex items-start gap-3 rounded-lg border border-border p-4 cursor-pointer hover:bg-accent/50 has-[:checked]:border-primary has-[:checked]:bg-accent/50">
+                <label className={optionClass}>
                   <RadioGroupItem value="vocabulary" className="mt-0.5" />
                   <div className="flex flex-col gap-0.5">
                     <span className="font-semibold">Wortschatz only</span>
@@ -197,51 +204,28 @@ export default function WelcomeScreen({ onStart, onAdmin, onRestoreDraft, onRest
             </CardContent>
           </Card>
           <div className="flex justify-center">
-            <Button onClick={() => setStep(2)}>Weiter</Button>
+            <Button onClick={() => exam && onStart(playerName, quizMode, exam)} disabled={!exam}>
+              Quiz starten
+            </Button>
           </div>
         </>
       )}
 
-      {step === 2 && (
-        <Card>
-          <CardHeader>
-            <CardTitle>Wie heißt du?</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <form onSubmit={handleNameSubmit} className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="player-name">Name</Label>
-                <Input
-                  id="player-name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Dein Name..."
-                  maxLength={20}
-                  autoFocus
-                />
-              </div>
-              <div className="flex gap-3">
-                <Button type="button" variant="outline" className="flex-1" onClick={() => setStep(1)}>
-                  Zurück
-                </Button>
-                <Button type="submit" className="flex-1" disabled={!name.trim()}>
-                  Quiz starten
-                </Button>
-              </div>
-            </form>
-          </CardContent>
-        </Card>
-      )}
-
-      <footer className="flex flex-wrap gap-4 justify-center pt-4">
-        {showResume && (
-          <Button variant="link" size="sm" className="text-muted-foreground" onClick={() => setShowRoundList(true)}>
-            Letzte Runde weiterspielen
+      <footer className="flex flex-col items-center gap-2 pt-4">
+        <div className="flex flex-wrap gap-4 justify-center">
+          {showResume && (
+            <Button variant="link" size="sm" className="text-muted-foreground" onClick={() => setShowRoundList(true)}>
+              Letzte Runde weiterspielen
+            </Button>
+          )}
+          <Button variant="link" size="sm" className="text-muted-foreground" onClick={onAdmin}>
+            Lehrer-Bereich
           </Button>
-        )}
-        <Button variant="link" size="sm" className="text-muted-foreground" onClick={onAdmin}>
-          Lehrer-Bereich
-        </Button>
+          <Button variant="link" size="sm" className="text-muted-foreground" onClick={onSwitchProfile}>
+            Profil wechseln
+          </Button>
+        </div>
+        {syncBadge}
       </footer>
     </div>
   );

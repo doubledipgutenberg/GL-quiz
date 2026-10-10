@@ -1,4 +1,7 @@
 // localStorage helpers for persisting quiz data
+// Jede Änderung wird per markDirty(owner, key) gemeldet; sync.js lädt sie zum Server hoch.
+
+import { markDirty } from './dirty';
 
 const HIGHSCORES_KEY = 'english_topic_quiz_highscores';
 const HISTORY_KEY = 'english_topic_quiz_history';
@@ -6,6 +9,17 @@ const DRAFT_KEY = 'english_topic_quiz_draft';
 const SAVED_ROUNDS_KEY = 'english_topic_quiz_saved_rounds';
 const TEACHER_DISMISSALS_KEY = 'english_topic_quiz_teacher_dismissals';
 const TEACHER_MARKED_CORRECT_KEY = 'english_topic_quiz_teacher_marked_correct';
+
+export const STORAGE_KEYS = {
+  highscores: HIGHSCORES_KEY,
+  history: HISTORY_KEY,
+  draft: DRAFT_KEY,
+  savedRounds: SAVED_ROUNDS_KEY,
+  teacherDismissals: TEACHER_DISMISSALS_KEY,
+  teacherMarkedCorrect: TEACHER_MARKED_CORRECT_KEY,
+};
+
+export const FAMILY_OWNER = '_family';
 
 // ==========================================
 // Highscores
@@ -33,6 +47,7 @@ export function saveHighscore(name, score, maxScore, totalQuestions) {
   // Sort by percentage descending, keep top 50
   highscores.sort((a, b) => b.percentage - a.percentage);
   localStorage.setItem(HIGHSCORES_KEY, JSON.stringify(highscores.slice(0, 50)));
+  markDirty(name, 'highscores');
 }
 
 // ==========================================
@@ -70,6 +85,7 @@ export function saveStudentSession(name, answers, score, maxScore) {
     }))
   });
   localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+  markDirty(name, 'history');
 }
 
 // Draft: nach jeder Frage speichern (Stand der laufenden Runde)
@@ -94,6 +110,7 @@ export function saveDraftSession(name, answers, score, maxScore, questionIds, mo
     updatedAt: new Date().toISOString()
   };
   localStorage.setItem(DRAFT_KEY, JSON.stringify(draft));
+  markDirty(name, 'draft');
 }
 
 // Saved rounds: benannte Speicherstände (Datum, Uhrzeit, Spieler, Name)
@@ -136,12 +153,15 @@ export function addSavedRound({ roundName, playerName, questionIds, answers, sco
   };
   rounds.unshift(saved);
   localStorage.setItem(SAVED_ROUNDS_KEY, JSON.stringify(rounds));
+  markDirty(playerName, 'savedRounds');
   return id;
 }
 
 export function removeSavedRound(id) {
-  const rounds = getSavedRounds().filter(r => r.id !== id);
-  localStorage.setItem(SAVED_ROUNDS_KEY, JSON.stringify(rounds));
+  const all = getSavedRounds();
+  const removed = all.find(r => r.id === id);
+  localStorage.setItem(SAVED_ROUNDS_KEY, JSON.stringify(all.filter(r => r.id !== id)));
+  if (removed?.playerName) markDirty(removed.playerName, 'savedRounds');
 }
 
 export function getDraftSession() {
@@ -154,7 +174,9 @@ export function getDraftSession() {
 }
 
 export function clearDraftSession() {
+  const draft = getDraftSession();
   localStorage.removeItem(DRAFT_KEY);
+  if (draft?.name) markDirty(draft.name, 'draft');
 }
 
 export function clearAllData() {
@@ -163,6 +185,7 @@ export function clearAllData() {
   localStorage.removeItem(DRAFT_KEY);
   localStorage.removeItem(SAVED_ROUNDS_KEY);
   localStorage.removeItem(TEACHER_DISMISSALS_KEY);
+  localStorage.removeItem(TEACHER_MARKED_CORRECT_KEY);
 }
 
 // ==========================================
@@ -180,6 +203,7 @@ export function getTeacherDismissals() {
 
 function saveTeacherDismissals(all) {
   localStorage.setItem(TEACHER_DISMISSALS_KEY, JSON.stringify(all));
+  markDirty(FAMILY_OWNER, 'teacherDismissals');
 }
 
 export function dismissQuestionForStudent(studentName, questionId) {
@@ -222,6 +246,7 @@ export function getTeacherMarkedCorrect() {
 
 function saveTeacherMarkedCorrect(all) {
   localStorage.setItem(TEACHER_MARKED_CORRECT_KEY, JSON.stringify(all));
+  markDirty(FAMILY_OWNER, 'teacherMarkedCorrect');
 }
 
 /** Mark one or more wrong attempts as correct for this student. Structure: all[studentName][questionId] = [dateIso, ...] */
@@ -286,6 +311,7 @@ export function importFullPayload(payload) {
     });
     existing.sort((a, b) => (b.percentage ?? 0) - (a.percentage ?? 0));
     localStorage.setItem(HIGHSCORES_KEY, JSON.stringify(existing.slice(0, 50)));
+    new Set(payload.highscores.map((h) => h?.name)).forEach((n) => markDirty(n, 'highscores'));
   }
 
   // History – pro Schüler Runden nach Datum mischen
@@ -302,6 +328,7 @@ export function importFullPayload(payload) {
       existing[name].sessions.sort((a, b) => new Date(a.date) - new Date(b.date));
     });
     localStorage.setItem(HISTORY_KEY, JSON.stringify(existing));
+    Object.keys(payload.history).forEach((n) => markDirty(n, 'history'));
   }
 
   // Gespeicherte Runden – per ID entdoppeln
@@ -312,11 +339,13 @@ export function importFullPayload(payload) {
       if (r && !ids.has(r.id)) { existing.push(r); ids.add(r.id); summary.savedRounds++; }
     });
     localStorage.setItem(SAVED_ROUNDS_KEY, JSON.stringify(existing));
+    new Set(payload.savedRounds.map((r) => r?.playerName)).forEach((n) => markDirty(n, 'savedRounds'));
   }
 
   // Aktuelle Runde – übernehmen, falls in der Datei vorhanden
   if (payload.draft && typeof payload.draft === 'object') {
     localStorage.setItem(DRAFT_KEY, JSON.stringify(payload.draft));
+    markDirty(payload.draft.name, 'draft');
     summary.draft = true;
   }
 

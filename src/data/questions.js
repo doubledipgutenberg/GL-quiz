@@ -751,16 +751,26 @@ import { getVocabularyQuestions as getVocabSA2 } from './vocabList';
 import questionsSA4 from './questionsSA4';
 import { getVocabularyQuestionsSA4 } from './vocabListSA4';
 
+// Kurse = Sprache + Klasse. Ein Kurs ohne Schulaufgaben wird als „kommt bald" angezeigt.
+// Reihenfolge = Anzeige im Auswahlmenü.
+export const COURSES = [
+  { id: 'en-6', lang: 'en', grade: 6, label: 'Englisch · Klasse 6' },
+  { id: 'fr-6', lang: 'fr', grade: 6, label: 'Französisch · Klasse 6' },
+  { id: 'en-5', lang: 'en', grade: 5, label: 'Englisch · Klasse 5' },
+];
+
 // Metadaten der Schulaufgaben (Reihenfolge = Anzeige im Auswahlmenü)
 export const EXAMS = {
   sa2: {
     id: 'sa2',
+    course: 'en-5',
     label: '2. Schulaufgabe',
     units: 'Units 2 & 3',
     subtitle: 'Vorbereitung auf die 2. Schulaufgabe',
   },
   sa4: {
     id: 'sa4',
+    course: 'en-5',
     label: '4. Schulaufgabe',
     units: 'Units 5–6 · Across Cultures 2 · Focus 2',
     subtitle: 'Vorbereitung auf die 4. Schulaufgabe',
@@ -768,6 +778,19 @@ export const EXAMS = {
 };
 
 export const DEFAULT_EXAM = 'sa4';
+
+export function examsForCourse(courseId) {
+  return Object.values(EXAMS).filter((e) => e.course === courseId);
+}
+
+// Vorauswahl: die neueste (zuletzt eingetragene) Schulaufgabe des Kurses.
+export function defaultExamForCourse(courseId) {
+  return examsForCourse(courseId).at(-1)?.id ?? null;
+}
+
+// Erster Kurs, der schon Inhalte hat (sonst der erste überhaupt).
+export const DEFAULT_COURSE =
+  COURSES.find((c) => examsForCourse(c.id).length > 0)?.id ?? COURSES[0].id;
 
 // Alle Fragen mit ihrer Schulaufgabe taggen und zusammenführen.
 const allQuestions = [
