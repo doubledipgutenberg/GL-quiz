@@ -1,85 +1,151 @@
 import { useState, useEffect, useRef } from 'react';
 import { getStudentHistory, clearAllData, getFullExportPayload, importFullPayload } from '../utils/storage';
 import { getAllStudentOverview } from '../utils/analytics';
+import { api, getParentToken, setParentToken, getKidSession } from '../lib/api';
+import { flush, pull } from '../utils/sync';
 import StudentDetail from './StudentDetail';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 
-const ADMIN_PASSWORD = 'lehrer2024';
-const ADMIN_AUTH_KEY = 'english_topic_quiz_admin_auth_until';
+function errorText(err) {
+  if (err?.status === 423 && err.data?.retryInSeconds) {
+    return `Zu viele Versuche – bitte in ${Math.ceil(err.data.retryInSeconds / 60)} Min. nochmal.`;
+  }
+  if (err?.status === 401 && typeof err.data?.remaining === 'number') {
+    return `Falsche PIN. Noch ${err.data.remaining} Versuch${err.data.remaining === 1 ? '' : 'e'}.`;
+  }
+  return err?.message || 'Das hat nicht geklappt.';
+}
 
 export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz, onCreateNormalReviewQuiz }) {
-  const [authenticated, setAuthenticated] = useState(false);
-  const [password, setPassword] = useState('');
-  const [passwordError, setPasswordError] = useState(false);
+  const [authenticated, setAuthenticated] = useState(() => !!getParentToken());
+  const [parentPinSet, setParentPinSet] = useState(true);
+  const [kids, setKids] = useState([]);
+  const [pin, setPin] = useState('');
+  const [pin2, setPin2] = useState('');
+  const [pinError, setPinError] = useState('');
+  const [busy, setBusy] = useState(false);
+  const [notice, setNotice] = useState('');
   const [selectedStudent, setSelectedStudent] = useState(null);
   const [refreshKey, setRefreshKey] = useState(0);
   const fileInputRef = useRef(null);
 
+  const kidName = getKidSession()?.name;
+  const refresh = () => setRefreshKey((k) => k + 1);
+
+  const loadKids = () =>
+    api
+      .kids()
+      .then((d) => {
+        setKids(d.kids || []);
+        setParentPinSet(!!d.parentPinSet);
+      })
+      .catch(() => {});
+
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem(ADMIN_AUTH_KEY);
-      if (!stored) return;
-      const until = Number(stored);
-      if (Number.isFinite(until) && until > Date.now()) {
-        setAuthenticated(true);
-      }
-    } catch {
-      // ignore
-    }
+    loadKids();
   }, []);
 
-  const handleLogin = (e) => {
+  // Nach dem Login (oder mit gültigem Token) den neuesten Stand aller Kinder holen.
+  useEffect(() => {
+    if (!authenticated) return;
+    flush()
+      .then(() => pull(kidName))
+      .then(() => setNotice(''))
+      .catch((err) => {
+        if (err?.status === 401) {
+          setParentToken(null);
+          setAuthenticated(false);
+        } else {
+          setNotice('Keine Verbindung – angezeigt wird der Stand auf diesem Gerät.');
+        }
+      })
+      .finally(refresh);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [authenticated]);
+
+  const handleLogin = async (e) => {
     e.preventDefault();
-    if (password === ADMIN_PASSWORD) {
+    setPinError('');
+    if (!/^\d{4,8}$/.test(pin)) {
+      setPinError('Die Eltern-PIN besteht aus 4 bis 8 Ziffern.');
+      return;
+    }
+    if (!parentPinSet && pin !== pin2) {
+      setPinError('Die beiden PINs sind nicht gleich.');
+      return;
+    }
+    setBusy(true);
+    try {
+      const res = await api.parentLogin(pin);
+      setParentToken(res.token);
+      setPin('');
+      setPin2('');
+      setParentPinSet(true);
       setAuthenticated(true);
-      setPasswordError(false);
-      try {
-        const until = Date.now() + 24 * 60 * 60 * 1000;
-        localStorage.setItem(ADMIN_AUTH_KEY, String(until));
-      } catch {
-        // ignore
-      }
-    } else {
-      setPasswordError(true);
+    } catch (err) {
+      setPinError(errorText(err));
+      setPin('');
+      setPin2('');
+    } finally {
+      setBusy(false);
     }
   };
 
+  const handleParentLogout = () => {
+    setParentToken(null);
+    setAuthenticated(false);
+  };
+
   if (!authenticated) {
+    const pinProps = {
+      type: 'password',
+      inputMode: 'numeric',
+      autoComplete: 'off',
+      maxLength: 8,
+      placeholder: 'PIN',
+    };
     return (
       <div className="max-w-md mx-auto py-10">
         <Card>
           <CardHeader className="space-y-1">
             <CardTitle className="text-xl">Lehrer-Bereich</CardTitle>
             <p className="text-sm text-muted-foreground">
-              Bitte Passwort eingeben, um das Dashboard zu öffnen.
+              {parentPinSet
+                ? 'Bitte die Eltern-PIN eingeben.'
+                : 'Erster Start: Lege eine Eltern-PIN fest (4–8 Ziffern). Die Kinder sollten sie nicht kennen.'}
             </p>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleLogin} className="space-y-4">
               <div className="space-y-2">
                 <Input
-                  type="password"
-                  value={password}
+                  {...pinProps}
+                  value={pin}
                   onChange={(e) => {
-                    setPassword(e.target.value);
-                    setPasswordError(false);
+                    setPin(e.target.value.replace(/\D/g, ''));
+                    setPinError('');
                   }}
-                  placeholder="Passwort..."
                   autoFocus
                 />
-                {passwordError && (
-                  <p className="text-sm text-destructive font-medium">
-                    Falsches Passwort!
-                  </p>
+                {!parentPinSet && (
+                  <Input
+                    {...pinProps}
+                    placeholder="PIN wiederholen"
+                    value={pin2}
+                    onChange={(e) => setPin2(e.target.value.replace(/\D/g, ''))}
+                  />
                 )}
+                {pinError && <p className="text-sm text-destructive font-medium">{pinError}</p>}
               </div>
               <div className="flex justify-end gap-2">
                 <Button type="button" variant="outline" onClick={onBack}>
                   Zurück
                 </Button>
-                <Button type="submit">Einloggen</Button>
+                <Button type="submit" disabled={busy}>
+                  {busy ? '…' : parentPinSet ? 'Einloggen' : 'PIN festlegen'}
+                </Button>
               </div>
             </form>
           </CardContent>
@@ -104,10 +170,25 @@ export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz, onCrea
     );
   }
 
-  const handleClearData = () => {
-    if (window.confirm('Wirklich ALLE Daten löschen? Das kann nicht rückgängig gemacht werden!')) {
+  const handleClearData = async () => {
+    if (!window.confirm('Wirklich ALLE Quiz-Daten aller Kinder löschen – auf dem Server und auf diesem Gerät? Das kann nicht rückgängig gemacht werden!')) return;
+    try {
+      await api.clearAll(getParentToken());
       clearAllData();
-      setRefreshKey((k) => k + 1);
+      refresh();
+    } catch (err) {
+      window.alert(`Löschen fehlgeschlagen: ${err.message}`);
+    }
+  };
+
+  const handleResetPin = async (name) => {
+    if (!window.confirm(`PIN von ${name} zurücksetzen? ${name} legt beim nächsten Login eine neue PIN fest.`)) return;
+    try {
+      await api.resetPin(name, getParentToken());
+      await loadKids();
+      window.alert(`Die PIN von ${name} wurde zurückgesetzt.`);
+    } catch (err) {
+      window.alert(`Zurücksetzen fehlgeschlagen: ${err.message}`);
     }
   };
 
@@ -126,12 +207,14 @@ export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz, onCrea
         if (s.savedRounds) parts.push(`${s.savedRounds} gespeicherte Runden`);
         if (s.highscores) parts.push(`${s.highscores} Highscores`);
         if (s.draft) parts.push('aktuelle Runde übernommen');
-        window.alert(
-          parts.length
-            ? `Import erfolgreich:\n${parts.join('\n')}.`
-            : 'Import erfolgreich – alle Daten waren schon vorhanden.'
-        );
-        setRefreshKey((k) => k + 1);
+        flush().finally(() => {
+          window.alert(
+            parts.length
+              ? `Import erfolgreich und gespeichert:\n${parts.join('\n')}.`
+              : 'Import erfolgreich – alle Daten waren schon vorhanden.'
+          );
+          refresh();
+        });
       } catch {
         window.alert('Import fehlgeschlagen: Die Datei ist keine gültige Quiz-Datensicherung.');
       }
@@ -163,7 +246,7 @@ export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz, onCrea
     <div className="space-y-6 py-6" key={refreshKey}>
       <div className="flex items-center justify-between">
         <h2 className="text-xl font-semibold">Lehrer-Dashboard</h2>
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           <Button variant="outline" size="sm" onClick={onBack}>
             Zurück zum Quiz
           </Button>
@@ -183,8 +266,34 @@ export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz, onCrea
           <Button variant="destructive" size="sm" onClick={handleClearData}>
             🗑️ Alle Daten löschen
           </Button>
+          <Button variant="ghost" size="sm" onClick={handleParentLogout}>
+            Abmelden
+          </Button>
         </div>
       </div>
+
+      {notice && <p className="text-sm text-destructive">{notice}</p>}
+
+      {kids.length > 0 && (
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-base">Profile</CardTitle>
+          </CardHeader>
+          <CardContent className="flex flex-wrap gap-3">
+            {kids.map((k) => (
+              <div key={k.name} className="flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm">
+                <span className="font-medium">{k.name}</span>
+                <span className="text-xs text-muted-foreground">{k.hasPin ? 'PIN gesetzt' : 'noch keine PIN'}</span>
+                {k.hasPin && (
+                  <Button variant="outline" size="sm" onClick={() => handleResetPin(k.name)}>
+                    PIN zurücksetzen
+                  </Button>
+                )}
+              </div>
+            ))}
+          </CardContent>
+        </Card>
+      )}
 
       {overview.length === 0 ? (
         <Card>

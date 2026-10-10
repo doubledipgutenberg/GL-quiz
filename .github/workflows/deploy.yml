@@ -1,8 +1,8 @@
 name: Deploy to GitHub Pages
 
+# Nur noch manuell: Die App läuft jetzt auf Spacefast (mit Backend unter /api),
+# das auf GitHub Pages nicht existiert.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -26,6 +26,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+        env:
+          VITE_BASE: /GL-quiz/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

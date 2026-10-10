@@ -3,12 +3,29 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { fileURLToPath, URL } from 'node:url'
 
+// Gehostet auf Spacefast unter "/". Für einen anderen Pfad VITE_BASE setzen.
+// Lokale Entwicklung gegen ein Spacefast-Backend:
+//   SF_PROXY_TARGET=https://<space>.space.fast SF_PROXY_COOKIE='__Host-spacefast_session=…' npm run dev
+// (die Functions laufen nicht im Vite-Dev-Server, /api wird deshalb weitergeleitet)
+const proxyTarget = process.env.SF_PROXY_TARGET
+const proxyCookie = process.env.SF_PROXY_COOKIE
+
 // https://vite.dev/config/
 export default defineConfig({
-  // Served from https://doubledipgutenberg.github.io/GL-quiz/
-  base: '/GL-quiz/',
+  base: process.env.VITE_BASE || '/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) },
   },
+  server: proxyTarget
+    ? {
+        proxy: {
+          '/api': {
+            target: proxyTarget,
+            changeOrigin: true,
+            headers: { origin: proxyTarget, ...(proxyCookie ? { cookie: proxyCookie } : {}) },
+          },
+        },
+      }
+    : undefined,
 })

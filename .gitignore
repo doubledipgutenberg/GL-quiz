@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Spacefast
+.sf-out
+.spacefast
+.sf-proxy.sh
