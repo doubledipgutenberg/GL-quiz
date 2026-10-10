@@ -27,3 +27,4 @@ dist-ssr
 .sf-out
 .spacefast
 .sf-proxy.sh
+__pycache__/

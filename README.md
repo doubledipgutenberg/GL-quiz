@@ -1,16 +1,30 @@
-# React + Vite
+# Lern-Quiz Klasse 6d
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Übungs-Quiz für Englisch und Französisch: Grammatik, Vokabeln, Leseverstehen und Sprachmittlung,
+passend zu den Schulaufgaben. Kinder melden sich mit Namen und PIN an. Der Fortschritt wird auf dem
+Server gespeichert und gilt auf jedem Gerät. Eltern sehen im Lehrer-Bereich die Schwächen und können
+gezielte Wiederholungs-Quizze starten.
 
-Currently, two official plugins are available:
+- **Live:** <https://klasse-6d.space.fast/> (Spacefast, passwortgeschützt)
+- **Ablauf, Einrichtung, Referenz:** [`docs/WORKFLOW.md`](docs/WORKFLOW.md)
+- **Regeln für Agenten:** [`CLAUDE.md`](CLAUDE.md)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Kurz
 
-## React Compiler
+```bash
+npm install
+npm run dev                          # Oberfläche lokal (Backend siehe WORKFLOW §3)
+npm run build
+npm run check:names
+scripts/setup-spacefast.sh           # einmalig: Node 22 + Spacefast-CLI
+scripts/setup-kokoro.sh              # einmalig: Sprachausgabe für Vokabel-Audios
+scripts/publish-spacefast.sh "Notiz" # veröffentlichen
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Ordner | Inhalt |
+|---|---|
+| `src/` | React-App (Vite, Tailwind) |
+| `src/data/` | Kurse, Schulaufgaben, Fragen, Vokabeln |
+| `functions/api/` | Spacefast-Backend (Login, PINs, Speichern) |
+| `public/audio/` | Vokabel-Audios der 6. Klasse (Kokoro, vorab erzeugt) |
+| `scripts/` | Setup, Vertonung, Namensprüfung, Veröffentlichen |

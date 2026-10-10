@@ -1,4 +1,4 @@
-// Vokabeln 4. Schulaufgabe (Green Line 1) — Units 5–6, Across Cultures 2, Focus 2
+// Vokabeln 4. Schulaufgabe (English Topic 1) — Units 5–6, Across Cultures 2, Focus 2
 // Bereich laut Stoffzettel: S.229 (answering machine) – S.237 (ago).
 // NICHT enthalten (Absprache): die Wörter oben auf S.229 (a couple of … guitar)
 //   sowie die Kästen Ordinal numbers / Months / American English (S.234 + 237).
