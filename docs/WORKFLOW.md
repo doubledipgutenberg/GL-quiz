@@ -62,12 +62,17 @@ Inhalte **nie aus dem Gedächtnis ergänzen** – nur, was auf den Fotos steht.
 
 ### 2.2 Vokabeln seitenweise abschreiben → Nutzer prüft
 
-Datei `VOCAB_<KURS>_<PRÜFUNG>_review.md` (Beispiel: `VOCAB_SA4_review.md`), **eine Liste pro Buchseite**,
+Datei `VOCAB_<KURS>_<PRÜFUNG>_review.md` (Beispiele: `VOCAB_SA4_review.md`, `VOCAB_FR6_U1_review.md`), **eine Liste pro Buchseite**,
 in Buchreihenfolge, mit den Abschnittsüberschriften des Buchs. Pro Zeile `wort – Übersetzung`, genau
 wie gedruckt (inkl. `to`, `(pl)`, `(AE)`, `(BE)`, Akzente). Kästen mit 📦 markieren. Wo der Stoffzettel
 den Bereich mitten auf einer Seite beginnen/enden lässt: markieren und **nachfragen**, nicht raten.
 
 Der Nutzer prüft und entscheidet (z. B. welche Kästen/Randwörter rausfallen). Erst danach weiter.
+
+Schickt der Nutzer **Buch und Vokabelheft** zum selben Stoff: abgleichen, **keine Duplikate**, Buchfassung
+als Grundlage (Rechtschreibung), Heft zeigt den aktuellen Unterrichtsstand. Markierung ✓ = Buch + Heft,
+📖 = nur Buch. Die Beispielsätze des Buchs dienen als **Vorlage** für eigene Fragen, sie werden nicht
+wörtlich übernommen. Material aus offensichtlich illegalen Quellen (z. B. Schattenbibliotheken) nicht verwenden.
 
 ### 2.3 Datendateien
 
@@ -75,10 +80,30 @@ Der Nutzer prüft und entscheidet (z. B. welche Kästen/Randwörter rausfallen).
   Ein Kurs ohne Schulaufgaben erscheint als „Inhalte kommen bald“.
 - **Schulaufgabe registrieren:** Eintrag in `EXAMS` mit `id`, `course`, `label`, `units`, `subtitle`.
   Die neueste Schulaufgabe eines Kurses (letzter Eintrag) ist vorausgewählt.
-- **Vokabeln:** eigene Datei je Prüfung (Vorbild: `src/data/vocabListSA4.js`), Format `wort – Übersetzung`,
-  mehrere Bedeutungen mit `;`. Daraus entstehen je Vokabel zwei Karten (hin und zurück).
-- **Fragen:** eigene Datei je Prüfung (Vorbild: `src/data/questionsSA4.js`) und in `questions.js`
-  mit dem passenden `exam` zusammenführen.
+- **Vokabeln, Klasse 6** (Vorbild: `src/data/fr6/vocab.js`): Jede Lieferung ist ein **Batch** mit `exam`
+  und `added` = **Datum, an dem sie ins Quiz kam** (Entscheidung des Nutzers). Darin Abschnitte mit
+  Einträgen `{ fr, de, alt?, altDe?, say? }`. Mehrere Bedeutungen mit `;`. `alt` = weitere richtige
+  Antworten (z. B. „À plus!“, wenn das Buch das große A ohne Akzent druckt, oder Synonyme mit gleicher
+  Übersetzung wie *ami*/*copain*). `say` = gesprochener Text, falls er abweichen soll. Die Datei hat
+  **keine Importe** (sie wird auch von Node fürs Audio-Manifest gelesen).
+  `src/data/fr6/cards.js` erzeugt daraus die Karten: `_de` (frz. sehen + 🔊 → deutsch), `_fr` (deutsch →
+  frz. schreiben) und `_listen` („Hören & Schreiben“).
+  Neue Lieferung = **neuer Batch** mit dem heutigen Datum, alte Batches nie umdatieren. „Neue Vokabeln“
+  fragt immer den jüngsten Batch des Kurses ab.
+- **Vokabeln, Klasse 5** (Altbestand): `src/data/vocabList.js`, `src/data/vocabListSA4.js`.
+- **Fragen:** eigene Datei je Prüfung (Vorbilder: `src/data/fr6/questions.js`, `src/data/questionsSA4.js`)
+  und in `questions.js` zusammenführen. Französische Freitext-Fragen bekommen `answerLang: 'fr'`
+  (Akzent-Tasten + strenger Check). **Kein Komma und kein Semikolon in `correct`** von Freitext-Fragen:
+  Die trennen dort Alternativen. Weitere richtige Lösungen gehören in `alternativeCorrect`.
+  Wahr/Falsch-Fragen mit deutschen Aussagen bekommen `tfLabels: ['Richtig', 'Falsch']`
+  (in `fr6/questions.js` automatisch).
+- **Übungsaufgaben als Vorlage:** Scans aus dem Cahier d'activités oder aus Bilan-Seiten des Buchs zeigen,
+  *welche Inhalte und Aufgabentypen* drankommen. Daraus eigene Fragen formulieren, nicht abschreiben.
+  Hör-Aufgaben nur inhaltlich auswerten.
+- **Kurs mit Audio:** `audio: true` in `COURSES` schaltet die Modi „Neue Vokabeln“ und „Hören & Schreiben“
+  frei und verlangt vertonte Vokabeln (2.5).
+- **Eigennamen** als Vokabelkarte nur, wenn sie sich in der Übersetzung unterscheiden
+  (Strasbourg–Straßburg ja, Paris–Paris oder Hundenamen nein). In Sätzen kommen sie trotzdem vor.
 - **IDs** müssen app-weit eindeutig sein und bleiben dauerhaft gleich (die Lernhistorie hängt daran).
   Präfix pro Kurs/Prüfung, z. B. `fr6-sa1-g01` (Fragen), `fr6_ecole` (Vokabeln).
 - **Fragetypen:** `multiple_choice`, `fill_gap`, `word_order`, `translate`, `reading_true_false`,
@@ -93,29 +118,34 @@ Satzzeichen, führender Artikel/„to“, ä=ae/ß=ss, Klammern optional (mit *u
 mehreren Bedeutungen und Genus-Endungen (`/-in`) zählen als richtig. Echte Tippfehler zählen als falsch,
 es gibt bewusst keine Toleranz für Tippfehler.
 
-**Französisch (Entscheidung des Nutzers):** Ein fehlender oder falscher Akzent zählt als **falsch**.
-Artikel `le/la/l'/les/un/une/des` werden wie die englischen Artikel behandelt. Unter dem Eingabefeld gibt
-es Akzent-Tasten (é è ê à ç ô …), sobald die Antwort auf Französisch erwartet wird.
+**Französisch** (`answerLang: 'fr'`, Entscheidung des Nutzers): Ein fehlender oder falscher Akzent
+(auch Cedille) zählt als **falsch**. Der Artikel (`le/la/l'/les/un/une/des/du`) darf fehlen, ein
+**falscher** Artikel (falsches Geschlecht, z. B. „une chat“) ist falsch. Verkürzte Formen (l', m', t' …)
+und typografische Apostrophe werden richtig erkannt. Unter dem Eingabefeld gibt es Akzent-Tasten
+(é è ê ë à â ç î ï ô û ù œ), die an der Cursor-Position einfügen. Deutsche Antworten in französischen
+Karten folgen den normalen Regeln (ä = ae).
 
 ### 2.5 Audio (nur Klasse 6)
 
 Klasse 5 wird **nicht** vertont. Für Kurse der 6. Klasse:
 
-1. Manifest erzeugen: `{"course": "fr-6", "items": [{"id", "text", "lang"}]}`. `text` ist das, was
-   gesprochen wird, also ohne Hinweise wie `(pl)` oder `…`.
-2. Vertonen:
-   ```bash
-   ~/.local/kokoro/venv/bin/python -I scripts/generate-audio.py MANIFEST.json --out public/audio --prune
-   ```
-3. Ergebnis `public/audio/<kurs>/<id>.m4a` + `index.json` **einchecken** (je ca. 10 KB).
+```bash
+npm run audio      # = scripts/build-audio.sh
+```
+
+Das Skript liest die Vokabel-Dateien (`scripts/export-audio-manifest.mjs` → Manifest mit `id`, `text`,
+`lang`), vertont mit `scripts/generate-audio.py` nur neue oder geänderte Wörter und entfernt gelöschte.
+Gesprochen wird der Eintrag ohne Hinweise in Klammern; „ / “ wird zur Aufzählung (oder `say`).
+Ergebnis `public/audio/<kurs>/<id>.m4a` + `index.json` **einchecken** (je ca. 10 KB). Ein neuer Kurs
+wird in `SOURCES` von `export-audio-manifest.mjs` und in der Schleife von `build-audio.sh` ergänzt.
+
+In der App: 🔊 am französischen Wort (Karte `_de`), in der Rückmeldung nach jeder Antwort und bei
+„Hören & Schreiben“ automatisch. Fehlt eine Datei, spricht die Sprachausgabe des Browsers (`src/lib/audio.js`).
 
 Freigegebene Stimmen: Französisch `ff_siwis` mit Tempo 0.9, Englisch (britisch) `bf_emma` mit 0.95,
 optional `bm_george`. Das Skript erzeugt nur neue oder geänderte Einträge. Das Modell und die
 Python-Umgebung gehören **nicht** ins Repo (325 MB, rechnerspezifisch); das Setup-Skript stellt sie
 jederzeit wieder her.
-
-*Noch offen (kommt mit dem ersten Inhalt der 6. Klasse):* Manifest automatisch aus den Vokabel-Dateien
-erzeugen, 🔊-Button auf Vokabelkarten, Modus „Hören & Schreiben“, Akzent-Tasten.
 
 ### 2.6 Prüfen
 
@@ -132,6 +162,13 @@ npx eslint <geänderte Dateien>
 ---
 
 ## 3. Testen gegen das Backend
+
+**Erste Wahl: die lokale Test-Attrappe.** `MOCK_API=1 npm run dev` startet die App mit einem Backend
+im Speicher (`scripts/dev-mock-api.js`, gleiche Routen wie die echte Function). In der Desktop-App gibt
+es dafür die Launch-Konfiguration `english-topic-quiz-mock` (Port 5176). Weil alles auf localhost
+bleibt, dürfen dort **Test-PINs** eingetippt werden (z. B. 1111 / Eltern 2222). Testdaten kann man im
+Browser per `await import('/src/utils/storage.js')` anlegen. Ein echter Test-Space ist nur nötig, wenn die
+Function selbst geändert wurde.
 
 - **Nie im echten Space `klasse-6d` testen**, wenn dabei PINs gesetzt würden. Die PINs der Kinder und die
   Eltern-PIN legt **die Familie selbst** beim ersten Login fest. Für Tests einen eigenen Space nutzen:
@@ -204,10 +241,15 @@ curl -s -o /dev/null -w '%{http_code}' https://<slug>.space.fast/   # muss 403 l
   Änderungen per `markDirty`, der Upload folgt nach 1,5 s (Wiederholung nach 10 s, beim Verlassen der
   Seite sofort). Beim Login holt die App den Server-Stand, ohne lokale ungesicherte Änderungen zu
   überschreiben. Ein Kind sieht nur eigene Runden, Highscores und Historie aller Kinder sind sichtbar.
+- **Lehrer-Bereich nach Fach getrennt** (`src/utils/courseOf.js`): Jede Antwort wird über ihre Frage-ID
+  einem Kurs zugeordnet (Frage → `exam` → `course`). Die Historie wird pro Reiter gefiltert, *bevor* sie
+  ausgewertet wird. Damit sind Übersicht, Heatmap, Details, Fehler, Vokabel-Stufen und Wiederholungs-Quizze
+  automatisch getrennt. Einträge ohne Kursangabe (Altbestand) zählen zu Englisch 5. Wichtig: Jede neue
+  Frage bzw. Karte braucht `exam` oder `course`.
 
 ---
 
-## 6. Entscheidungen des Nutzers (Stand 2026-10-10)
+## 6. Entscheidungen des Nutzers (Stand 2026-10-11)
 
 - Hosting komplett auf Spacefast (statt Supabase), Space `klasse-6d`, Familien-Passwort, nur die eigenen
   Kinder (Jakob, Clara). Wo Spacefast die Daten speichert (EU?), ist nicht dokumentiert. Das wurde akzeptiert.
@@ -216,3 +258,9 @@ curl -s -o /dev/null -w '%{http_code}' https://<slug>.space.fast/   # muss 403 l
 - Englisch 6 = Band 2 des Englisch-Lehrwerks, Französisch 6 = Découvertes 1 (Klett). Der Name des
   Englisch-Lehrwerks steht nirgends im Repo.
 - Die alte GitHub-Pages-Seite bleibt online (enthält die alten, lokal gespeicherten Ergebnisse).
+- Französisch 6 = Découvertes 1, **Ausgabe Bayern**. Unité 1: Umfang wie im Vokabelheft (bis B5), dazu
+  die freiwilligen Tiere aus „Mon dico personnel“. Eigennamen nur als Karte, wenn die Übersetzung abweicht.
+- „Neue Vokabeln“ = jüngster Batch nach **Tag des Hinzufügens**.
+- Lehrer-Bereich: klare Trennung nach Fach (Reiter je Kurs).
+- Unité 1: Die Zahlen 0–12 (Kasten im Buch) sind mit drin, weil das Cahier sie abfragt. Die Fragen
+  (115) orientieren sich am Cahier (S. 7–17) und an Bilan/Grammaire/Alphabet im Buch (S. 24–26).

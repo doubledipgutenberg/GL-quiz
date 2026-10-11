@@ -1,0 +1,562 @@
+{
+  "fr6_a_plus": {
+    "file": "fr6_a_plus.m4a",
+    "text": "À plus !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "fd6429f2c82f1e37"
+  },
+  "fr6_attention": {
+    "file": "fr6_attention.m4a",
+    "text": "Attention!",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "192341a553d50e75"
+  },
+  "fr6_au_revoir": {
+    "file": "fr6_au_revoir.m4a",
+    "text": "Au revoir!",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "7b94e4548b7fa390"
+  },
+  "fr6_aussi": {
+    "file": "fr6_aussi.m4a",
+    "text": "aussi",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "6128359d113da80f"
+  },
+  "fr6_bien": {
+    "file": "fr6_bien.m4a",
+    "text": "bien",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "095d40408465e2b8"
+  },
+  "fr6_bienvenue": {
+    "file": "fr6_bienvenue.m4a",
+    "text": "Bienvenue!",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "e37fcc758deed834"
+  },
+  "fr6_bizarre": {
+    "file": "fr6_bizarre.m4a",
+    "text": "bizarre",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "0add92a2b8118aa0"
+  },
+  "fr6_bonjour": {
+    "file": "fr6_bonjour.m4a",
+    "text": "Bonjour!",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "ae4298697a202e21"
+  },
+  "fr6_bonjour_les_amis": {
+    "file": "fr6_bonjour_les_amis.m4a",
+    "text": "Bonjour, les amis!",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "a110494f3c741c13"
+  },
+  "fr6_c_est": {
+    "file": "fr6_c_est.m4a",
+    "text": "c'est",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "3ea9d9b49a6a9461"
+  },
+  "fr6_ca_ne_va_pas": {
+    "file": "fr6_ca_ne_va_pas.m4a",
+    "text": "Ça ne va pas.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "f51ce0d7b41316bb"
+  },
+  "fr6_ca_va": {
+    "file": "fr6_ca_va.m4a",
+    "text": "Ça va?",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "3d527e754aa751d1"
+  },
+  "fr6_cinq": {
+    "file": "fr6_cinq.m4a",
+    "text": "cinq",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "45a6671fbd144897"
+  },
+  "fr6_comment": {
+    "file": "fr6_comment.m4a",
+    "text": "comment?",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "7e2ac9ab301eff3f"
+  },
+  "fr6_de_d": {
+    "file": "fr6_de_d.m4a",
+    "text": "de",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "1955ab4525808f0c"
+  },
+  "fr6_deux": {
+    "file": "fr6_deux.m4a",
+    "text": "deux",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "67416f875293db07"
+  },
+  "fr6_dix": {
+    "file": "fr6_dix.m4a",
+    "text": "dix",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "089ba728049b5919"
+  },
+  "fr6_douze": {
+    "file": "fr6_douze.m4a",
+    "text": "douze",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "21d47771a7c83222"
+  },
+  "fr6_elle_est": {
+    "file": "fr6_elle_est.m4a",
+    "text": "elle est",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "26b3acdad9645c01"
+  },
+  "fr6_et": {
+    "file": "fr6_et.m4a",
+    "text": "et",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "c5fd76a86a9e0ee4"
+  },
+  "fr6_fantastique": {
+    "file": "fr6_fantastique.m4a",
+    "text": "fantastique",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "d4ada33c04256ce9"
+  },
+  "fr6_huit": {
+    "file": "fr6_huit.m4a",
+    "text": "huit",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "29763ec8bcba3d37"
+  },
+  "fr6_ici": {
+    "file": "fr6_ici.m4a",
+    "text": "ici",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "45387d7fc322cb1b"
+  },
+  "fr6_il_est": {
+    "file": "fr6_il_est.m4a",
+    "text": "il est",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "56885bd4abecb407"
+  },
+  "fr6_je_m_appelle": {
+    "file": "fr6_je_m_appelle.m4a",
+    "text": "je m'appelle",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "8fbd79659f8b09d1"
+  },
+  "fr6_je_suis": {
+    "file": "fr6_je_suis.m4a",
+    "text": "je suis",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "8d287d00e728c83f"
+  },
+  "fr6_mais": {
+    "file": "fr6_mais.m4a",
+    "text": "mais",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "c3fc603c2cc35848"
+  },
+  "fr6_merci": {
+    "file": "fr6_merci.m4a",
+    "text": "merci",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "a56397eeaf22a328"
+  },
+  "fr6_moi": {
+    "file": "fr6_moi.m4a",
+    "text": "moi",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "aac20108bf9b2dd5"
+  },
+  "fr6_neuf": {
+    "file": "fr6_neuf.m4a",
+    "text": "neuf",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "e35899f22960fc74"
+  },
+  "fr6_nice": {
+    "file": "fr6_nice.m4a",
+    "text": "Nice",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "d66d68c9640e21da"
+  },
+  "fr6_non": {
+    "file": "fr6_non.m4a",
+    "text": "non",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "eabae2824763c60b"
+  },
+  "fr6_onze": {
+    "file": "fr6_onze.m4a",
+    "text": "onze",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "e4ad0ccc0a736062"
+  },
+  "fr6_oui": {
+    "file": "fr6_oui.m4a",
+    "text": "oui",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "3b36f1c2fee8ffdb"
+  },
+  "fr6_papa": {
+    "file": "fr6_papa.m4a",
+    "text": "papa",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "339995e8bf4ac156"
+  },
+  "fr6_pardon": {
+    "file": "fr6_pardon.m4a",
+    "text": "Pardon.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "c24a3c8ff0756d0f"
+  },
+  "fr6_quatre": {
+    "file": "fr6_quatre.m4a",
+    "text": "quatre",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "fea2e10942646374"
+  },
+  "fr6_qui_est_ce": {
+    "file": "fr6_qui_est_ce.m4a",
+    "text": "Qui est-ce?",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "0d349ad9722f2de8"
+  },
+  "fr6_s_p_a": {
+    "file": "fr6_s_p_a.m4a",
+    "text": "la S. P. A.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "77cf1bca702feaf2"
+  },
+  "fr6_salut": {
+    "file": "fr6_salut.m4a",
+    "text": "Salut!",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "2e2750c40020bed9"
+  },
+  "fr6_sept": {
+    "file": "fr6_sept.m4a",
+    "text": "sept",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "bff22eaefaf3a8f7"
+  },
+  "fr6_six": {
+    "file": "fr6_six.m4a",
+    "text": "six",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "789e220d2d14c3ca"
+  },
+  "fr6_strasbourg": {
+    "file": "fr6_strasbourg.m4a",
+    "text": "Strasbourg",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "b5b3b1598be3b335"
+  },
+  "fr6_super": {
+    "file": "fr6_super.m4a",
+    "text": "super",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "e45fe98dbc4797fe"
+  },
+  "fr6_toi": {
+    "file": "fr6_toi.m4a",
+    "text": "toi",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "54ebad5942ed80c9"
+  },
+  "fr6_trois": {
+    "file": "fr6_trois.m4a",
+    "text": "trois",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "982a3d2cf35454b7"
+  },
+  "fr6_tu_es": {
+    "file": "fr6_tu_es.m4a",
+    "text": "tu es",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "cc41a714d30440ac"
+  },
+  "fr6_tu_t_appelles_comment": {
+    "file": "fr6_tu_t_appelles_comment.m4a",
+    "text": "Tu t'appelles comment?",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "d156a7feddd3f3ba"
+  },
+  "fr6_un": {
+    "file": "fr6_un.m4a",
+    "text": "un",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "005c1b843b5ea4f4"
+  },
+  "fr6_un_ami_une_amie": {
+    "file": "fr6_un_ami_une_amie.m4a",
+    "text": "un ami, une amie",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "897c35586c080eed"
+  },
+  "fr6_un_animal": {
+    "file": "fr6_un_animal.m4a",
+    "text": "un animal",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "5cd91aaf93366273"
+  },
+  "fr6_un_canari": {
+    "file": "fr6_un_canari.m4a",
+    "text": "un canari",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "0152526a7628ddc3"
+  },
+  "fr6_un_chat": {
+    "file": "fr6_un_chat.m4a",
+    "text": "un chat",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "f78ae5e3e62b0f02"
+  },
+  "fr6_un_chien": {
+    "file": "fr6_un_chien.m4a",
+    "text": "un chien",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "ec710e752b4ca9d1"
+  },
+  "fr6_un_copain_une_copine": {
+    "file": "fr6_un_copain_une_copine.m4a",
+    "text": "un copain, une copine",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "f6b76f47911fb76c"
+  },
+  "fr6_un_garcon": {
+    "file": "fr6_un_garcon.m4a",
+    "text": "un garçon",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "dd7778aee3f8707e"
+  },
+  "fr6_un_hamster": {
+    "file": "fr6_un_hamster.m4a",
+    "text": "un hamster",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "595d95fc36c58fdc"
+  },
+  "fr6_un_monsieur": {
+    "file": "fr6_un_monsieur.m4a",
+    "text": "un monsieur",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "f88a569b74377de0"
+  },
+  "fr6_un_perroquet": {
+    "file": "fr6_un_perroquet.m4a",
+    "text": "un perroquet",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "13073360fc57e4cc"
+  },
+  "fr6_un_rat": {
+    "file": "fr6_un_rat.m4a",
+    "text": "un rat",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "a10a122c49e1290c"
+  },
+  "fr6_un_serpent": {
+    "file": "fr6_un_serpent.m4a",
+    "text": "un serpent",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "0b997b23518c2197"
+  },
+  "fr6_une_chanson": {
+    "file": "fr6_une_chanson.m4a",
+    "text": "une chanson",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "141e2186437f5f14"
+  },
+  "fr6_une_dame": {
+    "file": "fr6_une_dame.m4a",
+    "text": "une dame",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "90c78b78dfb51786"
+  },
+  "fr6_une_fille": {
+    "file": "fr6_une_fille.m4a",
+    "text": "une fille",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "ef29cc4092ea0b60"
+  },
+  "fr6_une_perruche": {
+    "file": "fr6_une_perruche.m4a",
+    "text": "une perruche",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "3d574429fcd7622c"
+  },
+  "fr6_une_tortue": {
+    "file": "fr6_une_tortue.m4a",
+    "text": "une tortue",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "045262abcd5ff51c"
+  },
+  "fr6_viens": {
+    "file": "fr6_viens.m4a",
+    "text": "Viens!",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "5f371999f9e09873"
+  },
+  "fr6_vite": {
+    "file": "fr6_vite.m4a",
+    "text": "vite",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "551800c23728b902"
+  },
+  "fr6_voila": {
+    "file": "fr6_voila.m4a",
+    "text": "voilà",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "3628fdd555d6a794"
+  },
+  "fr6_zero": {
+    "file": "fr6_zero.m4a",
+    "text": "zéro",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "08df424852e1f1a6"
+  }
+}

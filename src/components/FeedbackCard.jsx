@@ -3,6 +3,7 @@ import { getRandomCharacter } from '../data/pixarCharacters';
 import { Card, CardContent } from './ui/card';
 import { Button } from './ui/button';
 import { cn } from '@/lib/utils';
+import { playAudio } from '@/lib/audio';
 
 export default function FeedbackCard({ lastAnswer, onNext }) {
   const { isCorrect, points, question, userAnswer } = lastAnswer;
@@ -29,6 +30,11 @@ export default function FeedbackCard({ lastAnswer, onNext }) {
             </div>
           )}
           <p className="text-sm text-muted-foreground">{question.explanation}</p>
+          {question.audio && (
+            <Button type="button" variant="outline" size="sm" onClick={() => playAudio(question.audio)}>
+              🔊 Aussprache anhören
+            </Button>
+          )}
         </div>
 
         <blockquote className="border-l-4 border-primary pl-4 text-sm text-muted-foreground italic">

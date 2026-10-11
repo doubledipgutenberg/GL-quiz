@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect } from 'react';
+import { useMemo, useState } from 'react';
 import { analyzeStudent } from '../utils/analytics';
 import { getTeacherDismissals, dismissQuestionForStudent, getTeacherMarkedCorrect, markAttemptsAsCorrect } from '../utils/storage';
 import { Check } from 'lucide-react';
@@ -6,17 +6,15 @@ import questions, { getVocabularyQuestions } from '../data/questions';
 import { Card, CardContent } from './ui/card';
 import { Button } from './ui/button';
 
-export default function StudentDetail({ name, sessions, onBack, onCreateVocabReviewQuiz, onCreateNormalReviewQuiz }) {
-  const [dismissals, setDismissals] = useState({});
-  const [markedCorrect, setMarkedCorrect] = useState({});
+export default function StudentDetail({ name, courseLabel, sessions, onBack, onCreateVocabReviewQuiz, onCreateNormalReviewQuiz }) {
+  const [dismissals, setDismissals] = useState(() => getTeacherDismissals());
+  const [markedCorrect, setMarkedCorrect] = useState(() => getTeacherMarkedCorrect());
 
-  useEffect(() => {
-    setDismissals(getTeacherDismissals());
-    setMarkedCorrect(getTeacherMarkedCorrect());
-  }, []);
-
-  const studentDismissals = dismissals[name] || { questions: {}, wrongAttempts: {} };
-  const studentMarkedCorrect = markedCorrect[name] || {};
+  const studentDismissals = useMemo(
+    () => dismissals[name] || { questions: {}, wrongAttempts: {} },
+    [dismissals, name],
+  );
+  const studentMarkedCorrect = useMemo(() => markedCorrect[name] || {}, [markedCorrect, name]);
 
   const analysis = useMemo(
     () => analyzeStudent(sessions, studentDismissals, studentMarkedCorrect),
@@ -58,15 +56,17 @@ export default function StudentDetail({ name, sessions, onBack, onCreateVocabRev
 
   // Übungs-Quiz für SCHWÄCHEN (normale, nicht-Vokabel-Fragen):
   // schwache/mittlere Themen -> echte Fehler + frische Fragen aus denselben Themen.
+  // Ergebnis: { missed, fresh } – gemischt und begrenzt wird erst beim Klick (siehe startNormalReview).
   const NORMAL_REVIEW_MAX = 20;
-  const normalReviewIds = useMemo(() => {
-    if (!analysis) return [];
+  const normalReview = useMemo(() => {
+    const empty = { missed: [], fresh: [] };
+    if (!analysis) return empty;
     const weakTopics = new Set(
       analysis.topicResults
         .filter((t) => t.strength !== 'strong' && t.topic !== 'vocabulary')
         .map((t) => t.topic)
     );
-    if (weakTopics.size === 0) return [];
+    if (weakTopics.size === 0) return empty;
 
     const ids = new Set();
     // 1) Genau die normalen Fragen, die der Schüler falsch hatte (nicht ausgeblendet)
@@ -83,21 +83,31 @@ export default function StudentDetail({ name, sessions, onBack, onCreateVocabRev
       ids.add(q.questionId);
     });
     // 2) Zusätzliche frische Fragen aus denselben Schwäche-Themen (nur gespielte Schulaufgaben)
+    const fresh = [];
     questions.forEach((q) => {
       if (q.type === 'vocab_card' || q.category === 'vocabulary') return;
       if (!weakTopics.has(q.topic)) return;
       if (playedExams.size > 0 && q.exam && !playedExams.has(q.exam)) return;
-      ids.add(q.id);
+      if (!ids.has(q.id)) fresh.push(q.id);
     });
-
-    // Mischen und begrenzen
-    const arr = Array.from(ids);
-    for (let i = arr.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    return arr.slice(0, NORMAL_REVIEW_MAX);
+    return { missed: Array.from(ids), fresh };
   }, [analysis, studentDismissals, questionById, playedExams]);
+
+  const normalReviewCount = Math.min(normalReview.missed.length + normalReview.fresh.length, NORMAL_REVIEW_MAX);
+
+  // Echte Fehler zuerst, dann mit frischen Fragen auffüllen; jeweils gemischt.
+  const startNormalReview = () => {
+    const shuffled = (list) => {
+      const a = [...list];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    };
+    const ids = [...shuffled(normalReview.missed), ...shuffled(normalReview.fresh)].slice(0, NORMAL_REVIEW_MAX);
+    onCreateNormalReviewQuiz(name, ids);
+  };
 
   if (!analysis) {
     return (
@@ -219,7 +229,7 @@ export default function StudentDetail({ name, sessions, onBack, onCreateVocabRev
     <div className="student-detail">
       <div className="detail-header">
         <button className="btn btn-back" onClick={onBack}>Zurück</button>
-        <h2>{name} — Detailansicht</h2>
+        <h2>{name} — {courseLabel || 'Detailansicht'}</h2>
       </div>
 
       {/* Overview stats */}
@@ -322,9 +332,9 @@ export default function StudentDetail({ name, sessions, onBack, onCreateVocabRev
         <div className="detail-section">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <h3>Falsch beantwortet: Grammatik, Reading &amp; Mediation</h3>
-            {onCreateNormalReviewQuiz && normalReviewIds.length > 0 && (
-              <Button size="sm" onClick={() => onCreateNormalReviewQuiz(name, normalReviewIds)}>
-                Schwächen üben ({normalReviewIds.length})
+            {onCreateNormalReviewQuiz && normalReviewCount > 0 && (
+              <Button size="sm" onClick={startNormalReview}>
+                Schwächen üben ({normalReviewCount})
               </Button>
             )}
           </div>

@@ -1,0 +1,20 @@
+// Schreibt das Audio-Manifest eines Kurses (Eingabe für scripts/generate-audio.py).
+//   node scripts/export-audio-manifest.mjs fr-6 /pfad/manifest.json
+// Liest die Vokabel-Datei des Kurses direkt (sie hat absichtlich keine Importe).
+import { writeFileSync } from 'node:fs';
+
+const SOURCES = {
+  'fr-6': { module: '../src/data/fr6/vocab.js', list: 'FR6_VOCAB', lang: 'fr' },
+};
+
+const [course, out] = process.argv.slice(2);
+const src = SOURCES[course];
+if (!src || !out) {
+  console.error(`Aufruf: node scripts/export-audio-manifest.mjs <${Object.keys(SOURCES).join('|')}> <manifest.json>`);
+  process.exit(1);
+}
+
+const mod = await import(new URL(src.module, import.meta.url));
+const items = mod[src.list].map((v) => ({ id: v.id, text: mod.speechText(v), lang: src.lang }));
+writeFileSync(out, JSON.stringify({ course, items }, null, 2));
+console.log(`${course}: ${items.length} Einträge → ${out}`);

@@ -8,9 +8,15 @@
 //   richtigen Bedeutungen ("Botschaft; Nachricht" → eines reicht).
 // NICHT akzeptiert werden echte Tippfehler/Rechtschreibfehler ("celabrate") —
 // das ist beim Vokabeltraining absichtlich so.
+//
+// Französisch (question.answerLang === 'fr'), Entscheidung des Nutzers:
+//   Akzente zählen streng (fehlender/falscher Akzent oder Cedille = falsch).
+//   Artikel darf fehlen, aber ein FALSCHER Artikel (falsches Geschlecht: "une chat") ist falsch.
+//   Verkürzte Formen (l', d', m', t' …) werden wie ein eigenes Wort behandelt.
 
 const EN_ARTICLES = ['the', 'a', 'an'];
 const DE_ARTICLES = ['der', 'die', 'das', 'den', 'dem', 'des', 'ein', 'eine', 'einen', 'einem', 'einer', 'eines'];
+const FR_ARTICLES = ['le', 'la', 'les', 'l', 'un', 'une', 'des', 'du'];
 
 function foldUmlauts(s) {
   return s
@@ -79,6 +85,47 @@ function expandOptions(correct) {
   return [...out];
 }
 
+// Französische Normalisierung: Akzente bleiben erhalten, Apostroph trennt (l'école -> l école).
+function frWords(str) {
+  return String(str)
+    .normalize('NFC')
+    .toLowerCase()
+    .replace(/[’‘`]/g, "'")
+    .replace(/[()]/g, ' ')
+    .replace(/[.,!?;:_"„“”«»…]/g, ' ')
+    .replace(/[-/]/g, ' ')
+    .replace(/'/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .split(' ')
+    .filter(Boolean);
+}
+
+function frCanonical(str) {
+  return stripLeading(frWords(str), FR_ARTICLES).join(' ');
+}
+
+function frArticle(str) {
+  const words = frWords(str);
+  return words.length > 1 && FR_ARTICLES.includes(words[0]) ? words[0] : null;
+}
+
+function allOptions(question) {
+  const raw = [question.correct, ...(Array.isArray(question.alternativeCorrect) ? question.alternativeCorrect : [])];
+  return raw.filter((v) => v != null).flatMap((v) => expandOptions(v));
+}
+
+function checkFrench(question, userAnswer) {
+  const userCanon = frCanonical(userAnswer);
+  if (!userCanon) return false;
+  const userArticle = frArticle(userAnswer);
+  return allOptions(question).some((opt) => {
+    if (frCanonical(opt) !== userCanon) return false;
+    const optArticle = frArticle(opt);
+    return !(userArticle && optArticle && userArticle !== optArticle);
+  });
+}
+
 // Menge aller akzeptablen kanonischen Formen für eine Frage.
 function acceptableSet(question) {
   const set = new Set();
@@ -106,6 +153,9 @@ function lightNorm(str) {
 }
 
 export function checkAnswer(question, userAnswer) {
+  if (question.answerLang === 'fr' && question.type !== 'word_order' && question.type !== 'reading_true_false' && question.type !== 'multiple_choice') {
+    return checkFrench(question, userAnswer);
+  }
   const userCanon = canonical(userAnswer);
   if (!userCanon) return false;
 

@@ -3,6 +3,7 @@ import { getStudentHistory, clearAllData, getFullExportPayload, importFullPayloa
 import { getAllStudentOverview } from '../utils/analytics';
 import { api, getParentToken, setParentToken, getKidSession } from '../lib/api';
 import { flush, pull } from '../utils/sync';
+import { coursesForDashboard, filterHistoryByCourse } from '../utils/courseOf';
 import StudentDetail from './StudentDetail';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
 import { Button } from './ui/button';
@@ -20,7 +21,7 @@ function errorText(err) {
 
 export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz, onCreateNormalReviewQuiz }) {
   const [authenticated, setAuthenticated] = useState(() => !!getParentToken());
-  const [parentPinSet, setParentPinSet] = useState(true);
+  const [parentPinSet, setParentPinSet] = useState(null); // null = lädt noch
   const [kids, setKids] = useState([]);
   const [pin, setPin] = useState('');
   const [pin2, setPin2] = useState('');
@@ -28,6 +29,7 @@ export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz, onCrea
   const [busy, setBusy] = useState(false);
   const [notice, setNotice] = useState('');
   const [selectedStudent, setSelectedStudent] = useState(null);
+  const [courseId, setCourseId] = useState(null);
   const [refreshKey, setRefreshKey] = useState(0);
   const fileInputRef = useRef(null);
 
@@ -72,7 +74,7 @@ export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz, onCrea
       setPinError('Die Eltern-PIN besteht aus 4 bis 8 Ziffern.');
       return;
     }
-    if (!parentPinSet && pin !== pin2) {
+    if (parentPinSet === false && pin !== pin2) {
       setPinError('Die beiden PINs sind nicht gleich.');
       return;
     }
@@ -112,7 +114,9 @@ export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz, onCrea
           <CardHeader className="space-y-1">
             <CardTitle className="text-xl">Lehrer-Bereich</CardTitle>
             <p className="text-sm text-muted-foreground">
-              {parentPinSet
+              {parentPinSet === null
+                ? 'Einen Moment …'
+                : parentPinSet
                 ? 'Bitte die Eltern-PIN eingeben.'
                 : 'Erster Start: Lege eine Eltern-PIN fest (4–8 Ziffern). Die Kinder sollten sie nicht kennen.'}
             </p>
@@ -129,7 +133,7 @@ export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz, onCrea
                   }}
                   autoFocus
                 />
-                {!parentPinSet && (
+                {parentPinSet === false && (
                   <Input
                     {...pinProps}
                     placeholder="PIN wiederholen"
@@ -144,7 +148,7 @@ export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz, onCrea
                   Zurück
                 </Button>
                 <Button type="submit" disabled={busy}>
-                  {busy ? '…' : parentPinSet ? 'Einloggen' : 'PIN festlegen'}
+                  {busy ? '…' : parentPinSet === false ? 'PIN festlegen' : 'Einloggen'}
                 </Button>
               </div>
             </form>
@@ -154,7 +158,12 @@ export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz, onCrea
     );
   }
 
-  const history = getStudentHistory();
+  // Getrennt nach Fach: nur Runden/Antworten des gewählten Kurses auswerten.
+  const allHistory = getStudentHistory();
+  const courseTabs = coursesForDashboard(allHistory);
+  const activeCourse =
+    courseTabs.find((c) => c.id === courseId) || courseTabs.find((c) => c.hasData) || courseTabs[0];
+  const history = activeCourse ? filterHistoryByCourse(allHistory, activeCourse.id) : {};
   const overview = getAllStudentOverview(history);
 
   if (selectedStudent) {
@@ -162,6 +171,7 @@ export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz, onCrea
     return (
       <StudentDetail
         name={selectedStudent}
+        courseLabel={activeCourse?.label}
         sessions={studentData?.sessions || []}
         onBack={() => setSelectedStudent(null)}
         onCreateVocabReviewQuiz={onCreateVocabReviewQuiz}
@@ -295,11 +305,31 @@ export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz, onCrea
         </Card>
       )}
 
+      {courseTabs.length > 0 && (
+        <div className="flex flex-wrap items-center gap-2 border-b border-border pb-3">
+          <span className="text-sm font-semibold mr-1">Fach:</span>
+          {courseTabs.map((c) => (
+            <Button
+              key={c.id}
+              size="sm"
+              variant={c.id === activeCourse?.id ? 'default' : 'outline'}
+              onClick={() => {
+                setCourseId(c.id);
+                setSelectedStudent(null);
+              }}
+            >
+              {c.label}
+              {!c.hasData && <span className="ml-1 text-xs opacity-70">(noch leer)</span>}
+            </Button>
+          ))}
+        </div>
+      )}
+
       {overview.length === 0 ? (
         <Card>
           <CardContent className="py-8 text-center text-sm text-muted-foreground">
-            <p>Noch keine Schüler-Daten vorhanden.</p>
-            <p>Sobald Schüler das Quiz spielen, erscheinen hier die Ergebnisse.</p>
+            <p>Noch keine Ergebnisse in {activeCourse?.label ?? 'diesem Fach'}.</p>
+            <p>Sobald die Kinder dieses Fach üben, erscheinen hier die Ergebnisse.</p>
           </CardContent>
         </Card>
       ) : (
@@ -350,8 +380,8 @@ export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz, onCrea
                           <td className="py-2 pr-2 text-xs">
                             {student.weaknesses.length > 0 ? (
                               <span className="text-red-700 font-semibold">
-                                {student.weaknesses.length} Thema
-                                {student.weaknesses.length > 1 ? 'en' : ''}
+                                {student.weaknesses.length}{' '}
+                                {student.weaknesses.length === 1 ? 'Thema' : 'Themen'}
                               </span>
                             ) : (
                               <span className="text-emerald-700">Keine</span>

@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "check:names": "scripts/check-names.sh"
+    "check:names": "scripts/check-names.sh",
+    "audio": "scripts/build-audio.sh"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",

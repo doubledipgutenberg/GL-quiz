@@ -3,42 +3,42 @@
 
 import { VOCAB_LIST } from '../data/vocabList';
 import { VOCAB_LIST_SA4 } from '../data/vocabListSA4';
+import { FR6_VOCAB_IDS } from '../data/fr6/cards';
 
-const VOCAB_IDS_SA2 = new Set(VOCAB_LIST.map(v => v.id));
-const VOCAB_IDS_SA4 = new Set(VOCAB_LIST_SA4.map(v => v.id));
+// Eine Liste pro Vokabel-Bestand; gezählt werden nur die, die der Schüler geübt hat.
+const VOCAB_LISTS = [
+  new Set(VOCAB_LIST.map(v => v.id)),
+  new Set(VOCAB_LIST_SA4.map(v => v.id)),
+  new Set(FR6_VOCAB_IDS),
+];
 
 /**
- * Wie viele Vokabeln hat der Schüler mind. 1x richtig beantwortet? (beide Richtungen zählen)
- * Zählt pro Schulaufgabe: nur die Vokabel-Listen, die der Schüler tatsächlich geübt hat.
+ * Wie viele Vokabeln hat der Schüler mind. 1x richtig beantwortet? (jede Richtung zählt)
+ * Gesamtzahl = nur die Listen, die der Schüler tatsächlich geübt hat.
  */
 export function getVocabMastery(sessions) {
-  const masteredSA2 = new Set();
-  const masteredSA4 = new Set();
-  let playedSA2 = false;
-  let playedSA4 = false;
+  const played = VOCAB_LISTS.map(() => false);
+  const mastered = VOCAB_LISTS.map(() => new Set());
 
   (sessions || []).forEach(session => {
     (session.answers || []).forEach(a => {
-      const baseId = a.questionId.replace(/_en$|_de$|_second$/, '');
-      if (VOCAB_IDS_SA2.has(baseId)) {
-        playedSA2 = true;
-        if (a.isCorrect) masteredSA2.add(baseId);
-      } else if (VOCAB_IDS_SA4.has(baseId)) {
-        playedSA4 = true;
-        if (a.isCorrect) masteredSA4.add(baseId);
-      }
+      const baseId = String(a.questionId).replace(/_(en|de|fr|second|listen)$/, '');
+      const i = VOCAB_LISTS.findIndex(list => list.has(baseId));
+      if (i === -1) return;
+      played[i] = true;
+      if (a.isCorrect) mastered[i].add(baseId);
     });
   });
 
-  // Gesamtzahl = nur die Listen, die der Schüler geübt hat.
-  // Wenn (noch) keine Vokabeln geübt wurden, beide Listen als Universum zeigen.
+  // Wenn (noch) keine Vokabeln geübt wurden, alle Listen als Universum zeigen.
+  const anyPlayed = played.some(Boolean);
   let total = 0;
-  let mastered = 0;
-  if (playedSA2) { total += VOCAB_IDS_SA2.size; mastered += masteredSA2.size; }
-  if (playedSA4) { total += VOCAB_IDS_SA4.size; mastered += masteredSA4.size; }
-  if (!playedSA2 && !playedSA4) total = VOCAB_IDS_SA2.size + VOCAB_IDS_SA4.size;
-
-  return { total, mastered };
+  let count = 0;
+  VOCAB_LISTS.forEach((list, i) => {
+    if (played[i] || !anyPlayed) total += list.size;
+    count += mastered[i].size;
+  });
+  return { total, mastered: count };
 }
 
 const TOPIC_RECOMMENDATIONS = {
@@ -142,7 +142,7 @@ export function analyzeStudent(sessions, dismissals = { questions: {}, wrongAtte
   // Calculate percentages and identify weaknesses
   const topicResults = Object.entries(topicStats).map(([topic, stats]) => {
     const percentage = Math.round((stats.correct / stats.total) * 100);
-    const rec = TOPIC_RECOMMENDATIONS[topic] || { label: topic, bookRef: "", practice: "" };
+    const rec = TOPIC_RECOMMENDATIONS[topic] || { label: stats.label || topic, bookRef: "", practice: "" };
     return {
       topic,
       label: rec.label,
