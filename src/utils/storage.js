@@ -63,36 +63,45 @@ export function getStudentHistory() {
   }
 }
 
-export function saveStudentSession(name, answers, score, maxScore) {
+// Auto-Save: Die laufende Runde steht nach jeder Antwort in der Historie (Eintrag mit `id`), damit der
+// Lehrer-Bereich Ergebnisse sofort sieht – ohne die Runde zu beenden oder zu speichern.
+// `answers` = nur die Antworten, die zu diesem Eintrag gehören. Punkte wie calculatePoints: difficulty.
+export function upsertStudentSession(name, sessionId, answers, { complete = false } = {}) {
+  if (!name || !sessionId || !answers?.length) return;
   const history = getStudentHistory();
   if (!history[name]) {
     history[name] = { sessions: [] };
   }
-  history[name].sessions.push({
-    date: new Date().toISOString(),
+  const records = answers.map(toAnswerRecord);
+  const score = records.reduce((sum, a) => sum + (a.isCorrect ? a.difficulty || 1 : 0), 0);
+  const maxScore = records.reduce((sum, a) => sum + (a.difficulty || 1), 0);
+  const now = new Date().toISOString();
+  const sessions = history[name].sessions;
+  const i = sessions.findIndex((s) => s.id === sessionId);
+  const entry = {
+    id: sessionId,
+    date: i >= 0 ? sessions[i].date : now,
+    updatedAt: now,
+    complete,
     score,
     maxScore,
-    percentage: Math.round((score / maxScore) * 100),
-    answers: answers.map(a => ({
-      questionId: a.questionId,
-      topic: a.topic,
-      topicLabel: a.topicLabel,
-      category: a.category,
-      isCorrect: a.isCorrect,
-      userAnswer: a.userAnswer,
-      correctAnswer: a.correctAnswer,
-      difficulty: a.difficulty
-    }))
-  });
+    percentage: maxScore ? Math.round((score / maxScore) * 100) : 0,
+    answers: records,
+  };
+  if (i >= 0) sessions[i] = entry;
+  else sessions.push(entry);
   localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
   markDirty(name, 'history');
 }
 
-// Draft: nach jeder Frage speichern (Stand der laufenden Runde)
-export function saveDraftSession(name, answers, score, maxScore, questionIds, mode = 'normal') {
+// Draft: nach jeder Frage speichern (Stand der laufenden Runde).
+// sessionId/answersOffset: zu welchem Historien-Eintrag die Runde gehört (siehe upsertStudentSession).
+export function saveDraftSession(name, answers, score, maxScore, questionIds, mode = 'normal', { sessionId, answersOffset = 0 } = {}) {
   if (!name || !questionIds || !questionIds.length) return;
   const draft = {
     name,
+    sessionId,
+    answersOffset,
     mode: mode || 'normal',
     score,
     maxScore,

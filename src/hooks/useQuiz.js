@@ -1,7 +1,7 @@
-import { useReducer, useCallback, useEffect } from 'react';
+import { useReducer, useCallback, useEffect, useRef } from 'react';
 import questions, { EXAMS, getVocabularyQuestions, getNewVocabularyQuestions, DEFAULT_EXAM } from '../data/questions';
 import { checkAnswer, calculatePoints, getMaxPoints } from '../utils/scoring';
-import { saveHighscore, saveStudentSession, saveDraftSession, clearDraftSession, getDraftSession, addSavedRound, getStudentHistory } from '../utils/storage';
+import { saveHighscore, upsertStudentSession, saveDraftSession, clearDraftSession, getDraftSession, addSavedRound, getStudentHistory } from '../utils/storage';
 
 // Shuffle array (Fisher-Yates)
 function shuffle(arr) {
@@ -15,6 +15,9 @@ function shuffle(arr) {
 
 const QUESTIONS_PER_SESSION = 15;
 
+// Jede Runde hat eine ID; unter ihr wird sie nach jeder Antwort in der Historie gespeichert (Auto-Save).
+const newSessionId = () => `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+
 // Antwortoptionen bei jeder Runde neu mischen – sonst steht die richtige Antwort immer an derselben Stelle.
 function withShuffledOptions(list) {
   return list.map((q) => (q.type === 'multiple_choice' && Array.isArray(q.options) ? { ...q, options: shuffle(q.options) } : q));
@@ -26,6 +29,8 @@ const initialState = {
   mode: 'normal',           // 'normal' | 'vocabulary'
   exam: DEFAULT_EXAM,       // 'sa2' | 'sa4'
   questions: [],
+  sessionId: null,
+  answersOffset: 0,         // Antworten davor gehören zu einem früheren Historien-Eintrag
   currentIndex: 0,
   score: 0,
   answers: [],
@@ -50,6 +55,8 @@ function reducer(state, action) {
           mode,
           exam,
           questions: shuffled,
+          sessionId: newSessionId(),
+          answersOffset: 0,
           currentIndex: 0,
           score: 0,
           answers: [],
@@ -87,6 +94,8 @@ function reducer(state, action) {
         mode,
         exam,
         questions: shuffled,
+        sessionId: newSessionId(),
+        answersOffset: 0,
         currentIndex: 0,
         score: 0,
         answers: [],
@@ -118,10 +127,7 @@ function reducer(state, action) {
     case 'NEXT_QUESTION': {
       const nextIndex = state.currentIndex + 1;
       if (nextIndex >= state.questions.length) {
-        // Quiz finished — save data
-        const maxScore = getMaxPoints(state.questions);
-        saveHighscore(state.playerName, state.score, maxScore, state.questions.length);
-        saveStudentSession(state.playerName, state.answers, state.score, maxScore);
+        // Runde fertig – gespeichert wird im Effect (Historie laufend, Highscore einmal am Ende).
         return { ...state, phase: 'finished' };
       }
       return {
@@ -146,11 +152,22 @@ function reducer(state, action) {
       if (restoredQuestions.length === 0) return state;
       const nextIndex = draft.answers.length;
       if (nextIndex >= restoredQuestions.length) return state;
+      // Historien-Eintrag: Die aktuelle Runde (Draft) läuft unter ihrer ID weiter. Gespeicherte Runden und
+      // Wiederholungs-Quizze bekommen eine neue ID; ihre bisherigen Antworten stehen schon in der Historie.
+      const continues = action.type === 'RESTORE_DRAFT' && draft.sessionId;
+      const sessionId = continues ? draft.sessionId : newSessionId();
+      const answersOffset = continues
+        ? draft.answersOffset || 0
+        : action.type === 'RESTORE_DRAFT'
+          ? 0 // alter Draft ohne ID: seine Antworten stehen noch nicht in der Historie
+          : draft.answers.length;
       return {
         ...state,
         phase: 'quiz',
         playerName: draft.name,
         mode,
+        sessionId,
+        answersOffset,
         questions: withShuffledOptions(restoredQuestions),
         currentIndex: nextIndex,
         score: draft.score,
@@ -173,9 +190,28 @@ export default function useQuiz() {
     }
     if ((state.phase === 'quiz' || state.phase === 'feedback') && state.playerName && state.questions.length > 0) {
       const maxScore = getMaxPoints(state.questions);
-      saveDraftSession(state.playerName, state.answers, state.score, maxScore, state.questions.map(q => q.id), state.mode);
+      saveDraftSession(state.playerName, state.answers, state.score, maxScore, state.questions.map(q => q.id), state.mode, {
+        sessionId: state.sessionId,
+        answersOffset: state.answersOffset,
+      });
     }
-  }, [state.phase, state.playerName, state.answers, state.score, state.questions, state.mode]);
+  }, [state.phase, state.playerName, state.answers, state.score, state.questions, state.mode, state.sessionId, state.answersOffset]);
+
+  // Auto-Save der Ergebnisse: nach jeder Antwort den Historien-Eintrag der Runde aktualisieren.
+  useEffect(() => {
+    if (!state.playerName || !state.sessionId) return;
+    const own = state.answers.slice(state.answersOffset);
+    if (own.length === 0) return;
+    upsertStudentSession(state.playerName, state.sessionId, own, { complete: state.phase === 'finished' });
+  }, [state.answers, state.phase, state.playerName, state.sessionId, state.answersOffset]);
+
+  // Highscore einmal pro fertiger Runde.
+  const highscoreSaved = useRef(null);
+  useEffect(() => {
+    if (state.phase !== 'finished' || !state.sessionId || highscoreSaved.current === state.sessionId) return;
+    highscoreSaved.current = state.sessionId;
+    saveHighscore(state.playerName, state.score, getMaxPoints(state.questions), state.questions.length);
+  }, [state.phase, state.sessionId, state.playerName, state.score, state.questions]);
 
   const startQuiz = useCallback((name, mode = 'normal', exam = DEFAULT_EXAM) => {
     dispatch({ type: 'START_QUIZ', name, mode, exam });
@@ -260,8 +296,7 @@ export default function useQuiz() {
       maxScore,
       mode: state.mode
     });
-    // Save partial student session for Lehrer-Analytics when Runde aktiv gespeichert wird
-    saveStudentSession(state.playerName, state.answers, state.score, maxScore);
+    // Die Ergebnisse stehen durch den Auto-Save schon in der Historie – hier nichts doppelt speichern.
     return true;
   }, [state.playerName, state.questions, state.answers, state.score, state.mode]);
 
