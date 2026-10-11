@@ -1,7 +1,9 @@
 // Erzeugt die Quiz-Karten für Französisch Klasse 6 aus FR6_VOCAB.
 //   _de     : französisches Wort sehen (und hören) → deutsch antworten
 //   _fr     : deutsches Wort sehen → französisch schreiben (Akzent-Tasten, Akzente streng)
-//   _listen : nur hören → französisch schreiben („Hören & Schreiben“)
+//   _listen : nur hören → französisch schreiben
+// Alle drei Kartenarten gehören zum Wortschatz (Entscheidung des Nutzers: Audio ist Teil der Vokabeln,
+// kein eigener Modus).
 import { COURSE, FR6_VOCAB, speechText } from './vocab.js';
 
 function audioOf(v) {
@@ -54,7 +56,6 @@ export function toListenCard(v) {
   return {
     ...base(v, 'listen'),
     type: 'listen_card',
-    topicLabel: 'Hören & Schreiben',
     instruction: 'Hör zu und schreib das Wort auf Französisch:',
     correct: v.fr,
     alternativeCorrect: v.alt || [],
@@ -74,14 +75,14 @@ function shuffle(arr) {
 
 const forExam = (exam) => FR6_VOCAB.filter((v) => !exam || v.exam === exam);
 
-/** Wortschatz-Quiz: beide Richtungen, erst alle fr→de, dann alle de→fr. */
-export function fr6VocabCards(exam) {
-  const list = forExam(exam);
-  return [...shuffle(list.map(toDeCard)), ...shuffle(list.map(toFrCard))];
+/** Alle Karten einer Vokabelliste: erst alle fr→de, dann alle de→fr, dann alle „hören → schreiben“. */
+function cardsFor(list) {
+  return [...shuffle(list.map(toDeCard)), ...shuffle(list.map(toFrCard)), ...shuffle(list.map(toListenCard))];
 }
 
-export function fr6ListenCards(exam) {
-  return shuffle(forExam(exam).map(toListenCard));
+/** Wortschatz-Quiz einer Schulaufgabe. */
+export function fr6VocabCards(exam) {
+  return cardsFor(forExam(exam));
 }
 
 /** Jüngster Batch des Kurses: Datum + Vokabeln. */
@@ -91,8 +92,7 @@ export function fr6LatestBatch() {
 }
 
 export function fr6NewVocabCards() {
-  const { vocab } = fr6LatestBatch();
-  return [...shuffle(vocab.map(toDeCard)), ...shuffle(vocab.map(toFrCard))];
+  return cardsFor(fr6LatestBatch().vocab);
 }
 
 /** Alle Karten (für das Wiederherstellen gespeicherter Runden per ID). */

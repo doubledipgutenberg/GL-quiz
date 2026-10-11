@@ -87,9 +87,10 @@ wörtlich übernommen. Material aus offensichtlich illegalen Quellen (z. B. Scha
   Übersetzung wie *ami*/*copain*). `say` = gesprochener Text, falls er abweichen soll. Die Datei hat
   **keine Importe** (sie wird auch von Node fürs Audio-Manifest gelesen).
   `src/data/fr6/cards.js` erzeugt daraus die Karten: `_de` (frz. sehen + 🔊 → deutsch), `_fr` (deutsch →
-  frz. schreiben) und `_listen` („Hören & Schreiben“).
-  Neue Lieferung = **neuer Batch** mit dem heutigen Datum, alte Batches nie umdatieren. „Neue Vokabeln“
-  fragt immer den jüngsten Batch des Kurses ab.
+  frz. schreiben) und `_listen` (nur hören → frz. schreiben). **Alle drei gehören zum Wortschatz**,
+  es gibt keinen eigenen Hör-Modus (Entscheidung des Nutzers).
+  Neue Lieferung = **neuer Batch** mit dem heutigen Datum, alte Batches nie umdatieren. „Nur neue
+  Vokabeln“ ist ein **Filter auf den Wortschatz**: der jüngste Batch des Kurses.
 - **Vokabeln, Klasse 5** (Altbestand): `src/data/vocabList.js`, `src/data/vocabListSA4.js`.
 - **Fragen:** eigene Datei je Prüfung (Vorbilder: `src/data/fr6/questions.js`, `src/data/questionsSA4.js`)
   und in `questions.js` zusammenführen. Französische Freitext-Fragen bekommen `answerLang: 'fr'`
@@ -100,8 +101,11 @@ wörtlich übernommen. Material aus offensichtlich illegalen Quellen (z. B. Scha
 - **Übungsaufgaben als Vorlage:** Scans aus dem Cahier d'activités oder aus Bilan-Seiten des Buchs zeigen,
   *welche Inhalte und Aufgabentypen* drankommen. Daraus eigene Fragen formulieren, nicht abschreiben.
   Hör-Aufgaben nur inhaltlich auswerten.
-- **Kurs mit Audio:** `audio: true` in `COURSES` schaltet die Modi „Neue Vokabeln“ und „Hören & Schreiben“
-  frei und verlangt vertonte Vokabeln (2.5).
+- **Kurs mit Audio:** `audio: true` in `COURSES` heißt: Vokabeln sind vertont (2.5), der Wortschatz enthält
+  die Hör-Karten.
+- **Startseite** (`WelcomeScreen.jsx`): immer nur eine Frage pro Schritt. Fach → Schulaufgabe →
+  „Normales Quiz“ oder „Wortschatz“ → (nur Wortschatz, falls es datierte Batches gibt) „Alle Vokabeln“
+  oder „Nur neue Vokabeln“. Die letzte Wahl startet das Quiz, „Zurück“ geht einen Schritt zurück.
 - **Eigennamen** als Vokabelkarte nur, wenn sie sich in der Übersetzung unterscheiden
   (Strasbourg–Straßburg ja, Paris–Paris oder Hundenamen nein). In Sätzen kommen sie trotzdem vor.
 - **IDs** müssen app-weit eindeutig sein und bleiben dauerhaft gleich (die Lernhistorie hängt daran).
@@ -139,8 +143,8 @@ Gesprochen wird der Eintrag ohne Hinweise in Klammern; „ / “ wird zur Aufzä
 Ergebnis `public/audio/<kurs>/<id>.m4a` + `index.json` **einchecken** (je ca. 10 KB). Ein neuer Kurs
 wird in `SOURCES` von `export-audio-manifest.mjs` und in der Schleife von `build-audio.sh` ergänzt.
 
-In der App: 🔊 am französischen Wort (Karte `_de`), in der Rückmeldung nach jeder Antwort und bei
-„Hören & Schreiben“ automatisch. Fehlt eine Datei, spricht die Sprachausgabe des Browsers (`src/lib/audio.js`).
+In der App: 🔊 am französischen Wort (Karte `_de`), in der Rückmeldung nach jeder Antwort und bei den
+Hör-Karten (`_listen`) im Wortschatz automatisch. Fehlt eine Datei, spricht die Sprachausgabe des Browsers (`src/lib/audio.js`).
 
 Freigegebene Stimmen: Französisch `ff_siwis` mit Tempo 0.9, Englisch (britisch) `bf_emma` mit 0.95,
 optional `bm_george`. Das Skript erzeugt nur neue oder geänderte Einträge. Das Modell und die
@@ -260,7 +264,8 @@ curl -s -o /dev/null -w '%{http_code}' https://<slug>.space.fast/   # muss 403 l
 - Die alte GitHub-Pages-Seite bleibt online (enthält die alten, lokal gespeicherten Ergebnisse).
 - Französisch 6 = Découvertes 1, **Ausgabe Bayern**. Unité 1: Umfang wie im Vokabelheft (bis B5), dazu
   die freiwilligen Tiere aus „Mon dico personnel“. Eigennamen nur als Karte, wenn die Übersetzung abweicht.
-- „Neue Vokabeln“ = jüngster Batch nach **Tag des Hinzufügens**.
+- „Neue Vokabeln“ = jüngster Batch nach **Tag des Hinzufügens**, nur ein Filter auf den Wortschatz.
+- Audio ist Teil des Wortschatzes, kein eigener Modus. Startseite Schritt für Schritt, eine Frage pro Schritt.
 - Lehrer-Bereich: klare Trennung nach Fach (Reiter je Kurs).
 - Unité 1: Die Zahlen 0–12 (Kasten im Buch) sind mit drin, weil das Cahier sie abfragt. Die Fragen
   (115) orientieren sich am Cahier (S. 7–17) und an Bilan/Grammaire/Alphabet im Buch (S. 24–26).

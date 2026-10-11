@@ -24,7 +24,7 @@ export default function QuizQuestion({ question, onSubmit }) {
   const isListen = question.type === 'listen_card';
   const isCard = question.type === 'vocab_card' || isListen;
 
-  // „Hören & Schreiben“: das Wort beim Erscheinen einmal abspielen.
+  // Hör-Karte im Wortschatz: das Wort beim Erscheinen einmal abspielen.
   useEffect(() => {
     if (question.type === 'listen_card') playAudio(question.audio);
   }, [question.id, question.type, question.audio]);
