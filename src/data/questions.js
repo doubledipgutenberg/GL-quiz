@@ -751,11 +751,11 @@ import { getVocabularyQuestions as getVocabSA2 } from './vocabList';
 import questionsSA4 from './questionsSA4';
 import { getVocabularyQuestionsSA4 } from './vocabListSA4';
 import questionsFR6 from './fr6/questions';
-import { fr6VocabCards, fr6ListenCards, fr6NewVocabCards, fr6LatestBatch, fr6AllCards } from './fr6/cards';
+import { fr6VocabCards, fr6NewVocabCards, fr6LatestBatch, fr6AllCards } from './fr6/cards';
 
 // Kurse = Sprache + Klasse. Ein Kurs ohne Schulaufgaben wird als „kommt bald" angezeigt.
-// Reihenfolge = Anzeige im Auswahlmenü. `audio`: Vokabeln vertont → Modi „Neue Vokabeln“
-// und „Hören & Schreiben“ (nur Klasse 6, Entscheidung des Nutzers).
+// Reihenfolge = Anzeige im Auswahlmenü. `audio`: Vokabeln vertont (nur Klasse 6, Entscheidung des
+// Nutzers) → Wortschatz enthält Hör-Karten, dazu der Modus „Neue Vokabeln“.
 export const COURSES = [
   { id: 'en-6', lang: 'en', grade: 6, label: 'Englisch · Klasse 6', audio: true },
   { id: 'fr-6', lang: 'fr', grade: 6, label: 'Französisch · Klasse 6', audio: true },
@@ -818,11 +818,6 @@ export function getVocabularyQuestions(exam) {
   if (exam === 'sa2') return getVocabSA2();
   if (EXAMS[exam]?.course === 'fr-6') return fr6VocabCards(exam);
   return [...getVocabSA2(), ...getVocabularyQuestionsSA4(), ...fr6AllCards()];
-}
-
-/** „Hören & Schreiben“: nur hören, auf Französisch schreiben. */
-export function getListenQuestions(exam) {
-  return EXAMS[exam]?.course === 'fr-6' ? fr6ListenCards(exam) : [];
 }
 
 /** „Neue Vokabeln“: der zuletzt hinzugefügte Batch des Kurses. */

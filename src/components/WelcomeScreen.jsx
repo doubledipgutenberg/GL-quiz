@@ -4,7 +4,6 @@ import { getDraftSession, getSavedRounds, getFullExportPayload } from '../utils/
 import { Button } from './ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { SPACE_TITLE } from './KidLogin';
-import { RadioGroup, RadioGroupItem } from './ui/radio-group';
 
 function formatSavedAt(iso) {
   if (!iso) return '';
@@ -28,24 +27,35 @@ export default function WelcomeScreen({
   hasDraft,
   hasSavedRounds,
 }) {
-  const [quizMode, setQuizMode] = useState('normal');
   const [courseId, setCourseId] = useState(DEFAULT_COURSE);
   const [exam, setExam] = useState(() => defaultExamForCourse(DEFAULT_COURSE));
   const [showRoundList, setShowRoundList] = useState(false);
+  const [step, setStep] = useState(1);
 
   const course = COURSES.find((c) => c.id === courseId) || COURSES[0];
   const courseExams = examsForCourse(course.id);
   const examInfo = exam ? EXAMS[exam] : null;
 
-  const newBatch = course.audio ? latestVocabBatch(course.id) : null;
+  // „Neue Vokabeln“ ist nur ein Filter auf den Wortschatz (jüngster Batch nach Datum).
+  const newBatch = latestVocabBatch(course.id);
 
+  // Schritt für Schritt, immer nur eine Frage sichtbar: Fach → Schulaufgabe → Modus
+  // → (nur Wortschatz) alle oder neue Vokabeln. Die letzte Wahl startet das Quiz.
   const chooseCourse = (id) => {
     setCourseId(id);
     setExam(defaultExamForCourse(id));
-    if (!COURSES.find((c) => c.id === id)?.audio && (quizMode === 'newvocab' || quizMode === 'listen')) {
-      setQuizMode('normal');
-    }
+    setStep(2);
   };
+
+  const chooseExam = (id) => {
+    setExam(id);
+    setStep(3);
+  };
+
+  const start = (mode) => exam && onStart(playerName, mode, exam);
+
+  // Wortschatz: Gibt es datierte Vokabel-Lieferungen, kommt noch die Frage „alle oder nur die neuen?“.
+  const chooseVocabulary = () => (newBatch ? setStep(4) : start('vocabulary'));
 
   const showResume = hasDraft || hasSavedRounds;
 
@@ -118,8 +128,15 @@ export default function WelcomeScreen({
     );
   }
 
-  const optionClass =
-    'flex items-start gap-3 rounded-lg border border-border p-4 cursor-pointer hover:bg-accent/50 has-[:checked]:border-primary has-[:checked]:bg-accent/50';
+  const stepButtonClass =
+    'w-full flex flex-col items-start gap-0.5 rounded-lg border border-border p-4 text-left hover:bg-accent/50 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent';
+  const titles = ['Was übst du?', 'Welche Schulaufgabe?', 'Wie willst du üben?', 'Welche Vokabeln?'];
+  const choice = (key, title, subtitle, onClick, disabled = false) => (
+    <button key={key} type="button" className={stepButtonClass} disabled={disabled} onClick={onClick}>
+      <span className="font-semibold">{title}</span>
+      {subtitle && <span className="text-sm text-muted-foreground">{subtitle}</span>}
+    </button>
+  );
 
   return (
     <div className="max-w-[400px] mx-auto space-y-8">
@@ -128,114 +145,66 @@ export default function WelcomeScreen({
         <p className="text-sm text-muted-foreground">
           {SPACE_TITLE} · Hallo {playerName}!
         </p>
-        {examInfo && (
-          <p className="text-sm text-muted-foreground">
-            {course.label} — {examInfo.units}
-          </p>
-        )}
       </header>
 
       {notice && <p className="text-sm text-center text-destructive">{notice}</p>}
 
       <Card>
-        <CardHeader>
-          <CardTitle>Was übst du?</CardTitle>
+        <CardHeader className="space-y-1">
+          <p className="text-xs text-muted-foreground">Schritt {step}</p>
+          <CardTitle>{titles[step - 1]}</CardTitle>
+          {step > 1 && (
+            <p className="text-sm text-muted-foreground">
+              {course.label}
+              {step > 2 && examInfo ? ` · ${examInfo.label}` : ''}
+              {step > 3 ? ' · Wortschatz' : ''}
+            </p>
+          )}
         </CardHeader>
-        <CardContent>
-          <RadioGroup value={course.id} onValueChange={chooseCourse} className="grid gap-3">
-            {COURSES.map((c) => {
-              const soon = examsForCourse(c.id).length === 0;
-              return (
-                <label key={c.id} className={optionClass}>
-                  <RadioGroupItem value={c.id} className="mt-0.5" />
-                  <div className="flex flex-col gap-0.5">
-                    <span className="font-semibold">{c.label}</span>
-                    {soon && <span className="text-sm text-muted-foreground">Inhalte kommen bald</span>}
-                  </div>
-                </label>
-              );
-            })}
-          </RadioGroup>
+        <CardContent className="space-y-4">
+          <div className="grid gap-3">
+            {step === 1 &&
+              COURSES.map((c) => {
+                const soon = examsForCourse(c.id).length === 0;
+                return choice(c.id, c.label, soon ? 'Inhalte kommen bald' : null, () => chooseCourse(c.id), soon);
+              })}
+
+            {step === 2 && courseExams.map((ex) => choice(ex.id, ex.label, ex.units, () => chooseExam(ex.id)))}
+
+            {step === 3 && (
+              <>
+                {choice('normal', 'Normales Quiz', 'Gemischte Fragen aus dem ganzen Stoff', () => start('normal'))}
+                {choice(
+                  'vocabulary',
+                  `Wortschatz${course.audio ? ' 🔊' : ''}`,
+                  course.audio ? 'Vokabeln übersetzen, schreiben und nach Gehör schreiben' : 'Nur Vokabeln aus dem Stoff',
+                  chooseVocabulary,
+                )}
+              </>
+            )}
+
+            {step === 4 && newBatch && (
+              <>
+                {choice('all', 'Alle Vokabeln', 'Der ganze Wortschatz der Schulaufgabe', () => start('vocabulary'))}
+                {choice(
+                  'new',
+                  'Nur neue Vokabeln',
+                  `Die zuletzt hinzugefügten: ${newBatch.count} Wörter vom ${new Date(`${newBatch.added}T12:00:00`).toLocaleDateString('de-DE')}`,
+                  () => start('newvocab'),
+                )}
+              </>
+            )}
+          </div>
+
+          {step > 1 && (
+            <div className="pt-2">
+              <Button variant="outline" size="sm" onClick={() => setStep(step - 1)}>
+                Zurück
+              </Button>
+            </div>
+          )}
         </CardContent>
       </Card>
-
-      {courseExams.length === 0 ? (
-        <Card>
-          <CardContent className="py-6 text-sm text-muted-foreground text-center">
-            Für {course.label} gibt es noch keine Fragen. Sobald der Stoff da ist, geht es hier los.
-          </CardContent>
-        </Card>
-      ) : (
-        <>
-          <Card>
-            <CardHeader>
-              <CardTitle>Welche Schulaufgabe?</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <RadioGroup value={exam ?? ''} onValueChange={setExam} className="grid gap-3">
-                {courseExams.map((ex) => (
-                  <label key={ex.id} className={optionClass}>
-                    <RadioGroupItem value={ex.id} className="mt-0.5" />
-                    <div className="flex flex-col gap-0.5">
-                      <span className="font-semibold">{ex.label}</span>
-                      <span className="text-sm text-muted-foreground">{ex.units}</span>
-                    </div>
-                  </label>
-                ))}
-              </RadioGroup>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader>
-              <CardTitle>Quiz-Modus</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <RadioGroup value={quizMode} onValueChange={setQuizMode} className="grid gap-3">
-                <label className={optionClass}>
-                  <RadioGroupItem value="normal" className="mt-0.5" />
-                  <div className="flex flex-col gap-0.5">
-                    <span className="font-semibold">Normales Quiz</span>
-                    <span className="text-sm text-muted-foreground">Gemischte Fragen (Grammar, Vokabeln, Reading, Mediation)</span>
-                  </div>
-                </label>
-                <label className={optionClass}>
-                  <RadioGroupItem value="vocabulary" className="mt-0.5" />
-                  <div className="flex flex-col gap-0.5">
-                    <span className="font-semibold">Wortschatz only</span>
-                    <span className="text-sm text-muted-foreground">Nur Vokabeln aus dem Stoff – alle kommen dran</span>
-                  </div>
-                </label>
-                {newBatch && (
-                  <label className={optionClass}>
-                    <RadioGroupItem value="newvocab" className="mt-0.5" />
-                    <div className="flex flex-col gap-0.5">
-                      <span className="font-semibold">Neue Vokabeln</span>
-                      <span className="text-sm text-muted-foreground">
-                        Nur die zuletzt hinzugefügten: {newBatch.count} Wörter vom{' '}
-                        {new Date(`${newBatch.added}T12:00:00`).toLocaleDateString('de-DE')}
-                      </span>
-                    </div>
-                  </label>
-                )}
-                {course.audio && (
-                  <label className={optionClass}>
-                    <RadioGroupItem value="listen" className="mt-0.5" />
-                    <div className="flex flex-col gap-0.5">
-                      <span className="font-semibold">Hören &amp; Schreiben 🔊</span>
-                      <span className="text-sm text-muted-foreground">Das Wort wird vorgelesen – du schreibst es (mit Akzenten)</span>
-                    </div>
-                  </label>
-                )}
-              </RadioGroup>
-            </CardContent>
-          </Card>
-          <div className="flex justify-center">
-            <Button onClick={() => exam && onStart(playerName, quizMode, exam)} disabled={!exam}>
-              Quiz starten
-            </Button>
-          </div>
-        </>
-      )}
 
       <footer className="flex flex-col items-center gap-2 pt-4">
         <div className="flex flex-wrap gap-4 justify-center">
