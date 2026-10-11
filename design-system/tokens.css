@@ -1,0 +1,99 @@
+/* Clara & Jakob lernen Sprachen — generated from tokens.json by /sync-design. Do not edit; change the design system and re-sync. */
+:root, [data-theme="light"] {
+  --cream-100: #F4EDDC;
+  --cream-50: #FBF7EE;
+  --cream-200: #E9DFC6;
+  --plate: #F4EDDC;
+  --rule-soft: #D6CBB0;
+  --ink: #142554;
+  --ink-muted: #4A5680;
+  --fr-pen: #1F45A8;
+  --fr-pen-strong: #17337E;
+  --fr-tint: #DCE4F5;
+  --fr-shadow: #1F45A8;
+  --en-pen: #BA2820;
+  --en-pen-strong: #8E1C16;
+  --en-tint: #F6DCD6;
+  --en-shadow: #BA2820;
+  --house-pen: #142554;
+  --house-tint: #E9DFC6;
+  --house-shadow: #142554;
+  --pen: var(--house-pen);
+  --pen-strong: var(--house-pen);
+  --pen-tint: var(--house-tint);
+  --pen-shadow: var(--house-shadow);
+  --on-pen: #FBF7EE;
+  --lamp-300: #F6D27A;
+  --olive-600: #2C6A43;
+  --olive-100: #DDEBD9;
+  --ochre-600: #8A4B0B;
+  --ochre-100: #F6E3C4;
+  --shadow-print-fr: 3px 3px 0 #1F45A8;
+  --shadow-print-en: 3px 3px 0 #BA2820;
+  --shadow-print-correct: 3px 3px 0 #2C6A43;
+  --shadow-print-wrong: 3px 3px 0 #8A4B0B;
+}
+[data-theme="dark"], .dark {
+  --cream-100: #101C3F;
+  --cream-50: #172656;
+  --cream-200: #1F3166;
+  --plate: #EDE3CC;
+  --rule-soft: #2E4282;
+  --ink: #F1EBDC;
+  --ink-muted: #B5BEDA;
+  --fr-pen: #9DB5F2;
+  --fr-pen-strong: #C6D5F8;
+  --fr-tint: #22377A;
+  --fr-shadow: #4F6FC4;
+  --en-pen: #FF8F80;
+  --en-pen-strong: #FFC2B8;
+  --en-tint: #4A1F1C;
+  --en-shadow: #B4483E;
+  --house-pen: #F1EBDC;
+  --house-tint: #1F3166;
+  --house-shadow: #4A5680;
+  --pen: var(--house-pen);
+  --pen-strong: var(--house-pen);
+  --pen-tint: var(--house-tint);
+  --pen-shadow: var(--house-shadow);
+  --on-pen: #101C3F;
+  --lamp-300: #F6D27A;
+  --olive-600: #8FD3A3;
+  --olive-100: #1D3E2B;
+  --ochre-600: #F2B46A;
+  --ochre-100: #3D2A10;
+  --shadow-print-fr: 3px 3px 0 #4F6FC4;
+  --shadow-print-en: 3px 3px 0 #B4483E;
+  --shadow-print-correct: 3px 3px 0 #8FD3A3;
+  --shadow-print-wrong: 3px 3px 0 #F2B46A;
+}
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --radius-sm: 6px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+  --stroke-hair: 2px;
+  --stroke-ui: 2.5px;
+  --stroke-bold: 3.5px;
+  --font-display: "Bricolage Grotesque", "Arial Black", system-ui, sans-serif;
+  --font-word: Fraunces, Georgia, serif;
+  --font-sans: Outfit, "Avenir Next", system-ui, sans-serif;
+  --font-hand: Caveat, "Bradley Hand", cursive;
+}
+.display-xl { font-family: var(--font-display); font-size: 64px; line-height: 0.92; font-weight: 800; letter-spacing: -0.02em; text-transform: uppercase; }
+.display-l { font-family: var(--font-display); font-size: 44px; line-height: 0.95; font-weight: 800; letter-spacing: -0.01em; text-transform: uppercase; }
+.word-xl { font-family: var(--font-word); font-size: 40px; line-height: 46px; font-weight: 600; }
+.word-m { font-family: var(--font-word); font-size: 24px; line-height: 30px; font-weight: 500; }
+.hand-l { font-family: var(--font-hand); font-size: 34px; line-height: 34px; font-weight: 700; }
+.hand-m { font-family: var(--font-hand); font-size: 22px; line-height: 26px; font-weight: 600; }
+.title { font-family: var(--font-sans); font-size: 20px; line-height: 26px; font-weight: 600; }
+.body { font-family: var(--font-sans); font-size: 17px; line-height: 26px; font-weight: 400; }
+.body-s { font-family: var(--font-sans); font-size: 14px; line-height: 20px; font-weight: 400; }
+.label { font-family: var(--font-sans); font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }

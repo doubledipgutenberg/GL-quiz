@@ -1,0 +1,213 @@
+{
+ "v": 3,
+ "assetGroups": {
+  "Icons": {
+   "files": {
+    "arrow-right.svg": {
+     "blob": "989d13e4cc493e5417ff51ca48d2bb33",
+     "name": "arrow-right.svg",
+     "size": 237,
+     "type": "image/svg+xml"
+    },
+    "book.svg": {
+     "blob": "d2e256690874dc27230036627e43fdba",
+     "name": "book.svg",
+     "size": 315,
+     "type": "image/svg+xml"
+    },
+    "check.svg": {
+     "blob": "2950716b63d7c2b46d63ae08fc1bdd6a",
+     "name": "check.svg",
+     "size": 226,
+     "type": "image/svg+xml"
+    },
+    "cross.svg": {
+     "blob": "61c8b97b93be7f32c4867c37f39d39ef",
+     "name": "cross.svg",
+     "size": 234,
+     "type": "image/svg+xml"
+    },
+    "grammar.svg": {
+     "blob": "25783ebac82c653e31405a2c553a1bd9",
+     "name": "grammar.svg",
+     "size": 284,
+     "type": "image/svg+xml"
+    },
+    "lightbulb.svg": {
+     "blob": "782bd49a2651c47cd5fbd70970f220dc",
+     "name": "lightbulb.svg",
+     "size": 325,
+     "type": "image/svg+xml"
+    },
+    "pencil.svg": {
+     "blob": "352640e6b0075ef4567e15eba392ecc9",
+     "name": "pencil.svg",
+     "size": 271,
+     "type": "image/svg+xml"
+    },
+    "repeat.svg": {
+     "blob": "1c4587a0ade5c7cf60324e844e272c67",
+     "name": "repeat.svg",
+     "size": 333,
+     "type": "image/svg+xml"
+    },
+    "signpost.svg": {
+     "blob": "4e15f1c57d263a66618be4022bcc25c2",
+     "name": "signpost.svg",
+     "size": 293,
+     "type": "image/svg+xml"
+    },
+    "speaker.svg": {
+     "blob": "a8cbeb68f6cd7b2b6d1842927e319c56",
+     "name": "speaker.svg",
+     "size": 293,
+     "type": "image/svg+xml"
+    },
+    "star.svg": {
+     "blob": "e866f16c338c83c60e9ff20d97812550",
+     "name": "star.svg",
+     "size": 274,
+     "type": "image/svg+xml"
+    },
+    "streak-flame.svg": {
+     "blob": "ce0407908f3d792d361c73687265680f",
+     "name": "streak-flame.svg",
+     "size": 331,
+     "type": "image/svg+xml"
+    }
+   },
+   "name": "Icons",
+   "order": [
+    "check.svg",
+    "cross.svg",
+    "speaker.svg",
+    "streak-flame.svg",
+    "star.svg",
+    "book.svg",
+    "grammar.svg",
+    "pencil.svg",
+    "repeat.svg",
+    "lightbulb.svg",
+    "signpost.svg",
+    "arrow-right.svg"
+   ],
+   "tile": "xs"
+  },
+  "Illustrations": {
+   "files": {
+    "awning.svg": {
+     "blob": "01e05481effa05407cc6c1d1dada5174",
+     "name": "awning.svg",
+     "size": 1920,
+     "type": "image/svg+xml"
+    },
+    "big-ben.svg": {
+     "blob": "fe8e8eb05155b047ba574234f35e73df",
+     "name": "big-ben.svg",
+     "size": 2947,
+     "type": "image/svg+xml"
+    },
+    "cafe-table.svg": {
+     "blob": "f4616ef22c872b9a3dba351e43122a94",
+     "name": "cafe-table.svg",
+     "size": 2774,
+     "type": "image/svg+xml"
+    },
+    "coffee-cup.svg": {
+     "blob": "a44a19a8ddcebe0e83b87e8ace655cbf",
+     "name": "coffee-cup.svg",
+     "size": 493,
+     "type": "image/svg+xml"
+    },
+    "croissant.svg": {
+     "blob": "5639a9bacbc2497fd94e9d8da3661e35",
+     "name": "croissant.svg",
+     "size": 611,
+     "type": "image/svg+xml"
+    },
+    "double-decker.svg": {
+     "blob": "b9e88fb1bd753a227f200e72ba297330",
+     "name": "double-decker.svg",
+     "size": 1940,
+     "type": "image/svg+xml"
+    },
+    "eiffel-tower.svg": {
+     "blob": "25be16ab1015b6f22c4fae6d0fc13404",
+     "name": "eiffel-tower.svg",
+     "size": 4995,
+     "type": "image/svg+xml"
+    },
+    "london-scene.svg": {
+     "blob": "a592ed91ca56adce85a994ca3799c1dc",
+     "name": "london-scene.svg",
+     "size": 23162,
+     "type": "image/svg+xml"
+    },
+    "paris-scene.svg": {
+     "blob": "7e484d3ffc4632b6096350a0d8845031",
+     "name": "paris-scene.svg",
+     "size": 29054,
+     "type": "image/svg+xml"
+    },
+    "phone-box.svg": {
+     "blob": "8653fbd70fc96ab6eee303b6d8c42725",
+     "name": "phone-box.svg",
+     "size": 1348,
+     "type": "image/svg+xml"
+    },
+    "teacup.svg": {
+     "blob": "28f4c5027d7f77bc565dd23ec9d640b6",
+     "name": "teacup.svg",
+     "size": 736,
+     "type": "image/svg+xml"
+    },
+    "umbrella.svg": {
+     "blob": "3a2f2328c9ffcf16e9a6dae3317bb82e",
+     "name": "umbrella.svg",
+     "size": 752,
+     "type": "image/svg+xml"
+    }
+   },
+   "name": "Illustrations",
+   "order": [
+    "paris-scene.svg",
+    "london-scene.svg",
+    "eiffel-tower.svg",
+    "cafe-table.svg",
+    "croissant.svg",
+    "coffee-cup.svg",
+    "awning.svg",
+    "big-ben.svg",
+    "double-decker.svg",
+    "phone-box.svg",
+    "teacup.svg",
+    "umbrella.svg"
+   ],
+   "tile": "l"
+  }
+ },
+ "blobs": {},
+ "createdOnFiles": {
+  "at": "2026-10-11T08:58:03Z",
+  "v": 1
+ },
+ "docs": {
+  "readme": "project/README.md",
+  "sections": []
+ },
+ "groups": [
+  "Illustrations",
+  "Icons"
+ ],
+ "lastChange": {
+  "by": "Thomas",
+  "at": "2026-10-11T09:14:13Z",
+  "via": "Claude",
+  "note": "Renamed; blue pen for French, red pen for English; components matched to the app's screens."
+ },
+ "layout": "files",
+ "libraries": [],
+ "namespace": "ClaraJakob",
+ "sections": {},
+ "title": "Clara & Jakob lernen Sprachen"
+}

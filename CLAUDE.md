@@ -21,6 +21,28 @@ Stoffzettels bis zur Veröffentlichung, außerdem Backend-Referenz und Entscheid
 - **Inhalte** nur aus dem Material des Nutzers, nie aus dem Gedächtnis. Vokabeln erst nach seiner
   Prüfung der seitenweisen Abschrift verwenden.
 
+## Design System „Clara & Jakob lernen Sprachen“
+
+Vor **jeder UI-Arbeit** `design-system/README.md` lesen, dann die README der betroffenen Komponente
+unter `design-system/components/<Name>/README.md` (Ansicht: `preview.html` im Browser öffnen).
+
+- **`design-system/` nicht von Hand ändern.** Es ist ein Spiegel des Artifacts (Quelle und Stand in
+  `design-system/SYNC.md`). Neuer Stand nur über `/sync-design`; danach den Diff ansehen und die
+  betroffenen Screens anpassen. Wenn am Design etwas fehlt oder nicht passt: dem Nutzer sagen, nicht im
+  Spiegel ausbessern.
+- **Farben je Kurs:** Französisch = blauer Stift (`fr-pen`), Englisch = roter Stift (`en-pen`), vor der
+  Kurswahl Navy (`house-pen`). Komponenten benutzen nur `--pen`, `--pen-strong`, `--pen-tint`,
+  `--pen-shadow`; umgeschaltet wird über `data-course="fr" | "en"` (aus `course.lang`) am Wurzel-Element.
+  Nie Blau oder Rot fest eintragen.
+- **Rot heißt nie „falsch“.** Falsch = Ocker (`ochre-*`) mit Kreuz-Icon, richtig = Oliv (`olive-*`) mit Haken.
+- **Einbindung:** `design-system/tokens.css` (erzeugt) und die shadcn-Zuordnung aus dem README
+  (Abschnitt „Using it in the app“) in `src/index.css`. Klassen aus `components/bundle.css` sind Referenz;
+  in React-Komponenten mit Tailwind/shadcn nachbauen oder die Datei importieren – eine Variante wählen und
+  dabei bleiben.
+- Illustrationen und Icons aus `design-system/assets/` verwenden, nicht nachzeichnen; 🔊-Emoji durch das
+  Lautsprecher-Icon ersetzen.
+- UI-Texte bleiben Deutsch wie bisher.
+
 ## Werkzeuge (isoliert, System bleibt unberührt)
 
 - Node 22 + Spacefast-CLI: `~/.local/node22` → `scripts/setup-spacefast.sh`

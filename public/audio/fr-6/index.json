@@ -4,8 +4,10 @@
     "text": "À plus !",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "fd6429f2c82f1e37"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "ab2cc765c39ae6fe"
   },
   "fr6_a_plus_ex": {
     "file": "fr6_a_plus_ex.m4a",
@@ -13,15 +15,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "ccfee4104e4372c0"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "8d039ce3c5e1c023"
   },
   "fr6_attention": {
     "file": "fr6_attention.m4a",
     "text": "Attention!",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "192341a553d50e75"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "98fd4d643183431f"
   },
   "fr6_attention_ex": {
     "file": "fr6_attention_ex.m4a",
@@ -29,15 +35,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "9a56627fd8b6fd26"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "517275337ab01d2a"
   },
   "fr6_au_revoir": {
     "file": "fr6_au_revoir.m4a",
     "text": "Au revoir!",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "7b94e4548b7fa390"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "85a8429cfd1dc4fd"
   },
   "fr6_au_revoir_ex": {
     "file": "fr6_au_revoir_ex.m4a",
@@ -45,15 +55,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "395c62b02b12108f"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "b403af34fd8ba943"
   },
   "fr6_aussi": {
     "file": "fr6_aussi.m4a",
     "text": "aussi",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "6128359d113da80f"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "64634d4fa89d1f44"
   },
   "fr6_aussi_ex": {
     "file": "fr6_aussi_ex.m4a",
@@ -61,15 +75,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "3f4a541725d52110"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "778488a260a8a05c"
   },
   "fr6_bien": {
     "file": "fr6_bien.m4a",
     "text": "bien",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "095d40408465e2b8"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "e26d6f71c810e3b7"
   },
   "fr6_bien_ex": {
     "file": "fr6_bien_ex.m4a",
@@ -77,15 +95,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "9f45e09d791e466c"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "d05d409a986e2a33"
   },
   "fr6_bienvenue": {
     "file": "fr6_bienvenue.m4a",
     "text": "Bienvenue!",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "e37fcc758deed834"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "6f2ec1e0c5cf2fbe"
   },
   "fr6_bienvenue_ex": {
     "file": "fr6_bienvenue_ex.m4a",
@@ -93,15 +115,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "2b518b28d15bbe7e"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "fa9901293dbdfd95"
   },
   "fr6_bizarre": {
     "file": "fr6_bizarre.m4a",
     "text": "bizarre",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "0add92a2b8118aa0"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "8433ff42ef3aabb8"
   },
   "fr6_bizarre_ex": {
     "file": "fr6_bizarre_ex.m4a",
@@ -109,15 +135,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "ecab24072ef93d7d"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "ce0a41318fda21d2"
   },
   "fr6_bonjour": {
     "file": "fr6_bonjour.m4a",
     "text": "Bonjour!",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "ae4298697a202e21"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "45f7f48fc8e8386f"
   },
   "fr6_bonjour_ex": {
     "file": "fr6_bonjour_ex.m4a",
@@ -125,15 +155,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "f6783784f9bb803f"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "5e7d77ee94785f05"
   },
   "fr6_bonjour_les_amis": {
     "file": "fr6_bonjour_les_amis.m4a",
     "text": "Bonjour, les amis!",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "a110494f3c741c13"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "1cea4be35859bc77"
   },
   "fr6_bonjour_les_amis_ex": {
     "file": "fr6_bonjour_les_amis_ex.m4a",
@@ -141,15 +175,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "5eb3befc147481c9"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "b03efcec0b8eb2b6"
   },
   "fr6_c_est": {
     "file": "fr6_c_est.m4a",
     "text": "c'est",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "3ea9d9b49a6a9461"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "0b2c201967a8821f"
   },
   "fr6_c_est_ex": {
     "file": "fr6_c_est_ex.m4a",
@@ -157,15 +195,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "234ed97732005a3f"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "bc47ceb0060155fe"
   },
   "fr6_ca_ne_va_pas": {
     "file": "fr6_ca_ne_va_pas.m4a",
     "text": "Ça ne va pas.",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "f51ce0d7b41316bb"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "46c80e7225594a06"
   },
   "fr6_ca_ne_va_pas_ex": {
     "file": "fr6_ca_ne_va_pas_ex.m4a",
@@ -173,15 +215,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "b726a85b548625be"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "018a017f8aa30141"
   },
   "fr6_ca_va": {
     "file": "fr6_ca_va.m4a",
     "text": "Ça va?",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "3d527e754aa751d1"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "b1e3854798e82036"
   },
   "fr6_ca_va_ex": {
     "file": "fr6_ca_va_ex.m4a",
@@ -189,15 +235,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "5442a51e05a07b94"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "61cc2f3e063ec25c"
   },
   "fr6_cinq": {
     "file": "fr6_cinq.m4a",
     "text": "cinq",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "45a6671fbd144897"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "b53292440c46b6dc"
   },
   "fr6_cinq_ex": {
     "file": "fr6_cinq_ex.m4a",
@@ -205,15 +255,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "7c27291877bebd4f"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "bb9f66b1b7665cdc"
   },
   "fr6_comment": {
     "file": "fr6_comment.m4a",
     "text": "comment?",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "7e2ac9ab301eff3f"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "20e9009b86c2a8a0"
   },
   "fr6_comment_ex": {
     "file": "fr6_comment_ex.m4a",
@@ -221,15 +275,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "6eca7d921c9da332"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "7614307a03a9558c"
   },
   "fr6_de_d": {
     "file": "fr6_de_d.m4a",
     "text": "de",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "1955ab4525808f0c"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "e65041ca72e9e217"
   },
   "fr6_de_d_ex": {
     "file": "fr6_de_d_ex.m4a",
@@ -237,15 +295,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "46f37bd71ffdf775"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "b79583b5927ac88d"
   },
   "fr6_deux": {
     "file": "fr6_deux.m4a",
     "text": "deux",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "67416f875293db07"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "7427aff0a8fcba72"
   },
   "fr6_deux_ex": {
     "file": "fr6_deux_ex.m4a",
@@ -253,15 +315,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "ae6972cf3f57c4d5"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "dbcefdaca9d9cdab"
   },
   "fr6_dix": {
     "file": "fr6_dix.m4a",
     "text": "dix",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "089ba728049b5919"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "c78465b61b4c6c1a"
   },
   "fr6_dix_ex": {
     "file": "fr6_dix_ex.m4a",
@@ -269,15 +335,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "fb41f506a44d61b8"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "9b90f8e863392bab"
   },
   "fr6_douze": {
     "file": "fr6_douze.m4a",
     "text": "douze",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "21d47771a7c83222"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "8ae7c03400d5bf2c"
   },
   "fr6_douze_ex": {
     "file": "fr6_douze_ex.m4a",
@@ -285,15 +355,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "577490ee2b28e5ff"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "35ff423eeda17c74"
   },
   "fr6_elle_est": {
     "file": "fr6_elle_est.m4a",
     "text": "elle est",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "26b3acdad9645c01"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "3e8f56d7b7019541"
   },
   "fr6_elle_est_ex": {
     "file": "fr6_elle_est_ex.m4a",
@@ -301,15 +375,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "50c9529c46aa3832"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "afb07267e9f13aa7"
   },
   "fr6_et": {
     "file": "fr6_et.m4a",
     "text": "et",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "c5fd76a86a9e0ee4"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "c9e9cb7445152828"
   },
   "fr6_et_ex": {
     "file": "fr6_et_ex.m4a",
@@ -317,15 +395,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "40a99ff76ab26717"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "34a43718ee0f91b1"
   },
   "fr6_fantastique": {
     "file": "fr6_fantastique.m4a",
     "text": "fantastique",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "d4ada33c04256ce9"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "ba82cb92e06d2c54"
   },
   "fr6_fantastique_ex": {
     "file": "fr6_fantastique_ex.m4a",
@@ -333,15 +415,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "335f617e243d3723"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "7e0c968c7eaaab60"
   },
   "fr6_huit": {
     "file": "fr6_huit.m4a",
     "text": "huit",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "29763ec8bcba3d37"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "c2adc987b4194847"
   },
   "fr6_huit_ex": {
     "file": "fr6_huit_ex.m4a",
@@ -349,15 +435,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "602b05ff108e2e06"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "8fbd6fc098cc80e9"
   },
   "fr6_ici": {
     "file": "fr6_ici.m4a",
     "text": "ici",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "45387d7fc322cb1b"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "f2068fb72b530690"
   },
   "fr6_ici_ex": {
     "file": "fr6_ici_ex.m4a",
@@ -365,15 +455,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "68d74de80f5ea262"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "51997cd3222d72d8"
   },
   "fr6_il_est": {
     "file": "fr6_il_est.m4a",
     "text": "il est",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "56885bd4abecb407"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "2f6e88b896962c5a"
   },
   "fr6_il_est_ex": {
     "file": "fr6_il_est_ex.m4a",
@@ -381,15 +475,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "14a93e4b8baa2187"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "483d96e3f76f357a"
   },
   "fr6_je_m_appelle": {
     "file": "fr6_je_m_appelle.m4a",
     "text": "je m'appelle",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "8fbd79659f8b09d1"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "152346ba269ac427"
   },
   "fr6_je_m_appelle_ex": {
     "file": "fr6_je_m_appelle_ex.m4a",
@@ -397,15 +495,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "8847ba5435299405"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "5ffc74cecf9222e6"
   },
   "fr6_je_suis": {
     "file": "fr6_je_suis.m4a",
     "text": "je suis",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "8d287d00e728c83f"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "342e53c10e7ba348"
   },
   "fr6_je_suis_ex": {
     "file": "fr6_je_suis_ex.m4a",
@@ -413,15 +515,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "8828dbe7456758bf"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "beca01774172ae50"
   },
   "fr6_mais": {
     "file": "fr6_mais.m4a",
     "text": "mais",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "c3fc603c2cc35848"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "938b59526edd246d"
   },
   "fr6_mais_ex": {
     "file": "fr6_mais_ex.m4a",
@@ -429,15 +535,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "d141a7473bea7358"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "0d86115244783946"
   },
   "fr6_merci": {
     "file": "fr6_merci.m4a",
     "text": "merci",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "a56397eeaf22a328"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "82de56b160542cf9"
   },
   "fr6_merci_ex": {
     "file": "fr6_merci_ex.m4a",
@@ -445,15 +555,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "baf1b6b8e4f0d75c"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "f78c2f4b8424980e"
   },
   "fr6_moi": {
     "file": "fr6_moi.m4a",
     "text": "moi",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "aac20108bf9b2dd5"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "d9acceea5ac8a44c"
   },
   "fr6_moi_ex": {
     "file": "fr6_moi_ex.m4a",
@@ -461,15 +575,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "9f21a0647c0e0fb6"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "f0a9fa9947f3c288"
   },
   "fr6_neuf": {
     "file": "fr6_neuf.m4a",
     "text": "neuf",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "e35899f22960fc74"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "7920a09085d7590d"
   },
   "fr6_neuf_ex": {
     "file": "fr6_neuf_ex.m4a",
@@ -477,15 +595,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "213c78f3e5fb2b9a"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "8c4a449dc7ae7487"
   },
   "fr6_nice": {
     "file": "fr6_nice.m4a",
     "text": "Nice",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "d66d68c9640e21da"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "3f2a22359ab4e97f"
   },
   "fr6_nice_ex": {
     "file": "fr6_nice_ex.m4a",
@@ -493,15 +615,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "f94725ca0b4b7db5"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "3d1639988402add9"
   },
   "fr6_non": {
     "file": "fr6_non.m4a",
     "text": "non",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "eabae2824763c60b"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "97bdfe728a9c3998"
   },
   "fr6_non_ex": {
     "file": "fr6_non_ex.m4a",
@@ -509,15 +635,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "1f4cb6e1b581f028"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "e7e1607b3fdd4729"
   },
   "fr6_onze": {
     "file": "fr6_onze.m4a",
     "text": "onze",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "e4ad0ccc0a736062"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "a51c7b3a5a598803"
   },
   "fr6_onze_ex": {
     "file": "fr6_onze_ex.m4a",
@@ -525,15 +655,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "91b938cb53b09821"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "32cf1259356679f0"
   },
   "fr6_oui": {
     "file": "fr6_oui.m4a",
     "text": "oui",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "3b36f1c2fee8ffdb"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "c12ea4b829eec934"
   },
   "fr6_oui_ex": {
     "file": "fr6_oui_ex.m4a",
@@ -541,15 +675,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "c17ad8ee39e2f733"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "d2e28aff01693b31"
   },
   "fr6_papa": {
     "file": "fr6_papa.m4a",
     "text": "papa",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "339995e8bf4ac156"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "45a3548e48c7b144"
   },
   "fr6_papa_ex": {
     "file": "fr6_papa_ex.m4a",
@@ -557,15 +695,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "fab97d95c54914f5"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "7262c93989cf17e8"
   },
   "fr6_pardon": {
     "file": "fr6_pardon.m4a",
     "text": "Pardon.",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "c24a3c8ff0756d0f"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "313d73cdbe65272c"
   },
   "fr6_pardon_ex": {
     "file": "fr6_pardon_ex.m4a",
@@ -573,15 +715,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "5180394758c7dc3a"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "2fa99b16118fab69"
   },
   "fr6_quatre": {
     "file": "fr6_quatre.m4a",
     "text": "quatre",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "fea2e10942646374"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "109227847cb5d740"
   },
   "fr6_quatre_ex": {
     "file": "fr6_quatre_ex.m4a",
@@ -589,15 +735,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "1fc3d750565cd2b3"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "154a55a821ba105c"
   },
   "fr6_qui_est_ce": {
     "file": "fr6_qui_est_ce.m4a",
     "text": "Qui est-ce?",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "0d349ad9722f2de8"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "7819addc1835f6dd"
   },
   "fr6_qui_est_ce_ex": {
     "file": "fr6_qui_est_ce_ex.m4a",
@@ -605,15 +755,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "e3a2b5245f62f8ff"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "970885aff88429e1"
   },
   "fr6_s_p_a": {
     "file": "fr6_s_p_a.m4a",
     "text": "la S. P. A.",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "77cf1bca702feaf2"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "677a4e75bdd9ce28"
   },
   "fr6_s_p_a_ex": {
     "file": "fr6_s_p_a_ex.m4a",
@@ -621,15 +775,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "5fd3ad594a2d6446"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "7c7273f17ad8301e"
   },
   "fr6_salut": {
     "file": "fr6_salut.m4a",
     "text": "Salut!",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "2e2750c40020bed9"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "740ba8850252fa28"
   },
   "fr6_salut_ex": {
     "file": "fr6_salut_ex.m4a",
@@ -637,15 +795,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "ecda5965284f3f2c"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "71b54aea59221411"
   },
   "fr6_sept": {
     "file": "fr6_sept.m4a",
     "text": "sept",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "bff22eaefaf3a8f7"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "f460e924c93cf30a"
   },
   "fr6_sept_ex": {
     "file": "fr6_sept_ex.m4a",
@@ -653,15 +815,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "822d2d2fe36a2268"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "69dcf55af7046e53"
   },
   "fr6_six": {
     "file": "fr6_six.m4a",
     "text": "six",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "789e220d2d14c3ca"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "b9dfb937a26c8892"
   },
   "fr6_six_ex": {
     "file": "fr6_six_ex.m4a",
@@ -669,15 +835,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "4941494eb8dff9f6"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "47e3d1f90b1616a0"
   },
   "fr6_strasbourg": {
     "file": "fr6_strasbourg.m4a",
     "text": "Strasbourg",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "b5b3b1598be3b335"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "f465b714bc624791"
   },
   "fr6_strasbourg_ex": {
     "file": "fr6_strasbourg_ex.m4a",
@@ -685,15 +855,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "12ea5345354cf722"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "c383a48792ea95c1"
   },
   "fr6_super": {
     "file": "fr6_super.m4a",
     "text": "super",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "e45fe98dbc4797fe"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "a08a8ce936eb4334"
   },
   "fr6_super_ex": {
     "file": "fr6_super_ex.m4a",
@@ -701,15 +875,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "5b78a0d4f438cb50"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "e83dc55b0746266d"
   },
   "fr6_toi": {
     "file": "fr6_toi.m4a",
     "text": "toi",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "54ebad5942ed80c9"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "576dbf43538f583e"
   },
   "fr6_toi_ex": {
     "file": "fr6_toi_ex.m4a",
@@ -717,15 +895,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "c195821306184336"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "a46bd4046b4e5c7b"
   },
   "fr6_trois": {
     "file": "fr6_trois.m4a",
     "text": "trois",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "982a3d2cf35454b7"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "ca7f71d974d54dac"
   },
   "fr6_trois_ex": {
     "file": "fr6_trois_ex.m4a",
@@ -733,15 +915,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "a0381472eff2d5ac"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "a83a33b6db48bc4a"
   },
   "fr6_tu_es": {
     "file": "fr6_tu_es.m4a",
     "text": "tu es",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "cc41a714d30440ac"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "e47b4b370aa268ee"
   },
   "fr6_tu_es_ex": {
     "file": "fr6_tu_es_ex.m4a",
@@ -749,15 +935,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "4c15683e56e01662"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "4dc5858682afc149"
   },
   "fr6_tu_t_appelles_comment": {
     "file": "fr6_tu_t_appelles_comment.m4a",
     "text": "Tu t'appelles comment?",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "d156a7feddd3f3ba"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "94093b7d3a0f00dc"
   },
   "fr6_tu_t_appelles_comment_ex": {
     "file": "fr6_tu_t_appelles_comment_ex.m4a",
@@ -765,23 +955,29 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "b0af27ab4eba3023"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "c2226e2b66430599"
   },
   "fr6_un": {
     "file": "fr6_un.m4a",
     "text": "un",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "005c1b843b5ea4f4"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "d1215299e5803c56"
   },
   "fr6_un_ami_une_amie": {
     "file": "fr6_un_ami_une_amie.m4a",
     "text": "un ami, une amie",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "897c35586c080eed"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "272ac5002ef47403"
   },
   "fr6_un_ami_une_amie_ex": {
     "file": "fr6_un_ami_une_amie_ex.m4a",
@@ -789,15 +985,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "fa105c28f7578a88"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "7f5809479eb15502"
   },
   "fr6_un_animal": {
     "file": "fr6_un_animal.m4a",
     "text": "un animal",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "5cd91aaf93366273"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "d4258e976c3bcde0"
   },
   "fr6_un_animal_ex": {
     "file": "fr6_un_animal_ex.m4a",
@@ -805,15 +1005,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "59dd9a4d3bbdda6f"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "677be2c053712897"
   },
   "fr6_un_canari": {
     "file": "fr6_un_canari.m4a",
     "text": "un canari",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "0152526a7628ddc3"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "6e8aa04eb18b32d5"
   },
   "fr6_un_canari_ex": {
     "file": "fr6_un_canari_ex.m4a",
@@ -821,15 +1025,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "46bb5fe976fcc0cc"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "c3958ffd2313469f"
   },
   "fr6_un_chat": {
     "file": "fr6_un_chat.m4a",
     "text": "un chat",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "f78ae5e3e62b0f02"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "f8b23a801b93a763"
   },
   "fr6_un_chat_ex": {
     "file": "fr6_un_chat_ex.m4a",
@@ -837,15 +1045,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "514a04a069fbfafa"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "73eaad1402e9bf45"
   },
   "fr6_un_chien": {
     "file": "fr6_un_chien.m4a",
     "text": "un chien",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "ec710e752b4ca9d1"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "a18c77cf076afcac"
   },
   "fr6_un_chien_ex": {
     "file": "fr6_un_chien_ex.m4a",
@@ -853,15 +1065,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "206dbf15bb13feb8"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "5d87aef3fb78fdcf"
   },
   "fr6_un_cochon": {
     "file": "fr6_un_cochon.m4a",
     "text": "un cochon",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "e7a387ddf8ec4186"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "7ef2111232c35ba3"
   },
   "fr6_un_cochon_ex": {
     "file": "fr6_un_cochon_ex.m4a",
@@ -869,15 +1085,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "f47d42bb002c15ef"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "29a6722d78c55f36"
   },
   "fr6_un_copain_une_copine": {
     "file": "fr6_un_copain_une_copine.m4a",
     "text": "un copain, une copine",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "f6b76f47911fb76c"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "837b10764d33f1e3"
   },
   "fr6_un_copain_une_copine_ex": {
     "file": "fr6_un_copain_une_copine_ex.m4a",
@@ -885,7 +1105,9 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "33ab3be114d80dfc"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "1f01370565668312"
   },
   "fr6_un_ex": {
     "file": "fr6_un_ex.m4a",
@@ -893,15 +1115,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "ef89b82131d2e7f0"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "adcc6b56bed7fc73"
   },
   "fr6_un_garcon": {
     "file": "fr6_un_garcon.m4a",
     "text": "un garçon",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "dd7778aee3f8707e"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "150b6f463f7746a6"
   },
   "fr6_un_garcon_ex": {
     "file": "fr6_un_garcon_ex.m4a",
@@ -909,15 +1135,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "0f5264c058e87710"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "c144b6c61ba4cb04"
   },
   "fr6_un_hamster": {
     "file": "fr6_un_hamster.m4a",
     "text": "un hamster",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "595d95fc36c58fdc"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "7901db80e17c1854"
   },
   "fr6_un_hamster_ex": {
     "file": "fr6_un_hamster_ex.m4a",
@@ -925,15 +1155,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "ccc345dea6878b2f"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "e65893e35be6f62b"
   },
   "fr6_un_monsieur": {
     "file": "fr6_un_monsieur.m4a",
     "text": "un monsieur",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "f88a569b74377de0"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "3e20011235e451b3"
   },
   "fr6_un_monsieur_ex": {
     "file": "fr6_un_monsieur_ex.m4a",
@@ -941,15 +1175,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "51de32fc8109d24f"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "703e0519977b9de4"
   },
   "fr6_un_perroquet": {
     "file": "fr6_un_perroquet.m4a",
     "text": "un perroquet",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "13073360fc57e4cc"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "78041c247e72194e"
   },
   "fr6_un_perroquet_ex": {
     "file": "fr6_un_perroquet_ex.m4a",
@@ -957,15 +1195,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "82c2d091a9d9f754"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "c36bd407ce5b937e"
   },
   "fr6_un_rat": {
     "file": "fr6_un_rat.m4a",
     "text": "un rat",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "a10a122c49e1290c"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "b6fe22d7bf8c3f5c"
   },
   "fr6_un_rat_ex": {
     "file": "fr6_un_rat_ex.m4a",
@@ -973,15 +1215,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "ecaa7d0c2fabc6fd"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "2a87290575fcaafd"
   },
   "fr6_un_serpent": {
     "file": "fr6_un_serpent.m4a",
     "text": "un serpent",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "0b997b23518c2197"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "3e34ef91ccd1bd75"
   },
   "fr6_un_serpent_ex": {
     "file": "fr6_un_serpent_ex.m4a",
@@ -989,15 +1235,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "fe25736737b897db"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "38132087f8b1e44d"
   },
   "fr6_une_chanson": {
     "file": "fr6_une_chanson.m4a",
     "text": "une chanson",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "141e2186437f5f14"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "48435007e3b732c4"
   },
   "fr6_une_chanson_ex": {
     "file": "fr6_une_chanson_ex.m4a",
@@ -1005,15 +1255,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "a33e2af442b29e81"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "869713a3623ef705"
   },
   "fr6_une_dame": {
     "file": "fr6_une_dame.m4a",
     "text": "une dame",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "90c78b78dfb51786"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "8e34b93b3f920b80"
   },
   "fr6_une_dame_ex": {
     "file": "fr6_une_dame_ex.m4a",
@@ -1021,15 +1275,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "269cca4dc3ad34d3"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "4112bd574304e96d"
   },
   "fr6_une_fille": {
     "file": "fr6_une_fille.m4a",
     "text": "une fille",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "ef29cc4092ea0b60"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "25e3e5ae97cf9a50"
   },
   "fr6_une_fille_ex": {
     "file": "fr6_une_fille_ex.m4a",
@@ -1037,15 +1295,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "d5e8ba35cfdcd131"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "32d34c779b2091f3"
   },
   "fr6_une_perruche": {
     "file": "fr6_une_perruche.m4a",
     "text": "une perruche",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "3d574429fcd7622c"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "2f292c822ffd71a2"
   },
   "fr6_une_perruche_ex": {
     "file": "fr6_une_perruche_ex.m4a",
@@ -1053,15 +1315,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "1f702364730ef3f2"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "e325ab199956c938"
   },
   "fr6_une_tortue": {
     "file": "fr6_une_tortue.m4a",
     "text": "une tortue",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "045262abcd5ff51c"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "00b95d122db06dee"
   },
   "fr6_une_tortue_ex": {
     "file": "fr6_une_tortue_ex.m4a",
@@ -1069,15 +1335,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "bd9a0cb6c58787a3"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "1f8e706af09f508f"
   },
   "fr6_viens": {
     "file": "fr6_viens.m4a",
     "text": "Viens!",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "5f371999f9e09873"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "bfff554db08a2d47"
   },
   "fr6_viens_ex": {
     "file": "fr6_viens_ex.m4a",
@@ -1085,15 +1355,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "2fb6c1d42638ef51"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "79ab4a5cb60bcbbf"
   },
   "fr6_vite": {
     "file": "fr6_vite.m4a",
     "text": "vite",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "551800c23728b902"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "c48a6e2a8b8c7bfb"
   },
   "fr6_vite_ex": {
     "file": "fr6_vite_ex.m4a",
@@ -1101,15 +1375,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "b67762feaa166349"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "f2d4c9998a5f2753"
   },
   "fr6_voila": {
     "file": "fr6_voila.m4a",
     "text": "voilà",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "3628fdd555d6a794"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "acc65f36e7b68d26"
   },
   "fr6_voila_ex": {
     "file": "fr6_voila_ex.m4a",
@@ -1117,15 +1395,19 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "4b95abf92cbaf67b"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "ed27079f7ee15e15"
   },
   "fr6_zero": {
     "file": "fr6_zero.m4a",
     "text": "zéro",
     "lang": "fr-fr",
     "voice": "ff_siwis",
-    "speed": 0.9,
-    "hash": "08df424852e1f1a6"
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "661211fb0e424c16"
   },
   "fr6_zero_ex": {
     "file": "fr6_zero_ex.m4a",
@@ -1133,6 +1415,8 @@
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.9,
-    "hash": "40b1b8b9680aeb08"
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "1fa21c30712ec877"
   }
 }
