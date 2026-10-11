@@ -280,5 +280,11 @@ curl -s -o /dev/null -w '%{http_code}' https://<slug>.space.fast/   # muss 403 l
   bf_emma. Fragen nach Grammatik G1–G3 und Practice pool der Unit.
 - Hör-Karten: erst das Wort, dann ein kurzer Beispielsatz (nur bei Hör-Karten).
 - Lehrer-Bereich: „Neue Vokabeln“ und „Gesamter Wortschatz“ als eigene Bereiche, alle Listen klappbar, mobil kompakt.
+- Audio: Einzelwörter langsamer (0,8) mit 0,8 s Stille davor, damit kurze Wörter wie „air“ nicht verschluckt
+  werden (`KIND` in `scripts/generate-audio.py`); Beispielsätze im normalen Tempo.
+- Design System „Clara & Jakob lernen Sprachen“ (`design-system/`, Regeln in `CLAUDE.md`): eingebunden in
+  `src/index.css` (tokens.css ohne Layer, bundle.css im Layer `components`, shadcn-Variablen auf die Tokens
+  gemappt), Schriften per `<link>` in `index.html`. Stift über `data-course` am `<body>` (App.jsx) – nicht am
+  `<html>`, dort gewinnt tokens.css. Umgebaut: Startseite (Masthead, Kurskarten, Choices, Straßenschild).
 - Multiple-Choice-Optionen werden bei jeder Runde gemischt (`useQuiz.js`); das normale Quiz nimmt nur Fragen
   der gewählten Schulaufgabe, ungesehene zuerst.

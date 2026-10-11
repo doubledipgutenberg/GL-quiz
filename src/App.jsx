@@ -10,6 +10,7 @@ import FeedbackCard from './components/FeedbackCard';
 import ScoreBoard from './components/ScoreBoard';
 import ProgressBar from './components/ProgressBar';
 import AdminDashboard from './components/AdminDashboard';
+import { COURSES, EXAMS } from './data/questions';
 import { Button } from './components/ui/button';
 import { Input } from './components/ui/input';
 import {
@@ -28,6 +29,10 @@ const SYNC_LABELS = {
   error: 'Nicht gespeichert – keine Verbindung',
 };
 
+// Stift des Design Systems: data-course="fr" | "en" (aus course.lang); ohne Kurs Navy (house-pen).
+const langOfCourse = (courseId) => COURSES.find((c) => c.id === courseId)?.lang ?? null;
+const langOfQuestion = (q) => (q ? langOfCourse(q.course || EXAMS[q.exam]?.course) : null);
+
 function SyncBadge() {
   const [status, setStatus] = useState('idle');
   useEffect(() => onSyncStatus(setStatus), []);
@@ -45,7 +50,22 @@ export default function App() {
   const [kid, setKid] = useState(() => getKidSession());
   const [loading, setLoading] = useState(() => !!getKidSession());
   const [loadError, setLoadError] = useState('');
+  const [welcomeCourseId, setWelcomeCourseId] = useState(null);
   const quiz = useQuiz();
+
+  // data-course am <body>: so zeichnen auch Dialoge (Portale hängen im body) im Stift des Kurses.
+  // Nicht am <html>: dort ist es :root, und tokens.css setzt --pen auf :root ohne Layer – das gewinnt.
+  const courseLang =
+    !kid || showAdmin
+      ? null
+      : quiz.phase === 'welcome'
+        ? langOfCourse(welcomeCourseId)
+        : langOfQuestion(quiz.questions[0]);
+  useEffect(() => {
+    const root = document.body;
+    if (courseLang) root.dataset.course = courseLang;
+    else delete root.dataset.course;
+  }, [courseLang]);
 
   // Beim Start den aktuellen Stand vom Server holen (andere Geräte, Geschwister).
   useEffect(() => {
@@ -128,6 +148,7 @@ export default function App() {
         <WelcomeScreen
           playerName={kid.name}
           onSwitchProfile={handleSwitchProfile}
+          onCourseChange={setWelcomeCourseId}
           notice={loadError}
           syncBadge={<SyncBadge />}
           onStart={quiz.startQuiz}

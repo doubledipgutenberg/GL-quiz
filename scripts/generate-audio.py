@@ -8,8 +8,9 @@ MANIFEST.json:
     {
       "course": "fr-6",
       "items": [
-        {"id": "fr6_ecole", "text": "l'école", "lang": "fr"},
-        {"id": "en6_bike",  "text": "the bike", "lang": "en", "voice": "bm_george"}
+        {"id": "fr6_ecole",    "text": "l'école", "lang": "fr", "kind": "word"},
+        {"id": "fr6_ecole_ex", "text": "Voilà l'école !", "lang": "fr", "kind": "sentence"},
+        {"id": "en6_bike",     "text": "the bike", "lang": "en", "voice": "bm_george"}
       ]
     }
 
@@ -18,7 +19,10 @@ Ergebnis:
     <out>/<course>/index.json    {id: {file, text, lang, voice, speed, hash}} – die App liest das,
                                  um nur dort einen 🔊-Button zu zeigen, wo es Audio gibt.
 
-Bereits erzeugte Einträge mit unverändertem Text/Stimme/Tempo werden übersprungen.
+`kind` (word | sentence, Standard word): Einzelwörter werden langsamer gesprochen und bekommen vorne
+Stille, damit der Anfang beim Abspielen (Handy, Bluetooth-Kopfhörer) nicht verschluckt wird.
+
+Bereits erzeugte Einträge mit unverändertem Text/Stimme/Tempo/Stille werden übersprungen.
 --prune löscht Audios, deren id nicht mehr im Manifest steht.
 """
 
@@ -34,10 +38,16 @@ KOKORO_HOME = Path.home() / ".local/kokoro"
 MODEL = KOKORO_HOME / "models/kokoro-v1.0.onnx"
 VOICES = KOKORO_HOME / "models/voices-v1.0.bin"
 
-# Vom Nutzer freigegebene Stimmen (Hörproben 2026-10-10).
+# Vom Nutzer freigegebene Stimmen (Hörproben 2026-10-10). `speed` gilt für Sätze.
 DEFAULTS = {
     "fr": {"voice": "ff_siwis", "lang": "fr-fr", "speed": 0.9},
     "en": {"voice": "bf_emma", "lang": "en-gb", "speed": 0.95},
+}
+# Einzelwörter (2026-10-11, Wunsch des Nutzers): kurze Wörter wie „air“ waren kaum zu verstehen →
+# langsamer sprechen und Stille davor (Sekunden). Sätze bekommen nur etwas Vorlauf.
+KIND = {
+    "word": {"speed": 0.8, "lead": 0.8, "tail": 0.3},
+    "sentence": {"speed": None, "lead": 0.3, "tail": 0.2},
 }
 AAC_BITRATE = "48000"
 
@@ -46,10 +56,15 @@ def settings(item):
     base = DEFAULTS.get(item.get("lang"))
     if not base:
         raise SystemExit(f"Unbekannte Sprache '{item.get('lang')}' bei id={item.get('id')} (erlaubt: {sorted(DEFAULTS)})")
+    kind = KIND.get(item.get("kind", "word"))
+    if not kind:
+        raise SystemExit(f"Unbekannte Art '{item.get('kind')}' bei id={item.get('id')} (erlaubt: {sorted(KIND)})")
     return {
         "voice": item.get("voice", base["voice"]),
         "lang": base["lang"],
-        "speed": float(item.get("speed", base["speed"])),
+        "speed": float(item.get("speed", kind["speed"] or base["speed"])),
+        "lead": kind["lead"],
+        "tail": kind["tail"],
     }
 
 
@@ -89,6 +104,7 @@ def main():
     print(f"{course}: {len(items)} Einträge, {len(items) - len(todo)} aktuell, {len(todo)} zu erzeugen")
 
     if todo:
+        import numpy as np
         import soundfile as sf
         from kokoro_onnx import Kokoro
 
@@ -96,6 +112,11 @@ def main():
         with tempfile.TemporaryDirectory() as tmp:
             for n, (it, s, h, f) in enumerate(todo, 1):
                 audio, rate = kokoro.create(it["text"], voice=s["voice"], speed=s["speed"], lang=s["lang"])
+                audio = np.concatenate([
+                    np.zeros(int(rate * s["lead"]), dtype=audio.dtype),
+                    audio,
+                    np.zeros(int(rate * s["tail"]), dtype=audio.dtype),
+                ])
                 wav = Path(tmp) / f"{it['id']}.wav"
                 sf.write(wav, audio, rate)
                 subprocess.run(

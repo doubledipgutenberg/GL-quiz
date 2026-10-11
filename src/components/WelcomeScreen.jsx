@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { EXAMS, COURSES, DEFAULT_COURSE, examsForCourse, defaultExamForCourse, latestVocabBatch } from '../data/questions';
 import { getDraftSession, getSavedRounds, getFullExportPayload } from '../utils/storage';
-import { Button } from './ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { SPACE_TITLE } from './KidLogin';
+import parisScene from '../../design-system/assets/Illustrations/paris-scene.svg';
+import londonScene from '../../design-system/assets/Illustrations/london-scene.svg';
+
+// Design System „Clara & Jakob lernen Sprachen“: Klassen .vx-* aus design-system/components/bundle.css
+// (Masthead, CourseCard, Choice, StreetSign, Button). Farben nur über den Stift (data-course).
 
 function formatSavedAt(iso) {
   if (!iso) return '';
@@ -15,9 +18,50 @@ function formatSavedAt(iso) {
   return `${day}.${month}. ${hours}:${mins}`;
 }
 
+// Jede Sprache lebt in ihrer Stadt: Französisch → Paris, Englisch → London.
+const CITY = {
+  fr: { subject: 'Französisch', kicker: 'Vivre à', city: 'Paris', scene: parisScene, sign: 'vx-sign--paris' },
+  en: { subject: 'Englisch', kicker: 'Living in', city: 'London', scene: londonScene, sign: 'vx-sign--london' },
+};
+
+// Straßenschild: Name = Titel der Unit (nach „ – “) bzw. die Units, kleine Zeile = Schulaufgabe.
+function signText(ex) {
+  const [head, title] = ex.label.split(' – ');
+  return title ? { name: title, top: head } : { name: ex.units, top: ex.label };
+}
+
+function Icon({ name, small = false }) {
+  return <i className={`vx-ico vx-ico--${name}${small ? ' vx-ico--sm' : ''}`} aria-hidden="true" />;
+}
+
+function Choice({ icon, title, sub, onClick, disabled = false }) {
+  return (
+    <button type="button" className="vx-choice" onClick={onClick} disabled={disabled}>
+      <span className="vx-choice__ico">
+        <Icon name={icon} />
+      </span>
+      <span className="vx-choice__txt">
+        <span className="vx-choice__title">{title}</span>
+        {sub && <span className="vx-choice__sub">{sub}</span>}
+      </span>
+      {!disabled && <Icon name="arrow-right" />}
+    </button>
+  );
+}
+
+function StepHead({ step, title }) {
+  return (
+    <div>
+      <span className="vx-label">Schritt {step}</span>
+      <p className="vx-question">{title}</p>
+    </div>
+  );
+}
+
 export default function WelcomeScreen({
   playerName,
   onSwitchProfile,
+  onCourseChange,
   notice,
   syncBadge,
   onStart,
@@ -35,6 +79,12 @@ export default function WelcomeScreen({
   const course = COURSES.find((c) => c.id === courseId) || COURSES[0];
   const courseExams = examsForCourse(course.id);
   const examInfo = exam ? EXAMS[exam] : null;
+  const city = CITY[course.lang] || CITY.en;
+
+  // Vor der Kurswahl zeichnet alles im Navy-Stift, danach im Stift des Kurses (data-course in App.jsx).
+  useEffect(() => {
+    onCourseChange?.(step >= 2 ? course.id : null);
+  }, [step, course.id, onCourseChange]);
 
   // „Neue Vokabeln“ ist nur ein Filter auf den Wortschatz (jüngster Batch nach Datum).
   const newBatch = latestVocabBatch(course.id);
@@ -58,6 +108,19 @@ export default function WelcomeScreen({
   const chooseVocabulary = () => (newBatch ? setStep(4) : start('vocabulary'));
 
   const showResume = hasDraft || hasSavedRounds;
+
+  const masthead = (
+    <header className="vx-mast">
+      <div className="vx-awning vx-awning--house" />
+      <div className="vx-mast__name">
+        <span className="vx-kicker">Clara &amp; Jakob lernen</span>
+        <h1 className="vx-display">Sprachen</h1>
+      </div>
+      <span className="vx-label">
+        {SPACE_TITLE} · Hallo {playerName}!
+      </span>
+    </header>
+  );
 
   if (showRoundList) {
     const draft = getDraftSession();
@@ -84,141 +147,167 @@ export default function WelcomeScreen({
       }
     };
     return (
-      <div className="max-w-[400px] mx-auto space-y-6">
-        <Card>
-          <CardHeader>
-            <CardTitle>Runde fortsetzen</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            {!hasAny ? (
-              <p className="text-sm text-muted-foreground">Keine gespeicherten Runden.</p>
-            ) : (
-              <ul className="space-y-3">
-                {draft && (
-                  <li className="flex items-center justify-between gap-4 p-4 rounded-lg border border-border bg-card">
-                    <div className="flex flex-col gap-0.5">
-                      <span className="font-semibold text-sm">Aktuelle Runde</span>
-                      <span className="text-xs text-muted-foreground">{draft.name} · {formatSavedAt(draft.updatedAt)}</span>
-                    </div>
-                    <Button size="sm" onClick={() => onRestoreDraft()}>Fortsetzen</Button>
-                  </li>
-                )}
-                {savedRounds.map((r) => (
-                  <li key={r.id} className="flex items-center justify-between gap-4 p-4 rounded-lg border border-border bg-card">
-                    <div className="flex flex-col gap-0.5">
-                      <span className="font-semibold text-sm">{r.roundName}</span>
-                      <span className="text-xs text-muted-foreground">{r.playerName} · {formatSavedAt(r.savedAt)}</span>
-                    </div>
-                    <Button size="sm" onClick={() => onRestoreSavedRound(r)}>Fortsetzen</Button>
-                  </li>
-                ))}
-              </ul>
-            )}
-            <div className="flex flex-wrap items-center justify-between gap-2 pt-2">
-              <Button variant="outline" size="sm" onClick={() => setShowRoundList(false)}>
-                Zurück
-              </Button>
-              <Button variant="link" size="sm" className="text-muted-foreground px-0" onClick={handleExport}>
-                Daten exportieren (JSON)
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
+      <div className="max-w-[420px] mx-auto space-y-8">
+        {masthead}
+        <div className="vx-stack">
+          <p className="vx-question">Runde fortsetzen</p>
+          {!hasAny ? (
+            <p className="vx-choice__sub">Keine gespeicherten Runden.</p>
+          ) : (
+            <>
+              {draft && (
+                <Choice
+                  icon="repeat"
+                  title="Aktuelle Runde"
+                  sub={`${draft.name} · ${formatSavedAt(draft.updatedAt)}`}
+                  onClick={() => onRestoreDraft()}
+                />
+              )}
+              {savedRounds.map((r) => (
+                <Choice
+                  key={r.id}
+                  icon="repeat"
+                  title={r.roundName}
+                  sub={`${r.playerName} · ${formatSavedAt(r.savedAt)}`}
+                  onClick={() => onRestoreSavedRound(r)}
+                />
+              ))}
+            </>
+          )}
+          <div className="flex flex-wrap items-center justify-between gap-2 pt-2">
+            <button type="button" className="vx-btn vx-btn--sm" onClick={() => setShowRoundList(false)}>
+              Zurück
+            </button>
+            <button type="button" className="vx-btn vx-btn--link" onClick={handleExport}>
+              Daten exportieren (JSON)
+            </button>
+          </div>
+        </div>
       </div>
     );
   }
 
-  const stepButtonClass =
-    'w-full flex flex-col items-start gap-0.5 rounded-lg border border-border p-4 text-left hover:bg-accent/50 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent';
   const titles = ['Was übst du?', 'Welche Schulaufgabe?', 'Wie willst du üben?', 'Welche Vokabeln?'];
-  const choice = (key, title, subtitle, onClick, disabled = false) => (
-    <button key={key} type="button" className={stepButtonClass} disabled={disabled} onClick={onClick}>
-      <span className="font-semibold">{title}</span>
-      {subtitle && <span className="text-sm text-muted-foreground">{subtitle}</span>}
-    </button>
-  );
+  const sign = examInfo ? signText(examInfo) : null;
 
   return (
-    <div className="max-w-[400px] mx-auto space-y-8">
-      <header className="text-center space-y-1">
-        <h1 className="text-2xl font-bold tracking-tight">Quiz Challenge</h1>
-        <p className="text-sm text-muted-foreground">
-          {SPACE_TITLE} · Hallo {playerName}!
-        </p>
-      </header>
+    <div className="max-w-[420px] mx-auto space-y-8">
+      {masthead}
 
       {notice && <p className="text-sm text-center text-destructive">{notice}</p>}
 
-      <Card>
-        <CardHeader className="space-y-1">
-          <p className="text-xs text-muted-foreground">Schritt {step}</p>
-          <CardTitle>{titles[step - 1]}</CardTitle>
-          {step > 1 && (
-            <p className="text-sm text-muted-foreground">
-              {course.label}
-              {step > 2 && examInfo ? ` · ${examInfo.label}` : ''}
-              {step > 3 ? ' · Wortschatz' : ''}
-            </p>
-          )}
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="grid gap-3">
-            {step === 1 &&
-              COURSES.map((c) => {
-                const soon = examsForCourse(c.id).length === 0;
-                return choice(c.id, c.label, soon ? 'Inhalte kommen bald' : null, () => chooseCourse(c.id), soon);
-              })}
+      <div className="vx-stack">
+        <StepHead step={step} title={titles[step - 1]} />
 
-            {step === 2 && courseExams.map((ex) => choice(ex.id, ex.label, ex.units, () => chooseExam(ex.id)))}
+        {/* Schritt 1: Kurskarten – Paris (Französisch) oder London (Englisch) */}
+        {step === 1 &&
+          COURSES.map((c) => {
+            const soon = examsForCourse(c.id).length === 0;
+            const k = CITY[c.lang] || CITY.en;
+            const units = examsForCourse(c.id)
+              .map((e) => e.label.split(' – ')[0])
+              .join(' · ');
+            return (
+              <button
+                key={c.id}
+                type="button"
+                className="vx-course w-full disabled:cursor-not-allowed disabled:border-dashed disabled:opacity-60 disabled:shadow-none"
+                data-course={c.lang}
+                disabled={soon}
+                onClick={() => chooseCourse(c.id)}
+              >
+                <div className="vx-awning" />
+                <div className="vx-course__plate">
+                  <img src={k.scene} alt="" />
+                </div>
+                <div className="vx-course__body">
+                  <div>
+                    <span className="vx-kicker">{k.kicker}</span>
+                    <h3 className="vx-display">{k.city}</h3>
+                  </div>
+                  <div className="vx-row" style={{ gap: 8 }}>
+                    <span className="vx-pill vx-pill--solid">{k.subject}</span>
+                    <span className="vx-pill">Klasse {c.grade}</span>
+                  </div>
+                  <span className="vx-choice__sub">
+                    {soon ? 'Inhalte kommen bald' : `${c.audio ? 'Wortschatz mit Aussprache · ' : ''}${units}`}
+                  </span>
+                </div>
+              </button>
+            );
+          })}
 
-            {step === 3 && (
-              <>
-                {choice('normal', 'Normales Quiz', 'Gemischte Fragen aus dem ganzen Stoff', () => start('normal'))}
-                {choice(
-                  'vocabulary',
-                  `Wortschatz${course.audio ? ' 🔊' : ''}`,
-                  course.audio ? 'Vokabeln übersetzen, schreiben und nach Gehör schreiben' : 'Nur Vokabeln aus dem Stoff',
-                  chooseVocabulary,
-                )}
-              </>
-            )}
-
-            {step === 4 && newBatch && (
-              <>
-                {choice('all', 'Alle Vokabeln', 'Der ganze Wortschatz der Schulaufgabe', () => start('vocabulary'))}
-                {choice(
-                  'new',
-                  'Nur neue Vokabeln',
-                  `Die zuletzt hinzugefügten: ${newBatch.count} Wörter vom ${new Date(`${newBatch.added}T12:00:00`).toLocaleDateString('de-DE')}`,
-                  () => start('newvocab'),
-                )}
-              </>
-            )}
-          </div>
-
-          {step > 1 && (
-            <div className="pt-2">
-              <Button variant="outline" size="sm" onClick={() => setStep(step - 1)}>
-                Zurück
-              </Button>
+        {/* Schritt 2: Schulaufgabe */}
+        {step === 2 && (
+          <>
+            <div className="vx-row" style={{ gap: 8 }}>
+              <span className="vx-pill vx-pill--solid">{city.subject}</span>
+              <span className="vx-pill">Klasse {course.grade}</span>
             </div>
-          )}
-        </CardContent>
-      </Card>
+            {courseExams.map((ex) => (
+              <Choice key={ex.id} icon="signpost" title={ex.label} sub={ex.units} onClick={() => chooseExam(ex.id)} />
+            ))}
+          </>
+        )}
+
+        {/* Ab Schritt 3: die gewählte Schulaufgabe als Straßenschild der Stadt */}
+        {step >= 3 && sign && (
+          <div className="flex justify-center py-2">
+            <div className={`vx-sign ${city.sign}`}>
+              <span className="vx-sign__name">{sign.name}</span>
+              <span className="vx-sign__top">
+                {sign.top} · {city.subject} {course.grade}
+              </span>
+            </div>
+          </div>
+        )}
+
+        {step === 3 && (
+          <>
+            <Choice icon="grammar" title="Normales Quiz" sub="Gemischte Fragen aus dem ganzen Stoff" onClick={() => start('normal')} />
+            <Choice
+              icon="book"
+              title="Wortschatz"
+              sub={course.audio ? 'Vokabeln übersetzen, schreiben und nach Gehör schreiben' : 'Nur Vokabeln aus dem Stoff'}
+              onClick={chooseVocabulary}
+            />
+          </>
+        )}
+
+        {step === 4 && newBatch && (
+          <>
+            <Choice icon="book" title="Alle Vokabeln" sub="Der ganze Wortschatz der Schulaufgabe" onClick={() => start('vocabulary')} />
+            <Choice
+              icon="repeat"
+              title="Nur neue Vokabeln"
+              sub={`Die zuletzt hinzugefügten: ${newBatch.count} Wörter vom ${new Date(`${newBatch.added}T12:00:00`).toLocaleDateString('de-DE')}`}
+              onClick={() => start('newvocab')}
+            />
+          </>
+        )}
+
+        {step > 1 && (
+          <div className="pt-2">
+            <button type="button" className="vx-btn vx-btn--sm" onClick={() => setStep(step - 1)}>
+              Zurück
+            </button>
+          </div>
+        )}
+      </div>
 
       <footer className="flex flex-col items-center gap-2 pt-4">
         <div className="flex flex-wrap gap-4 justify-center">
           {showResume && (
-            <Button variant="link" size="sm" className="text-muted-foreground" onClick={() => setShowRoundList(true)}>
+            <button type="button" className="vx-btn vx-btn--link" onClick={() => setShowRoundList(true)}>
               Letzte Runde weiterspielen
-            </Button>
+            </button>
           )}
-          <Button variant="link" size="sm" className="text-muted-foreground" onClick={onAdmin}>
+          <button type="button" className="vx-btn vx-btn--link" onClick={onAdmin}>
             Lehrer-Bereich
-          </Button>
-          <Button variant="link" size="sm" className="text-muted-foreground" onClick={onSwitchProfile}>
+          </button>
+          <button type="button" className="vx-btn vx-btn--link" onClick={onSwitchProfile}>
             Profil wechseln
-          </Button>
+          </button>
         </div>
         {syncBadge}
       </footer>
