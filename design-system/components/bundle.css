@@ -177,6 +177,17 @@ body{background:var(--cream-100);color:var(--ink);font-family:var(--font-sans);m
 .vx-feedback--wrong .vx-btn--primary{background:var(--ochre-600);border-color:var(--ochre-600);color:var(--ochre-100);box-shadow:none}
 .vx-feedback .vx-btn--sm{align-self:flex-start;border-color:currentColor;color:inherit;box-shadow:none}
 
+/* Feedback sticker */
+.vx-feedback__head{display:flex;align-items:center;gap:var(--space-4)}
+.vx-sticker{width:112px;height:auto;flex:none;transform:rotate(var(--tilt,-4deg))}
+.vx-sticker--pop{animation:vx-pop .38s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes vx-pop{from{transform:scale(.4) rotate(-30deg);opacity:0}to{transform:scale(1) rotate(var(--tilt,-6deg));opacity:1}}
+@media (prefers-reduced-motion:reduce){.vx-sticker--pop{animation:none}}
+.vx-feedback__exclaim{display:block;font:700 26px/1 var(--font-hand);color:var(--ink);transform:rotate(-3deg);transform-origin:left bottom;margin-bottom:4px}
+.vx-feedback__head .vx-feedback__title{flex-wrap:wrap}
+.vx-stickers{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:14px}
+.vx-stickers img{width:100%;height:auto}
+
 /* Score */
 .vx-score{display:flex;flex-direction:column;align-items:center;gap:var(--space-3);text-align:center}
 .vx-score__ring{position:relative;width:168px;height:168px;display:grid;place-items:center}

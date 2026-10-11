@@ -77,9 +77,11 @@ Replace the 🔊 emoji with the speaker icon (or lucide `Volume2`, `strokeWidth=
 
 They are flat: pen line, cream fill, lamp for light, tint for water.
 
+**Stickers** (see **Stickers** and the FeedbackSticker card): 32 little textured characters, 20 for *Richtig!* and 12 for *Nicht ganz…*, in the course colour; the pose carries the feeling. Each has an exclamation in the course language and a German line. They rotate randomly from a shuffle bag, so the feedback never feels repetitive.
+
 ## Do / don't
 
 - Do set `data-course` once per screen. Never hard-code blue or red in a component.
 - Do pair Richtig / Nicht ganz colours with an icon and a word.
 - Don't use red for mistakes, ever.
-- Don't use gradients, blurred shadows, emoji or photos.
+- Don't use gradients, blurred shadows, emoji or photos. No mascots from films or TV — the stickers are the app's own cast.

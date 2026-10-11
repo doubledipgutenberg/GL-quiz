@@ -1,0 +1,226 @@
+[
+ {
+  "file": "richtig-fr-beret-grin.svg",
+  "course": "fr",
+  "verdict": "richtig",
+  "exclaim": "Bravo !",
+  "line": "Das war genau richtig, super gemacht."
+ },
+ {
+  "file": "richtig-fr-thumbs-up.svg",
+  "course": "fr",
+  "verdict": "richtig",
+  "exclaim": "Oui !",
+  "line": "Volltreffer, du hast es drauf."
+ },
+ {
+  "file": "richtig-fr-star-eyes.svg",
+  "course": "fr",
+  "verdict": "richtig",
+  "exclaim": "Génial !",
+  "line": "Wow, das hast du richtig gut gewusst."
+ },
+ {
+  "file": "richtig-fr-croissant-cheer.svg",
+  "course": "fr",
+  "verdict": "richtig",
+  "exclaim": "Super !",
+  "line": "Jawohl, das hast du dir verdient."
+ },
+ {
+  "file": "richtig-fr-medal.svg",
+  "course": "fr",
+  "verdict": "richtig",
+  "exclaim": "Parfait !",
+  "line": "Ganz ruhig und sicher, so geht das."
+ },
+ {
+  "file": "richtig-fr-clap.svg",
+  "course": "fr",
+  "verdict": "richtig",
+  "exclaim": "Bien joué !",
+  "line": "Applaus, das war richtig."
+ },
+ {
+  "file": "richtig-fr-heart-eyes.svg",
+  "course": "fr",
+  "verdict": "richtig",
+  "exclaim": "J'adore !",
+  "line": "Du und Französisch, das passt."
+ },
+ {
+  "file": "richtig-fr-jump.svg",
+  "course": "fr",
+  "verdict": "richtig",
+  "exclaim": "Youpi !",
+  "line": "Richtig, da darf man hüpfen."
+ },
+ {
+  "file": "richtig-fr-flex.svg",
+  "course": "fr",
+  "verdict": "richtig",
+  "exclaim": "Trop fort !",
+  "line": "Stark, du wirst immer besser."
+ },
+ {
+  "file": "richtig-fr-kiss.svg",
+  "course": "fr",
+  "verdict": "richtig",
+  "exclaim": "Magnifique !",
+  "line": "Ein Küsschen für diese Antwort."
+ },
+ {
+  "file": "nicht-ganz-fr-shrug.svg",
+  "course": "fr",
+  "verdict": "nicht-ganz",
+  "exclaim": "Presque !",
+  "line": "Knapp daneben, probier es nochmal."
+ },
+ {
+  "file": "nicht-ganz-fr-oops.svg",
+  "course": "fr",
+  "verdict": "nicht-ganz",
+  "exclaim": "Oups !",
+  "line": "Das passiert jedem mal, auf ein Neues."
+ },
+ {
+  "file": "nicht-ganz-fr-thinking.svg",
+  "course": "fr",
+  "verdict": "nicht-ganz",
+  "exclaim": "Hmm…",
+  "line": "Überleg kurz, du kommst drauf."
+ },
+ {
+  "file": "nicht-ganz-fr-tongue-wink.svg",
+  "course": "fr",
+  "verdict": "nicht-ganz",
+  "exclaim": "Pas tout à fait !",
+  "line": "Fast, noch ein Versuch."
+ },
+ {
+  "file": "nicht-ganz-fr-so-close.svg",
+  "course": "fr",
+  "verdict": "nicht-ganz",
+  "exclaim": "Si près !",
+  "line": "So nah dran, du schaffst das."
+ },
+ {
+  "file": "nicht-ganz-fr-lightbulb.svg",
+  "course": "fr",
+  "verdict": "nicht-ganz",
+  "exclaim": "Ah, attends !",
+  "line": "Jetzt weißt du mehr, nochmal versuchen."
+ },
+ {
+  "file": "richtig-en-bowler-grin.svg",
+  "course": "en",
+  "verdict": "richtig",
+  "exclaim": "Brilliant!",
+  "line": "Das war goldrichtig, klasse."
+ },
+ {
+  "file": "richtig-en-thumbs-up.svg",
+  "course": "en",
+  "verdict": "richtig",
+  "exclaim": "Yes!",
+  "line": "Richtig, weiter so."
+ },
+ {
+  "file": "richtig-en-star-eyes.svg",
+  "course": "en",
+  "verdict": "richtig",
+  "exclaim": "Amazing!",
+  "line": "Das hast du dir gut gemerkt."
+ },
+ {
+  "file": "richtig-en-teacup-toast.svg",
+  "course": "en",
+  "verdict": "richtig",
+  "exclaim": "Cheers!",
+  "line": "Darauf einen Tee, das war richtig."
+ },
+ {
+  "file": "richtig-en-medal.svg",
+  "course": "en",
+  "verdict": "richtig",
+  "exclaim": "Well done!",
+  "line": "Du kannst stolz auf dich sein."
+ },
+ {
+  "file": "richtig-en-clap.svg",
+  "course": "en",
+  "verdict": "richtig",
+  "exclaim": "Bravo!",
+  "line": "Ein Applaus für dich."
+ },
+ {
+  "file": "richtig-en-crown.svg",
+  "course": "en",
+  "verdict": "richtig",
+  "exclaim": "Royal!",
+  "line": "Königlich beantwortet."
+ },
+ {
+  "file": "richtig-en-jump.svg",
+  "course": "en",
+  "verdict": "richtig",
+  "exclaim": "Hooray!",
+  "line": "Volltreffer, das macht Spaß."
+ },
+ {
+  "file": "richtig-en-flex.svg",
+  "course": "en",
+  "verdict": "richtig",
+  "exclaim": "Strong!",
+  "line": "Dein Englisch wird richtig stark."
+ },
+ {
+  "file": "richtig-en-rocket.svg",
+  "course": "en",
+  "verdict": "richtig",
+  "exclaim": "Spot on!",
+  "line": "Du gehst ab wie eine Rakete."
+ },
+ {
+  "file": "nicht-ganz-en-shrug.svg",
+  "course": "en",
+  "verdict": "nicht-ganz",
+  "exclaim": "Nearly!",
+  "line": "Fast richtig, versuch es gleich nochmal."
+ },
+ {
+  "file": "nicht-ganz-en-oops.svg",
+  "course": "en",
+  "verdict": "nicht-ganz",
+  "exclaim": "Oops!",
+  "line": "Kein Problem, das klappt beim nächsten Mal."
+ },
+ {
+  "file": "nicht-ganz-en-thinking.svg",
+  "course": "en",
+  "verdict": "nicht-ganz",
+  "exclaim": "Hmm…",
+  "line": "Denk nochmal nach, du bist nah dran."
+ },
+ {
+  "file": "nicht-ganz-en-peek.svg",
+  "course": "en",
+  "verdict": "nicht-ganz",
+  "exclaim": "Not quite!",
+  "line": "Trau dich an einen neuen Versuch."
+ },
+ {
+  "file": "nicht-ganz-en-so-close.svg",
+  "course": "en",
+  "verdict": "nicht-ganz",
+  "exclaim": "So close!",
+  "line": "Nur ein kleines Stück hat gefehlt."
+ },
+ {
+  "file": "nicht-ganz-en-hug.svg",
+  "course": "en",
+  "verdict": "nicht-ganz",
+  "exclaim": "Try again!",
+  "line": "Alles gut, wir machen das zusammen."
+ }
+]

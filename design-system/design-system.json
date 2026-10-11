@@ -184,6 +184,238 @@
     "umbrella.svg"
    ],
    "tile": "l"
+  },
+  "Stickers": {
+   "name": "Stickers",
+   "tile": "m",
+   "order": [
+    "richtig-en-bowler-grin.svg",
+    "richtig-en-thumbs-up.svg",
+    "richtig-en-star-eyes.svg",
+    "richtig-en-teacup-toast.svg",
+    "richtig-en-medal.svg",
+    "richtig-en-clap.svg",
+    "richtig-en-crown.svg",
+    "richtig-en-jump.svg",
+    "richtig-en-flex.svg",
+    "richtig-en-rocket.svg",
+    "richtig-fr-beret-grin.svg",
+    "richtig-fr-thumbs-up.svg",
+    "richtig-fr-star-eyes.svg",
+    "richtig-fr-croissant-cheer.svg",
+    "richtig-fr-medal.svg",
+    "richtig-fr-clap.svg",
+    "richtig-fr-heart-eyes.svg",
+    "richtig-fr-jump.svg",
+    "richtig-fr-flex.svg",
+    "richtig-fr-kiss.svg",
+    "nicht-ganz-en-shrug.svg",
+    "nicht-ganz-en-oops.svg",
+    "nicht-ganz-en-thinking.svg",
+    "nicht-ganz-en-peek.svg",
+    "nicht-ganz-en-so-close.svg",
+    "nicht-ganz-en-hug.svg",
+    "nicht-ganz-fr-shrug.svg",
+    "nicht-ganz-fr-oops.svg",
+    "nicht-ganz-fr-thinking.svg",
+    "nicht-ganz-fr-tongue-wink.svg",
+    "nicht-ganz-fr-so-close.svg",
+    "nicht-ganz-fr-lightbulb.svg"
+   ],
+   "files": {
+    "richtig-en-bowler-grin.svg": {
+     "name": "richtig-en-bowler-grin.svg",
+     "blob": "9253fa2baff9e4622b6f06648f4e313e",
+     "size": 3327,
+     "type": "image/svg+xml"
+    },
+    "richtig-en-thumbs-up.svg": {
+     "name": "richtig-en-thumbs-up.svg",
+     "blob": "d4902175e939752b02e6f19a170ba84b",
+     "size": 2755,
+     "type": "image/svg+xml"
+    },
+    "richtig-en-star-eyes.svg": {
+     "name": "richtig-en-star-eyes.svg",
+     "blob": "8c65f39e3d18f02a6130b77496c29ef5",
+     "size": 3672,
+     "type": "image/svg+xml"
+    },
+    "richtig-en-teacup-toast.svg": {
+     "name": "richtig-en-teacup-toast.svg",
+     "blob": "be024d9008c026c0d4849c0338b402af",
+     "size": 2944,
+     "type": "image/svg+xml"
+    },
+    "richtig-en-medal.svg": {
+     "name": "richtig-en-medal.svg",
+     "blob": "e52e0c81931e6835495266f20a163cf8",
+     "size": 2641,
+     "type": "image/svg+xml"
+    },
+    "richtig-en-clap.svg": {
+     "name": "richtig-en-clap.svg",
+     "blob": "167cd57e27d3856226f804e0f6bb390d",
+     "size": 3559,
+     "type": "image/svg+xml"
+    },
+    "richtig-en-crown.svg": {
+     "name": "richtig-en-crown.svg",
+     "blob": "12ea7cc92c303c0a95ccf74fe370209a",
+     "size": 2806,
+     "type": "image/svg+xml"
+    },
+    "richtig-en-jump.svg": {
+     "name": "richtig-en-jump.svg",
+     "blob": "82af7344a0bc9a4f83c17916a0aecc9f",
+     "size": 3278,
+     "type": "image/svg+xml"
+    },
+    "richtig-en-flex.svg": {
+     "name": "richtig-en-flex.svg",
+     "blob": "4bbad4e0162cb80cb85e9d75d78a20a7",
+     "size": 2761,
+     "type": "image/svg+xml"
+    },
+    "richtig-en-rocket.svg": {
+     "name": "richtig-en-rocket.svg",
+     "blob": "f3242098fe661afc5eb454be2d23a58e",
+     "size": 3372,
+     "type": "image/svg+xml"
+    },
+    "richtig-fr-beret-grin.svg": {
+     "name": "richtig-fr-beret-grin.svg",
+     "blob": "cd4881151c8965f220962ddbddf421c5",
+     "size": 3353,
+     "type": "image/svg+xml"
+    },
+    "richtig-fr-thumbs-up.svg": {
+     "name": "richtig-fr-thumbs-up.svg",
+     "blob": "3a39f43f4de560f9f44eee2c17d12b7f",
+     "size": 2758,
+     "type": "image/svg+xml"
+    },
+    "richtig-fr-star-eyes.svg": {
+     "name": "richtig-fr-star-eyes.svg",
+     "blob": "fa6e7aba72a15325217d77cfd86f8a6d",
+     "size": 3209,
+     "type": "image/svg+xml"
+    },
+    "richtig-fr-croissant-cheer.svg": {
+     "name": "richtig-fr-croissant-cheer.svg",
+     "blob": "5a5a12d874bf6f7569a2a10be9f322b3",
+     "size": 4531,
+     "type": "image/svg+xml"
+    },
+    "richtig-fr-medal.svg": {
+     "name": "richtig-fr-medal.svg",
+     "blob": "2fb693b03752b7b868da8adcc9a001a6",
+     "size": 2764,
+     "type": "image/svg+xml"
+    },
+    "richtig-fr-clap.svg": {
+     "name": "richtig-fr-clap.svg",
+     "blob": "81c39a9c0fbe6ea92acf5d93a8264fcd",
+     "size": 3572,
+     "type": "image/svg+xml"
+    },
+    "richtig-fr-heart-eyes.svg": {
+     "name": "richtig-fr-heart-eyes.svg",
+     "blob": "ef52489f621b73e1e72c49c5053c6941",
+     "size": 2641,
+     "type": "image/svg+xml"
+    },
+    "richtig-fr-jump.svg": {
+     "name": "richtig-fr-jump.svg",
+     "blob": "1196d48136f805e3571bee1eb1e334ba",
+     "size": 3279,
+     "type": "image/svg+xml"
+    },
+    "richtig-fr-flex.svg": {
+     "name": "richtig-fr-flex.svg",
+     "blob": "1acc6125d6471d5e340b21f5141b47a8",
+     "size": 2782,
+     "type": "image/svg+xml"
+    },
+    "richtig-fr-kiss.svg": {
+     "name": "richtig-fr-kiss.svg",
+     "blob": "87705a1b2ce8777b833061e7d1638644",
+     "size": 2895,
+     "type": "image/svg+xml"
+    },
+    "nicht-ganz-en-shrug.svg": {
+     "name": "nicht-ganz-en-shrug.svg",
+     "blob": "b64c69d6ae699bd257c495ed942aec6a",
+     "size": 2750,
+     "type": "image/svg+xml"
+    },
+    "nicht-ganz-en-oops.svg": {
+     "name": "nicht-ganz-en-oops.svg",
+     "blob": "9e1702a537c57e2552ea19597ac25caa",
+     "size": 2970,
+     "type": "image/svg+xml"
+    },
+    "nicht-ganz-en-thinking.svg": {
+     "name": "nicht-ganz-en-thinking.svg",
+     "blob": "2baf2b740747bec7099721a09bc491b0",
+     "size": 3255,
+     "type": "image/svg+xml"
+    },
+    "nicht-ganz-en-peek.svg": {
+     "name": "nicht-ganz-en-peek.svg",
+     "blob": "aa8c23707ec89868327a548579f39e2f",
+     "size": 2804,
+     "type": "image/svg+xml"
+    },
+    "nicht-ganz-en-so-close.svg": {
+     "name": "nicht-ganz-en-so-close.svg",
+     "blob": "afa4f4cd6dd77e3c6f00878b614f26f7",
+     "size": 2807,
+     "type": "image/svg+xml"
+    },
+    "nicht-ganz-en-hug.svg": {
+     "name": "nicht-ganz-en-hug.svg",
+     "blob": "63c770d5b2728dcb5a3e387d7febd129",
+     "size": 2908,
+     "type": "image/svg+xml"
+    },
+    "nicht-ganz-fr-shrug.svg": {
+     "name": "nicht-ganz-fr-shrug.svg",
+     "blob": "5cf00bd40bc5d83e98b91f58e99a8044",
+     "size": 2784,
+     "type": "image/svg+xml"
+    },
+    "nicht-ganz-fr-oops.svg": {
+     "name": "nicht-ganz-fr-oops.svg",
+     "blob": "cef1d4cd76ab20515574cb58b3c4481b",
+     "size": 2839,
+     "type": "image/svg+xml"
+    },
+    "nicht-ganz-fr-thinking.svg": {
+     "name": "nicht-ganz-fr-thinking.svg",
+     "blob": "3c76d9b8f8b3cab1376fe9880d5b9043",
+     "size": 3658,
+     "type": "image/svg+xml"
+    },
+    "nicht-ganz-fr-tongue-wink.svg": {
+     "name": "nicht-ganz-fr-tongue-wink.svg",
+     "blob": "282d4ecff81fe8a92e4734bf08689b3f",
+     "size": 2853,
+     "type": "image/svg+xml"
+    },
+    "nicht-ganz-fr-so-close.svg": {
+     "name": "nicht-ganz-fr-so-close.svg",
+     "blob": "dd2b46eb025b8b9d9c3fe6cd97830575",
+     "size": 2840,
+     "type": "image/svg+xml"
+    },
+    "nicht-ganz-fr-lightbulb.svg": {
+     "name": "nicht-ganz-fr-lightbulb.svg",
+     "blob": "01523939a7e90cd5c391acc81b700779",
+     "size": 3026,
+     "type": "image/svg+xml"
+    }
+   }
   }
  },
  "blobs": {},
@@ -197,13 +429,14 @@
  },
  "groups": [
   "Illustrations",
+  "Stickers",
   "Icons"
  ],
  "lastChange": {
   "by": "Thomas",
-  "at": "2026-10-11T09:14:13Z",
+  "at": "2026-10-11T11:57:05Z",
   "via": "Claude",
-  "note": "Renamed; blue pen for French, red pen for English; components matched to the app's screens."
+  "note": "Feedback stickers redrawn: 32 textured characters (20 Richtig, 12 Nicht ganz) in the course colours."
  },
  "layout": "files",
  "libraries": [],
