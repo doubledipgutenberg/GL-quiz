@@ -14,8 +14,9 @@ Stoffzettels bis zur Veröffentlichung, außerdem Backend-Referenz und Entscheid
   ausführen; das Veröffentlichungs-Skript prüft es ebenfalls.
 - **Echter Space `klasse-6d`:** dort nichts testen, was PINs setzt. Die PINs der Kinder und die
   Eltern-PIN legt die Familie selbst fest. Für Tests einen eigenen Space verwenden und danach löschen.
-- **Keine PINs oder Passwörter im Browser eintippen**, wenn sie an einen fremden Host gehen. Per `curl`
-  anmelden und das Token in `localStorage` setzen (siehe WORKFLOW §3).
+- **Testen zuerst lokal** mit `MOCK_API=1 npm run dev` (Test-Attrappe, Test-PINs erlaubt). **Keine PINs oder
+  Passwörter im Browser eintippen**, wenn sie an einen fremden Host gehen: dann per `curl` anmelden und
+  das Token in `localStorage` setzen (siehe WORKFLOW §3).
 - **Spacefast-Space löschen** nur nach Freigabe des Nutzers (Approval-Link, siehe WORKFLOW §4).
 - **Inhalte** nur aus dem Material des Nutzers, nie aus dem Gedächtnis. Vokabeln erst nach seiner
   Prüfung der seitenweisen Abschrift verwenden.

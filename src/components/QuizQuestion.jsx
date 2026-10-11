@@ -1,12 +1,45 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Card, CardContent } from './ui/card';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { cn } from '@/lib/utils';
+import { playAudio } from '@/lib/audio';
+
+// Akzent-Tasten für französische Antworten (Akzente zählen streng).
+const FR_ACCENTS = ['é', 'è', 'ê', 'ë', 'à', 'â', 'ç', 'î', 'ï', 'ô', 'û', 'ù', 'œ'];
+
+function SpeakerButton({ audio, size = 'sm', label = 'Anhören' }) {
+  if (!audio) return null;
+  return (
+    <Button type="button" variant="outline" size={size} onClick={() => playAudio(audio)} aria-label={label}>
+      🔊 {label}
+    </Button>
+  );
+}
 
 export default function QuizQuestion({ question, onSubmit }) {
   const [answer, setAnswer] = useState('');
   const [showHint, setShowHint] = useState(false);
+  const inputRef = useRef(null);
+  const isListen = question.type === 'listen_card';
+  const isCard = question.type === 'vocab_card' || isListen;
+
+  // „Hören & Schreiben“: das Wort beim Erscheinen einmal abspielen.
+  useEffect(() => {
+    if (question.type === 'listen_card') playAudio(question.audio);
+  }, [question.id, question.type, question.audio]);
+
+  const insertChar = (ch) => {
+    const el = inputRef.current;
+    const start = el?.selectionStart ?? answer.length;
+    const end = el?.selectionEnd ?? answer.length;
+    const next = answer.slice(0, start) + ch + answer.slice(end);
+    setAnswer(next);
+    requestAnimationFrame(() => {
+      el?.focus();
+      el?.setSelectionRange(start + ch.length, start + ch.length);
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,7 +59,7 @@ export default function QuizQuestion({ question, onSubmit }) {
   return (
     <Card>
       <CardContent className="pt-6 space-y-6">
-        {question.type !== 'vocab_card' && (
+        {!isCard && (
           <div className="flex items-center justify-between gap-2">
             <span className={cn(
               'inline-flex items-center rounded-md px-2 py-0.5 text-xs font-medium border',
@@ -47,7 +80,7 @@ export default function QuizQuestion({ question, onSubmit }) {
 
         {question.text && (
           <div className="rounded-lg border border-border bg-muted/30 p-4">
-            <p className="text-sm">{question.text}</p>
+            <p className="text-sm whitespace-pre-line">{question.text}</p>
           </div>
         )}
 
@@ -79,10 +112,22 @@ export default function QuizQuestion({ question, onSubmit }) {
               })()}
             </p>
             <p className="text-3xl font-bold tracking-tight">{question.word}</p>
+            {question.promptAudio && (
+              <div className="pt-2">
+                <SpeakerButton audio={question.audio} />
+              </div>
+            )}
           </div>
         )}
 
-        {question.type !== 'vocab_card' && (
+        {isListen && (
+          <div className="rounded-xl border border-border bg-muted/30 p-8 text-center space-y-4">
+            <p className="text-sm text-muted-foreground">{question.instruction}</p>
+            <SpeakerButton audio={question.audio} size="lg" label="Nochmal anhören" />
+          </div>
+        )}
+
+        {!isCard && (
           <h2 className="text-lg font-semibold leading-tight">{question.question}</h2>
         )}
 
@@ -114,10 +159,10 @@ export default function QuizQuestion({ question, onSubmit }) {
         {question.type === 'reading_true_false' && (
           <div className="grid grid-cols-2 gap-2">
             <Button variant="outline" className="py-6" onClick={() => handleOptionClick('true')}>
-              True
+              {question.tfLabels?.[0] || 'True'}
             </Button>
             <Button variant="outline" className="py-6" onClick={() => handleOptionClick('false')}>
-              False
+              {question.tfLabels?.[1] || 'False'}
             </Button>
           </div>
         )}
@@ -125,12 +170,17 @@ export default function QuizQuestion({ question, onSubmit }) {
         {!['multiple_choice', 'reading_true_false'].includes(question.type) && (
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
             <Input
+              ref={inputRef}
               type="text"
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
               placeholder="Deine Antwort..."
               autoFocus
               autoComplete="off"
+              autoCorrect="off"
+              autoCapitalize="off"
+              spellCheck={false}
+              lang={question.answerLang || undefined}
               className="flex-1"
             />
             <Button type="submit" disabled={!answer.trim()}>
@@ -139,7 +189,25 @@ export default function QuizQuestion({ question, onSubmit }) {
           </form>
         )}
 
-        {question.type !== 'vocab_card' && (
+        {question.answerLang === 'fr' && !['multiple_choice', 'reading_true_false'].includes(question.type) && (
+          <div className="flex flex-wrap gap-1.5" aria-label="Akzente einfügen">
+            {FR_ACCENTS.map((ch) => (
+              <Button
+                key={ch}
+                type="button"
+                variant="outline"
+                size="sm"
+                className="h-9 w-9 p-0 text-base"
+                onMouseDown={(e) => e.preventDefault()}
+                onClick={() => insertChar(ch)}
+              >
+                {ch}
+              </Button>
+            ))}
+          </div>
+        )}
+
+        {!isCard && (
           <div className="pt-2">
             {!showHint ? (
               <Button variant="ghost" size="sm" onClick={() => setShowHint(true)}>

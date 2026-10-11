@@ -1,7 +1,7 @@
 import { useReducer, useCallback, useEffect } from 'react';
-import questions, { getVocabularyQuestions, DEFAULT_EXAM } from '../data/questions';
+import questions, { EXAMS, getVocabularyQuestions, getListenQuestions, getNewVocabularyQuestions, DEFAULT_EXAM } from '../data/questions';
 import { checkAnswer, calculatePoints, getMaxPoints } from '../utils/scoring';
-import { saveHighscore, saveStudentSession, saveDraftSession, clearDraftSession, getDraftSession, addSavedRound, getSavedRounds, getStudentHistory } from '../utils/storage';
+import { saveHighscore, saveStudentSession, saveDraftSession, clearDraftSession, getDraftSession, addSavedRound, getStudentHistory } from '../utils/storage';
 
 // Shuffle array (Fisher-Yates)
 function shuffle(arr) {
@@ -32,8 +32,15 @@ function reducer(state, action) {
     case 'START_QUIZ': {
       const mode = action.mode || 'normal';
       const exam = action.exam || DEFAULT_EXAM;
-      if (mode === 'vocabulary') {
-        const pool = getVocabularyQuestions(exam);
+      // Vokabel-Modi: alle Karten der Auswahl, gemischt (kein 15er-Limit)
+      if (mode === 'vocabulary' || mode === 'newvocab' || mode === 'listen') {
+        const pool =
+          mode === 'listen'
+            ? getListenQuestions(exam)
+            : mode === 'newvocab'
+              ? getNewVocabularyQuestions(EXAMS[exam]?.course)
+              : getVocabularyQuestions(exam);
+        if (pool.length === 0) return state;
         const shuffled = shuffle(pool);
         return {
           ...state,

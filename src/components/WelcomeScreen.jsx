@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { EXAMS, COURSES, DEFAULT_COURSE, examsForCourse, defaultExamForCourse } from '../data/questions';
+import { EXAMS, COURSES, DEFAULT_COURSE, examsForCourse, defaultExamForCourse, latestVocabBatch } from '../data/questions';
 import { getDraftSession, getSavedRounds, getFullExportPayload } from '../utils/storage';
 import { Button } from './ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
@@ -37,9 +37,14 @@ export default function WelcomeScreen({
   const courseExams = examsForCourse(course.id);
   const examInfo = exam ? EXAMS[exam] : null;
 
+  const newBatch = course.audio ? latestVocabBatch(course.id) : null;
+
   const chooseCourse = (id) => {
     setCourseId(id);
     setExam(defaultExamForCourse(id));
+    if (!COURSES.find((c) => c.id === id)?.audio && (quizMode === 'newvocab' || quizMode === 'listen')) {
+      setQuizMode('normal');
+    }
   };
 
   const showResume = hasDraft || hasSavedRounds;
@@ -200,6 +205,27 @@ export default function WelcomeScreen({
                     <span className="text-sm text-muted-foreground">Nur Vokabeln aus dem Stoff – alle kommen dran</span>
                   </div>
                 </label>
+                {newBatch && (
+                  <label className={optionClass}>
+                    <RadioGroupItem value="newvocab" className="mt-0.5" />
+                    <div className="flex flex-col gap-0.5">
+                      <span className="font-semibold">Neue Vokabeln</span>
+                      <span className="text-sm text-muted-foreground">
+                        Nur die zuletzt hinzugefügten: {newBatch.count} Wörter vom{' '}
+                        {new Date(`${newBatch.added}T12:00:00`).toLocaleDateString('de-DE')}
+                      </span>
+                    </div>
+                  </label>
+                )}
+                {course.audio && (
+                  <label className={optionClass}>
+                    <RadioGroupItem value="listen" className="mt-0.5" />
+                    <div className="flex flex-col gap-0.5">
+                      <span className="font-semibold">Hören &amp; Schreiben 🔊</span>
+                      <span className="text-sm text-muted-foreground">Das Wort wird vorgelesen – du schreibst es (mit Akzenten)</span>
+                    </div>
+                  </label>
+                )}
               </RadioGroup>
             </CardContent>
           </Card>

@@ -750,12 +750,15 @@ const questions = [
 import { getVocabularyQuestions as getVocabSA2 } from './vocabList';
 import questionsSA4 from './questionsSA4';
 import { getVocabularyQuestionsSA4 } from './vocabListSA4';
+import questionsFR6 from './fr6/questions';
+import { fr6VocabCards, fr6ListenCards, fr6NewVocabCards, fr6LatestBatch, fr6AllCards } from './fr6/cards';
 
 // Kurse = Sprache + Klasse. Ein Kurs ohne Schulaufgaben wird als „kommt bald" angezeigt.
-// Reihenfolge = Anzeige im Auswahlmenü.
+// Reihenfolge = Anzeige im Auswahlmenü. `audio`: Vokabeln vertont → Modi „Neue Vokabeln“
+// und „Hören & Schreiben“ (nur Klasse 6, Entscheidung des Nutzers).
 export const COURSES = [
-  { id: 'en-6', lang: 'en', grade: 6, label: 'Englisch · Klasse 6' },
-  { id: 'fr-6', lang: 'fr', grade: 6, label: 'Französisch · Klasse 6' },
+  { id: 'en-6', lang: 'en', grade: 6, label: 'Englisch · Klasse 6', audio: true },
+  { id: 'fr-6', lang: 'fr', grade: 6, label: 'Französisch · Klasse 6', audio: true },
   { id: 'en-5', lang: 'en', grade: 5, label: 'Englisch · Klasse 5' },
 ];
 
@@ -774,6 +777,13 @@ export const EXAMS = {
     label: '4. Schulaufgabe',
     units: 'Units 5–6 · Across Cultures 2 · Focus 2',
     subtitle: 'Vorbereitung auf die 4. Schulaufgabe',
+  },
+  'fr6-u1': {
+    id: 'fr6-u1',
+    course: 'fr-6',
+    label: 'Unité 1 – Bonjour, Paris!',
+    units: 'Au début + Unité 1 (Ateliers A1–B5)',
+    subtitle: 'Französisch Unité 1',
   },
 };
 
@@ -796,16 +806,35 @@ export const DEFAULT_COURSE =
 const allQuestions = [
   ...questions.map((q) => ({ ...q, exam: 'sa2' })),
   ...questionsSA4.map((q) => ({ ...q, exam: 'sa4' })),
+  ...questionsFR6,
 ];
 
 /**
- * Wortschatz-Quiz: eine Frage pro Vokabel.
- * @param {string} [exam] 'sa2' | 'sa4' | undefined (= beide)
+ * Wortschatz-Quiz: eine Frage pro Vokabel (bzw. Richtung).
+ * @param {string} [exam] Prüfungs-ID; ohne Angabe = ALLE Karten (zum Wiederherstellen per ID).
  */
 export function getVocabularyQuestions(exam) {
   if (exam === 'sa4') return getVocabularyQuestionsSA4();
   if (exam === 'sa2') return getVocabSA2();
-  return [...getVocabSA2(), ...getVocabularyQuestionsSA4()];
+  if (EXAMS[exam]?.course === 'fr-6') return fr6VocabCards(exam);
+  return [...getVocabSA2(), ...getVocabularyQuestionsSA4(), ...fr6AllCards()];
+}
+
+/** „Hören & Schreiben“: nur hören, auf Französisch schreiben. */
+export function getListenQuestions(exam) {
+  return EXAMS[exam]?.course === 'fr-6' ? fr6ListenCards(exam) : [];
+}
+
+/** „Neue Vokabeln“: der zuletzt hinzugefügte Batch des Kurses. */
+export function getNewVocabularyQuestions(courseId) {
+  return courseId === 'fr-6' ? fr6NewVocabCards() : [];
+}
+
+/** Datum + Anzahl des jüngsten Vokabel-Batches (für die Anzeige), sonst null. */
+export function latestVocabBatch(courseId) {
+  if (courseId !== 'fr-6') return null;
+  const { added, vocab } = fr6LatestBatch();
+  return added ? { added, count: vocab.length } : null;
 }
 
 export default allQuestions;
