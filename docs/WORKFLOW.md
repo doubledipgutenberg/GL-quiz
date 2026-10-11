@@ -88,7 +88,9 @@ wörtlich übernommen. Material aus offensichtlich illegalen Quellen (z. B. Scha
   Übersetzung wie *ami*/*copain*). `say` = gesprochener Text, falls er abweichen soll. Die Datei hat
   **keine Importe** (sie wird auch von Node fürs Audio-Manifest gelesen).
   `src/data/fr6/cards.js` erzeugt daraus die Karten: `_de` (frz. sehen + 🔊 → deutsch), `_fr` (deutsch →
-  frz. schreiben) und `_listen` (nur hören → frz. schreiben). **Alle drei gehören zum Wortschatz**,
+  frz. schreiben) und `_listen` (nur hören → frz. schreiben). Hör-Karten spielen erst das Wort, kurz danach
+  den Beispielsatz `ex` (eigene Formulierung, nur bekannte Wörter; Audio `<id>_ex.m4a`, `playSequence` in
+  `src/lib/audio.js`). **Alle drei gehören zum Wortschatz**,
   es gibt keinen eigenen Hör-Modus (Entscheidung des Nutzers).
   Neue Lieferung = **neuer Batch** mit dem heutigen Datum, alte Batches nie umdatieren. „Nur neue
   Vokabeln“ ist ein **Filter auf den Wortschatz**: der jüngste Batch des Kurses.
@@ -250,7 +252,10 @@ curl -s -o /dev/null -w '%{http_code}' https://<slug>.space.fast/   # muss 403 l
   Eltern-PIN wählt man ein Kind (Karte je Profil, dort auch PIN-Reset). Dessen Dashboard hat Reiter je Fach.
   Jede Antwort wird über ihre Frage-ID einem Kurs zugeordnet (Frage → `exam` → `course`), die Historie wird
   pro Reiter gefiltert, *bevor* sie ausgewertet wird. Damit sind Details, Fehler, Vokabel-Stufen,
-  „Vokabeln gekonnt“ und Wiederholungs-Quizze automatisch getrennt. Einträge ohne Kursangabe (Altbestand) zählen zu Englisch 5. Wichtig: Jede neue
+  „Vokabeln gekonnt“ und Wiederholungs-Quizze automatisch getrennt. Vokabeln stehen in zwei Bereichen:
+  „Neue Vokabeln“ (jüngster Batch) und „Gesamter Wortschatz“ – dieselben Antworten, die neuen sind nur ein
+  Ausschnitt. Je 6 Stufen von „Nie richtig“ bis „Immer richtig“, jede Liste auf-/zuklappbar.
+  Übungshinweise mit Arbeitsheft-Seiten gibt es nur für Englisch 5. Einträge ohne Kursangabe (Altbestand) zählen zu Englisch 5. Wichtig: Jede neue
   Frage bzw. Karte braucht `exam` oder `course`.
 
 ---
@@ -273,5 +278,7 @@ curl -s -o /dev/null -w '%{http_code}' https://<slug>.space.fast/   # muss 403 l
   (115) orientieren sich am Cahier (S. 7–17) und an Bilan/Grammaire/Alphabet im Buch (S. 24–26).
 - Englisch 6, Unit 1: Vokabeln bis „to fix“ (Buch S. 195–198, Abschrift `VOCAB_EN6_U1_review.md`), Stimme
   bf_emma. Fragen nach Grammatik G1–G3 und Practice pool der Unit.
+- Hör-Karten: erst das Wort, dann ein kurzer Beispielsatz (nur bei Hör-Karten).
+- Lehrer-Bereich: „Neue Vokabeln“ und „Gesamter Wortschatz“ als eigene Bereiche, alle Listen klappbar, mobil kompakt.
 - Multiple-Choice-Optionen werden bei jeder Runde gemischt (`useQuiz.js`); das normale Quiz nimmt nur Fragen
   der gewählten Schulaufgabe, ungesehene zuerst.
