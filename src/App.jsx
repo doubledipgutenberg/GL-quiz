@@ -191,6 +191,7 @@ export default function App() {
 
       {quiz.phase === 'finished' && (
         <ScoreBoard
+          lang={courseLang}
           playerName={quiz.playerName}
           score={quiz.score}
           maxScore={quiz.maxScore}

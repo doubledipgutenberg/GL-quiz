@@ -1,18 +1,19 @@
-import { useMemo } from 'react';
-import { getRandomCharacter } from '../data/pixarCharacters';
+import { useMemo, useState } from 'react';
+import { nextSticker } from '../data/stickers';
 import HighscoreTable from './HighscoreTable';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { cn } from '@/lib/utils';
 
-export default function ScoreBoard({ playerName, score, maxScore, answers, onRestart }) {
+export default function ScoreBoard({ playerName, score, maxScore, answers, onRestart, lang }) {
   const percentage = Math.round((score / maxScore) * 100);
   const grade = percentage >= 90 ? 'Fantastisch!'
     : percentage >= 75 ? 'Super!'
     : percentage >= 60 ? 'Gut gemacht!'
     : percentage >= 40 ? 'Nicht schlecht!'
     : 'Weiter üben!';
-  const character = useMemo(() => getRandomCharacter(percentage >= 50), [percentage]);
+  // Sticker aus dem Design System statt Film-Figur: ab 50 % ein Richtig-Sticker, sonst ein aufmunternder.
+  const [sticker] = useState(() => nextSticker(lang, percentage >= 50));
   const correctCount = answers.filter((a) => a.isCorrect).length;
 
   const topicMap = useMemo(() => {
@@ -44,10 +45,17 @@ export default function ScoreBoard({ playerName, score, maxScore, answers, onRes
           </div>
 
           <div className="flex items-center gap-4 rounded-lg border border-border p-4">
-            <img src={character.imageUrl} alt="" className="h-14 w-14 rounded-full object-cover" />
+
+            <img src={sticker.src} alt="" className="h-24 w-auto shrink-0" />
+
             <div className="text-sm">
-              <strong>{character.name}:</strong> &ldquo;{character.quote}&rdquo;
+
+              <strong className="block">{sticker.exclaim}</strong>
+
+              „{sticker.line}“
+
             </div>
+
           </div>
 
           <div className="space-y-3">
