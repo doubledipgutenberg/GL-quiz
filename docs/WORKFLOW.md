@@ -248,6 +248,11 @@ curl -s -o /dev/null -w '%{http_code}' https://<slug>.space.fast/   # muss 403 l
   Änderungen per `markDirty`, der Upload folgt nach 1,5 s (Wiederholung nach 10 s, beim Verlassen der
   Seite sofort). Beim Login holt die App den Server-Stand, ohne lokale ungesicherte Änderungen zu
   überschreiben. Ein Kind sieht nur eigene Runden, Highscores und Historie aller Kinder sind sichtbar.
+- **Auto-Save der Ergebnisse** (`useQuiz.js`, `upsertStudentSession` in `storage.js`): Jede Runde hat eine
+  `sessionId` und steht nach **jeder Antwort** in der Historie (`complete: false`, am Ende `true`). Der
+  Lehrer-Bereich sieht also auch angefangene Runden, ohne „Runde speichern“. Die aktuelle Runde läuft beim
+  Fortsetzen unter ihrer ID weiter; gespeicherte Runden und Wiederholungs-Quizze bekommen eine neue ID und
+  zählen nur neue Antworten (`answersOffset`). Gespeichert wird in Effects, nicht im Reducer.
 - **Lehrer-Bereich: erst das Kind, dann das Fach** (`AdminDashboard.jsx`, `src/utils/courseOf.js`): Nach der
   Eltern-PIN wählt man ein Kind (Karte je Profil, dort auch PIN-Reset). Dessen Dashboard hat Reiter je Fach.
   Jede Antwort wird über ihre Frage-ID einem Kurs zugeordnet (Frage → `exam` → `course`), die Historie wird
