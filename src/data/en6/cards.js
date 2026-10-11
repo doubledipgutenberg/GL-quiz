@@ -49,9 +49,15 @@ export function toEnCard(v) {
   };
 }
 
+// Beispielsatz zur Hör-Karte (eigene Audiodatei <id>_ex.m4a), nur wenn `ex` gepflegt ist.
+function exampleAudioOf(v) {
+  return v.ex ? { course: COURSE, id: `${v.id}_ex`, text: v.ex, lang: 'en' } : null;
+}
+
 export function toListenCard(v) {
   return {
     ...base(v, 'listen'),
+    exampleAudio: exampleAudioOf(v),
     type: 'listen_card',
     instruction: 'Hör zu und schreib das Wort auf Englisch:',
     correct: v.en,

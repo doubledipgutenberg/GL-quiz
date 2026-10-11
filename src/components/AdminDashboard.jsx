@@ -323,17 +323,17 @@ export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz, onCrea
       {notice && <p className="text-sm text-destructive">{notice}</p>}
 
       <Card>
-        <CardHeader>
+        <CardHeader className="p-4 sm:p-6">
           <CardTitle className="text-base">Welches Kind?</CardTitle>
           <p className="text-sm text-muted-foreground">Jedes Kind hat sein eigenes Dashboard, getrennt nach Fach.</p>
         </CardHeader>
-        <CardContent className="grid gap-3 sm:grid-cols-2">
+        <CardContent className="grid gap-3 px-3 pb-3 sm:grid-cols-2 sm:px-6 sm:pb-6">
           {names.length === 0 && <p className="text-sm text-muted-foreground">Noch keine Profile.</p>}
           {names.map((name) => {
             const kid = kids.find((k) => k.name === name);
             const o = overviewByName.get(name);
             return (
-              <div key={name} className="flex flex-col gap-3 rounded-lg border border-border p-4">
+              <div key={name} className="flex flex-col gap-3 rounded-lg border border-border p-3 sm:p-4">
                 <button type="button" className="text-left space-y-1" onClick={() => setSelectedStudent(name)}>
                   <span className="block text-lg font-semibold">{name}</span>
                   <span className="block text-sm text-muted-foreground">

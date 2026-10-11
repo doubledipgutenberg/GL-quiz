@@ -7,6 +7,14 @@
     "speed": 0.9,
     "hash": "fd6429f2c82f1e37"
   },
+  "fr6_a_plus_ex": {
+    "file": "fr6_a_plus_ex.m4a",
+    "text": "Au revoir, Marie ! À plus !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "ccfee4104e4372c0"
+  },
   "fr6_attention": {
     "file": "fr6_attention.m4a",
     "text": "Attention!",
@@ -14,6 +22,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "192341a553d50e75"
+  },
+  "fr6_attention_ex": {
+    "file": "fr6_attention_ex.m4a",
+    "text": "Attention, Malabar !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "9a56627fd8b6fd26"
   },
   "fr6_au_revoir": {
     "file": "fr6_au_revoir.m4a",
@@ -23,6 +39,14 @@
     "speed": 0.9,
     "hash": "7b94e4548b7fa390"
   },
+  "fr6_au_revoir_ex": {
+    "file": "fr6_au_revoir_ex.m4a",
+    "text": "Au revoir, monsieur !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "395c62b02b12108f"
+  },
   "fr6_aussi": {
     "file": "fr6_aussi.m4a",
     "text": "aussi",
@@ -30,6 +54,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "6128359d113da80f"
+  },
+  "fr6_aussi_ex": {
+    "file": "fr6_aussi_ex.m4a",
+    "text": "Moi aussi, je suis de Paris.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "3f4a541725d52110"
   },
   "fr6_bien": {
     "file": "fr6_bien.m4a",
@@ -39,6 +71,14 @@
     "speed": 0.9,
     "hash": "095d40408465e2b8"
   },
+  "fr6_bien_ex": {
+    "file": "fr6_bien_ex.m4a",
+    "text": "Oui, ça va bien !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "9f45e09d791e466c"
+  },
   "fr6_bienvenue": {
     "file": "fr6_bienvenue.m4a",
     "text": "Bienvenue!",
@@ -46,6 +86,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "e37fcc758deed834"
+  },
+  "fr6_bienvenue_ex": {
+    "file": "fr6_bienvenue_ex.m4a",
+    "text": "Bienvenue à Paris !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "2b518b28d15bbe7e"
   },
   "fr6_bizarre": {
     "file": "fr6_bizarre.m4a",
@@ -55,6 +103,14 @@
     "speed": 0.9,
     "hash": "0add92a2b8118aa0"
   },
+  "fr6_bizarre_ex": {
+    "file": "fr6_bizarre_ex.m4a",
+    "text": "Filou est bizarre !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "ecab24072ef93d7d"
+  },
   "fr6_bonjour": {
     "file": "fr6_bonjour.m4a",
     "text": "Bonjour!",
@@ -62,6 +118,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "ae4298697a202e21"
+  },
+  "fr6_bonjour_ex": {
+    "file": "fr6_bonjour_ex.m4a",
+    "text": "Bonjour, Léo !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "f6783784f9bb803f"
   },
   "fr6_bonjour_les_amis": {
     "file": "fr6_bonjour_les_amis.m4a",
@@ -71,6 +135,14 @@
     "speed": 0.9,
     "hash": "a110494f3c741c13"
   },
+  "fr6_bonjour_les_amis_ex": {
+    "file": "fr6_bonjour_les_amis_ex.m4a",
+    "text": "Bonjour, les amis ! Ça va ?",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "5eb3befc147481c9"
+  },
   "fr6_c_est": {
     "file": "fr6_c_est.m4a",
     "text": "c'est",
@@ -78,6 +150,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "3ea9d9b49a6a9461"
+  },
+  "fr6_c_est_ex": {
+    "file": "fr6_c_est_ex.m4a",
+    "text": "C'est Marie, une copine.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "234ed97732005a3f"
   },
   "fr6_ca_ne_va_pas": {
     "file": "fr6_ca_ne_va_pas.m4a",
@@ -87,6 +167,14 @@
     "speed": 0.9,
     "hash": "f51ce0d7b41316bb"
   },
+  "fr6_ca_ne_va_pas_ex": {
+    "file": "fr6_ca_ne_va_pas_ex.m4a",
+    "text": "Oh non, ça ne va pas.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "b726a85b548625be"
+  },
   "fr6_ca_va": {
     "file": "fr6_ca_va.m4a",
     "text": "Ça va?",
@@ -94,6 +182,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "3d527e754aa751d1"
+  },
+  "fr6_ca_va_ex": {
+    "file": "fr6_ca_va_ex.m4a",
+    "text": "Salut, Léo ! Ça va ?",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "5442a51e05a07b94"
   },
   "fr6_cinq": {
     "file": "fr6_cinq.m4a",
@@ -103,6 +199,14 @@
     "speed": 0.9,
     "hash": "45a6671fbd144897"
   },
+  "fr6_cinq_ex": {
+    "file": "fr6_cinq_ex.m4a",
+    "text": "Le code, c'est cinq, neuf, sept.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "7c27291877bebd4f"
+  },
   "fr6_comment": {
     "file": "fr6_comment.m4a",
     "text": "comment?",
@@ -110,6 +214,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "7e2ac9ab301eff3f"
+  },
+  "fr6_comment_ex": {
+    "file": "fr6_comment_ex.m4a",
+    "text": "Tu t'appelles comment ?",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "6eca7d921c9da332"
   },
   "fr6_de_d": {
     "file": "fr6_de_d.m4a",
@@ -119,6 +231,14 @@
     "speed": 0.9,
     "hash": "1955ab4525808f0c"
   },
+  "fr6_de_d_ex": {
+    "file": "fr6_de_d_ex.m4a",
+    "text": "Je suis de Strasbourg.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "46f37bd71ffdf775"
+  },
   "fr6_deux": {
     "file": "fr6_deux.m4a",
     "text": "deux",
@@ -126,6 +246,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "67416f875293db07"
+  },
+  "fr6_deux_ex": {
+    "file": "fr6_deux_ex.m4a",
+    "text": "Voilà deux chats !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "ae6972cf3f57c4d5"
   },
   "fr6_dix": {
     "file": "fr6_dix.m4a",
@@ -135,6 +263,14 @@
     "speed": 0.9,
     "hash": "089ba728049b5919"
   },
+  "fr6_dix_ex": {
+    "file": "fr6_dix_ex.m4a",
+    "text": "Voilà dix copains !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "fb41f506a44d61b8"
+  },
   "fr6_douze": {
     "file": "fr6_douze.m4a",
     "text": "douze",
@@ -142,6 +278,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "21d47771a7c83222"
+  },
+  "fr6_douze_ex": {
+    "file": "fr6_douze_ex.m4a",
+    "text": "Voilà douze chiens !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "577490ee2b28e5ff"
   },
   "fr6_elle_est": {
     "file": "fr6_elle_est.m4a",
@@ -151,6 +295,14 @@
     "speed": 0.9,
     "hash": "26b3acdad9645c01"
   },
+  "fr6_elle_est_ex": {
+    "file": "fr6_elle_est_ex.m4a",
+    "text": "Voilà Marie. Elle est de Nice.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "50c9529c46aa3832"
+  },
   "fr6_et": {
     "file": "fr6_et.m4a",
     "text": "et",
@@ -158,6 +310,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "c5fd76a86a9e0ee4"
+  },
+  "fr6_et_ex": {
+    "file": "fr6_et_ex.m4a",
+    "text": "Voilà Léo et Marie.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "40a99ff76ab26717"
   },
   "fr6_fantastique": {
     "file": "fr6_fantastique.m4a",
@@ -167,6 +327,14 @@
     "speed": 0.9,
     "hash": "d4ada33c04256ce9"
   },
+  "fr6_fantastique_ex": {
+    "file": "fr6_fantastique_ex.m4a",
+    "text": "Malabar est fantastique !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "335f617e243d3723"
+  },
   "fr6_huit": {
     "file": "fr6_huit.m4a",
     "text": "huit",
@@ -174,6 +342,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "29763ec8bcba3d37"
+  },
+  "fr6_huit_ex": {
+    "file": "fr6_huit_ex.m4a",
+    "text": "Le code, c'est huit, un, deux.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "602b05ff108e2e06"
   },
   "fr6_ici": {
     "file": "fr6_ici.m4a",
@@ -183,6 +359,14 @@
     "speed": 0.9,
     "hash": "45387d7fc322cb1b"
   },
+  "fr6_ici_ex": {
+    "file": "fr6_ici_ex.m4a",
+    "text": "Tu es d'ici ?",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "68d74de80f5ea262"
+  },
   "fr6_il_est": {
     "file": "fr6_il_est.m4a",
     "text": "il est",
@@ -190,6 +374,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "56885bd4abecb407"
+  },
+  "fr6_il_est_ex": {
+    "file": "fr6_il_est_ex.m4a",
+    "text": "Voilà Léo. Il est de Paris.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "14a93e4b8baa2187"
   },
   "fr6_je_m_appelle": {
     "file": "fr6_je_m_appelle.m4a",
@@ -199,6 +391,14 @@
     "speed": 0.9,
     "hash": "8fbd79659f8b09d1"
   },
+  "fr6_je_m_appelle_ex": {
+    "file": "fr6_je_m_appelle_ex.m4a",
+    "text": "Bonjour, je m'appelle Clara.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "8847ba5435299405"
+  },
   "fr6_je_suis": {
     "file": "fr6_je_suis.m4a",
     "text": "je suis",
@@ -206,6 +406,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "8d287d00e728c83f"
+  },
+  "fr6_je_suis_ex": {
+    "file": "fr6_je_suis_ex.m4a",
+    "text": "Je suis de Paris.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "8828dbe7456758bf"
   },
   "fr6_mais": {
     "file": "fr6_mais.m4a",
@@ -215,6 +423,14 @@
     "speed": 0.9,
     "hash": "c3fc603c2cc35848"
   },
+  "fr6_mais_ex": {
+    "file": "fr6_mais_ex.m4a",
+    "text": "Malabar est bizarre, mais il est super.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "d141a7473bea7358"
+  },
   "fr6_merci": {
     "file": "fr6_merci.m4a",
     "text": "merci",
@@ -222,6 +438,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "a56397eeaf22a328"
+  },
+  "fr6_merci_ex": {
+    "file": "fr6_merci_ex.m4a",
+    "text": "Ça va bien, merci.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "baf1b6b8e4f0d75c"
   },
   "fr6_moi": {
     "file": "fr6_moi.m4a",
@@ -231,6 +455,14 @@
     "speed": 0.9,
     "hash": "aac20108bf9b2dd5"
   },
+  "fr6_moi_ex": {
+    "file": "fr6_moi_ex.m4a",
+    "text": "Moi, je suis de Paris.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "9f21a0647c0e0fb6"
+  },
   "fr6_neuf": {
     "file": "fr6_neuf.m4a",
     "text": "neuf",
@@ -238,6 +470,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "e35899f22960fc74"
+  },
+  "fr6_neuf_ex": {
+    "file": "fr6_neuf_ex.m4a",
+    "text": "Neuf, dix, onze, douze !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "213c78f3e5fb2b9a"
   },
   "fr6_nice": {
     "file": "fr6_nice.m4a",
@@ -247,6 +487,14 @@
     "speed": 0.9,
     "hash": "d66d68c9640e21da"
   },
+  "fr6_nice_ex": {
+    "file": "fr6_nice_ex.m4a",
+    "text": "Marie est de Nice.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "f94725ca0b4b7db5"
+  },
   "fr6_non": {
     "file": "fr6_non.m4a",
     "text": "non",
@@ -254,6 +502,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "eabae2824763c60b"
+  },
+  "fr6_non_ex": {
+    "file": "fr6_non_ex.m4a",
+    "text": "Non, je suis de Nice.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "1f4cb6e1b581f028"
   },
   "fr6_onze": {
     "file": "fr6_onze.m4a",
@@ -263,6 +519,14 @@
     "speed": 0.9,
     "hash": "e4ad0ccc0a736062"
   },
+  "fr6_onze_ex": {
+    "file": "fr6_onze_ex.m4a",
+    "text": "Voilà onze chats !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "91b938cb53b09821"
+  },
   "fr6_oui": {
     "file": "fr6_oui.m4a",
     "text": "oui",
@@ -270,6 +534,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "3b36f1c2fee8ffdb"
+  },
+  "fr6_oui_ex": {
+    "file": "fr6_oui_ex.m4a",
+    "text": "Oui, ça va bien.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "c17ad8ee39e2f733"
   },
   "fr6_papa": {
     "file": "fr6_papa.m4a",
@@ -279,6 +551,14 @@
     "speed": 0.9,
     "hash": "339995e8bf4ac156"
   },
+  "fr6_papa_ex": {
+    "file": "fr6_papa_ex.m4a",
+    "text": "Voilà papa !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "fab97d95c54914f5"
+  },
   "fr6_pardon": {
     "file": "fr6_pardon.m4a",
     "text": "Pardon.",
@@ -286,6 +566,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "c24a3c8ff0756d0f"
+  },
+  "fr6_pardon_ex": {
+    "file": "fr6_pardon_ex.m4a",
+    "text": "Oh, pardon, monsieur !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "5180394758c7dc3a"
   },
   "fr6_quatre": {
     "file": "fr6_quatre.m4a",
@@ -295,6 +583,14 @@
     "speed": 0.9,
     "hash": "fea2e10942646374"
   },
+  "fr6_quatre_ex": {
+    "file": "fr6_quatre_ex.m4a",
+    "text": "Voilà quatre chiens !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "1fc3d750565cd2b3"
+  },
   "fr6_qui_est_ce": {
     "file": "fr6_qui_est_ce.m4a",
     "text": "Qui est-ce?",
@@ -302,6 +598,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "0d349ad9722f2de8"
+  },
+  "fr6_qui_est_ce_ex": {
+    "file": "fr6_qui_est_ce_ex.m4a",
+    "text": "Qui est-ce ? C'est Malabar.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "e3a2b5245f62f8ff"
   },
   "fr6_s_p_a": {
     "file": "fr6_s_p_a.m4a",
@@ -311,6 +615,14 @@
     "speed": 0.9,
     "hash": "77cf1bca702feaf2"
   },
+  "fr6_s_p_a_ex": {
+    "file": "fr6_s_p_a_ex.m4a",
+    "text": "Malabar est un chien de la S.P.A.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "5fd3ad594a2d6446"
+  },
   "fr6_salut": {
     "file": "fr6_salut.m4a",
     "text": "Salut!",
@@ -318,6 +630,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "2e2750c40020bed9"
+  },
+  "fr6_salut_ex": {
+    "file": "fr6_salut_ex.m4a",
+    "text": "Salut, Marie ! Ça va ?",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "ecda5965284f3f2c"
   },
   "fr6_sept": {
     "file": "fr6_sept.m4a",
@@ -327,6 +647,14 @@
     "speed": 0.9,
     "hash": "bff22eaefaf3a8f7"
   },
+  "fr6_sept_ex": {
+    "file": "fr6_sept_ex.m4a",
+    "text": "Voilà sept filles.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "822d2d2fe36a2268"
+  },
   "fr6_six": {
     "file": "fr6_six.m4a",
     "text": "six",
@@ -334,6 +662,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "789e220d2d14c3ca"
+  },
+  "fr6_six_ex": {
+    "file": "fr6_six_ex.m4a",
+    "text": "Voilà six garçons.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "4941494eb8dff9f6"
   },
   "fr6_strasbourg": {
     "file": "fr6_strasbourg.m4a",
@@ -343,6 +679,14 @@
     "speed": 0.9,
     "hash": "b5b3b1598be3b335"
   },
+  "fr6_strasbourg_ex": {
+    "file": "fr6_strasbourg_ex.m4a",
+    "text": "Léa est de Strasbourg.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "12ea5345354cf722"
+  },
   "fr6_super": {
     "file": "fr6_super.m4a",
     "text": "super",
@@ -350,6 +694,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "e45fe98dbc4797fe"
+  },
+  "fr6_super_ex": {
+    "file": "fr6_super_ex.m4a",
+    "text": "Malabar est super !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "5b78a0d4f438cb50"
   },
   "fr6_toi": {
     "file": "fr6_toi.m4a",
@@ -359,6 +711,14 @@
     "speed": 0.9,
     "hash": "54ebad5942ed80c9"
   },
+  "fr6_toi_ex": {
+    "file": "fr6_toi_ex.m4a",
+    "text": "Je m'appelle Léo. Et toi ?",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "c195821306184336"
+  },
   "fr6_trois": {
     "file": "fr6_trois.m4a",
     "text": "trois",
@@ -366,6 +726,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "982a3d2cf35454b7"
+  },
+  "fr6_trois_ex": {
+    "file": "fr6_trois_ex.m4a",
+    "text": "Un, deux, trois, viens !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "a0381472eff2d5ac"
   },
   "fr6_tu_es": {
     "file": "fr6_tu_es.m4a",
@@ -375,6 +743,14 @@
     "speed": 0.9,
     "hash": "cc41a714d30440ac"
   },
+  "fr6_tu_es_ex": {
+    "file": "fr6_tu_es_ex.m4a",
+    "text": "Tu es de Toulouse ?",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "4c15683e56e01662"
+  },
   "fr6_tu_t_appelles_comment": {
     "file": "fr6_tu_t_appelles_comment.m4a",
     "text": "Tu t'appelles comment?",
@@ -382,6 +758,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "d156a7feddd3f3ba"
+  },
+  "fr6_tu_t_appelles_comment_ex": {
+    "file": "fr6_tu_t_appelles_comment_ex.m4a",
+    "text": "Salut ! Tu t'appelles comment ?",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "b0af27ab4eba3023"
   },
   "fr6_un": {
     "file": "fr6_un.m4a",
@@ -399,6 +783,14 @@
     "speed": 0.9,
     "hash": "897c35586c080eed"
   },
+  "fr6_un_ami_une_amie_ex": {
+    "file": "fr6_un_ami_une_amie_ex.m4a",
+    "text": "Voilà Léo, un ami.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "fa105c28f7578a88"
+  },
   "fr6_un_animal": {
     "file": "fr6_un_animal.m4a",
     "text": "un animal",
@@ -406,6 +798,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "5cd91aaf93366273"
+  },
+  "fr6_un_animal_ex": {
+    "file": "fr6_un_animal_ex.m4a",
+    "text": "Malabar est un animal super.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "59dd9a4d3bbdda6f"
   },
   "fr6_un_canari": {
     "file": "fr6_un_canari.m4a",
@@ -415,6 +815,14 @@
     "speed": 0.9,
     "hash": "0152526a7628ddc3"
   },
+  "fr6_un_canari_ex": {
+    "file": "fr6_un_canari_ex.m4a",
+    "text": "Voilà un canari.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "46bb5fe976fcc0cc"
+  },
   "fr6_un_chat": {
     "file": "fr6_un_chat.m4a",
     "text": "un chat",
@@ -422,6 +830,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "f78ae5e3e62b0f02"
+  },
+  "fr6_un_chat_ex": {
+    "file": "fr6_un_chat_ex.m4a",
+    "text": "Filou est un chat.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "514a04a069fbfafa"
   },
   "fr6_un_chien": {
     "file": "fr6_un_chien.m4a",
@@ -431,6 +847,14 @@
     "speed": 0.9,
     "hash": "ec710e752b4ca9d1"
   },
+  "fr6_un_chien_ex": {
+    "file": "fr6_un_chien_ex.m4a",
+    "text": "Malabar est un chien.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "206dbf15bb13feb8"
+  },
   "fr6_un_cochon": {
     "file": "fr6_un_cochon.m4a",
     "text": "un cochon",
@@ -438,6 +862,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "e7a387ddf8ec4186"
+  },
+  "fr6_un_cochon_ex": {
+    "file": "fr6_un_cochon_ex.m4a",
+    "text": "C'est un cochon ! Il est super.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "f47d42bb002c15ef"
   },
   "fr6_un_copain_une_copine": {
     "file": "fr6_un_copain_une_copine.m4a",
@@ -447,6 +879,22 @@
     "speed": 0.9,
     "hash": "f6b76f47911fb76c"
   },
+  "fr6_un_copain_une_copine_ex": {
+    "file": "fr6_un_copain_une_copine_ex.m4a",
+    "text": "Voilà Marie, une copine.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "33ab3be114d80dfc"
+  },
+  "fr6_un_ex": {
+    "file": "fr6_un_ex.m4a",
+    "text": "Un chien et un chat.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "ef89b82131d2e7f0"
+  },
   "fr6_un_garcon": {
     "file": "fr6_un_garcon.m4a",
     "text": "un garçon",
@@ -454,6 +902,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "dd7778aee3f8707e"
+  },
+  "fr6_un_garcon_ex": {
+    "file": "fr6_un_garcon_ex.m4a",
+    "text": "Léo est un garçon.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "0f5264c058e87710"
   },
   "fr6_un_hamster": {
     "file": "fr6_un_hamster.m4a",
@@ -463,6 +919,14 @@
     "speed": 0.9,
     "hash": "595d95fc36c58fdc"
   },
+  "fr6_un_hamster_ex": {
+    "file": "fr6_un_hamster_ex.m4a",
+    "text": "Voilà un hamster !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "ccc345dea6878b2f"
+  },
   "fr6_un_monsieur": {
     "file": "fr6_un_monsieur.m4a",
     "text": "un monsieur",
@@ -470,6 +934,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "f88a569b74377de0"
+  },
+  "fr6_un_monsieur_ex": {
+    "file": "fr6_un_monsieur_ex.m4a",
+    "text": "Voilà un monsieur et un chien.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "51de32fc8109d24f"
   },
   "fr6_un_perroquet": {
     "file": "fr6_un_perroquet.m4a",
@@ -479,6 +951,14 @@
     "speed": 0.9,
     "hash": "13073360fc57e4cc"
   },
+  "fr6_un_perroquet_ex": {
+    "file": "fr6_un_perroquet_ex.m4a",
+    "text": "Coco est un perroquet.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "82c2d091a9d9f754"
+  },
   "fr6_un_rat": {
     "file": "fr6_un_rat.m4a",
     "text": "un rat",
@@ -486,6 +966,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "a10a122c49e1290c"
+  },
+  "fr6_un_rat_ex": {
+    "file": "fr6_un_rat_ex.m4a",
+    "text": "C'est un rat ? Oh non !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "ecaa7d0c2fabc6fd"
   },
   "fr6_un_serpent": {
     "file": "fr6_un_serpent.m4a",
@@ -495,6 +983,14 @@
     "speed": 0.9,
     "hash": "0b997b23518c2197"
   },
+  "fr6_un_serpent_ex": {
+    "file": "fr6_un_serpent_ex.m4a",
+    "text": "Attention, un serpent !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "fe25736737b897db"
+  },
   "fr6_une_chanson": {
     "file": "fr6_une_chanson.m4a",
     "text": "une chanson",
@@ -502,6 +998,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "141e2186437f5f14"
+  },
+  "fr6_une_chanson_ex": {
+    "file": "fr6_une_chanson_ex.m4a",
+    "text": "C'est une chanson super !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "a33e2af442b29e81"
   },
   "fr6_une_dame": {
     "file": "fr6_une_dame.m4a",
@@ -511,6 +1015,14 @@
     "speed": 0.9,
     "hash": "90c78b78dfb51786"
   },
+  "fr6_une_dame_ex": {
+    "file": "fr6_une_dame_ex.m4a",
+    "text": "Qui est-ce ? C'est une dame de Paris.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "269cca4dc3ad34d3"
+  },
   "fr6_une_fille": {
     "file": "fr6_une_fille.m4a",
     "text": "une fille",
@@ -518,6 +1030,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "ef29cc4092ea0b60"
+  },
+  "fr6_une_fille_ex": {
+    "file": "fr6_une_fille_ex.m4a",
+    "text": "Marie est une fille.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "d5e8ba35cfdcd131"
   },
   "fr6_une_perruche": {
     "file": "fr6_une_perruche.m4a",
@@ -527,6 +1047,14 @@
     "speed": 0.9,
     "hash": "3d574429fcd7622c"
   },
+  "fr6_une_perruche_ex": {
+    "file": "fr6_une_perruche_ex.m4a",
+    "text": "Voilà une perruche fantastique !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "1f702364730ef3f2"
+  },
   "fr6_une_tortue": {
     "file": "fr6_une_tortue.m4a",
     "text": "une tortue",
@@ -534,6 +1062,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "045262abcd5ff51c"
+  },
+  "fr6_une_tortue_ex": {
+    "file": "fr6_une_tortue_ex.m4a",
+    "text": "C'est une tortue. Elle est super.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "bd9a0cb6c58787a3"
   },
   "fr6_viens": {
     "file": "fr6_viens.m4a",
@@ -543,6 +1079,14 @@
     "speed": 0.9,
     "hash": "5f371999f9e09873"
   },
+  "fr6_viens_ex": {
+    "file": "fr6_viens_ex.m4a",
+    "text": "Viens, Malabar ! Vite !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "2fb6c1d42638ef51"
+  },
   "fr6_vite": {
     "file": "fr6_vite.m4a",
     "text": "vite",
@@ -550,6 +1094,14 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "551800c23728b902"
+  },
+  "fr6_vite_ex": {
+    "file": "fr6_vite_ex.m4a",
+    "text": "Vite, Malabar, viens !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "b67762feaa166349"
   },
   "fr6_voila": {
     "file": "fr6_voila.m4a",
@@ -559,6 +1111,14 @@
     "speed": 0.9,
     "hash": "3628fdd555d6a794"
   },
+  "fr6_voila_ex": {
+    "file": "fr6_voila_ex.m4a",
+    "text": "Voilà Malabar !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "4b95abf92cbaf67b"
+  },
   "fr6_zero": {
     "file": "fr6_zero.m4a",
     "text": "zéro",
@@ -566,5 +1126,13 @@
     "voice": "ff_siwis",
     "speed": 0.9,
     "hash": "08df424852e1f1a6"
+  },
+  "fr6_zero_ex": {
+    "file": "fr6_zero_ex.m4a",
+    "text": "Le code, c'est zéro, zéro, un.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "40b1b8b9680aeb08"
   }
 }

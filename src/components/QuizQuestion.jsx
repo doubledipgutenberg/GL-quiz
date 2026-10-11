@@ -3,15 +3,16 @@ import { Card, CardContent } from './ui/card';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { cn } from '@/lib/utils';
-import { playAudio } from '@/lib/audio';
+import { playAudio, playSequence } from '@/lib/audio';
 
 // Akzent-Tasten für französische Antworten (Akzente zählen streng).
 const FR_ACCENTS = ['é', 'è', 'ê', 'ë', 'à', 'â', 'ç', 'î', 'ï', 'ô', 'û', 'ù', 'œ'];
 
-function SpeakerButton({ audio, size = 'sm', label = 'Anhören' }) {
-  if (!audio) return null;
+function SpeakerButton({ audio, sequence, size = 'sm', label = 'Anhören' }) {
+  if (!audio && !sequence) return null;
+  const play = () => (sequence ? playSequence(sequence) : playAudio(audio));
   return (
-    <Button type="button" variant="outline" size={size} onClick={() => playAudio(audio)} aria-label={label}>
+    <Button type="button" variant="outline" size={size} onClick={play} aria-label={label}>
       🔊 {label}
     </Button>
   );
@@ -24,10 +25,11 @@ export default function QuizQuestion({ question, onSubmit }) {
   const isListen = question.type === 'listen_card';
   const isCard = question.type === 'vocab_card' || isListen;
 
-  // Hör-Karte im Wortschatz: das Wort beim Erscheinen einmal abspielen.
+  // Hör-Karte im Wortschatz: beim Erscheinen erst das Wort, kurz danach den Beispielsatz abspielen.
+  const listenSequence = isListen ? [question.audio, question.exampleAudio] : null;
   useEffect(() => {
-    if (question.type === 'listen_card') playAudio(question.audio);
-  }, [question.id, question.type, question.audio]);
+    if (question.type === 'listen_card') playSequence([question.audio, question.exampleAudio]);
+  }, [question.id, question.type, question.audio, question.exampleAudio]);
 
   const insertChar = (ch) => {
     const el = inputRef.current;
@@ -123,7 +125,10 @@ export default function QuizQuestion({ question, onSubmit }) {
         {isListen && (
           <div className="rounded-xl border border-border bg-muted/30 p-8 text-center space-y-4">
             <p className="text-sm text-muted-foreground">{question.instruction}</p>
-            <SpeakerButton audio={question.audio} size="lg" label="Nochmal anhören" />
+            <SpeakerButton sequence={listenSequence} size="lg" label="Nochmal anhören" />
+            {question.exampleAudio && (
+              <p className="text-xs text-muted-foreground">Erst das Wort, dann ein Beispielsatz.</p>
+            )}
           </div>
         )}
 

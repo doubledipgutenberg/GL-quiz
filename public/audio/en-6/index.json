@@ -7,6 +7,14 @@
     "speed": 0.95,
     "hash": "70b3c46d3f6cbffe"
   },
+  "en6_a_bit_ex": {
+    "file": "en6_a_bit_ex.m4a",
+    "text": "I'm a bit tired today.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "79b54e4fd6524260"
+  },
   "en6_actually": {
     "file": "en6_actually.m4a",
     "text": "actually",
@@ -14,6 +22,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "d11e40cbd0251a9d"
+  },
+  "en6_actually_ex": {
+    "file": "en6_actually_ex.m4a",
+    "text": "Actually, I don't like pizza.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "ea772db12b635fd9"
   },
   "en6_air": {
     "file": "en6_air.m4a",
@@ -23,6 +39,14 @@
     "speed": 0.95,
     "hash": "231b15749e261344"
   },
+  "en6_air_ex": {
+    "file": "en6_air_ex.m4a",
+    "text": "The air in the mountains is so fresh.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "4df5b7d46dd348cb"
+  },
   "en6_almost": {
     "file": "en6_almost.m4a",
     "text": "almost",
@@ -30,6 +54,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "603a93468bf75e39"
+  },
+  "en6_almost_ex": {
+    "file": "en6_almost_ex.m4a",
+    "text": "It's almost eight o'clock!",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "0b6faf3afe04fe59"
   },
   "en6_art": {
     "file": "en6_art.m4a",
@@ -39,6 +71,14 @@
     "speed": 0.95,
     "hash": "87ba85eb906a3508"
   },
+  "en6_art_ex": {
+    "file": "en6_art_ex.m4a",
+    "text": "Art is my favourite subject.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "700c749ae5ebe5cd"
+  },
   "en6_barrel": {
     "file": "en6_barrel.m4a",
     "text": "barrel",
@@ -46,6 +86,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "3824a1a7efb090e9"
+  },
+  "en6_barrel_ex": {
+    "file": "en6_barrel_ex.m4a",
+    "text": "The barrel is full of apples.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "40987dbccf150168"
   },
   "en6_bench": {
     "file": "en6_bench.m4a",
@@ -55,6 +103,14 @@
     "speed": 0.95,
     "hash": "3b0e273a85f32592"
   },
+  "en6_bench_ex": {
+    "file": "en6_bench_ex.m4a",
+    "text": "Let's sit on that bench.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "03779d9a416efc1d"
+  },
   "en6_bird": {
     "file": "en6_bird.m4a",
     "text": "bird",
@@ -62,6 +118,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "3594779e6cda2d85"
+  },
+  "en6_bird_ex": {
+    "file": "en6_bird_ex.m4a",
+    "text": "A little bird is sitting on the bench.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "19721d080b68ee0a"
   },
   "en6_cheap": {
     "file": "en6_cheap.m4a",
@@ -71,6 +135,14 @@
     "speed": 0.95,
     "hash": "23d6922aed101a84"
   },
+  "en6_cheap_ex": {
+    "file": "en6_cheap_ex.m4a",
+    "text": "This T-shirt was really cheap.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "fd75728e0f03c5a9"
+  },
   "en6_close": {
     "file": "en6_close.m4a",
     "text": "close",
@@ -78,6 +150,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "ebf72ace529a1ebb"
+  },
+  "en6_close_ex": {
+    "file": "en6_close_ex.m4a",
+    "text": "Our school is close to the park.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "6ac8c049581954aa"
   },
   "en6_daughter": {
     "file": "en6_daughter.m4a",
@@ -87,6 +167,14 @@
     "speed": 0.95,
     "hash": "900eff00e354521a"
   },
+  "en6_daughter_ex": {
+    "file": "en6_daughter_ex.m4a",
+    "text": "Mrs Smith has two daughters.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "d57e44c6dda7e008"
+  },
   "en6_during": {
     "file": "en6_during.m4a",
     "text": "during",
@@ -94,6 +182,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "7672fa6a7c912283"
+  },
+  "en6_during_ex": {
+    "file": "en6_during_ex.m4a",
+    "text": "Please don't talk during the film.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "35d64c39f037f8d9"
   },
   "en6_eagle": {
     "file": "en6_eagle.m4a",
@@ -103,6 +199,14 @@
     "speed": 0.95,
     "hash": "f5fc2eee74db5401"
   },
+  "en6_eagle_ex": {
+    "file": "en6_eagle_ex.m4a",
+    "text": "The eagle is flying over the hill.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "8ea3b07088fca909"
+  },
   "en6_embarrassed": {
     "file": "en6_embarrassed.m4a",
     "text": "embarrassed",
@@ -110,6 +214,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "e009e9fdb19c0d60"
+  },
+  "en6_embarrassed_ex": {
+    "file": "en6_embarrassed_ex.m4a",
+    "text": "I was so embarrassed when I fell.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "b6188b1aa342031c"
   },
   "en6_embarrassing": {
     "file": "en6_embarrassing.m4a",
@@ -119,6 +231,14 @@
     "speed": 0.95,
     "hash": "94e64befdef8e5a8"
   },
+  "en6_embarrassing_ex": {
+    "file": "en6_embarrassing_ex.m4a",
+    "text": "Oh no, this photo is so embarrassing!",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "197f7a8a278b867e"
+  },
   "en6_event": {
     "file": "en6_event.m4a",
     "text": "event",
@@ -126,6 +246,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "72cb63ec8b8ff6ea"
+  },
+  "en6_event_ex": {
+    "file": "en6_event_ex.m4a",
+    "text": "The school party is a big event.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "987d0e02426fca80"
   },
   "en6_expensive": {
     "file": "en6_expensive.m4a",
@@ -135,6 +263,14 @@
     "speed": 0.95,
     "hash": "7a8cc9f6346e7d3b"
   },
+  "en6_expensive_ex": {
+    "file": "en6_expensive_ex.m4a",
+    "text": "The new phone is too expensive.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "caa32055a32b592e"
+  },
   "en6_far_away": {
     "file": "en6_far_away.m4a",
     "text": "far away",
@@ -142,6 +278,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "0cc929c92619ebdc"
+  },
+  "en6_far_away_ex": {
+    "file": "en6_far_away_ex.m4a",
+    "text": "My grandma lives far away.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "3feba3b3cf9eef21"
   },
   "en6_feeling": {
     "file": "en6_feeling.m4a",
@@ -151,6 +295,14 @@
     "speed": 0.95,
     "hash": "f026d1c40b041e26"
   },
+  "en6_feeling_ex": {
+    "file": "en6_feeling_ex.m4a",
+    "text": "I have a good feeling about the race.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "2b0cd80132dba023"
+  },
   "en6_field": {
     "file": "en6_field.m4a",
     "text": "field",
@@ -158,6 +310,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "800da02d997df417"
+  },
+  "en6_field_ex": {
+    "file": "en6_field_ex.m4a",
+    "text": "There are three horses in the field.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "d215273a1e022648"
   },
   "en6_hill": {
     "file": "en6_hill.m4a",
@@ -167,6 +327,14 @@
     "speed": 0.95,
     "hash": "9b0c5017cf6b1a5b"
   },
+  "en6_hill_ex": {
+    "file": "en6_hill_ex.m4a",
+    "text": "We walked up the hill.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "ddcb36203273f571"
+  },
   "en6_home_town": {
     "file": "en6_home_town.m4a",
     "text": "home town",
@@ -174,6 +342,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "7f1f19a06eb76dd3"
+  },
+  "en6_home_town_ex": {
+    "file": "en6_home_town_ex.m4a",
+    "text": "My home town is small but nice.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "5e2d59dea57cae73"
   },
   "en6_huge": {
     "file": "en6_huge.m4a",
@@ -183,6 +359,14 @@
     "speed": 0.95,
     "hash": "757d136a54314838"
   },
+  "en6_huge_ex": {
+    "file": "en6_huge_ex.m4a",
+    "text": "Their new house is huge!",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "25c026ff0d750541"
+  },
   "en6_indoors": {
     "file": "en6_indoors.m4a",
     "text": "indoors",
@@ -190,6 +374,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "3e8c31465ed30de0"
+  },
+  "en6_indoors_ex": {
+    "file": "en6_indoors_ex.m4a",
+    "text": "It's raining, so let's play indoors.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "168f296a9d91de3e"
   },
   "en6_judge": {
     "file": "en6_judge.m4a",
@@ -199,6 +391,14 @@
     "speed": 0.95,
     "hash": "016f008c29992aa8"
   },
+  "en6_judge_ex": {
+    "file": "en6_judge_ex.m4a",
+    "text": "The judges liked her song.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "749153d27fe49bd5"
+  },
   "en6_latest": {
     "file": "en6_latest.m4a",
     "text": "latest",
@@ -206,6 +406,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "91d20ed69dc61a78"
+  },
+  "en6_latest_ex": {
+    "file": "en6_latest_ex.m4a",
+    "text": "Have you heard their latest song?",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "ba55e4d615a3f1dc"
   },
   "en6_life": {
     "file": "en6_life.m4a",
@@ -215,6 +423,14 @@
     "speed": 0.95,
     "hash": "b9fb23cb79baac68"
   },
+  "en6_life_ex": {
+    "file": "en6_life_ex.m4a",
+    "text": "I love my life in the country.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "b30070c44722df32"
+  },
   "en6_likes_and_dislikes": {
     "file": "en6_likes_and_dislikes.m4a",
     "text": "likes and dislikes",
@@ -222,6 +438,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "1a7cf525afb22b2e"
+  },
+  "en6_likes_and_dislikes_ex": {
+    "file": "en6_likes_and_dislikes_ex.m4a",
+    "text": "Tell me about your likes and dislikes.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "4d27eb5899e1835b"
   },
   "en6_mad": {
     "file": "en6_mad.m4a",
@@ -231,6 +455,14 @@
     "speed": 0.95,
     "hash": "6c7f956faa21a45f"
   },
+  "en6_mad_ex": {
+    "file": "en6_mad_ex.m4a",
+    "text": "Dad was mad because I was late.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "59049e08dcb19640"
+  },
   "en6_mall": {
     "file": "en6_mall.m4a",
     "text": "mall",
@@ -238,6 +470,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "36bee7a0322caae5"
+  },
+  "en6_mall_ex": {
+    "file": "en6_mall_ex.m4a",
+    "text": "Let's meet at the mall.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "75e0a242cb4c2789"
   },
   "en6_movie": {
     "file": "en6_movie.m4a",
@@ -247,6 +487,14 @@
     "speed": 0.95,
     "hash": "bba6c8fb18928f28"
   },
+  "en6_movie_ex": {
+    "file": "en6_movie_ex.m4a",
+    "text": "Let's watch a movie tonight.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "9afad6f3ffad65ea"
+  },
   "en6_movie_theater": {
     "file": "en6_movie_theater.m4a",
     "text": "movie theater",
@@ -254,6 +502,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "875efe15d913b453"
+  },
+  "en6_movie_theater_ex": {
+    "file": "en6_movie_theater_ex.m4a",
+    "text": "We went to the movie theater on Saturday.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "f376b4f99b7e4dcf"
   },
   "en6_nervous": {
     "file": "en6_nervous.m4a",
@@ -263,6 +519,14 @@
     "speed": 0.95,
     "hash": "29ef9e536f346251"
   },
+  "en6_nervous_ex": {
+    "file": "en6_nervous_ex.m4a",
+    "text": "I'm always nervous before a test.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "9d821b919d305ca6"
+  },
   "en6_noise": {
     "file": "en6_noise.m4a",
     "text": "noise",
@@ -270,6 +534,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "bb230ed71eb46dd0"
+  },
+  "en6_noise_ex": {
+    "file": "en6_noise_ex.m4a",
+    "text": "What's that noise?",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "71001ee015a2e010"
   },
   "en6_one_hundred_thousand": {
     "file": "en6_one_hundred_thousand.m4a",
@@ -279,6 +551,14 @@
     "speed": 0.95,
     "hash": "fc05fe614b3377ff"
   },
+  "en6_one_hundred_thousand_ex": {
+    "file": "en6_one_hundred_thousand_ex.m4a",
+    "text": "One hundred thousand people live in this city.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "788c9e2f25a6a721"
+  },
   "en6_one_million": {
     "file": "en6_one_million.m4a",
     "text": "one million",
@@ -286,6 +566,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "6b801f4468a87bb5"
+  },
+  "en6_one_million_ex": {
+    "file": "en6_one_million_ex.m4a",
+    "text": "One million people visit this museum every year.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "583586c623e7f2c9"
   },
   "en6_one_point_five": {
     "file": "en6_one_point_five.m4a",
@@ -295,6 +583,14 @@
     "speed": 0.95,
     "hash": "bb0daf9e762fcabf"
   },
+  "en6_one_point_five_ex": {
+    "file": "en6_one_point_five_ex.m4a",
+    "text": "The bottle has one point five litres of water.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "d33daef61be9b119"
+  },
   "en6_one_thousand": {
     "file": "en6_one_thousand.m4a",
     "text": "one thousand",
@@ -302,6 +598,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "7127dc49712a282d"
+  },
+  "en6_one_thousand_ex": {
+    "file": "en6_one_thousand_ex.m4a",
+    "text": "One thousand people came to the concert.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "15a05acc4da45d7e"
   },
   "en6_outdoor_activity": {
     "file": "en6_outdoor_activity.m4a",
@@ -311,6 +615,14 @@
     "speed": 0.95,
     "hash": "2b994e5633f0f753"
   },
+  "en6_outdoor_activity_ex": {
+    "file": "en6_outdoor_activity_ex.m4a",
+    "text": "Hiking is my favourite outdoor activity.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "7e7c91f78749bdf0"
+  },
   "en6_outdoors": {
     "file": "en6_outdoors.m4a",
     "text": "outdoors",
@@ -318,6 +630,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "36963fa22190caee"
+  },
+  "en6_outdoors_ex": {
+    "file": "en6_outdoors_ex.m4a",
+    "text": "In summer we often eat outdoors.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "4078cd2ab3a01a7f"
   },
   "en6_pet": {
     "file": "en6_pet.m4a",
@@ -327,6 +647,14 @@
     "speed": 0.95,
     "hash": "be01f18a2e5436ac"
   },
+  "en6_pet_ex": {
+    "file": "en6_pet_ex.m4a",
+    "text": "Have you got a pet?",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "ae3cb9b301082e2e"
+  },
   "en6_plan": {
     "file": "en6_plan.m4a",
     "text": "plan",
@@ -334,6 +662,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "33e4daf2e7dff687"
+  },
+  "en6_plan_ex": {
+    "file": "en6_plan_ex.m4a",
+    "text": "What are your plans for the holidays?",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "4e5c1da220747269"
   },
   "en6_point": {
     "file": "en6_point.m4a",
@@ -343,6 +679,14 @@
     "speed": 0.95,
     "hash": "8e67b063568cf033"
   },
+  "en6_point_ex": {
+    "file": "en6_point_ex.m4a",
+    "text": "Our team got ten points.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "42f7c8c471e8abd8"
+  },
   "en6_pollution": {
     "file": "en6_pollution.m4a",
     "text": "pollution",
@@ -350,6 +694,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "60b31e7de521346a"
+  },
+  "en6_pollution_ex": {
+    "file": "en6_pollution_ex.m4a",
+    "text": "Cars cause a lot of pollution.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "59f552851cca049a"
   },
   "en6_poor": {
     "file": "en6_poor.m4a",
@@ -359,6 +711,14 @@
     "speed": 0.95,
     "hash": "17f6ab29c671a140"
   },
+  "en6_poor_ex": {
+    "file": "en6_poor_ex.m4a",
+    "text": "The poor dog is wet and cold.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "9001e61d67eb2287"
+  },
   "en6_proud": {
     "file": "en6_proud.m4a",
     "text": "proud of",
@@ -366,6 +726,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "22cf22c4d20f58e8"
+  },
+  "en6_proud_ex": {
+    "file": "en6_proud_ex.m4a",
+    "text": "My mum is proud of me.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "86af8d4e4e02a117"
   },
   "en6_public_transport": {
     "file": "en6_public_transport.m4a",
@@ -375,6 +743,14 @@
     "speed": 0.95,
     "hash": "7b8f2eab78561040"
   },
+  "en6_public_transport_ex": {
+    "file": "en6_public_transport_ex.m4a",
+    "text": "In the city I always use public transport.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "2ace06d96558a9c2"
+  },
   "en6_race": {
     "file": "en6_race.m4a",
     "text": "race",
@@ -382,6 +758,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "bc9835f015c550e7"
+  },
+  "en6_race_ex": {
+    "file": "en6_race_ex.m4a",
+    "text": "Who won the race?",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "fef3c4298f88713c"
   },
   "en6_real": {
     "file": "en6_real.m4a",
@@ -391,6 +775,14 @@
     "speed": 0.95,
     "hash": "e5cd88b660edf626"
   },
+  "en6_real_ex": {
+    "file": "en6_real_ex.m4a",
+    "text": "Is that a real eagle?",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "4af03c7e8b89ceea"
+  },
   "en6_report": {
     "file": "en6_report.m4a",
     "text": "report",
@@ -398,6 +790,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "66ecfbb60faf20ce"
+  },
+  "en6_report_ex": {
+    "file": "en6_report_ex.m4a",
+    "text": "We have to write a report about our trip.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "7398d69d378f43f5"
   },
   "en6_second": {
     "file": "en6_second.m4a",
@@ -407,6 +807,14 @@
     "speed": 0.95,
     "hash": "5361fd732ce9f2b7"
   },
+  "en6_second_ex": {
+    "file": "en6_second_ex.m4a",
+    "text": "Wait a second!",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "6237cced37686a67"
+  },
   "en6_shopping_mall": {
     "file": "en6_shopping_mall.m4a",
     "text": "shopping mall",
@@ -414,6 +822,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "f3eb2347bf99f909"
+  },
+  "en6_shopping_mall_ex": {
+    "file": "en6_shopping_mall_ex.m4a",
+    "text": "The new shopping mall has fifty shops.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "2c1edbbb839db945"
   },
   "en6_show_off": {
     "file": "en6_show_off.m4a",
@@ -423,6 +839,14 @@
     "speed": 0.95,
     "hash": "b9997821269b2b44"
   },
+  "en6_show_off_ex": {
+    "file": "en6_show_off_ex.m4a",
+    "text": "Don't be such a show-off!",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "f9d1bfa3752d1421"
+  },
   "en6_space": {
     "file": "en6_space.m4a",
     "text": "space",
@@ -430,6 +854,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "0732c4d569337df4"
+  },
+  "en6_space_ex": {
+    "file": "en6_space_ex.m4a",
+    "text": "There isn't enough space in my room.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "fff1a8ac7057ac4b"
   },
   "en6_ten_thousand": {
     "file": "en6_ten_thousand.m4a",
@@ -439,6 +871,14 @@
     "speed": 0.95,
     "hash": "d38ff7212a761172"
   },
+  "en6_ten_thousand_ex": {
+    "file": "en6_ten_thousand_ex.m4a",
+    "text": "Ten thousand fans watched the match.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "bf538c4a5a06589d"
+  },
   "en6_there_s_nothing_more_exciting_than": {
     "file": "en6_there_s_nothing_more_exciting_than.m4a",
     "text": "There's nothing more exciting than",
@@ -446,6 +886,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "be734a728a22caaa"
+  },
+  "en6_there_s_nothing_more_exciting_than_ex": {
+    "file": "en6_there_s_nothing_more_exciting_than_ex.m4a",
+    "text": "There's nothing more exciting than a horse race.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "5c1dbd02cdad1462"
   },
   "en6_to_end_up": {
     "file": "en6_to_end_up.m4a",
@@ -455,6 +903,14 @@
     "speed": 0.95,
     "hash": "f2f1801d57e571a1"
   },
+  "en6_to_end_up_ex": {
+    "file": "en6_to_end_up_ex.m4a",
+    "text": "Our ball ended up in the river.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "16dd15699961e801"
+  },
   "en6_to_fall_off": {
     "file": "en6_to_fall_off.m4a",
     "text": "to fall off",
@@ -462,6 +918,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "e85e535fb50424b8"
+  },
+  "en6_to_fall_off_ex": {
+    "file": "en6_to_fall_off_ex.m4a",
+    "text": "Be careful, don't fall off your bike!",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "d877b728cd345c95"
   },
   "en6_to_fix": {
     "file": "en6_to_fix.m4a",
@@ -471,6 +935,14 @@
     "speed": 0.95,
     "hash": "eb5f26fc083e940a"
   },
+  "en6_to_fix_ex": {
+    "file": "en6_to_fix_ex.m4a",
+    "text": "Can you fix my bike, please?",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "7c01f4bbcb840488"
+  },
   "en6_to_get": {
     "file": "en6_to_get.m4a",
     "text": "to get",
@@ -478,6 +950,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "c3266f788e1fed78"
+  },
+  "en6_to_get_ex": {
+    "file": "en6_to_get_ex.m4a",
+    "text": "I always get tired after school.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "b60fe0c65d0294e3"
   },
   "en6_to_grow_up": {
     "file": "en6_to_grow_up.m4a",
@@ -487,6 +967,14 @@
     "speed": 0.95,
     "hash": "a41cb0f69f9290fb"
   },
+  "en6_to_grow_up_ex": {
+    "file": "en6_to_grow_up_ex.m4a",
+    "text": "I grew up in a small town.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "7b43210431d56f64"
+  },
   "en6_to_hang_out": {
     "file": "en6_to_hang_out.m4a",
     "text": "to hang out with",
@@ -494,6 +982,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "29cc7de8068d09c1"
+  },
+  "en6_to_hang_out_ex": {
+    "file": "en6_to_hang_out_ex.m4a",
+    "text": "I like to hang out with my friends at the weekend.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "fdfaaea9e4a938d0"
   },
   "en6_to_have_to": {
     "file": "en6_to_have_to.m4a",
@@ -503,6 +999,14 @@
     "speed": 0.95,
     "hash": "3850f28335a4d952"
   },
+  "en6_to_have_to_ex": {
+    "file": "en6_to_have_to_ex.m4a",
+    "text": "I have to do my homework now.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "79840eb30fc45713"
+  },
   "en6_to_move": {
     "file": "en6_to_move.m4a",
     "text": "to move house",
@@ -510,6 +1014,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "0122fa5ba78f692d"
+  },
+  "en6_to_move_ex": {
+    "file": "en6_to_move_ex.m4a",
+    "text": "We're going to move house next year.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "b297bcb9af28b078"
   },
   "en6_to_point": {
     "file": "en6_to_point.m4a",
@@ -519,6 +1031,14 @@
     "speed": 0.95,
     "hash": "ffc5bb7ddfbe178b"
   },
+  "en6_to_point_ex": {
+    "file": "en6_to_point_ex.m4a",
+    "text": "It isn't nice to point at people.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "9cc55e8effbd0334"
+  },
   "en6_to_teach": {
     "file": "en6_to_teach.m4a",
     "text": "to teach",
@@ -526,6 +1046,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "3501521a12d850b0"
+  },
+  "en6_to_teach_ex": {
+    "file": "en6_to_teach_ex.m4a",
+    "text": "Can you teach me to swim?",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "9fbf23859828ba07"
   },
   "en6_to_tease_sb": {
     "file": "en6_to_tease_sb.m4a",
@@ -535,6 +1063,14 @@
     "speed": 0.95,
     "hash": "a871662b8c66a4c0"
   },
+  "en6_to_tease_sb_ex": {
+    "file": "en6_to_tease_sb_ex.m4a",
+    "text": "Please stop teasing your little brother!",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "8a3c6f590f78c343"
+  },
   "en6_to_tell": {
     "file": "en6_to_tell.m4a",
     "text": "to tell",
@@ -542,6 +1078,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "751e1e3bb441bdfb"
+  },
+  "en6_to_tell_ex": {
+    "file": "en6_to_tell_ex.m4a",
+    "text": "Can you tell which twin is Lucy?",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "f60b850f0141999b"
   },
   "en6_to_train": {
     "file": "en6_to_train.m4a",
@@ -551,6 +1095,14 @@
     "speed": 0.95,
     "hash": "300d40ea55738513"
   },
+  "en6_to_train_ex": {
+    "file": "en6_to_train_ex.m4a",
+    "text": "Our team trains every Tuesday.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "a4f99f9c4498d17b"
+  },
   "en6_to_worry": {
     "file": "en6_to_worry.m4a",
     "text": "to worry",
@@ -558,6 +1110,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "e2bd3743f5ade2a0"
+  },
+  "en6_to_worry_ex": {
+    "file": "en6_to_worry_ex.m4a",
+    "text": "Don't worry, everything is OK.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "e677fc5ef52d477c"
   },
   "en6_traffic_jam": {
     "file": "en6_traffic_jam.m4a",
@@ -567,6 +1127,14 @@
     "speed": 0.95,
     "hash": "b526eab1c33a0bc5"
   },
+  "en6_traffic_jam_ex": {
+    "file": "en6_traffic_jam_ex.m4a",
+    "text": "We were late because of a traffic jam.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "cf454e1baa757845"
+  },
   "en6_turn": {
     "file": "en6_turn.m4a",
     "text": "turn",
@@ -574,6 +1142,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "386fba4ea31bf955"
+  },
+  "en6_turn_ex": {
+    "file": "en6_turn_ex.m4a",
+    "text": "The horse made a fast turn.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "a66374723a8f35ab"
   },
   "en6_what_a": {
     "file": "en6_what_a.m4a",
@@ -583,6 +1159,14 @@
     "speed": 0.95,
     "hash": "a6704d1ba3c4c38e"
   },
+  "en6_what_a_ex": {
+    "file": "en6_what_a_ex.m4a",
+    "text": "What a nice surprise!",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "c4b28489c99dd43f"
+  },
   "en6_what_a_shame": {
     "file": "en6_what_a_shame.m4a",
     "text": "What a shame!",
@@ -590,6 +1174,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "364a9a092417534b"
+  },
+  "en6_what_a_shame_ex": {
+    "file": "en6_what_a_shame_ex.m4a",
+    "text": "You can't come? What a shame!",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "f32a6aa8ca9daebd"
   },
   "en6_wheelchair": {
     "file": "en6_wheelchair.m4a",
@@ -599,6 +1191,14 @@
     "speed": 0.95,
     "hash": "9ed14dab872f87dd"
   },
+  "en6_wheelchair_ex": {
+    "file": "en6_wheelchair_ex.m4a",
+    "text": "My grandpa is in a wheelchair.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "f04ee42f3078ad5c"
+  },
   "en6_worried": {
     "file": "en6_worried.m4a",
     "text": "worried",
@@ -606,6 +1206,14 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "9155664493621e89"
+  },
+  "en6_worried_ex": {
+    "file": "en6_worried_ex.m4a",
+    "text": "Mum is worried because it's late.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "d8aa8d66180767c4"
   },
   "en6_yearbook": {
     "file": "en6_yearbook.m4a",
@@ -615,6 +1223,14 @@
     "speed": 0.95,
     "hash": "01642ca6a9c8f03d"
   },
+  "en6_yearbook_ex": {
+    "file": "en6_yearbook_ex.m4a",
+    "text": "There's a funny photo of me in the yearbook.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "8779fc131319b7bc"
+  },
   "en6_youth": {
     "file": "en6_youth.m4a",
     "text": "youth",
@@ -622,5 +1238,13 @@
     "voice": "bf_emma",
     "speed": 0.95,
     "hash": "df8fbf2558ad4fbe"
+  },
+  "en6_youth_ex": {
+    "file": "en6_youth_ex.m4a",
+    "text": "My grandpa often talks about his youth.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "6cb74348e5bbed90"
   }
 }
