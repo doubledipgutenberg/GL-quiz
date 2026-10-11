@@ -11,7 +11,7 @@ PY="$HOME/.local/kokoro/venv/bin/python"
 
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
-for course in fr-6; do
+for course in fr-6 en-6; do
   node scripts/export-audio-manifest.mjs "$course" "$TMP/$course.json"
   "$PY" -I scripts/generate-audio.py "$TMP/$course.json" --out public/audio --prune 2>&1 | grep -v '^WARNING'
 done

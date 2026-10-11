@@ -5,6 +5,7 @@ import { writeFileSync } from 'node:fs';
 
 const SOURCES = {
   'fr-6': { module: '../src/data/fr6/vocab.js', list: 'FR6_VOCAB', lang: 'fr' },
+  'en-6': { module: '../src/data/en6/vocab.js', list: 'EN6_VOCAB', lang: 'en' },
 };
 
 const [course, out] = process.argv.slice(2);

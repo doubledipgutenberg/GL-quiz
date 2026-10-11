@@ -1,0 +1,626 @@
+{
+  "en6_a_bit": {
+    "file": "en6_a_bit.m4a",
+    "text": "a bit",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "70b3c46d3f6cbffe"
+  },
+  "en6_actually": {
+    "file": "en6_actually.m4a",
+    "text": "actually",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "d11e40cbd0251a9d"
+  },
+  "en6_air": {
+    "file": "en6_air.m4a",
+    "text": "air",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "231b15749e261344"
+  },
+  "en6_almost": {
+    "file": "en6_almost.m4a",
+    "text": "almost",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "603a93468bf75e39"
+  },
+  "en6_art": {
+    "file": "en6_art.m4a",
+    "text": "art",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "87ba85eb906a3508"
+  },
+  "en6_barrel": {
+    "file": "en6_barrel.m4a",
+    "text": "barrel",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "3824a1a7efb090e9"
+  },
+  "en6_bench": {
+    "file": "en6_bench.m4a",
+    "text": "bench",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "3b0e273a85f32592"
+  },
+  "en6_bird": {
+    "file": "en6_bird.m4a",
+    "text": "bird",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "3594779e6cda2d85"
+  },
+  "en6_cheap": {
+    "file": "en6_cheap.m4a",
+    "text": "cheap",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "23d6922aed101a84"
+  },
+  "en6_close": {
+    "file": "en6_close.m4a",
+    "text": "close",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "ebf72ace529a1ebb"
+  },
+  "en6_daughter": {
+    "file": "en6_daughter.m4a",
+    "text": "daughter",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "900eff00e354521a"
+  },
+  "en6_during": {
+    "file": "en6_during.m4a",
+    "text": "during",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "7672fa6a7c912283"
+  },
+  "en6_eagle": {
+    "file": "en6_eagle.m4a",
+    "text": "eagle",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "f5fc2eee74db5401"
+  },
+  "en6_embarrassed": {
+    "file": "en6_embarrassed.m4a",
+    "text": "embarrassed",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "e009e9fdb19c0d60"
+  },
+  "en6_embarrassing": {
+    "file": "en6_embarrassing.m4a",
+    "text": "embarrassing",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "94e64befdef8e5a8"
+  },
+  "en6_event": {
+    "file": "en6_event.m4a",
+    "text": "event",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "72cb63ec8b8ff6ea"
+  },
+  "en6_expensive": {
+    "file": "en6_expensive.m4a",
+    "text": "expensive",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "7a8cc9f6346e7d3b"
+  },
+  "en6_far_away": {
+    "file": "en6_far_away.m4a",
+    "text": "far away",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "0cc929c92619ebdc"
+  },
+  "en6_feeling": {
+    "file": "en6_feeling.m4a",
+    "text": "feeling",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "f026d1c40b041e26"
+  },
+  "en6_field": {
+    "file": "en6_field.m4a",
+    "text": "field",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "800da02d997df417"
+  },
+  "en6_hill": {
+    "file": "en6_hill.m4a",
+    "text": "hill",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "9b0c5017cf6b1a5b"
+  },
+  "en6_home_town": {
+    "file": "en6_home_town.m4a",
+    "text": "home town",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "7f1f19a06eb76dd3"
+  },
+  "en6_huge": {
+    "file": "en6_huge.m4a",
+    "text": "huge",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "757d136a54314838"
+  },
+  "en6_indoors": {
+    "file": "en6_indoors.m4a",
+    "text": "indoors",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "3e8c31465ed30de0"
+  },
+  "en6_judge": {
+    "file": "en6_judge.m4a",
+    "text": "judge",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "016f008c29992aa8"
+  },
+  "en6_latest": {
+    "file": "en6_latest.m4a",
+    "text": "latest",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "91d20ed69dc61a78"
+  },
+  "en6_life": {
+    "file": "en6_life.m4a",
+    "text": "life, lives",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "b9fb23cb79baac68"
+  },
+  "en6_likes_and_dislikes": {
+    "file": "en6_likes_and_dislikes.m4a",
+    "text": "likes and dislikes",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "1a7cf525afb22b2e"
+  },
+  "en6_mad": {
+    "file": "en6_mad.m4a",
+    "text": "mad",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "6c7f956faa21a45f"
+  },
+  "en6_mall": {
+    "file": "en6_mall.m4a",
+    "text": "mall",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "36bee7a0322caae5"
+  },
+  "en6_movie": {
+    "file": "en6_movie.m4a",
+    "text": "movie",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "bba6c8fb18928f28"
+  },
+  "en6_movie_theater": {
+    "file": "en6_movie_theater.m4a",
+    "text": "movie theater",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "875efe15d913b453"
+  },
+  "en6_nervous": {
+    "file": "en6_nervous.m4a",
+    "text": "nervous",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "29ef9e536f346251"
+  },
+  "en6_noise": {
+    "file": "en6_noise.m4a",
+    "text": "noise",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "bb230ed71eb46dd0"
+  },
+  "en6_one_hundred_thousand": {
+    "file": "en6_one_hundred_thousand.m4a",
+    "text": "one hundred thousand",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "fc05fe614b3377ff"
+  },
+  "en6_one_million": {
+    "file": "en6_one_million.m4a",
+    "text": "one million",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "6b801f4468a87bb5"
+  },
+  "en6_one_point_five": {
+    "file": "en6_one_point_five.m4a",
+    "text": "one point five",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "bb0daf9e762fcabf"
+  },
+  "en6_one_thousand": {
+    "file": "en6_one_thousand.m4a",
+    "text": "one thousand",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "7127dc49712a282d"
+  },
+  "en6_outdoor_activity": {
+    "file": "en6_outdoor_activity.m4a",
+    "text": "outdoor activity",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "2b994e5633f0f753"
+  },
+  "en6_outdoors": {
+    "file": "en6_outdoors.m4a",
+    "text": "outdoors",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "36963fa22190caee"
+  },
+  "en6_pet": {
+    "file": "en6_pet.m4a",
+    "text": "pet",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "be01f18a2e5436ac"
+  },
+  "en6_plan": {
+    "file": "en6_plan.m4a",
+    "text": "plan",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "33e4daf2e7dff687"
+  },
+  "en6_point": {
+    "file": "en6_point.m4a",
+    "text": "point",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "8e67b063568cf033"
+  },
+  "en6_pollution": {
+    "file": "en6_pollution.m4a",
+    "text": "pollution",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "60b31e7de521346a"
+  },
+  "en6_poor": {
+    "file": "en6_poor.m4a",
+    "text": "poor",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "17f6ab29c671a140"
+  },
+  "en6_proud": {
+    "file": "en6_proud.m4a",
+    "text": "proud of",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "22cf22c4d20f58e8"
+  },
+  "en6_public_transport": {
+    "file": "en6_public_transport.m4a",
+    "text": "public transport",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "7b8f2eab78561040"
+  },
+  "en6_race": {
+    "file": "en6_race.m4a",
+    "text": "race",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "bc9835f015c550e7"
+  },
+  "en6_real": {
+    "file": "en6_real.m4a",
+    "text": "real",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "e5cd88b660edf626"
+  },
+  "en6_report": {
+    "file": "en6_report.m4a",
+    "text": "report",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "66ecfbb60faf20ce"
+  },
+  "en6_second": {
+    "file": "en6_second.m4a",
+    "text": "second",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "5361fd732ce9f2b7"
+  },
+  "en6_shopping_mall": {
+    "file": "en6_shopping_mall.m4a",
+    "text": "shopping mall",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "f3eb2347bf99f909"
+  },
+  "en6_show_off": {
+    "file": "en6_show_off.m4a",
+    "text": "show-off",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "b9997821269b2b44"
+  },
+  "en6_space": {
+    "file": "en6_space.m4a",
+    "text": "space",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "0732c4d569337df4"
+  },
+  "en6_ten_thousand": {
+    "file": "en6_ten_thousand.m4a",
+    "text": "ten thousand",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "d38ff7212a761172"
+  },
+  "en6_there_s_nothing_more_exciting_than": {
+    "file": "en6_there_s_nothing_more_exciting_than.m4a",
+    "text": "There's nothing more exciting than",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "be734a728a22caaa"
+  },
+  "en6_to_end_up": {
+    "file": "en6_to_end_up.m4a",
+    "text": "to end up",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "f2f1801d57e571a1"
+  },
+  "en6_to_fall_off": {
+    "file": "en6_to_fall_off.m4a",
+    "text": "to fall off",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "e85e535fb50424b8"
+  },
+  "en6_to_fix": {
+    "file": "en6_to_fix.m4a",
+    "text": "to fix",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "eb5f26fc083e940a"
+  },
+  "en6_to_get": {
+    "file": "en6_to_get.m4a",
+    "text": "to get",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "c3266f788e1fed78"
+  },
+  "en6_to_grow_up": {
+    "file": "en6_to_grow_up.m4a",
+    "text": "to grow up",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "a41cb0f69f9290fb"
+  },
+  "en6_to_hang_out": {
+    "file": "en6_to_hang_out.m4a",
+    "text": "to hang out with",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "29cc7de8068d09c1"
+  },
+  "en6_to_have_to": {
+    "file": "en6_to_have_to.m4a",
+    "text": "to have to",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "3850f28335a4d952"
+  },
+  "en6_to_move": {
+    "file": "en6_to_move.m4a",
+    "text": "to move house",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "0122fa5ba78f692d"
+  },
+  "en6_to_point": {
+    "file": "en6_to_point.m4a",
+    "text": "to point",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "ffc5bb7ddfbe178b"
+  },
+  "en6_to_teach": {
+    "file": "en6_to_teach.m4a",
+    "text": "to teach",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "3501521a12d850b0"
+  },
+  "en6_to_tease_sb": {
+    "file": "en6_to_tease_sb.m4a",
+    "text": "to tease somebody",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "a871662b8c66a4c0"
+  },
+  "en6_to_tell": {
+    "file": "en6_to_tell.m4a",
+    "text": "to tell",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "751e1e3bb441bdfb"
+  },
+  "en6_to_train": {
+    "file": "en6_to_train.m4a",
+    "text": "to train",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "300d40ea55738513"
+  },
+  "en6_to_worry": {
+    "file": "en6_to_worry.m4a",
+    "text": "to worry",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "e2bd3743f5ade2a0"
+  },
+  "en6_traffic_jam": {
+    "file": "en6_traffic_jam.m4a",
+    "text": "traffic jam",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "b526eab1c33a0bc5"
+  },
+  "en6_turn": {
+    "file": "en6_turn.m4a",
+    "text": "turn",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "386fba4ea31bf955"
+  },
+  "en6_what_a": {
+    "file": "en6_what_a.m4a",
+    "text": "what a",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "a6704d1ba3c4c38e"
+  },
+  "en6_what_a_shame": {
+    "file": "en6_what_a_shame.m4a",
+    "text": "What a shame!",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "364a9a092417534b"
+  },
+  "en6_wheelchair": {
+    "file": "en6_wheelchair.m4a",
+    "text": "wheelchair",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "9ed14dab872f87dd"
+  },
+  "en6_worried": {
+    "file": "en6_worried.m4a",
+    "text": "worried",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "9155664493621e89"
+  },
+  "en6_yearbook": {
+    "file": "en6_yearbook.m4a",
+    "text": "yearbook",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "01642ca6a9c8f03d"
+  },
+  "en6_youth": {
+    "file": "en6_youth.m4a",
+    "text": "youth",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "hash": "df8fbf2558ad4fbe"
+  }
+}

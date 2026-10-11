@@ -752,6 +752,8 @@ import questionsSA4 from './questionsSA4';
 import { getVocabularyQuestionsSA4 } from './vocabListSA4';
 import questionsFR6 from './fr6/questions';
 import { fr6VocabCards, fr6NewVocabCards, fr6LatestBatch, fr6AllCards } from './fr6/cards';
+import questionsEN6 from './en6/questions';
+import { en6VocabCards, en6NewVocabCards, en6LatestBatch, en6AllCards } from './en6/cards';
 
 // Kurse = Sprache + Klasse. Ein Kurs ohne Schulaufgaben wird als „kommt bald" angezeigt.
 // Reihenfolge = Anzeige im Auswahlmenü. `audio`: Vokabeln vertont (nur Klasse 6, Entscheidung des
@@ -777,6 +779,13 @@ export const EXAMS = {
     label: '4. Schulaufgabe',
     units: 'Units 5–6 · Across Cultures 2 · Focus 2',
     subtitle: 'Vorbereitung auf die 4. Schulaufgabe',
+  },
+  'en6-u1': {
+    id: 'en6-u1',
+    course: 'en-6',
+    label: 'Unit 1 – My friends and I',
+    units: 'Check-in, Station 1, Station 2 (bis „to fix“)',
+    subtitle: 'Englisch Unit 1',
   },
   'fr6-u1': {
     id: 'fr6-u1',
@@ -807,7 +816,14 @@ const allQuestions = [
   ...questions.map((q) => ({ ...q, exam: 'sa2' })),
   ...questionsSA4.map((q) => ({ ...q, exam: 'sa4' })),
   ...questionsFR6,
+  ...questionsEN6,
 ];
+
+// Vertonte Kurse mit datierten Vokabel-Batches (Klasse 6).
+const COURSE_VOCAB = {
+  'fr-6': { cards: fr6VocabCards, newCards: fr6NewVocabCards, latest: fr6LatestBatch },
+  'en-6': { cards: en6VocabCards, newCards: en6NewVocabCards, latest: en6LatestBatch },
+};
 
 /**
  * Wortschatz-Quiz: eine Frage pro Vokabel (bzw. Richtung).
@@ -816,19 +832,21 @@ const allQuestions = [
 export function getVocabularyQuestions(exam) {
   if (exam === 'sa4') return getVocabularyQuestionsSA4();
   if (exam === 'sa2') return getVocabSA2();
-  if (EXAMS[exam]?.course === 'fr-6') return fr6VocabCards(exam);
-  return [...getVocabSA2(), ...getVocabularyQuestionsSA4(), ...fr6AllCards()];
+  const cv = COURSE_VOCAB[EXAMS[exam]?.course];
+  if (cv) return cv.cards(exam);
+  return [...getVocabSA2(), ...getVocabularyQuestionsSA4(), ...fr6AllCards(), ...en6AllCards()];
 }
 
 /** „Neue Vokabeln“: der zuletzt hinzugefügte Batch des Kurses. */
 export function getNewVocabularyQuestions(courseId) {
-  return courseId === 'fr-6' ? fr6NewVocabCards() : [];
+  return COURSE_VOCAB[courseId]?.newCards() ?? [];
 }
 
 /** Datum + Anzahl des jüngsten Vokabel-Batches (für die Anzeige), sonst null. */
 export function latestVocabBatch(courseId) {
-  if (courseId !== 'fr-6') return null;
-  const { added, vocab } = fr6LatestBatch();
+  const cv = COURSE_VOCAB[courseId];
+  if (!cv) return null;
+  const { added, vocab } = cv.latest();
   return added ? { added, count: vocab.length } : null;
 }
 

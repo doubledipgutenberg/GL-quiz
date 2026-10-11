@@ -4,26 +4,30 @@
 import { VOCAB_LIST } from '../data/vocabList';
 import { VOCAB_LIST_SA4 } from '../data/vocabListSA4';
 import { FR6_VOCAB_IDS } from '../data/fr6/cards';
+import { EN6_VOCAB_IDS } from '../data/en6/cards';
 
-// Eine Liste pro Vokabel-Bestand; gezählt werden nur die, die der Schüler geübt hat.
+// Eine Liste pro Vokabel-Bestand (mit Kurs); gezählt werden nur die, die der Schüler geübt hat.
 const VOCAB_LISTS = [
-  new Set(VOCAB_LIST.map(v => v.id)),
-  new Set(VOCAB_LIST_SA4.map(v => v.id)),
-  new Set(FR6_VOCAB_IDS),
+  { course: 'en-5', ids: new Set(VOCAB_LIST.map(v => v.id)) },
+  { course: 'en-5', ids: new Set(VOCAB_LIST_SA4.map(v => v.id)) },
+  { course: 'fr-6', ids: new Set(FR6_VOCAB_IDS) },
+  { course: 'en-6', ids: new Set(EN6_VOCAB_IDS) },
 ];
 
 /**
  * Wie viele Vokabeln hat der Schüler mind. 1x richtig beantwortet? (jede Richtung zählt)
  * Gesamtzahl = nur die Listen, die der Schüler tatsächlich geübt hat.
  */
-export function getVocabMastery(sessions) {
-  const played = VOCAB_LISTS.map(() => false);
-  const mastered = VOCAB_LISTS.map(() => new Set());
+export function getVocabMastery(sessions, courseId) {
+  // Im Lehrer-Bereich ist ein Fach gewählt → nur dessen Listen zählen.
+  const lists = (courseId ? VOCAB_LISTS.filter(l => l.course === courseId) : VOCAB_LISTS).map(l => l.ids);
+  const played = lists.map(() => false);
+  const mastered = lists.map(() => new Set());
 
   (sessions || []).forEach(session => {
     (session.answers || []).forEach(a => {
       const baseId = String(a.questionId).replace(/_(en|de|fr|second|listen)$/, '');
-      const i = VOCAB_LISTS.findIndex(list => list.has(baseId));
+      const i = lists.findIndex(list => list.has(baseId));
       if (i === -1) return;
       played[i] = true;
       if (a.isCorrect) mastered[i].add(baseId);
@@ -34,7 +38,7 @@ export function getVocabMastery(sessions) {
   const anyPlayed = played.some(Boolean);
   let total = 0;
   let count = 0;
-  VOCAB_LISTS.forEach((list, i) => {
+  lists.forEach((list, i) => {
     if (played[i] || !anyPlayed) total += list.size;
     count += mastered[i].size;
   });
@@ -59,7 +63,7 @@ const TOPIC_RECOMMENDATIONS = {
   mediation: { label: "Sprachmittlung", bookRef: "Mediation", practice: "WB p.35/13, eigene Texte schreiben" },
 };
 
-export function analyzeStudent(sessions, dismissals = { questions: {}, wrongAttempts: {} }, markedCorrect = {}) {
+export function analyzeStudent(sessions, dismissals = { questions: {}, wrongAttempts: {} }, markedCorrect = {}, courseId) {
   if (!sessions || sessions.length === 0) return null;
 
   const dismissedQuestions = dismissals?.questions || {};
@@ -196,7 +200,7 @@ export function analyzeStudent(sessions, dismissals = { questions: {}, wrongAtte
     });
   });
 
-  const vocabMastery = getVocabMastery(sessions);
+  const vocabMastery = getVocabMastery(sessions, courseId);
 
   // Per-question mistake overview for Lehrer-Bereich
   const questionMistakes = Object.values(questionStats)

@@ -80,7 +80,8 @@ wörtlich übernommen. Material aus offensichtlich illegalen Quellen (z. B. Scha
   Ein Kurs ohne Schulaufgaben erscheint als „Inhalte kommen bald“.
 - **Schulaufgabe registrieren:** Eintrag in `EXAMS` mit `id`, `course`, `label`, `units`, `subtitle`.
   Die neueste Schulaufgabe eines Kurses (letzter Eintrag) ist vorausgewählt.
-- **Vokabeln, Klasse 6** (Vorbild: `src/data/fr6/vocab.js`): Jede Lieferung ist ein **Batch** mit `exam`
+- **Vokabeln, Klasse 6** (Vorbilder: `src/data/fr6/vocab.js`, `src/data/en6/vocab.js` – Englisch hat `en`
+  statt `fr`, Karten `_de`/`_en`/`_listen`): Jede Lieferung ist ein **Batch** mit `exam`
   und `added` = **Datum, an dem sie ins Quiz kam** (Entscheidung des Nutzers). Darin Abschnitte mit
   Einträgen `{ fr, de, alt?, altDe?, say? }`. Mehrere Bedeutungen mit `;`. `alt` = weitere richtige
   Antworten (z. B. „À plus!“, wenn das Buch das große A ohne Akzent druckt, oder Synonyme mit gleicher
@@ -245,10 +246,11 @@ curl -s -o /dev/null -w '%{http_code}' https://<slug>.space.fast/   # muss 403 l
   Änderungen per `markDirty`, der Upload folgt nach 1,5 s (Wiederholung nach 10 s, beim Verlassen der
   Seite sofort). Beim Login holt die App den Server-Stand, ohne lokale ungesicherte Änderungen zu
   überschreiben. Ein Kind sieht nur eigene Runden, Highscores und Historie aller Kinder sind sichtbar.
-- **Lehrer-Bereich nach Fach getrennt** (`src/utils/courseOf.js`): Jede Antwort wird über ihre Frage-ID
-  einem Kurs zugeordnet (Frage → `exam` → `course`). Die Historie wird pro Reiter gefiltert, *bevor* sie
-  ausgewertet wird. Damit sind Übersicht, Heatmap, Details, Fehler, Vokabel-Stufen und Wiederholungs-Quizze
-  automatisch getrennt. Einträge ohne Kursangabe (Altbestand) zählen zu Englisch 5. Wichtig: Jede neue
+- **Lehrer-Bereich: erst das Kind, dann das Fach** (`AdminDashboard.jsx`, `src/utils/courseOf.js`): Nach der
+  Eltern-PIN wählt man ein Kind (Karte je Profil, dort auch PIN-Reset). Dessen Dashboard hat Reiter je Fach.
+  Jede Antwort wird über ihre Frage-ID einem Kurs zugeordnet (Frage → `exam` → `course`), die Historie wird
+  pro Reiter gefiltert, *bevor* sie ausgewertet wird. Damit sind Details, Fehler, Vokabel-Stufen,
+  „Vokabeln gekonnt“ und Wiederholungs-Quizze automatisch getrennt. Einträge ohne Kursangabe (Altbestand) zählen zu Englisch 5. Wichtig: Jede neue
   Frage bzw. Karte braucht `exam` oder `course`.
 
 ---
@@ -266,6 +268,10 @@ curl -s -o /dev/null -w '%{http_code}' https://<slug>.space.fast/   # muss 403 l
   die freiwilligen Tiere aus „Mon dico personnel“. Eigennamen nur als Karte, wenn die Übersetzung abweicht.
 - „Neue Vokabeln“ = jüngster Batch nach **Tag des Hinzufügens**, nur ein Filter auf den Wortschatz.
 - Audio ist Teil des Wortschatzes, kein eigener Modus. Startseite Schritt für Schritt, eine Frage pro Schritt.
-- Lehrer-Bereich: klare Trennung nach Fach (Reiter je Kurs).
+- Lehrer-Bereich: jedes Kind hat sein eigenes Dashboard (erst Kind wählen), darin klare Trennung nach Fach.
 - Unité 1: Die Zahlen 0–12 (Kasten im Buch) sind mit drin, weil das Cahier sie abfragt. Die Fragen
   (115) orientieren sich am Cahier (S. 7–17) und an Bilan/Grammaire/Alphabet im Buch (S. 24–26).
+- Englisch 6, Unit 1: Vokabeln bis „to fix“ (Buch S. 195–198, Abschrift `VOCAB_EN6_U1_review.md`), Stimme
+  bf_emma. Fragen nach Grammatik G1–G3 und Practice pool der Unit.
+- Multiple-Choice-Optionen werden bei jeder Runde gemischt (`useQuiz.js`); das normale Quiz nimmt nur Fragen
+  der gewählten Schulaufgabe, ungesehene zuerst.
