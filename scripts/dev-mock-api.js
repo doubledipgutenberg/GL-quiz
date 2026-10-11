@@ -2,7 +2,9 @@
 // Aktiv mit:  MOCK_API=1 npm run dev
 // Verhält sich wie functions/api/[action].ts (gleiche Routen, gleiche Antworten), damit
 // Login, Sync und Lehrer-Bereich lokal testbar sind – ohne echten Space und ohne echte PINs.
-const KIDS = ['Jakob', 'Clara'];
+import { Buffer } from 'node:buffer';
+
+const KIDS = ['Jakob', 'Clara', 'Test'];
 const FAMILY = '_family';
 
 const pins = new Map(); // name -> pin

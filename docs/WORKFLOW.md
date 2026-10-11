@@ -252,7 +252,7 @@ curl -s -o /dev/null -w '%{http_code}' https://<slug>.space.fast/   # muss 403 l
 ## 6. Entscheidungen des Nutzers (Stand 2026-10-11)
 
 - Hosting komplett auf Spacefast (statt Supabase), Space `klasse-6d`, Familien-Passwort, nur die eigenen
-  Kinder (Jakob, Clara). Wo Spacefast die Daten speichert (EU?), ist nicht dokumentiert. Das wurde akzeptiert.
+  Kinder (Jakob, Clara) plus ein Profil „Test“ zum Ausprobieren. Wo Spacefast die Daten speichert (EU?), ist nicht dokumentiert. Das wurde akzeptiert.
 - Antwort-Check freundlich bei der Form, streng bei der Rechtschreibung. Französisch: fehlender Akzent = falsch.
 - Akzent-Tasten: ja. Audio: nur Klasse 6, Kokoro, Stimmen wie oben.
 - Englisch 6 = Band 2 des Englisch-Lehrwerks, Französisch 6 = Découvertes 1 (Klett). Der Name des
