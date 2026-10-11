@@ -11,7 +11,7 @@
 // dann wird der Zeiger umgestellt, dann alte Stücke gelöscht. Ein abgebrochener
 // Schreibvorgang lässt so immer die alte, vollständige Version stehen.
 
-const KIDS = ["Jakob", "Clara"];
+const KIDS = ["Jakob", "Clara", "Test"];
 const FAMILY = "_family";
 const KID_KEYS = ["history", "highscores", "savedRounds", "draft"];
 const FAMILY_KEYS = ["teacherDismissals", "teacherMarkedCorrect"];

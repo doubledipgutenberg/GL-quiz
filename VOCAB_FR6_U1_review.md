@@ -128,7 +128,7 @@ dein dico personnel eintragen. Sie sind also **freiwillig**. Im Buch gibt es nur
 - un rat – eine Ratte
 - un perroquet – ein Papagei
 - un canari – ein Kanarienvogel
-- un cochon (?) – ein Schwein (?) *(Scan unleserlich: evtl. „un cochon d'Inde“ = Meerschweinchen)*
+- un cochon – ein Schwein (vom Nutzer bestätigt)
 
 ---
 

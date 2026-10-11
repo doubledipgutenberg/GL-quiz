@@ -109,6 +109,7 @@ const BATCHES = [
           { fr: 'un rat', de: 'eine Ratte' },
           { fr: 'un perroquet', de: 'ein Papagei' },
           { fr: 'un canari', de: 'ein Kanarienvogel' },
+          { fr: 'un cochon', de: 'ein Schwein' },
         ],
       },
     ],

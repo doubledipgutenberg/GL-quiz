@@ -431,6 +431,14 @@
     "speed": 0.9,
     "hash": "ec710e752b4ca9d1"
   },
+  "fr6_un_cochon": {
+    "file": "fr6_un_cochon.m4a",
+    "text": "un cochon",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.9,
+    "hash": "e7a387ddf8ec4186"
+  },
   "fr6_un_copain_une_copine": {
     "file": "fr6_un_copain_une_copine.m4a",
     "text": "un copain, une copine",
