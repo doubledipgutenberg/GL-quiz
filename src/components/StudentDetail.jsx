@@ -6,7 +6,7 @@ import questions, { getVocabularyQuestions } from '../data/questions';
 import { Card, CardContent } from './ui/card';
 import { Button } from './ui/button';
 
-export default function StudentDetail({ name, courseLabel, sessions, onBack, onCreateVocabReviewQuiz, onCreateNormalReviewQuiz }) {
+export default function StudentDetail({ name, courseId, courseLabel, sessions, onBack, onCreateVocabReviewQuiz, onCreateNormalReviewQuiz }) {
   const [dismissals, setDismissals] = useState(() => getTeacherDismissals());
   const [markedCorrect, setMarkedCorrect] = useState(() => getTeacherMarkedCorrect());
 
@@ -17,8 +17,8 @@ export default function StudentDetail({ name, courseLabel, sessions, onBack, onC
   const studentMarkedCorrect = useMemo(() => markedCorrect[name] || {}, [markedCorrect, name]);
 
   const analysis = useMemo(
-    () => analyzeStudent(sessions, studentDismissals, studentMarkedCorrect),
-    [sessions, studentDismissals, studentMarkedCorrect],
+    () => analyzeStudent(sessions, studentDismissals, studentMarkedCorrect, courseId),
+    [sessions, studentDismissals, studentMarkedCorrect, courseId],
   );
 
   const questionById = useMemo(() => {
@@ -112,7 +112,7 @@ export default function StudentDetail({ name, courseLabel, sessions, onBack, onC
   if (!analysis) {
     return (
       <div className="student-detail">
-        <button className="btn btn-back" onClick={onBack}>Zurück</button>
+        {onBack && <button className="btn btn-back" onClick={onBack}>Zurück</button>}
         <p>Keine Daten für {name}.</p>
       </div>
     );
@@ -228,7 +228,7 @@ export default function StudentDetail({ name, courseLabel, sessions, onBack, onC
   return (
     <div className="student-detail">
       <div className="detail-header">
-        <button className="btn btn-back" onClick={onBack}>Zurück</button>
+        {onBack && <button className="btn btn-back" onClick={onBack}>Zurück</button>}
         <h2>{name} — {courseLabel || 'Detailansicht'}</h2>
       </div>
 

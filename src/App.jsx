@@ -112,11 +112,13 @@ export default function App() {
 
   if (showAdmin) {
     return (
-      <AdminDashboard
-        onBack={() => setShowAdmin(false)}
-        onCreateVocabReviewQuiz={handleCreateVocabReviewQuiz}
-        onCreateNormalReviewQuiz={handleCreateNormalReviewQuiz}
-      />
+      <div className="min-h-screen max-w-5xl mx-auto px-4 py-8 sm:px-6">
+        <AdminDashboard
+          onBack={() => setShowAdmin(false)}
+          onCreateVocabReviewQuiz={handleCreateVocabReviewQuiz}
+          onCreateNormalReviewQuiz={handleCreateNormalReviewQuiz}
+        />
+      </div>
     );
   }
 

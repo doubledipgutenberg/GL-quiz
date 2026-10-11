@@ -15,6 +15,11 @@ function shuffle(arr) {
 
 const QUESTIONS_PER_SESSION = 15;
 
+// Antwortoptionen bei jeder Runde neu mischen – sonst steht die richtige Antwort immer an derselben Stelle.
+function withShuffledOptions(list) {
+  return list.map((q) => (q.type === 'multiple_choice' && Array.isArray(q.options) ? { ...q, options: shuffle(q.options) } : q));
+}
+
 const initialState = {
   phase: 'welcome',
   playerName: '',
@@ -37,7 +42,7 @@ function reducer(state, action) {
         const pool =
           mode === 'newvocab' ? getNewVocabularyQuestions(EXAMS[exam]?.course) : getVocabularyQuestions(exam);
         if (pool.length === 0) return state;
-        const shuffled = shuffle(pool);
+        const shuffled = withShuffledOptions(shuffle(pool));
         return {
           ...state,
           phase: 'quiz',
@@ -52,8 +57,10 @@ function reducer(state, action) {
         };
       }
 
-      // Normal-Modus: nach Möglichkeit keine Wiederholung von Fragen für denselben Schüler
-      let candidatePool = questions.filter((q) => q.exam === exam);
+      // Normal-Modus: nur Fragen der gewählten Schulaufgabe; noch nicht gesehene zuerst,
+      // aufgefüllt mit bereits gesehenen, damit die Runde voll wird.
+      const examPool = questions.filter((q) => q.exam === exam);
+      let candidatePool = shuffle(examPool);
       try {
         const history = getStudentHistory();
         const student = history[action.name];
@@ -64,16 +71,15 @@ function reducer(state, action) {
               if (a?.questionId) seenIds.add(a.questionId);
             });
           });
-          const unseen = questions.filter((q) => !seenIds.has(q.id));
-          if (unseen.length > 0) {
-            candidatePool = unseen;
-          }
+          const unseen = shuffle(examPool.filter((q) => !seenIds.has(q.id)));
+          const seen = shuffle(examPool.filter((q) => seenIds.has(q.id)));
+          candidatePool = [...unseen, ...seen];
         }
       } catch {
         // wenn History kaputt ist, einfach gesamten Fragenpool verwenden
       }
 
-      const shuffled = shuffle(candidatePool).slice(0, QUESTIONS_PER_SESSION);
+      const shuffled = withShuffledOptions(shuffle(candidatePool.slice(0, QUESTIONS_PER_SESSION)));
       return {
         ...state,
         phase: 'quiz',
@@ -145,7 +151,7 @@ function reducer(state, action) {
         phase: 'quiz',
         playerName: draft.name,
         mode,
-        questions: restoredQuestions,
+        questions: withShuffledOptions(restoredQuestions),
         currentIndex: nextIndex,
         score: draft.score,
         answers: draft.answers,

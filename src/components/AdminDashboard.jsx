@@ -158,28 +158,6 @@ export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz, onCrea
     );
   }
 
-  // Getrennt nach Fach: nur Runden/Antworten des gewählten Kurses auswerten.
-  const allHistory = getStudentHistory();
-  const courseTabs = coursesForDashboard(allHistory);
-  const activeCourse =
-    courseTabs.find((c) => c.id === courseId) || courseTabs.find((c) => c.hasData) || courseTabs[0];
-  const history = activeCourse ? filterHistoryByCourse(allHistory, activeCourse.id) : {};
-  const overview = getAllStudentOverview(history);
-
-  if (selectedStudent) {
-    const studentData = history[selectedStudent];
-    return (
-      <StudentDetail
-        name={selectedStudent}
-        courseLabel={activeCourse?.label}
-        sessions={studentData?.sessions || []}
-        onBack={() => setSelectedStudent(null)}
-        onCreateVocabReviewQuiz={onCreateVocabReviewQuiz}
-        onCreateNormalReviewQuiz={onCreateNormalReviewQuiz}
-      />
-    );
-  }
-
   const handleClearData = async () => {
     if (!window.confirm('Wirklich ALLE Quiz-Daten aller Kinder löschen – auf dem Server und auf diesem Gerät? Das kann nicht rückgängig gemacht werden!')) return;
     try {
@@ -252,10 +230,70 @@ export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz, onCrea
     }
   };
 
+  // Jedes Kind hat sein eigenes Dashboard: erst Schüler wählen, dann – getrennt nach Fach – seine Inhalte.
+  const allHistory = getStudentHistory();
+  const names = [...new Set([...kids.map((k) => k.name), ...Object.keys(allHistory)])];
+  const overviewByName = new Map(getAllStudentOverview(allHistory).map((o) => [o.name, o]));
+
+  if (selectedStudent) {
+    const ownHistory = allHistory[selectedStudent] ? { [selectedStudent]: allHistory[selectedStudent] } : {};
+    const courseTabs = coursesForDashboard(ownHistory);
+    const activeCourse =
+      courseTabs.find((c) => c.id === courseId) || courseTabs.find((c) => c.hasData) || courseTabs[0];
+    const sessions = activeCourse ? filterHistoryByCourse(ownHistory, activeCourse.id)[selectedStudent]?.sessions || [] : [];
+    const backToList = () => {
+      setSelectedStudent(null);
+      setCourseId(null);
+    };
+    return (
+      <div className="space-y-6" key={refreshKey}>
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <h2 className="text-xl font-semibold">Lehrer-Bereich · {selectedStudent}</h2>
+          <Button variant="outline" size="sm" onClick={backToList}>
+            ← Alle Schüler
+          </Button>
+        </div>
+        {courseTabs.length > 0 && (
+          <div className="flex flex-wrap items-center gap-2 border-b border-border pb-3">
+            <span className="text-sm font-semibold mr-1">Fach:</span>
+            {courseTabs.map((c) => (
+              <Button
+                key={c.id}
+                size="sm"
+                variant={c.id === activeCourse?.id ? 'default' : 'outline'}
+                onClick={() => setCourseId(c.id)}
+              >
+                {c.label}
+                {!c.hasData && <span className="ml-1 text-xs opacity-70">(noch leer)</span>}
+              </Button>
+            ))}
+          </div>
+        )}
+        {sessions.length === 0 ? (
+          <Card>
+            <CardContent className="py-8 text-center text-sm text-muted-foreground">
+              {selectedStudent} hat in {activeCourse?.label ?? 'diesem Fach'} noch nicht geübt.
+            </CardContent>
+          </Card>
+        ) : (
+          <StudentDetail
+            key={`${selectedStudent}-${activeCourse?.id}`}
+            name={selectedStudent}
+            courseId={activeCourse?.id}
+            courseLabel={activeCourse?.label}
+            sessions={sessions}
+            onCreateVocabReviewQuiz={onCreateVocabReviewQuiz}
+            onCreateNormalReviewQuiz={onCreateNormalReviewQuiz}
+          />
+        )}
+      </div>
+    );
+  }
+
   return (
-    <div className="space-y-6 py-6" key={refreshKey}>
-      <div className="flex items-center justify-between">
-        <h2 className="text-xl font-semibold">Lehrer-Dashboard</h2>
+    <div className="space-y-6" key={refreshKey}>
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <h2 className="text-xl font-semibold">Lehrer-Bereich</h2>
         <div className="flex flex-wrap gap-2">
           <Button variant="outline" size="sm" onClick={onBack}>
             Zurück zum Quiz
@@ -284,198 +322,46 @@ export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz, onCrea
 
       {notice && <p className="text-sm text-destructive">{notice}</p>}
 
-      {kids.length > 0 && (
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-base">Profile</CardTitle>
-          </CardHeader>
-          <CardContent className="flex flex-wrap gap-3">
-            {kids.map((k) => (
-              <div key={k.name} className="flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm">
-                <span className="font-medium">{k.name}</span>
-                <span className="text-xs text-muted-foreground">{k.hasPin ? 'PIN gesetzt' : 'noch keine PIN'}</span>
-                {k.hasPin && (
-                  <Button variant="outline" size="sm" onClick={() => handleResetPin(k.name)}>
-                    PIN zurücksetzen
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-base">Welches Kind?</CardTitle>
+          <p className="text-sm text-muted-foreground">Jedes Kind hat sein eigenes Dashboard, getrennt nach Fach.</p>
+        </CardHeader>
+        <CardContent className="grid gap-3 sm:grid-cols-2">
+          {names.length === 0 && <p className="text-sm text-muted-foreground">Noch keine Profile.</p>}
+          {names.map((name) => {
+            const kid = kids.find((k) => k.name === name);
+            const o = overviewByName.get(name);
+            return (
+              <div key={name} className="flex flex-col gap-3 rounded-lg border border-border p-4">
+                <button type="button" className="text-left space-y-1" onClick={() => setSelectedStudent(name)}>
+                  <span className="block text-lg font-semibold">{name}</span>
+                  <span className="block text-sm text-muted-foreground">
+                    {o
+                      ? `${o.totalSessions} ${o.totalSessions === 1 ? 'Runde' : 'Runden'} · zuletzt ${new Date(o.lastPlayed).toLocaleDateString('de-DE')}`
+                      : 'Noch keine Runden'}
+                  </span>
+                </button>
+                <div className="flex flex-wrap items-center gap-2">
+                  <Button size="sm" onClick={() => setSelectedStudent(name)}>
+                    Dashboard öffnen →
                   </Button>
-                )}
+                  {kid && (
+                    <>
+                      <span className="text-xs text-muted-foreground">{kid.hasPin ? 'PIN gesetzt' : 'noch keine PIN'}</span>
+                      {kid.hasPin && (
+                        <Button variant="outline" size="sm" onClick={() => handleResetPin(name)}>
+                          PIN zurücksetzen
+                        </Button>
+                      )}
+                    </>
+                  )}
+                </div>
               </div>
-            ))}
-          </CardContent>
-        </Card>
-      )}
-
-      {courseTabs.length > 0 && (
-        <div className="flex flex-wrap items-center gap-2 border-b border-border pb-3">
-          <span className="text-sm font-semibold mr-1">Fach:</span>
-          {courseTabs.map((c) => (
-            <Button
-              key={c.id}
-              size="sm"
-              variant={c.id === activeCourse?.id ? 'default' : 'outline'}
-              onClick={() => {
-                setCourseId(c.id);
-                setSelectedStudent(null);
-              }}
-            >
-              {c.label}
-              {!c.hasData && <span className="ml-1 text-xs opacity-70">(noch leer)</span>}
-            </Button>
-          ))}
-        </div>
-      )}
-
-      {overview.length === 0 ? (
-        <Card>
-          <CardContent className="py-8 text-center text-sm text-muted-foreground">
-            <p>Noch keine Ergebnisse in {activeCourse?.label ?? 'diesem Fach'}.</p>
-            <p>Sobald die Kinder dieses Fach üben, erscheinen hier die Ergebnisse.</p>
-          </CardContent>
-        </Card>
-      ) : (
-        <>
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-base">Schüler-Übersicht</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="overflow-x-auto">
-                <table className="w-full text-sm">
-                  <thead>
-                    <tr className="border-b border-border text-xs text-muted-foreground uppercase">
-                      <th className="py-2 pr-2 text-left">Name</th>
-                      <th className="py-2 pr-2 text-left">Versuche</th>
-                      <th className="py-2 pr-2 text-left">Durchschnitt</th>
-                      <th className="py-2 pr-2 text-left">Vokabeln gekonnt</th>
-                      <th className="py-2 pr-2 text-left">Schwächen</th>
-                      <th className="py-2 pr-2 text-left">Zuletzt</th>
-                      <th className="py-2 text-right"></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {overview.map((student) => {
-                      const pct = student.overallPercentage;
-                      const badgeColor =
-                        pct >= 80
-                          ? 'bg-emerald-100 text-emerald-800'
-                          : pct >= 50
-                          ? 'bg-amber-100 text-amber-800'
-                          : 'bg-red-100 text-red-800';
-                      return (
-                        <tr
-                          key={student.name}
-                          className="border-b border-border last:border-0 hover:bg-muted/40"
-                        >
-                          <td className="py-2 pr-2 font-medium">{student.name}</td>
-                          <td className="py-2 pr-2">{student.totalSessions}</td>
-                          <td className="py-2 pr-2">
-                            <span className={`inline-flex items-center rounded-full px-2 py-0.5 text-xs font-semibold ${badgeColor}`}>
-                              {pct}%
-                            </span>
-                          </td>
-                          <td className="py-2 pr-2 text-xs text-muted-foreground">
-                            {student.vocabMastery?.mastered ?? 0} /{' '}
-                            {student.vocabMastery?.total ?? 0}
-                          </td>
-                          <td className="py-2 pr-2 text-xs">
-                            {student.weaknesses.length > 0 ? (
-                              <span className="text-red-700 font-semibold">
-                                {student.weaknesses.length}{' '}
-                                {student.weaknesses.length === 1 ? 'Thema' : 'Themen'}
-                              </span>
-                            ) : (
-                              <span className="text-emerald-700">Keine</span>
-                            )}
-                          </td>
-                          <td className="py-2 pr-2 text-xs text-muted-foreground">
-                            {new Date(student.lastPlayed).toLocaleDateString('de-DE')}
-                          </td>
-                          <td className="py-2 text-right">
-                            <Button
-                              size="sm"
-                              variant="outline"
-                              onClick={() => setSelectedStudent(student.name)}
-                            >
-                              Details →
-                            </Button>
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-base">Schwächen-Heatmap</CardTitle>
-              <p className="text-xs text-muted-foreground">
-                Schwach (&lt;50%) · Okay (50–79%) · Stark (≥80%)
-              </p>
-            </CardHeader>
-            <CardContent>
-              <div className="overflow-x-auto">
-                <table className="w-full text-xs">
-                  <thead>
-                    <tr>
-                      <th className="py-2 pr-2 text-left">Thema</th>
-                      {overview.map((s) => (
-                        <th key={s.name} className="py-2 px-2 text-center">
-                          {s.name}
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {(() => {
-                      const allTopics = new Map();
-                      overview.forEach((s) => {
-                        s.topicResults.forEach((t) => {
-                          if (!allTopics.has(t.topic)) allTopics.set(t.topic, t.label);
-                        });
-                      });
-                      return Array.from(allTopics.entries()).map(([topic, label]) => (
-                        <tr key={topic} className="border-t border-border">
-                          <td className="py-1.5 pr-2 text-left font-medium">{label}</td>
-                          {overview.map((s) => {
-                            const topicResult = s.topicResults.find((t) => t.topic === topic);
-                            if (!topicResult) {
-                              return (
-                                <td
-                                  key={s.name}
-                                  className="py-1.5 px-2 text-center text-muted-foreground"
-                                >
-                                  —
-                                </td>
-                              );
-                            }
-                            const cls =
-                              topicResult.strength === 'strong'
-                                ? 'bg-emerald-100 text-emerald-800'
-                                : topicResult.strength === 'medium'
-                                ? 'bg-amber-100 text-amber-800'
-                                : 'bg-red-100 text-red-800';
-                            return (
-                              <td
-                                key={s.name}
-                                className={`py-1.5 px-2 text-center font-semibold ${cls}`}
-                              >
-                                {topicResult.percentage}%
-                              </td>
-                            );
-                          })}
-                        </tr>
-                      ));
-                    })()}
-                  </tbody>
-                </table>
-              </div>
-            </CardContent>
-          </Card>
-        </>
-      )}
+            );
+          })}
+        </CardContent>
+      </Card>
     </div>
   );
 }
