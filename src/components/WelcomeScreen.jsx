@@ -193,8 +193,9 @@ export default function WelcomeScreen({
   const titles = ['Was übst du?', 'Welche Schulaufgabe?', 'Wie willst du üben?', 'Welche Vokabeln?'];
   const sign = examInfo ? signText(examInfo) : null;
 
+  // Handy: eine Spalte (420px). Desktop (ab md): breiter, Karten und Auswahl nebeneinander.
   return (
-    <div className="max-w-[420px] mx-auto space-y-8">
+    <div className="max-w-[420px] md:max-w-4xl mx-auto space-y-8">
       {masthead}
 
       {notice && <p className="text-sm text-center text-destructive">{notice}</p>}
@@ -204,50 +205,53 @@ export default function WelcomeScreen({
 
         {/* Schritt 1: eine Karte pro Stadt – Paris (Französisch), London (Englisch) – mit je einem
             Button pro Klasse (z. B. London: Klasse 6 und Klasse 5). */}
-        {step === 1 &&
-          LANGS.map((lang) => {
-            const k = CITY[lang] || CITY.en;
-            const grades = COURSES.filter((c) => c.lang === lang);
-            return (
-              <div
-                key={lang}
-                className="vx-course w-full cursor-default active:transform-none active:shadow-[3px_3px_0_var(--pen-shadow)]"
-                data-course={lang}
-              >
-                <div className="vx-awning" />
-                <div className="vx-course__plate">
-                  <img src={k.scene} alt="" />
+        {step === 1 && (
+          <div className="grid gap-6 md:grid-cols-2">
+            {LANGS.map((lang) => {
+              const k = CITY[lang] || CITY.en;
+              const grades = COURSES.filter((c) => c.lang === lang);
+              return (
+                <div
+                  key={lang}
+                  className="vx-course w-full cursor-default active:transform-none active:shadow-[3px_3px_0_var(--pen-shadow)]"
+                  data-course={lang}
+                >
+                  <div className="vx-awning" />
+                  <div className="vx-course__plate">
+                    <img src={k.scene} alt="" />
+                  </div>
+                  <div className="vx-course__body">
+                    <div>
+                      <span className="vx-kicker">{k.kicker}</span>
+                      <h3 className="vx-display">{k.city}</h3>
+                    </div>
+                    <div className="vx-row" style={{ gap: 8 }}>
+                      <span className="vx-pill vx-pill--solid">{k.subject}</span>
+                      {grades.some((c) => c.audio) && <span className="vx-choice__sub">Wortschatz mit Aussprache</span>}
+                    </div>
+                    <div className="vx-row" style={{ gap: 10 }}>
+                      {grades.map((c) => {
+                        const soon = examsForCourse(c.id).length === 0;
+                        return (
+                          <button
+                            key={c.id}
+                            type="button"
+                            className="vx-btn vx-btn--sm"
+                            disabled={soon}
+                            onClick={() => chooseCourse(c.id)}
+                          >
+                            Klasse {c.grade}
+                            {soon ? ' · bald' : <Icon name="arrow-right" small />}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
                 </div>
-                <div className="vx-course__body">
-                  <div>
-                    <span className="vx-kicker">{k.kicker}</span>
-                    <h3 className="vx-display">{k.city}</h3>
-                  </div>
-                  <div className="vx-row" style={{ gap: 8 }}>
-                    <span className="vx-pill vx-pill--solid">{k.subject}</span>
-                    {grades.some((c) => c.audio) && <span className="vx-choice__sub">Wortschatz mit Aussprache</span>}
-                  </div>
-                  <div className="vx-row" style={{ gap: 10 }}>
-                    {grades.map((c) => {
-                      const soon = examsForCourse(c.id).length === 0;
-                      return (
-                        <button
-                          key={c.id}
-                          type="button"
-                          className="vx-btn vx-btn--sm"
-                          disabled={soon}
-                          onClick={() => chooseCourse(c.id)}
-                        >
-                          Klasse {c.grade}
-                          {soon ? ' · bald' : <Icon name="arrow-right" small />}
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
+        )}
 
         {/* Schritt 2: Schulaufgabe */}
         {step === 2 && (
@@ -256,9 +260,11 @@ export default function WelcomeScreen({
               <span className="vx-pill vx-pill--solid">{city.subject}</span>
               <span className="vx-pill">Klasse {course.grade}</span>
             </div>
-            {courseExams.map((ex) => (
-              <Choice key={ex.id} icon="signpost" title={ex.label} sub={ex.units} onClick={() => chooseExam(ex.id)} />
-            ))}
+            <div className="grid gap-3 md:grid-cols-2">
+              {courseExams.map((ex) => (
+                <Choice key={ex.id} icon="signpost" title={ex.label} sub={ex.units} onClick={() => chooseExam(ex.id)} />
+              ))}
+            </div>
           </>
         )}
 
@@ -275,7 +281,7 @@ export default function WelcomeScreen({
         )}
 
         {step === 3 && (
-          <>
+          <div className="grid gap-3 md:grid-cols-2">
             <Choice icon="grammar" title="Normales Quiz" sub="Gemischte Fragen aus dem ganzen Stoff" onClick={() => start('normal')} />
             <Choice
               icon="book"
@@ -283,11 +289,11 @@ export default function WelcomeScreen({
               sub={course.audio ? 'Vokabeln übersetzen, schreiben und nach Gehör schreiben' : 'Nur Vokabeln aus dem Stoff'}
               onClick={chooseVocabulary}
             />
-          </>
+          </div>
         )}
 
         {step === 4 && newBatch && (
-          <>
+          <div className="grid gap-3 md:grid-cols-2">
             <Choice icon="book" title="Alle Vokabeln" sub="Der ganze Wortschatz der Schulaufgabe" onClick={() => start('vocabulary')} />
             <Choice
               icon="repeat"
@@ -295,7 +301,7 @@ export default function WelcomeScreen({
               sub={`Die zuletzt hinzugefügten: ${newBatch.count} Wörter vom ${new Date(`${newBatch.added}T12:00:00`).toLocaleDateString('de-DE')}`}
               onClick={() => start('newvocab')}
             />
-          </>
+          </div>
         )}
 
         {step > 1 && (

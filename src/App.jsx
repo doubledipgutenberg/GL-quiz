@@ -143,7 +143,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen max-w-3xl mx-auto px-4 py-8 sm:px-6">
+    <div className={`min-h-screen ${quiz.phase === 'welcome' ? 'max-w-5xl' : 'max-w-3xl'} mx-auto px-4 py-8 sm:px-6`}>
       {quiz.phase === 'welcome' && (
         <WelcomeScreen
           playerName={kid.name}
