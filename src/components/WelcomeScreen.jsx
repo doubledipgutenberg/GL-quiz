@@ -24,6 +24,9 @@ const CITY = {
   en: { subject: 'Englisch', kicker: 'Living in', city: 'London', scene: londonScene, sign: 'vx-sign--london' },
 };
 
+// Sprachen in der Reihenfolge von COURSES – eine Karte pro Sprache.
+const LANGS = [...new Set(COURSES.map((c) => c.lang))];
+
 // Straßenschild: Name = Titel der Unit (nach „ – “) bzw. die Units, kleine Zeile = Schulaufgabe.
 function signText(ex) {
   const [head, title] = ex.label.split(' – ');
@@ -199,22 +202,17 @@ export default function WelcomeScreen({
       <div className="vx-stack">
         <StepHead step={step} title={titles[step - 1]} />
 
-        {/* Schritt 1: Kurskarten – Paris (Französisch) oder London (Englisch) */}
+        {/* Schritt 1: eine Karte pro Stadt – Paris (Französisch), London (Englisch) – mit je einem
+            Button pro Klasse (z. B. London: Klasse 6 und Klasse 5). */}
         {step === 1 &&
-          COURSES.map((c) => {
-            const soon = examsForCourse(c.id).length === 0;
-            const k = CITY[c.lang] || CITY.en;
-            const units = examsForCourse(c.id)
-              .map((e) => e.label.split(' – ')[0])
-              .join(' · ');
+          LANGS.map((lang) => {
+            const k = CITY[lang] || CITY.en;
+            const grades = COURSES.filter((c) => c.lang === lang);
             return (
-              <button
-                key={c.id}
-                type="button"
-                className="vx-course w-full disabled:cursor-not-allowed disabled:border-dashed disabled:opacity-60 disabled:shadow-none"
-                data-course={c.lang}
-                disabled={soon}
-                onClick={() => chooseCourse(c.id)}
+              <div
+                key={lang}
+                className="vx-course w-full cursor-default active:transform-none active:shadow-[3px_3px_0_var(--pen-shadow)]"
+                data-course={lang}
               >
                 <div className="vx-awning" />
                 <div className="vx-course__plate">
@@ -227,13 +225,27 @@ export default function WelcomeScreen({
                   </div>
                   <div className="vx-row" style={{ gap: 8 }}>
                     <span className="vx-pill vx-pill--solid">{k.subject}</span>
-                    <span className="vx-pill">Klasse {c.grade}</span>
+                    {grades.some((c) => c.audio) && <span className="vx-choice__sub">Wortschatz mit Aussprache</span>}
                   </div>
-                  <span className="vx-choice__sub">
-                    {soon ? 'Inhalte kommen bald' : `${c.audio ? 'Wortschatz mit Aussprache · ' : ''}${units}`}
-                  </span>
+                  <div className="vx-row" style={{ gap: 10 }}>
+                    {grades.map((c) => {
+                      const soon = examsForCourse(c.id).length === 0;
+                      return (
+                        <button
+                          key={c.id}
+                          type="button"
+                          className="vx-btn vx-btn--sm"
+                          disabled={soon}
+                          onClick={() => chooseCourse(c.id)}
+                        >
+                          Klasse {c.grade}
+                          {soon ? ' · bald' : <Icon name="arrow-right" small />}
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
-              </button>
+              </div>
             );
           })}
 
