@@ -150,7 +150,10 @@ Ergebnis `public/audio/<kurs>/<id>.m4a` + `index.json` **einchecken** (je ca. 10
 wird in `SOURCES` von `export-audio-manifest.mjs` und in der Schleife von `build-audio.sh` ergänzt.
 
 In der App: 🔊 am französischen Wort (Karte `_de`), in der Rückmeldung nach jeder Antwort und bei den
-Hör-Karten (`_listen`) im Wortschatz automatisch. Fehlt eine Datei, spricht die Sprachausgabe des Browsers (`src/lib/audio.js`).
+Hör-Karten (`_listen`) im Wortschatz automatisch. **Wiedergabe** (`src/lib/audio.js`): ein wiederverwendetes `<audio>`-Element,
+beim ersten Tippen stumm freigeschaltet (Safari). Die Sprachausgabe des Browsers springt nur bei einer wirklich
+fehlenden/kaputten Datei ein – nie bei `AbortError` (Unterbrechung) oder `NotAllowedError` (Autoplay
+blockiert). Sonst spricht eine fremde Stimme in die 0,8 s Stille vor dem Wort (Fehler vom 2026-10-12). Fehlt eine Datei, spricht die Sprachausgabe des Browsers (`src/lib/audio.js`).
 
 Freigegebene Stimmen: Französisch `ff_siwis` mit Tempo 0.9, Englisch (britisch) `bf_emma` mit 0.95,
 optional `bm_george`. Das Skript erzeugt nur neue oder geänderte Einträge. Das Modell und die
