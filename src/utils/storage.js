@@ -102,13 +102,14 @@ export function upsertStudentSession(name, sessionId, answers, { complete = fals
 
 // Draft: nach jeder Frage speichern (Stand der laufenden Runde).
 // sessionId/answersOffset: zu welchem Historien-Eintrag die Runde gehört (siehe upsertStudentSession).
-export function saveDraftSession(name, answers, score, maxScore, questionIds, mode = 'normal', { sessionId, answersOffset = 0, passExam = null } = {}) {
+export function saveDraftSession(name, answers, score, maxScore, questionIds, mode = 'normal', { sessionId, answersOffset = 0, passExam = null, passInfo = null } = {}) {
   if (!name || !questionIds || !questionIds.length) return;
   const draft = {
     name,
     sessionId,
     answersOffset,
     passExam,
+    passInfo,
     mode: mode || 'normal',
     score,
     maxScore,

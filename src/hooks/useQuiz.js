@@ -1,7 +1,7 @@
 import { useReducer, useCallback, useEffect, useRef } from 'react';
 import questions, { EXAMS, getVocabularyQuestions, getNewVocabularyQuestions, DEFAULT_EXAM } from '../data/questions';
 import { checkAnswer, calculatePoints, getMaxPoints } from '../utils/scoring';
-import { planVocabRound, markVocabDone } from '../utils/vocabPass';
+import { planVocabRound, markVocabDone, vocabPassStatus } from '../utils/vocabPass';
 import { saveHighscore, upsertStudentSession, saveDraftSession, clearDraftSession, getDraftSession, addSavedRound, getStudentHistory } from '../utils/storage';
 
 // Shuffle array (Fisher-Yates)
@@ -33,6 +33,7 @@ const initialState = {
   sessionId: null,
   answersOffset: 0,         // Antworten davor gehören zu einem früheren Historien-Eintrag
   passExam: null,           // Runde im Wortschatz-Durchgang dieser Schulaufgabe (utils/vocabPass.js)
+  passInfo: null,           // { round, roundsTotal, size, startCur } beim Start der Runde (für RoundProgress)
   currentIndex: 0,
   score: 0,
   answers: [],
@@ -62,6 +63,7 @@ function reducer(state, action) {
           sessionId: newSessionId(),
           answersOffset: 0,
           passExam: action.passExam ?? null,
+          passInfo: action.passInfo ?? null,
           currentIndex: 0,
           score: 0,
           answers: [],
@@ -102,6 +104,7 @@ function reducer(state, action) {
         sessionId: newSessionId(),
         answersOffset: 0,
         passExam: null,
+        passInfo: null,
         currentIndex: 0,
         score: 0,
         answers: [],
@@ -176,6 +179,7 @@ function reducer(state, action) {
         sessionId,
         answersOffset,
         passExam: draft.passExam ?? null,
+        passInfo: draft.passInfo ?? null,
         questions: withShuffledOptions(restoredQuestions),
         currentIndex: nextIndex,
         score: draft.score,
@@ -202,9 +206,10 @@ export default function useQuiz() {
         sessionId: state.sessionId,
         answersOffset: state.answersOffset,
         passExam: state.passExam,
+        passInfo: state.passInfo,
       });
     }
-  }, [state.phase, state.playerName, state.answers, state.score, state.questions, state.mode, state.sessionId, state.answersOffset, state.passExam]);
+  }, [state.phase, state.playerName, state.answers, state.score, state.questions, state.mode, state.sessionId, state.answersOffset, state.passExam, state.passInfo]);
 
   // Wortschatz-Durchgang: jede beantwortete Karte zählt sofort als erledigt (auch wenn die Runde abbricht).
   useEffect(() => {
@@ -233,7 +238,9 @@ export default function useQuiz() {
     if (mode === 'vocabulary') {
       const questions = planVocabRound(name, exam);
       if (questions.length > 0) {
-        dispatch({ type: 'START_QUIZ', name, mode, exam, questions, passExam: exam });
+        const st = vocabPassStatus(name, exam);
+        const passInfo = { round: st.round, roundsTotal: st.roundsTotal, size: st.size, startCur: st.cur };
+        dispatch({ type: 'START_QUIZ', name, mode, exam, questions, passExam: exam, passInfo });
         return;
       }
     }

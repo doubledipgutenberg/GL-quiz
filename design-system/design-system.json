@@ -434,9 +434,9 @@
  ],
  "lastChange": {
   "by": "Thomas",
-  "at": "2026-10-12T07:47:03Z",
+  "at": "2026-10-12T08:09:25Z",
   "via": "Claude",
-  "note": "Wortschatz-Sessions à 50 (ReviewPlan, SessionProgress, SessionBreak) und Streak-Kalender mit Monatsblöcken; neue Tokens lamp-100 und lamp-500."
+  "note": "Wortschatz-Durchgang: Runden statt Sessions. Komponenten heißen jetzt ReviewPlan, RoundProgress, RoundBreak (Klassen .vx-rounds, .vx-rprogress, .vx-break)."
  },
  "layout": "files",
  "libraries": [],
