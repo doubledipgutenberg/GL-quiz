@@ -159,6 +159,26 @@
     "tail": 0.2,
     "hash": "8e45104bec4af8c2"
   },
+  "en6_both": {
+    "file": "en6_both.m4a",
+    "text": "both",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "5922b80f07c448e1"
+  },
+  "en6_both_ex": {
+    "file": "en6_both_ex.m4a",
+    "text": "Both of my brothers play football.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "3f910e2bb4e66a6b"
+  },
   "en6_cheap": {
     "file": "en6_cheap.m4a",
     "text": "cheap",
@@ -459,6 +479,46 @@
     "tail": 0.2,
     "hash": "bdf625bc095437b6"
   },
+  "en6_i_mean": {
+    "file": "en6_i_mean.m4a",
+    "text": "I mean",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "5d8b75489a5a29f2"
+  },
+  "en6_i_mean_ex": {
+    "file": "en6_i_mean_ex.m4a",
+    "text": "I mean, he is really nice.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "c089cf4a399384fe"
+  },
+  "en6_i_see": {
+    "file": "en6_i_see.m4a",
+    "text": "I see.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "e840c61d03088bce"
+  },
+  "en6_i_see_ex": {
+    "file": "en6_i_see_ex.m4a",
+    "text": "Oh, I see! Now I understand.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "38470c94724c4d15"
+  },
   "en6_indoors": {
     "file": "en6_indoors.m4a",
     "text": "indoors",
@@ -638,6 +698,26 @@
     "lead": 0.3,
     "tail": 0.2,
     "hash": "a295fa2568f1d59a"
+  },
+  "en6_negative": {
+    "file": "en6_negative.m4a",
+    "text": "negative",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "8e2520be1f81bb16"
+  },
+  "en6_negative_ex": {
+    "file": "en6_negative_ex.m4a",
+    "text": "Don't be so negative, we can win!",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "9deaec2f88b35c02"
   },
   "en6_nervous": {
     "file": "en6_nervous.m4a",
@@ -899,6 +979,26 @@
     "tail": 0.2,
     "hash": "7f85bc71c6a9a1e0"
   },
+  "en6_positive": {
+    "file": "en6_positive.m4a",
+    "text": "positive",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "eab78a8ba083eb9a"
+  },
+  "en6_positive_ex": {
+    "file": "en6_positive_ex.m4a",
+    "text": "Her answer was positive.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "4ed550e0d4dc2503"
+  },
   "en6_proud": {
     "file": "en6_proud.m4a",
     "text": "proud of",
@@ -1118,6 +1218,26 @@
     "lead": 0.3,
     "tail": 0.2,
     "hash": "3900a80a814f10d0"
+  },
+  "en6_to_be_interested": {
+    "file": "en6_to_be_interested.m4a",
+    "text": "to be interested in",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "ce727e3f67da8fd9"
+  },
+  "en6_to_be_interested_ex": {
+    "file": "en6_to_be_interested_ex.m4a",
+    "text": "Are you interested in horses?",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "782e7bec7ffff98d"
   },
   "en6_to_end_up": {
     "file": "en6_to_end_up.m4a",
@@ -1438,6 +1558,46 @@
     "lead": 0.3,
     "tail": 0.2,
     "hash": "78057c03d70f064c"
+  },
+  "en6_up": {
+    "file": "en6_up.m4a",
+    "text": "up",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "0d0b99c9197c591e"
+  },
+  "en6_up_ex": {
+    "file": "en6_up_ex.m4a",
+    "text": "The cat ran up the tree.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "876574cebd574c72"
+  },
+  "en6_watch": {
+    "file": "en6_watch.m4a",
+    "text": "watch",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "2e52fbe22c9b3798"
+  },
+  "en6_watch_ex": {
+    "file": "en6_watch_ex.m4a",
+    "text": "My new watch was a present from my grandma.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "2ff49ffa059a7d06"
   },
   "en6_what_a": {
     "file": "en6_what_a.m4a",

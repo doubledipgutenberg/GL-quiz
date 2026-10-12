@@ -95,12 +95,32 @@ shopping centre/mall, programme/program …) → **als Fragen**, nicht als Karte
 - to train – trainieren ✓
 - to fix – reparieren; befestigen ✓
 
+## Vokabelheft 12.10. – weiter in Unit 1 (nach „to fix“)
+
+Quelle: Foto der Heftseite vom 12.10.2026 (Buchseite nicht dabei). Vom Nutzer am 12.10. geprüft und
+freigegeben; Abschnitt gehört zu Unit 1. Die Jahreszahlen derselben Heftseite (1492, the 1980s) werden
+auf seinen Wunsch **keine** Karten.
+
+- positive – positiv
+- negative – negativ; verneint
+- up – hinauf; (nach) oben
+- watch – Armbanduhr
+- to be interested (in) – interessiert sein (an); sich interessieren (für)
+- I see. – Ich verstehe; Aha; Ach so!
+- I mean – ich meine
+- both – beide
+
+Ebenfalls auf den Fotos vom 05.10. und 09.10., aber schon im Wortschatz: der Kasten „Numbers“
+(one thousand … one point five), „City and country“ (cheap … outdoor activity) und die ganze Liste
+„Station 2: Come on, Em!“ (youth … to fix).
+
 ---
 
-**Zusammenfassung:** 78 Vokabeln (je 3 Karten: übersetzen, auf Englisch schreiben, nach Gehör schreiben →
-234 Karten), Audio mit der Stimme bf_emma. Nicht als Karte: LOL, Jahreszahlen, American-English-Kasten,
+**Zusammenfassung:** 86 Vokabeln (je 4 Karten: übersetzen, auf Englisch schreiben, Lückentext, nach Gehör
+schreiben → 344 Karten), Audio mit der Stimme bf_emma. Nicht als Karte: LOL, Jahreszahlen, American-English-Kasten,
 „AE pronunciation“-Kasten.
 
 **Fragen (67)**, selbst formuliert nach Grammatik G1–G3 und Practice pool: going-to future, question tags,
 Fragen mit Präpositionen, Feelings, Wörter im Satz, American English, Numbers & years, ein Lesetext und
-Sprachmittlung (Flyer). Wörter nach „to fix“ (z. B. watch, to be interested in) bleiben draußen.
+Sprachmittlung (Flyer). Die Wörter nach „to fix“ sind seit dem 12.10. als eigener Batch im Wortschatz
+(„Neue Vokabeln“); Fragen dazu gibt es noch keine.

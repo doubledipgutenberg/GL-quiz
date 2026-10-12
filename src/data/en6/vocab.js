@@ -124,6 +124,26 @@ const BATCHES = [
       },
     ],
   },
+  {
+    exam: 'en6-u1',
+    added: '2026-10-12',
+    sections: [
+      {
+        // Vokabelheft, Eintrag vom 12.10. – die Wörter nach „to fix“.
+        section: 'Unit 1 – Heft 12.10.',
+        items: [
+          { en: 'positive', de: 'positiv', ex: 'Her answer was [positive].' },
+          { en: 'negative', de: 'negativ; verneint', ex: "Don't be so [negative], we can win!" },
+          { en: 'up', de: 'hinauf; (nach) oben', ex: 'The cat ran [up] the tree.' },
+          { en: 'watch', de: 'Armbanduhr', ex: 'My new [watch] was a present from my grandma.' },
+          { en: 'to be interested (in)', de: 'interessiert sein (an); sich interessieren (für)', alt: ['to be interested in'], say: 'to be interested in', ex: 'Are you [interested] in horses?' },
+          { en: 'I see.', de: 'Ich verstehe; Aha; Ach so!', ex: 'Oh, [I see]! Now I understand.' },
+          { en: 'I mean', de: 'ich meine', ex: '[I mean], he is really nice.' },
+          { en: 'both', de: 'beide', ex: '[Both] of my brothers play football.' },
+        ],
+      },
+    ],
+  },
 ];
 
 function slug(s) {
