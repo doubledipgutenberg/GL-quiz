@@ -26,7 +26,7 @@ export function getVocabMastery(sessions, courseId) {
 
   (sessions || []).forEach(session => {
     (session.answers || []).forEach(a => {
-      const baseId = String(a.questionId).replace(/_(en|de|fr|second|listen)$/, '');
+      const baseId = String(a.questionId).replace(/_(en|de|fr|second|listen|gap)$/, '');
       const i = lists.findIndex(list => list.has(baseId));
       if (i === -1) return;
       played[i] = true;

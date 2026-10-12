@@ -9,6 +9,9 @@ const DRAFT_KEY = 'english_topic_quiz_draft';
 const SAVED_ROUNDS_KEY = 'english_topic_quiz_saved_rounds';
 const TEACHER_DISMISSALS_KEY = 'english_topic_quiz_teacher_dismissals';
 const TEACHER_MARKED_CORRECT_KEY = 'english_topic_quiz_teacher_marked_correct';
+const ANSWER_FLAGS_KEY = 'english_topic_quiz_answer_flags';
+const FLAG_REVIEWS_KEY = 'english_topic_quiz_flag_reviews';
+const VOCAB_PROGRESS_KEY = 'english_topic_quiz_vocab_progress';
 
 export const STORAGE_KEYS = {
   highscores: HIGHSCORES_KEY,
@@ -17,6 +20,9 @@ export const STORAGE_KEYS = {
   savedRounds: SAVED_ROUNDS_KEY,
   teacherDismissals: TEACHER_DISMISSALS_KEY,
   teacherMarkedCorrect: TEACHER_MARKED_CORRECT_KEY,
+  answerFlags: ANSWER_FLAGS_KEY,
+  flagReviews: FLAG_REVIEWS_KEY,
+  vocabProgress: VOCAB_PROGRESS_KEY,
 };
 
 export const FAMILY_OWNER = '_family';
@@ -96,12 +102,13 @@ export function upsertStudentSession(name, sessionId, answers, { complete = fals
 
 // Draft: nach jeder Frage speichern (Stand der laufenden Runde).
 // sessionId/answersOffset: zu welchem Historien-Eintrag die Runde gehört (siehe upsertStudentSession).
-export function saveDraftSession(name, answers, score, maxScore, questionIds, mode = 'normal', { sessionId, answersOffset = 0 } = {}) {
+export function saveDraftSession(name, answers, score, maxScore, questionIds, mode = 'normal', { sessionId, answersOffset = 0, passExam = null } = {}) {
   if (!name || !questionIds || !questionIds.length) return;
   const draft = {
     name,
     sessionId,
     answersOffset,
+    passExam,
     mode: mode || 'normal',
     score,
     maxScore,
@@ -132,7 +139,9 @@ function toAnswerRecord(a) {
     isCorrect: a.isCorrect,
     userAnswer: a.userAnswer,
     correctAnswer: a.correctAnswer,
-    difficulty: a.difficulty
+    difficulty: a.difficulty,
+    // Zeitpunkt der Antwort (für den Serien-Kalender); ältere Einträge haben ihn nicht.
+    ...(a.at ? { at: a.at } : {}),
   };
 }
 
@@ -145,7 +154,7 @@ export function getSavedRounds() {
   }
 }
 
-export function addSavedRound({ roundName, playerName, questionIds, answers, score, maxScore, mode }) {
+export function addSavedRound({ roundName, playerName, questionIds, answers, score, maxScore, mode, passExam = null }) {
   if (!roundName?.trim() || !playerName || !questionIds?.length) return null;
   const rounds = getSavedRounds();
   const id = `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
@@ -158,7 +167,8 @@ export function addSavedRound({ roundName, playerName, questionIds, answers, sco
     answers: (answers || []).map(toAnswerRecord),
     score: score ?? 0,
     maxScore: maxScore ?? 0,
-    mode: mode || 'normal'
+    mode: mode || 'normal',
+    passExam,
   };
   rounds.unshift(saved);
   localStorage.setItem(SAVED_ROUNDS_KEY, JSON.stringify(rounds));
@@ -195,6 +205,9 @@ export function clearAllData() {
   localStorage.removeItem(SAVED_ROUNDS_KEY);
   localStorage.removeItem(TEACHER_DISMISSALS_KEY);
   localStorage.removeItem(TEACHER_MARKED_CORRECT_KEY);
+  localStorage.removeItem(ANSWER_FLAGS_KEY);
+  localStorage.removeItem(FLAG_REVIEWS_KEY);
+  localStorage.removeItem(VOCAB_PROGRESS_KEY);
 }
 
 // ==========================================
@@ -271,6 +284,109 @@ export function markAttemptsAsCorrect(studentName, questionId, dateIsos) {
   saveTeacherMarkedCorrect(all);
 }
 
+export function unmarkAttemptCorrect(studentName, questionId, dateIso) {
+  const all = getTeacherMarkedCorrect();
+  const list = all[studentName]?.[questionId];
+  if (!Array.isArray(list) || !list.includes(dateIso)) return;
+  all[studentName][questionId] = list.filter((d) => d !== dateIso);
+  saveTeacherMarkedCorrect(all);
+}
+
+// ==========================================
+// „Na ja, schon fast richtig“ – vom Kind markierte Antworten und das Urteil der Eltern
+// ==========================================
+// answerFlags: { [Kind]: [Markierung] } – gehört dem Kind (es darf nur eigene Daten schreiben).
+// flagReviews: { [flagId]: { verdict: 'correct' | 'wrong', decidedAt } } – gehört der Familie.
+// Getrennt, damit sich Kind und Eltern beim Synchronisieren nichts überschreiben.
+// Später wertet der Coding-Agent die Urteile aus (scripts/review-flags.mjs), um den Antwort-Check
+// oder die Alternativen zu verbessern.
+
+export function getAnswerFlags() {
+  try {
+    const data = localStorage.getItem(ANSWER_FLAGS_KEY);
+    return data ? JSON.parse(data) : {};
+  } catch {
+    return {};
+  }
+}
+
+export function flagAlmostRight(name, { question, userAnswer, sessionId }) {
+  if (!name || !question?.id) return null;
+  const sessionDate = getStudentHistory()[name]?.sessions?.find((s) => s.id === sessionId)?.date ?? null;
+  const all = getAnswerFlags();
+  if (!all[name]) all[name] = [];
+  const id = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+  all[name].push({
+    id,
+    questionId: question.id,
+    type: question.type,
+    course: question.course ?? null,
+    answerLang: question.answerLang ?? null,
+    prompt: question.word ?? question.question ?? null,
+    heard: question.type === 'listen_card' ? question.audio?.text ?? null : null,
+    userAnswer,
+    correctAnswer: question.correct,
+    alternativeCorrect: question.alternativeCorrect ?? [],
+    sessionId: sessionId ?? null,
+    sessionDate,
+    flaggedAt: new Date().toISOString(),
+  });
+  localStorage.setItem(ANSWER_FLAGS_KEY, JSON.stringify(all));
+  markDirty(name, 'answerFlags');
+  return id;
+}
+
+export function getFlagReviews() {
+  try {
+    const data = localStorage.getItem(FLAG_REVIEWS_KEY);
+    return data ? JSON.parse(data) : {};
+  } catch {
+    return {};
+  }
+}
+
+/** verdict: 'correct' („doch eigentlich richtig“), 'wrong' (falsch) oder null (Urteil zurücknehmen). */
+export function reviewFlag(flagId, verdict) {
+  if (!flagId) return;
+  const all = getFlagReviews();
+  if (verdict) all[flagId] = { verdict, decidedAt: new Date().toISOString() };
+  else delete all[flagId];
+  localStorage.setItem(FLAG_REVIEWS_KEY, JSON.stringify(all));
+  markDirty(FAMILY_OWNER, 'flagReviews');
+}
+
+// ==========================================
+// Wortschatz in Runden: Fortschritt im Durchgang durch den ganzen Wortschatz (siehe utils/vocabPass.js)
+// ==========================================
+// { [Kind]: { [exam]: { pass, seed, done: [Karten-IDs], startedAt } } } – gehört dem Kind.
+
+export function getVocabProgress() {
+  try {
+    const data = localStorage.getItem(VOCAB_PROGRESS_KEY);
+    return data ? JSON.parse(data) : {};
+  } catch {
+    return {};
+  }
+}
+
+export function setVocabProgress(name, exam, entry) {
+  if (!name || !exam) return;
+  const all = getVocabProgress();
+  if (!all[name]) all[name] = {};
+  all[name][exam] = entry;
+  localStorage.setItem(VOCAB_PROGRESS_KEY, JSON.stringify(all));
+  markDirty(name, 'vocabProgress');
+}
+
+/** Alle markierten Antworten mit Urteil – für den Export an den Coding-Agent. */
+export function getAnswerReviewExport() {
+  const reviews = getFlagReviews();
+  const flags = Object.entries(getAnswerFlags()).flatMap(([student, list]) =>
+    (list || []).map((f) => ({ student, ...f, verdict: reviews[f.id]?.verdict ?? null, decidedAt: reviews[f.id]?.decidedAt ?? null })),
+  );
+  return { kind: 'answer-review', exportedAt: new Date().toISOString(), flags };
+}
+
 // ==========================================
 // Full data export helper
 // ==========================================
@@ -283,6 +399,9 @@ export function getFullExportPayload() {
     savedRounds: getSavedRounds(),
     teacherDismissals: getTeacherDismissals(),
     teacherMarkedCorrect: getTeacherMarkedCorrect(),
+    answerFlags: getAnswerFlags(),
+    flagReviews: getFlagReviews(),
+    vocabProgress: getVocabProgress(),
   };
 }
 

@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { EXAMS, COURSES, DEFAULT_COURSE, examsForCourse, defaultExamForCourse, latestVocabBatch } from '../data/questions';
-import { getDraftSession, getSavedRounds, getFullExportPayload } from '../utils/storage';
+import { getDraftSession, getSavedRounds, getFullExportPayload, getStudentHistory } from '../utils/storage';
+import StreakCalendar from './StreakCalendar';
 import { SPACE_TITLE } from './KidLogin';
+import { vocabPassStatus, passText, ROUND_SIZE } from '../utils/vocabPass';
 import parisScene from '../../design-system/assets/Illustrations/paris-scene.svg';
 import londonScene from '../../design-system/assets/Illustrations/london-scene.svg';
 
@@ -37,7 +39,7 @@ function Icon({ name, small = false }) {
   return <i className={`vx-ico vx-ico--${name}${small ? ' vx-ico--sm' : ''}`} aria-hidden="true" />;
 }
 
-function Choice({ icon, title, sub, onClick, disabled = false }) {
+function Choice({ icon, title, sub, progress, onClick, disabled = false }) {
   return (
     <button type="button" className="vx-choice" onClick={onClick} disabled={disabled}>
       <span className="vx-choice__ico">
@@ -46,6 +48,11 @@ function Choice({ icon, title, sub, onClick, disabled = false }) {
       <span className="vx-choice__txt">
         <span className="vx-choice__title">{title}</span>
         {sub && <span className="vx-choice__sub">{sub}</span>}
+        {progress != null && (
+          <span className="vx-track mt-1 block" aria-hidden="true">
+            <i style={{ width: `${Math.round(progress * 100)}%` }} />
+          </span>
+        )}
       </span>
       {!disabled && <Icon name="arrow-right" />}
     </button>
@@ -106,6 +113,10 @@ export default function WelcomeScreen({
   };
 
   const start = (mode) => exam && onStart(playerName, mode, exam);
+
+  // Stand im Wortschatz-Durchgang (Runden à 50 Karten) der gewählten Schulaufgabe.
+  const pass = step >= 3 && exam ? vocabPassStatus(playerName, exam) : null;
+  const passProgress = pass && !pass.complete && pass.total ? pass.done / pass.total : null;
 
   // Wortschatz: Gibt es datierte Vokabel-Lieferungen, kommt noch die Frage „alle oder nur die neuen?“.
   const chooseVocabulary = () => (newBatch ? setStep(4) : start('vocabulary'));
@@ -200,6 +211,9 @@ export default function WelcomeScreen({
 
       {notice && <p className="text-sm text-center text-destructive">{notice}</p>}
 
+      {/* Übungs-Serie des Kindes – nur auf der ersten Seite */}
+      {step === 1 && <StreakCalendar sessions={getStudentHistory()[playerName]?.sessions || []} />}
+
       <div className="vx-stack">
         <StepHead step={step} title={titles[step - 1]} />
 
@@ -286,7 +300,14 @@ export default function WelcomeScreen({
             <Choice
               icon="book"
               title="Wortschatz"
-              sub={course.audio ? 'Vokabeln übersetzen, schreiben und nach Gehör schreiben' : 'Nur Vokabeln aus dem Stoff'}
+              sub={
+                newBatch
+                  ? course.audio
+                    ? 'Vokabeln übersetzen, schreiben, Lückentext und nach Gehör'
+                    : 'Nur Vokabeln aus dem Stoff'
+                  : passText(pass)
+              }
+              progress={newBatch ? null : passProgress}
               onClick={chooseVocabulary}
             />
           </div>
@@ -294,7 +315,13 @@ export default function WelcomeScreen({
 
         {step === 4 && newBatch && (
           <div className="grid gap-3 md:grid-cols-2">
-            <Choice icon="book" title="Alle Vokabeln" sub="Der ganze Wortschatz der Schulaufgabe" onClick={() => start('vocabulary')} />
+            <Choice
+              icon="book"
+              title={`Alle Vokabeln – in Runden à ${ROUND_SIZE}`}
+              sub={passText(pass) || 'Der ganze Wortschatz der Schulaufgabe'}
+              progress={passProgress}
+              onClick={() => start('vocabulary')}
+            />
             <Choice
               icon="repeat"
               title="Nur neue Vokabeln"

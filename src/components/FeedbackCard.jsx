@@ -7,8 +7,11 @@ import { langOfQuestion, nextSticker, stickerTilt } from '@/data/stickers';
 // Rückmeldung nach jeder Antwort – Design System: Feedback + FeedbackSticker
 // (design-system/components/Feedback/README.md, …/FeedbackSticker/README.md).
 // Farbe kommt vom Ergebnis (Oliv / Ocker), nie Rot; Icon + Wort tragen die Bedeutung, der Sticker ist Deko.
-export default function FeedbackCard({ lastAnswer, onNext }) {
+export default function FeedbackCard({ lastAnswer, onNext, onFlagAlmostRight }) {
   const { isCorrect, points, question, userAnswer } = lastAnswer;
+  // Wortschatz: Das Kind kann eine als falsch gewertete Antwort zur Prüfung melden („fast richtig“).
+  const canFlag = !isCorrect && question.category === 'vocabulary' && !!onFlagAlmostRight;
+  const [flagged, setFlagged] = useState(false);
   // Einmal pro Antwort ziehen (FeedbackCard wird pro Antwort neu eingehängt).
   const [sticker] = useState(() => nextSticker(langOfQuestion(question), isCorrect));
   const [tilt] = useState(stickerTilt);
@@ -44,6 +47,22 @@ export default function FeedbackCard({ lastAnswer, onNext }) {
           <dd className="is-right">{question.correct}</dd>
         </dl>
       )}
+
+      {canFlag &&
+        (flagged ? (
+          <p className="vx-feedback__body">Gemerkt! Deine Antwort wird noch einmal geprüft.</p>
+        ) : (
+          <button
+            type="button"
+            className="vx-btn vx-btn--link self-start"
+            onClick={() => {
+              onFlagAlmostRight(question, userAnswer);
+              setFlagged(true);
+            }}
+          >
+            Na ja, schon fast richtig
+          </button>
+        ))}
 
       {question.explanation && <p className="vx-feedback__body">{question.explanation}</p>}
 

@@ -24,6 +24,8 @@
   --pen-shadow: var(--house-shadow);
   --on-pen: #FBF7EE;
   --lamp-300: #F6D27A;
+  --lamp-100: #FBEBC2;
+  --lamp-500: #E2A537;
   --olive-600: #2C6A43;
   --olive-100: #DDEBD9;
   --ochre-600: #8A4B0B;
@@ -58,6 +60,8 @@
   --pen-shadow: var(--house-shadow);
   --on-pen: #101C3F;
   --lamp-300: #F6D27A;
+  --lamp-100: #5E4E26;
+  --lamp-500: #FFE6A3;
   --olive-600: #8FD3A3;
   --olive-100: #1D3E2B;
   --ochre-600: #F2B46A;

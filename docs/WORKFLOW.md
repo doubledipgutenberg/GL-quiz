@@ -88,7 +88,10 @@ wörtlich übernommen. Material aus offensichtlich illegalen Quellen (z. B. Scha
   Übersetzung wie *ami*/*copain*). `say` = gesprochener Text, falls er abweichen soll. Die Datei hat
   **keine Importe** (sie wird auch von Node fürs Audio-Manifest gelesen).
   `src/data/fr6/cards.js` erzeugt daraus die Karten: `_de` (frz. sehen + 🔊 → deutsch), `_fr` (deutsch →
-  frz. schreiben) und `_listen` (nur hören → frz. schreiben). Hör-Karten spielen erst das Wort, kurz danach
+  frz. schreiben), `_gap` (Lückentext: Beispielsatz mit Lücke + deutsche Bedeutung) und `_listen` (nur hören →
+  frz. schreiben). Die Lücke steht im Beispielsatz `ex` in [eckigen Klammern], Alternativen mit `|`
+  (`'Our ball [ended up] in the river.'`); `exampleText` entfernt die Klammern fürs Audio, `gapOf` baut die
+  Lücke. Jede neue Vokabel braucht deshalb einen `ex`-Satz mit genau einer [Lücke]. Hör-Karten spielen erst das Wort, kurz danach
   den Beispielsatz `ex` (eigene Formulierung, nur bekannte Wörter; Audio `<id>_ex.m4a`, `playSequence` in
   `src/lib/audio.js`). **Alle drei gehören zum Wortschatz**,
   es gibt keinen eigenen Hör-Modus (Entscheidung des Nutzers).
@@ -248,6 +251,24 @@ curl -s -o /dev/null -w '%{http_code}' https://<slug>.space.fast/   # muss 403 l
   Änderungen per `markDirty`, der Upload folgt nach 1,5 s (Wiederholung nach 10 s, beim Verlassen der
   Seite sofort). Beim Login holt die App den Server-Stand, ohne lokale ungesicherte Änderungen zu
   überschreiben. Ein Kind sieht nur eigene Runden, Highscores und Historie aller Kinder sind sichtbar.
+- **„Na ja, schon fast richtig“** (Wortschatz): Auf der Rückmeldung zu einer falsch gewerteten Vokabel kann
+  das Kind die Antwort melden (`flagAlmostRight`, Schlüssel `answerFlags` – gehört dem Kind). Im Lehrer-Bereich
+  stehen die Meldungen je Kind und Fach unter „Zur Prüfung“; das Urteil „Doch richtig“/„Falsch“ liegt in
+  `flagReviews` (Familie) und „Doch richtig“ zählt den Versuch in der Auswertung als richtig.
+  **Auswertung für den Coding-Agent:** Lehrer-Bereich → „Antwort-Review exportieren“ → JSON, dann
+  `node scripts/review-flags.mjs <datei>`. ❗-Fälle („doch richtig“, aber weiter abgelehnt) beheben: Einzelfall →
+  Alternative (`alt`/`altDe`/`alternativeCorrect`), wiederkehrendes Muster → Regel in `src/utils/scoring.js`
+  (mit Testfällen). ⚠️-Fälle („falsch“, aber akzeptiert) zeigen, dass der Check zu großzügig ist. Skript erneut
+  laufen lassen, bis keine ❗/⚠️ übrig sind; Erkenntnisse unten in „Entscheidungen“ festhalten.
+- **Wortschatz in Runden** (`src/utils/vocabPass.js`, Schlüssel `vocabProgress` – gehört dem Kind): „Alle
+  Vokabeln“ ist ein Durchgang durch den ganzen Wortschatz der Schulaufgabe in Runden à 50 Karten (feste
+  Zufallsreihenfolge per `seed`, erledigte Karten in `done`; jede Antwort zählt sofort). Startseite und
+  Ergebnisseite zeigen „Runde x von y · noch n Karten (z Runden)“, danach „Nächste Runde“. Ist alles erledigt,
+  beginnt der nächste Durchgang. „Nur neue Vokabeln“ bleibt eine Runde.
+- **Serien-Kalender** (`StreakCalendar.jsx`, `src/utils/streak.js`) auf der Startseite (Schritt 1): Monate als
+  Blöcke, alle Wochentage als Zeilen, Farbtiefe in Rot (en-pen über `.vx-en`, bewusste Ausnahme vom Design System) = Punkte pro Tag in 5 Stufen (0–50, 51–100, 101–150, 151–250, ab 251; Zeitpunkt `at` je Antwort). Kennzahlen:
+  Rekord, Geübt an, Runden, Antworten, Gesamt (Punkte), Bester Tag (meiste Punkte). Überschrift (Wahl des Nutzers):
+  „5 Tage in Folge geübt!“ / „Tag 1 - Baue deinen neuen Streak! Eine Runde jeden Tag...“ / „… – bleib dran!“. Zeigt eine Reihe aus dem Schuljahr (beginnt im September) mit dem aktuellen Monat – so viele Monate, wie in die Breite passen (gemessen, mind. 3); die Kästchen füllen die Reihe.
 - **Auto-Save der Ergebnisse** (`useQuiz.js`, `upsertStudentSession` in `storage.js`): Jede Runde hat eine
   `sessionId` und steht nach **jeder Antwort** in der Historie (`complete: false`, am Ende `true`). Der
   Lehrer-Bereich sieht also auch angefangene Runden, ohne „Runde speichern“. Die aktuelle Runde läuft beim
@@ -284,6 +305,10 @@ curl -s -o /dev/null -w '%{http_code}' https://<slug>.space.fast/   # muss 403 l
 - Englisch 6, Unit 1: Vokabeln bis „to fix“ (Buch S. 195–198, Abschrift `VOCAB_EN6_U1_review.md`), Stimme
   bf_emma. Fragen nach Grammatik G1–G3 und Practice pool der Unit.
 - Hör-Karten: erst das Wort, dann ein kurzer Beispielsatz (nur bei Hör-Karten).
+- Wortschatz hat vier Kartenarten: übersetzen, in der Fremdsprache schreiben, Lückentext, nach Gehör schreiben.
+- „Na ja, schon fast richtig“ (nur Wortschatz): Kind meldet, Eltern urteilen, Agent wertet aus (siehe oben).
+- „Alle Vokabeln“ in Runden à 50 Karten mit Anzeige der restlichen Karten/Runden; in der Oberfläche heißt eine
+  Session „Runde“. Serien-Kalender auf der Startseite (Monate als Blöcke, Wochentage als Zeilen).
 - Lehrer-Bereich: „Neue Vokabeln“ und „Gesamter Wortschatz“ als eigene Bereiche, alle Listen klappbar, mobil kompakt.
 - Audio: Einzelwörter langsamer (0,8) mit 0,8 s Stille davor, damit kurze Wörter wie „air“ nicht verschluckt
   werden (`KIND` in `scripts/generate-audio.py`); Beispielsätze im normalen Tempo.

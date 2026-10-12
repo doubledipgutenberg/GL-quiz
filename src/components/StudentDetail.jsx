@@ -1,6 +1,16 @@
 import { useMemo, useState } from 'react';
 import { analyzeStudent } from '../utils/analytics';
-import { getTeacherDismissals, dismissQuestionForStudent, getTeacherMarkedCorrect, markAttemptsAsCorrect } from '../utils/storage';
+import {
+  getTeacherDismissals,
+  dismissQuestionForStudent,
+  getTeacherMarkedCorrect,
+  markAttemptsAsCorrect,
+  unmarkAttemptCorrect,
+  getAnswerFlags,
+  getFlagReviews,
+  reviewFlag,
+} from '../utils/storage';
+import { courseOfQuestion } from '../utils/courseOf';
 import { Check } from 'lucide-react';
 import questions, { getVocabularyQuestions, latestVocabBatch } from '../data/questions';
 import { Card, CardContent } from './ui/card';
@@ -19,6 +29,7 @@ function ListToggle({ open, onToggle, children }) {
 export default function StudentDetail({ name, courseId, courseLabel, sessions, onBack, onCreateVocabReviewQuiz, onCreateNormalReviewQuiz }) {
   const [dismissals, setDismissals] = useState(() => getTeacherDismissals());
   const [markedCorrect, setMarkedCorrect] = useState(() => getTeacherMarkedCorrect());
+  const [flagReviews, setFlagReviews] = useState(() => getFlagReviews());
   // Auf-/zugeklappte Listen: key → true/false; ohne Eintrag gilt der Standard der Liste.
   const [openLists, setOpenLists] = useState({});
   // Übungshinweise mit Seitenzahlen stammen aus dem Arbeitsheft von Klasse 5 – nur dort zeigen.
@@ -202,8 +213,92 @@ export default function StudentDetail({ name, courseId, courseLabel, sessions, o
   const toggle = (key, fallback) => setOpenLists((o) => ({ ...o, [key]: !(o[key] ?? fallback) }));
 
   const cardKind = (def) =>
-    def?.type === 'listen_card' ? 'Hör-Karte' : def?.type === 'vocab_card' ? 'Vokabelkarte' : null;
-  const cardPrompt = (def) => (def?.type === 'listen_card' ? '🔊 gehört' : def?.word);
+    def?.type === 'listen_card'
+      ? 'Hör-Karte'
+      : def?.type === 'vocab_card'
+        ? 'Vokabelkarte'
+        : def?.category === 'vocabulary' && def?.type === 'fill_gap'
+          ? 'Lückentext'
+          : null;
+  const cardPrompt = (def) =>
+    def?.type === 'listen_card' ? '🔊 gehört' : def?.type === 'vocab_card' ? def?.word : def?.question;
+
+  // „Na ja, schon fast richtig“: vom Kind gemeldete Antworten dieses Fachs, offen bzw. entschieden.
+  const flags = (getAnswerFlags()[name] || []).filter((f) => !courseId || courseOfQuestion(f.questionId) === courseId);
+  const openFlags = flags.filter((f) => !flagReviews[f.id]);
+  const decidedFlags = flags.filter((f) => flagReviews[f.id]);
+
+  // Urteil speichern; „doch richtig“ zählt den Versuch auch in der Auswertung als richtig.
+  const decideFlag = (flag, verdict) => {
+    const previous = flagReviews[flag.id]?.verdict;
+    reviewFlag(flag.id, verdict);
+    if (flag.sessionDate) {
+      if (verdict === 'correct') markAttemptsAsCorrect(name, flag.questionId, [flag.sessionDate]);
+      else if (previous === 'correct') unmarkAttemptCorrect(name, flag.questionId, flag.sessionDate);
+    }
+    setFlagReviews(getFlagReviews());
+    setMarkedCorrect(getTeacherMarkedCorrect());
+  };
+
+  const flagKind = (flag) =>
+    flag.type === 'listen_card' ? 'Hör-Karte' : flag.type === 'vocab_card' ? 'Vokabelkarte' : 'Lückentext';
+
+  const renderFlag = (flag) => {
+    const verdict = flagReviews[flag.id]?.verdict;
+    return (
+      <Card key={flag.id} className="w-full max-w-[560px] border-[2.5px] border-[var(--lamp-300)]">
+        <CardContent className="p-4 sm:p-6 space-y-3">
+          <div className="flex flex-wrap items-baseline justify-between gap-2 text-sm">
+            <span className="font-semibold">{flagKind(flag)}</span>
+            <span className="text-xs text-muted-foreground">{new Date(flag.flaggedAt).toLocaleDateString('de-DE')}</span>
+          </div>
+          <p className="text-base font-semibold">{flag.heard ? `🔊 gehört: „${flag.heard}“` : flag.prompt}</p>
+          <div className="space-y-0.5 text-sm">
+            <p>
+              <strong>Antwort:</strong> „{flag.userAnswer}“
+            </p>
+            <p>
+              <strong>Erwartet:</strong> „{flag.correctAnswer}“
+              {flag.alternativeCorrect?.length > 0 && (
+                <span className="text-muted-foreground"> (auch: {flag.alternativeCorrect.join(', ')})</span>
+              )}
+            </p>
+          </div>
+          {verdict ? (
+            <div className="flex flex-wrap items-center gap-2">
+              <span
+                className={`vx-pill ${verdict === 'correct' ? 'border-[var(--olive-600)] text-[var(--olive-600)]' : 'border-[var(--ochre-600)] text-[var(--ochre-600)]'}`}
+              >
+                {verdict === 'correct' ? 'Doch richtig' : 'Falsch'}
+              </span>
+              <button type="button" className="vx-btn vx-btn--link" onClick={() => decideFlag(flag, null)}>
+                Urteil zurücknehmen
+              </button>
+            </div>
+          ) : (
+            <div className="flex flex-wrap gap-2">
+              <button
+                type="button"
+                className="vx-btn vx-btn--sm border-[var(--olive-600)] bg-[var(--olive-100)] text-[var(--olive-600)] shadow-[3px_3px_0_var(--olive-600)]"
+                onClick={() => decideFlag(flag, 'correct')}
+              >
+                <i className="vx-ico vx-ico--sm vx-ico--check" aria-hidden="true" />
+                Doch richtig
+              </button>
+              <button
+                type="button"
+                className="vx-btn vx-btn--sm border-[var(--ochre-600)] bg-[var(--ochre-100)] text-[var(--ochre-600)] shadow-[3px_3px_0_var(--ochre-600)]"
+                onClick={() => decideFlag(flag, 'wrong')}
+              >
+                <i className="vx-ico vx-ico--sm vx-ico--cross" aria-hidden="true" />
+                Falsch
+              </button>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+    );
+  };
 
   const renderCorrectRow = (it) => (
     <li key={it.id} className="flex flex-wrap items-baseline justify-between gap-2 rounded-md border border-emerald-200 bg-emerald-50/50 px-3 py-2 text-sm dark:border-emerald-900 dark:bg-emerald-950/20">
@@ -414,6 +509,32 @@ export default function StudentDetail({ name, courseId, courseLabel, sessions, o
             ersten Fehler mindestens einmal korrekt beantwortet wurde.
           </p>
           {isOpen('grammar', true) && <div className="space-y-3">{nonVocabMistakes.map(renderMistakeCard)}</div>}
+        </div>
+      )}
+
+      {/* Zur Prüfung: vom Kind als „fast richtig“ gemeldete Antworten */}
+      {flags.length > 0 && (
+        <div className="detail-section">
+          <h3>Zur Prüfung: „Na ja, schon fast richtig“ ({openFlags.length})</h3>
+          <p className="admin-hint">
+            Antworten, die {name} selbst als „fast richtig“ gemeldet hat. „Doch richtig“ zählt in der Auswertung als
+            richtig. Die Urteile wertet später der Coding-Agent aus, um den Antwort-Check zu verbessern
+            („Antwort-Review exportieren“ auf der Startseite des Lehrer-Bereichs).
+          </p>
+          {openFlags.length === 0 ? (
+            <p className="text-xs text-muted-foreground italic">Alles geprüft.</p>
+          ) : (
+            <div className="space-y-3">{openFlags.map(renderFlag)}</div>
+          )}
+          {decidedFlags.length > 0 && (
+            <div className="mt-4 space-y-3">
+              <ListToggle open={isOpen('flags-decided', false)} onToggle={() => toggle('flags-decided', false)}>
+                <span className="text-sm font-semibold">Schon entschieden</span>{' '}
+                <span className="text-xs text-muted-foreground">({decidedFlags.length})</span>
+              </ListToggle>
+              {isOpen('flags-decided', false) && <div className="space-y-3">{decidedFlags.map(renderFlag)}</div>}
+            </div>
+          )}
         </div>
       )}
 
