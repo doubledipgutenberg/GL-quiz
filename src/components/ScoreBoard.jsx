@@ -4,9 +4,8 @@ import HighscoreTable from './HighscoreTable';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { cn } from '@/lib/utils';
-import { passText } from '../utils/vocabPass';
 
-// pass: Stand im Wortschatz-Durchgang (Runden à 50), onNextRound startet die nächste Runde.
+// pass: Stand im Wortschatz-Durchgang – hier nur, wenn er ganz geschafft ist; onNextRound startet den nächsten.
 export default function ScoreBoard({ playerName, score, maxScore, answers, onRestart, lang, pass, onNextRound }) {
   const percentage = Math.round((score / maxScore) * 100);
   const grade = percentage >= 90 ? 'Fantastisch!'
@@ -85,19 +84,16 @@ export default function ScoreBoard({ playerName, score, maxScore, answers, onRes
         </CardContent>
       </Card>
 
-      {pass && (
+      {/* Nur am Ende eines ganzen Durchgangs (sonst zeigt App.jsx die RoundBreak-Seite). */}
+      {pass?.complete && (
         <div className="vx-card text-center">
-          <p className="vx-hand">{pass.complete ? 'Ganzer Wortschatz geschafft!' : 'Pause machen ist okay.'}</p>
+          <div>
+            <span className="vx-kicker">Wortschatz</span>
+            <h2 className="vx-display">Geschafft!</h2>
+          </div>
           <p className="vx-choice__sub">
-            {pass.complete
-              ? `Du hast alle ${pass.total} Karten einmal geübt. Die nächste Runde startet einen neuen Durchgang.`
-              : passText(pass)}
+            Du hast alle {pass.total} Karten einmal geübt. Der nächste Durchgang mischt neu.
           </p>
-          {!pass.complete && (
-            <span className="vx-track block" aria-hidden="true">
-              <i style={{ width: `${Math.round((pass.done / pass.total) * 100)}%` }} />
-            </span>
-          )}
         </div>
       )}
 

@@ -11,7 +11,8 @@ import ScoreBoard from './components/ScoreBoard';
 import ProgressBar from './components/ProgressBar';
 import AdminDashboard from './components/AdminDashboard';
 import { COURSES, EXAMS } from './data/questions';
-import { vocabPassStatus } from './utils/vocabPass';
+import { vocabPassStatus, roundNote } from './utils/vocabPass';
+import RoundBreak from './components/RoundBreak';
 import { Button } from './components/ui/button';
 import { Input } from './components/ui/input';
 import {
@@ -33,6 +34,36 @@ const SYNC_LABELS = {
 // Stift des Design Systems: data-course="fr" | "en" (aus course.lang); ohne Kurs Navy (house-pen).
 const langOfCourse = (courseId) => COURSES.find((c) => c.id === courseId)?.lang ?? null;
 const langOfQuestion = (q) => (q ? langOfCourse(q.course || EXAMS[q.exam]?.course) : null);
+
+// Fortschritt in einer Wortschatz-Runde (design-system/components/RoundProgress) statt der normalen Leiste.
+function RoundProgress({ quiz }) {
+  const live = vocabPassStatus(quiz.playerName, quiz.passExam);
+  const info = quiz.passInfo || {
+    round: live.round,
+    roundsTotal: live.roundsTotal,
+    size: live.size,
+    startCur: Math.max(0, live.cur - quiz.answers.length),
+  };
+  const answered = quiz.currentIndex + (quiz.phase === 'feedback' ? 1 : 0);
+  const card = Math.min(info.size, info.startCur + quiz.currentIndex + 1);
+  const fill = info.size ? Math.min(1, (info.startCur + answered) / info.size) : 0;
+  return (
+    <div className="vx-rprogress">
+      <div className="vx-lights__meta">
+        <span>
+          Runde {info.round} von {info.roundsTotal} · Karte {card} von {info.size}
+        </span>
+        <b>
+          {quiz.score} {quiz.score === 1 ? 'Punkt' : 'Punkte'}
+        </b>
+      </div>
+      <div className="vx-track">
+        <i style={{ width: `${Math.round(fill * 100)}%` }} />
+      </div>
+      <p className="vx-rprogress__note">{roundNote(info.roundsTotal - info.round)}</p>
+    </div>
+  );
+}
 
 function SyncBadge() {
   const [status, setStatus] = useState('idle');
@@ -167,12 +198,16 @@ export default function App() {
             <SyncBadge />
             <span>{quiz.playerName}</span>
           </div>
-          <ProgressBar
-            current={quiz.currentIndex + 1}
-            total={quiz.questions.length}
-            score={quiz.score}
-            progress={quiz.progress}
-          />
+          {quiz.passExam ? (
+            <RoundProgress quiz={quiz} />
+          ) : (
+            <ProgressBar
+              current={quiz.currentIndex + 1}
+              total={quiz.questions.length}
+              score={quiz.score}
+              progress={quiz.progress}
+            />
+          )}
 
           {quiz.phase === 'quiz' && quiz.currentQuestion && (
             <QuizQuestion
@@ -193,18 +228,28 @@ export default function App() {
         </div>
       )}
 
-      {quiz.phase === 'finished' && (
-        <ScoreBoard
-          lang={courseLang}
-          playerName={quiz.playerName}
-          score={quiz.score}
-          maxScore={quiz.maxScore}
-          answers={quiz.answers}
-          onRestart={quiz.restart}
-          pass={quiz.passExam ? vocabPassStatus(quiz.playerName, quiz.passExam) : null}
-          onNextRound={() => quiz.startQuiz(quiz.playerName, 'vocabulary', quiz.passExam)}
-        />
-      )}
+      {quiz.phase === 'finished' &&
+        (quiz.passExam && !vocabPassStatus(quiz.playerName, quiz.passExam).complete ? (
+          <RoundBreak
+            lang={courseLang}
+            answers={quiz.answers}
+            status={vocabPassStatus(quiz.playerName, quiz.passExam)}
+            onNext={() => quiz.startQuiz(quiz.playerName, 'vocabulary', quiz.passExam)}
+            onPause={quiz.restart}
+          />
+        ) : (
+          <ScoreBoard
+            lang={courseLang}
+            playerName={quiz.playerName}
+            score={quiz.score}
+            maxScore={quiz.maxScore}
+            answers={quiz.answers}
+            onRestart={quiz.restart}
+            pass={quiz.passExam ? vocabPassStatus(quiz.playerName, quiz.passExam) : null}
+            onNextRound={() => quiz.startQuiz(quiz.playerName, 'vocabulary', quiz.passExam)}
+          />
+        ))}
+
 
       {(quiz.phase === 'quiz' || quiz.phase === 'feedback' || quiz.phase === 'finished') && (
         <footer className="mt-8 pt-6 border-t border-border flex flex-wrap gap-3 justify-center">

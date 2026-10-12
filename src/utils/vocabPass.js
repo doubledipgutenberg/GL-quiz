@@ -38,20 +38,29 @@ function cardsOf(exam) {
   return { cards, ids: cards.map((c) => c.id).sort() };
 }
 
+// Rechnung wie im Design System (ReviewPlan): Runden à 50 mit festen Grenzen – erledigt = abgeschlossene
+// Runden × 50 + `cur` Karten der laufenden Runde. Die letzte Runde nimmt, was übrig ist.
 function summarize(ids, entry) {
   const all = new Set(ids);
   const done = new Set((entry?.done || []).filter((id) => all.has(id)));
   const total = ids.length;
   const remaining = total - done.size;
-  const roundsTotal = Math.max(1, Math.ceil(total / ROUND_SIZE));
+  // Alles erledigt: auch die letzte, kürzere Runde zählt als abgeschlossen.
+  const roundsDone = remaining === 0 ? Math.ceil(done.size / ROUND_SIZE) : Math.floor(done.size / ROUND_SIZE);
   const roundsLeft = Math.ceil(remaining / ROUND_SIZE);
+  const roundsTotal = Math.max(1, roundsDone + roundsLeft);
+  const cur = remaining === 0 ? 0 : done.size - roundsDone * ROUND_SIZE; // in der laufenden Runde schon geschafft
+  const size = Math.min(ROUND_SIZE, cur + remaining); // Größe der laufenden Runde
   return {
     total,
     done: done.size,
     remaining,
-    roundsTotal,
+    roundsDone,
     roundsLeft,
-    round: Math.min(roundsTotal, roundsTotal - roundsLeft + 1), // Nummer der nächsten Runde
+    roundsTotal,
+    round: Math.min(roundsTotal, roundsDone + 1), // Nummer der laufenden bzw. nächsten Runde
+    cur,
+    size,
     pass: entry?.pass || 1,
     complete: total > 0 && remaining === 0,
     started: !!entry && done.size > 0,
@@ -67,7 +76,10 @@ export function vocabPassStatus(name, exam) {
   return status;
 }
 
-/** Die nächste Runde: bis zu 50 noch nicht geübte Karten. Startet bei Bedarf einen neuen Durchgang. */
+/**
+ * Die nächste Runde: die restlichen Karten der laufenden Runde (size − cur), damit die Grenzen stabil bleiben
+ * und „noch 38 Karten“ stimmt. Startet bei Bedarf einen neuen Durchgang.
+ */
 export function planVocabRound(name, exam) {
   const { cards, ids } = cardsOf(exam);
   let entry = entryOf(name, exam);
@@ -83,11 +95,10 @@ export function planVocabRound(name, exam) {
     s = summarize(ids, entry);
   }
   const byId = new Map(cards.map((c) => [c.id, c]));
-  const next = seededShuffle(ids, entry.seed)
+  return seededShuffle(ids, entry.seed)
     .filter((id) => !s.doneSet.has(id))
-    .slice(0, ROUND_SIZE)
+    .slice(0, s.size - s.cur)
     .map((id) => byId.get(id));
-  return next;
 }
 
 /** Beantwortete Karten als erledigt eintragen (Auto-Save nach jeder Antwort). */
@@ -101,11 +112,20 @@ export function markVocabDone(name, exam, questionIds) {
   setVocabProgress(name, exam, { ...entry, done: [...done] });
 }
 
-// Text zum Wortschatz-Durchgang (Runden à 50 Karten), z. B. „Runde 3 von 7 · noch 212 Karten (5 Runden)“.
+const runden = (n) => `${n} ${n === 1 ? 'Runde' : 'Runden'}`;
+
+/** Kurzer Stand für die Auswahl-Karte, z. B. „Noch 2 Runden · 75 von 437 Karten“. */
 export function passText(st) {
   if (!st || st.total === 0) return null;
-  if (st.complete) return `Alles geschafft! Nächster Durchgang: ${st.total} Karten in ${st.roundsTotal} Runden`;
-  const rounds = `${st.roundsLeft} ${st.roundsLeft === 1 ? 'Runde' : 'Runden'}`;
-  const tail = st.roundsLeft <= 2 ? ` – nur noch ${rounds}, dann bist du durch!` : ` (${rounds})`;
-  return `Runde ${st.round} von ${st.roundsTotal} · noch ${st.remaining} von ${st.total} Karten${tail}`;
+  if (st.complete) return `Alles geschafft! Neuer Durchgang mit ${st.total} Karten`;
+  return `Noch ${runden(st.roundsLeft)} · ${st.remaining} von ${st.total} Karten`;
 }
+
+/** Hinweis unter dem Balken während einer Runde (RoundProgress). `after` = Runden nach dieser. */
+export function roundNote(after) {
+  if (after <= 0) return 'Letzte Runde – gleich geschafft!';
+  if (after === 1) return 'Danach noch 1 Runde – dann bist du durch.';
+  return `Danach noch ${after} Runden.`;
+}
+
+export { runden };

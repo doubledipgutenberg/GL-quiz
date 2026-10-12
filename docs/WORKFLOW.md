@@ -263,8 +263,13 @@ curl -s -o /dev/null -w '%{http_code}' https://<slug>.space.fast/   # muss 403 l
 - **Wortschatz in Runden** (`src/utils/vocabPass.js`, Schlüssel `vocabProgress` – gehört dem Kind): „Alle
   Vokabeln“ ist ein Durchgang durch den ganzen Wortschatz der Schulaufgabe in Runden à 50 Karten (feste
   Zufallsreihenfolge per `seed`, erledigte Karten in `done`; jede Antwort zählt sofort). Startseite und
-  Ergebnisseite zeigen „Runde x von y · noch n Karten (z Runden)“, danach „Nächste Runde“. Ist alles erledigt,
-  beginnt der nächste Durchgang. „Nur neue Vokabeln“ bleibt eine Runde.
+  Rundengrenzen sind fest (erledigt = abgeschlossene Runden × 50 + Karten der laufenden Runde); eine angefangene
+  Runde holt nur ihre restlichen Karten. Oberfläche nach dem Design System: **ReviewPlan** vor dem Start
+  (`ReviewPlan.jsx`, „Nur noch 2 Runden“, Runden-Leiste, „Weitermachen · noch 38 Karten“), **RoundProgress**
+  während der Runde (in `App.jsx` statt ProgressBar), **RoundBreak** danach (`RoundBreak.jsx`, „Runde geschafft –
+  PAUSE!“, „Nächste Runde“ / „Pause machen“); ist alles erledigt, ScoreBoard mit „Geschafft!“ und „Neuer
+  Durchgang“. In der Oberfläche heißen die 50er-Einheiten immer **Runde**, nie „Session“ (Entscheidung des
+  Nutzers). „Nur neue Vokabeln“ bleibt eine Runde.
 - **Serien-Kalender** (`StreakCalendar.jsx`, `src/utils/streak.js`) auf der Startseite (Schritt 1): Monate als
   Blöcke, alle Wochentage als Zeilen, Farbtiefe in Rot (en-pen über `.vx-en`, bewusste Ausnahme vom Design System) = Punkte pro Tag in 5 Stufen (0–50, 51–100, 101–150, 151–250, ab 251; Zeitpunkt `at` je Antwort). Kennzahlen:
   Rekord, Geübt an, Runden, Antworten, Gesamt (Punkte), Bester Tag (meiste Punkte). Überschrift (Wahl des Nutzers):
