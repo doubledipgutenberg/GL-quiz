@@ -1,5 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
-import { getStudentHistory, clearAllData, getFullExportPayload, importFullPayload } from '../utils/storage';
+import {
+  getStudentHistory,
+  clearAllData,
+  getFullExportPayload,
+  importFullPayload,
+  getAnswerFlags,
+  getFlagReviews,
+  getAnswerReviewExport,
+} from '../utils/storage';
 import { getAllStudentOverview } from '../utils/analytics';
 import { api, getParentToken, setParentToken, getKidSession } from '../lib/api';
 import { flush, pull } from '../utils/sync';
@@ -210,6 +218,19 @@ export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz, onCrea
     reader.readAsText(file);
   };
 
+  // Für den Coding-Agent: alle „fast richtig“-Meldungen mit Urteil (Auswertung: scripts/review-flags.mjs).
+  const handleExportReview = () => {
+    const blob = new Blob([JSON.stringify(getAnswerReviewExport(), null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `antwort-review-${new Date().toISOString().slice(0, 10)}.json`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  };
+
   const handleExportData = () => {
     try {
       const payload = getFullExportPayload();
@@ -234,6 +255,9 @@ export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz, onCrea
   const allHistory = getStudentHistory();
   const names = [...new Set([...kids.map((k) => k.name), ...Object.keys(allHistory)])];
   const overviewByName = new Map(getAllStudentOverview(allHistory).map((o) => [o.name, o]));
+  const allFlags = getAnswerFlags();
+  const flagReviews = getFlagReviews();
+  const openFlagCount = (name) => (allFlags[name] || []).filter((f) => !flagReviews[f.id]).length;
 
   if (selectedStudent) {
     const ownHistory = allHistory[selectedStudent] ? { [selectedStudent]: allHistory[selectedStudent] } : {};
@@ -311,6 +335,9 @@ export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz, onCrea
           <Button variant="outline" size="sm" onClick={handleExportData}>
             Daten exportieren
           </Button>
+          <Button variant="outline" size="sm" onClick={handleExportReview}>
+            Antwort-Review exportieren
+          </Button>
           <Button variant="destructive" size="sm" onClick={handleClearData}>
             🗑️ Alle Daten löschen
           </Button>
@@ -335,7 +362,12 @@ export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz, onCrea
             return (
               <div key={name} className="flex flex-col gap-3 rounded-lg border border-border p-3 sm:p-4">
                 <button type="button" className="text-left space-y-1" onClick={() => setSelectedStudent(name)}>
-                  <span className="block text-lg font-semibold">{name}</span>
+                  <span className="flex items-center gap-2 text-lg font-semibold">
+                    {name}
+                    {openFlagCount(name) > 0 && (
+                      <span className="vx-pill vx-pill--lamp">{openFlagCount(name)} zur Prüfung</span>
+                    )}
+                  </span>
                   <span className="block text-sm text-muted-foreground">
                     {o
                       ? `${o.totalSessions} ${o.totalSessions === 1 ? 'Runde' : 'Runden'} · zuletzt ${new Date(o.lastPlayed).toLocaleDateString('de-DE')}`

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import useQuiz from './hooks/useQuiz';
-import { getDraftSession, getSavedRounds } from './utils/storage';
+import { getDraftSession, getSavedRounds, flagAlmostRight } from './utils/storage';
 import { getKidSession, setKidSession } from './lib/api';
 import { pull, flush, onSyncStatus } from './utils/sync';
 import KidLogin from './components/KidLogin';
@@ -11,6 +11,7 @@ import ScoreBoard from './components/ScoreBoard';
 import ProgressBar from './components/ProgressBar';
 import AdminDashboard from './components/AdminDashboard';
 import { COURSES, EXAMS } from './data/questions';
+import { vocabPassStatus } from './utils/vocabPass';
 import { Button } from './components/ui/button';
 import { Input } from './components/ui/input';
 import {
@@ -184,6 +185,9 @@ export default function App() {
             <FeedbackCard
               lastAnswer={quiz.lastAnswer}
               onNext={quiz.nextQuestion}
+              onFlagAlmostRight={(question, userAnswer) =>
+                flagAlmostRight(quiz.playerName, { question, userAnswer, sessionId: quiz.sessionId })
+              }
             />
           )}
         </div>
@@ -197,6 +201,8 @@ export default function App() {
           maxScore={quiz.maxScore}
           answers={quiz.answers}
           onRestart={quiz.restart}
+          pass={quiz.passExam ? vocabPassStatus(quiz.playerName, quiz.passExam) : null}
+          onNextRound={() => quiz.startQuiz(quiz.playerName, 'vocabulary', quiz.passExam)}
         />
       )}
 

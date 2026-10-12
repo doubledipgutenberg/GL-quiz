@@ -13,8 +13,8 @@
 
 const KIDS = ["Jakob", "Clara", "Test"];
 const FAMILY = "_family";
-const KID_KEYS = ["history", "highscores", "savedRounds", "draft"];
-const FAMILY_KEYS = ["teacherDismissals", "teacherMarkedCorrect"];
+const KID_KEYS = ["history", "highscores", "savedRounds", "draft", "answerFlags", "vocabProgress"];
+const FAMILY_KEYS = ["teacherDismissals", "teacherMarkedCorrect", "flagReviews"];
 
 const CHUNK_CHARS = 20000; // < 64 KB auch bei 3-Byte-Zeichen
 const PBKDF2_ITER = 20000;

@@ -21,6 +21,12 @@ Stoffzettels bis zur Veröffentlichung, außerdem Backend-Referenz und Entscheid
 - **Inhalte** nur aus dem Material des Nutzers, nie aus dem Gedächtnis. Vokabeln erst nach seiner
   Prüfung der seitenweisen Abschrift verwenden.
 
+## Antwort-Review („Na ja, schon fast richtig“)
+
+Wenn der Nutzer einen Antwort-Review-Export schickt (`antwort-review-*.json`): `node scripts/review-flags.mjs
+<datei>` laufen lassen und die ❗/⚠️-Fälle beheben – Einzelfall per Alternative, Muster per Regel im Matcher
+mit Testfällen (Ablauf: `docs/WORKFLOW.md`, Abschnitt „Na ja, schon fast richtig“). Danach erneut prüfen.
+
 ## Design System „Clara & Jakob lernen Sprachen“
 
 Vor **jeder UI-Arbeit** `design-system/README.md` lesen, dann die README der betroffenen Komponente

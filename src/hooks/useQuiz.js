@@ -1,6 +1,7 @@
 import { useReducer, useCallback, useEffect, useRef } from 'react';
 import questions, { EXAMS, getVocabularyQuestions, getNewVocabularyQuestions, DEFAULT_EXAM } from '../data/questions';
 import { checkAnswer, calculatePoints, getMaxPoints } from '../utils/scoring';
+import { planVocabRound, markVocabDone } from '../utils/vocabPass';
 import { saveHighscore, upsertStudentSession, saveDraftSession, clearDraftSession, getDraftSession, addSavedRound, getStudentHistory } from '../utils/storage';
 
 // Shuffle array (Fisher-Yates)
@@ -31,6 +32,7 @@ const initialState = {
   questions: [],
   sessionId: null,
   answersOffset: 0,         // Antworten davor gehören zu einem früheren Historien-Eintrag
+  passExam: null,           // Runde im Wortschatz-Durchgang dieser Schulaufgabe (utils/vocabPass.js)
   currentIndex: 0,
   score: 0,
   answers: [],
@@ -44,8 +46,10 @@ function reducer(state, action) {
       const exam = action.exam || DEFAULT_EXAM;
       // Vokabel-Modi: alle Karten der Auswahl (inkl. Hör-Karten), gemischt (kein 15er-Limit)
       if (mode === 'vocabulary' || mode === 'newvocab') {
+        // „Alle Vokabeln“: die Karten der nächsten Runde kommen vorgeplant (action.questions, à 50).
         const pool =
-          mode === 'newvocab' ? getNewVocabularyQuestions(EXAMS[exam]?.course) : getVocabularyQuestions(exam);
+          action.questions ??
+          (mode === 'newvocab' ? getNewVocabularyQuestions(EXAMS[exam]?.course) : getVocabularyQuestions(exam));
         if (pool.length === 0) return state;
         const shuffled = withShuffledOptions(shuffle(pool));
         return {
@@ -57,6 +61,7 @@ function reducer(state, action) {
           questions: shuffled,
           sessionId: newSessionId(),
           answersOffset: 0,
+          passExam: action.passExam ?? null,
           currentIndex: 0,
           score: 0,
           answers: [],
@@ -96,6 +101,7 @@ function reducer(state, action) {
         questions: shuffled,
         sessionId: newSessionId(),
         answersOffset: 0,
+        passExam: null,
         currentIndex: 0,
         score: 0,
         answers: [],
@@ -115,6 +121,7 @@ function reducer(state, action) {
         userAnswer: action.answer,
         correctAnswer: question.correct,
         difficulty: question.difficulty,
+        at: new Date().toISOString(),
       };
       return {
         ...state,
@@ -168,6 +175,7 @@ function reducer(state, action) {
         mode,
         sessionId,
         answersOffset,
+        passExam: draft.passExam ?? null,
         questions: withShuffledOptions(restoredQuestions),
         currentIndex: nextIndex,
         score: draft.score,
@@ -193,9 +201,16 @@ export default function useQuiz() {
       saveDraftSession(state.playerName, state.answers, state.score, maxScore, state.questions.map(q => q.id), state.mode, {
         sessionId: state.sessionId,
         answersOffset: state.answersOffset,
+        passExam: state.passExam,
       });
     }
-  }, [state.phase, state.playerName, state.answers, state.score, state.questions, state.mode, state.sessionId, state.answersOffset]);
+  }, [state.phase, state.playerName, state.answers, state.score, state.questions, state.mode, state.sessionId, state.answersOffset, state.passExam]);
+
+  // Wortschatz-Durchgang: jede beantwortete Karte zählt sofort als erledigt (auch wenn die Runde abbricht).
+  useEffect(() => {
+    if (!state.passExam || !state.playerName || state.answers.length === 0) return;
+    markVocabDone(state.playerName, state.passExam, state.answers.map((a) => a.questionId));
+  }, [state.answers, state.passExam, state.playerName]);
 
   // Auto-Save der Ergebnisse: nach jeder Antwort den Historien-Eintrag der Runde aktualisieren.
   useEffect(() => {
@@ -214,6 +229,14 @@ export default function useQuiz() {
   }, [state.phase, state.sessionId, state.playerName, state.score, state.questions]);
 
   const startQuiz = useCallback((name, mode = 'normal', exam = DEFAULT_EXAM) => {
+    // „Alle Vokabeln“ = nächste Runde (50 Karten) im Wortschatz-Durchgang dieser Schulaufgabe.
+    if (mode === 'vocabulary') {
+      const questions = planVocabRound(name, exam);
+      if (questions.length > 0) {
+        dispatch({ type: 'START_QUIZ', name, mode, exam, questions, passExam: exam });
+        return;
+      }
+    }
     dispatch({ type: 'START_QUIZ', name, mode, exam });
   }, []);
 
@@ -294,11 +317,12 @@ export default function useQuiz() {
       answers: state.answers,
       score: state.score,
       maxScore,
-      mode: state.mode
+      mode: state.mode,
+      passExam: state.passExam,
     });
     // Die Ergebnisse stehen durch den Auto-Save schon in der Historie – hier nichts doppelt speichern.
     return true;
-  }, [state.playerName, state.questions, state.answers, state.score, state.mode]);
+  }, [state.playerName, state.questions, state.answers, state.score, state.mode, state.passExam]);
 
   const currentQuestion = state.questions[state.currentIndex] || null;
   const maxScore = getMaxPoints(state.questions);

@@ -1,9 +1,10 @@
 // Erzeugt die Quiz-Karten für Englisch Klasse 6 aus EN6_VOCAB (Aufbau wie src/data/fr6/cards.js).
 //   _de     : englisches Wort sehen (und hören) → deutsch antworten
 //   _en     : deutsches Wort sehen → englisch schreiben
+//   _gap    : Lückentext – Beispielsatz mit Lücke, das Wort einsetzen (deutsche Bedeutung als Hilfe)
 //   _listen : nur hören → englisch schreiben
-// Alle drei Kartenarten gehören zum Wortschatz (Audio ist Teil der Vokabeln, kein eigener Modus).
-import { COURSE, EN6_VOCAB, speechText } from './vocab.js';
+// Alle Kartenarten gehören zum Wortschatz (Audio ist Teil der Vokabeln, kein eigener Modus).
+import { COURSE, EN6_VOCAB, speechText, exampleText, gapOf } from './vocab.js';
 
 function audioOf(v) {
   return { course: COURSE, id: v.id, text: speechText(v), lang: 'en' };
@@ -51,7 +52,7 @@ export function toEnCard(v) {
 
 // Beispielsatz zur Hör-Karte (eigene Audiodatei <id>_ex.m4a), nur wenn `ex` gepflegt ist.
 function exampleAudioOf(v) {
-  return v.ex ? { course: COURSE, id: `${v.id}_ex`, text: v.ex, lang: 'en' } : null;
+  return v.ex ? { course: COURSE, id: `${v.id}_ex`, text: exampleText(v), lang: 'en' } : null;
 }
 
 export function toListenCard(v) {
@@ -63,6 +64,22 @@ export function toListenCard(v) {
     correct: v.en,
     alternativeCorrect: v.alt || [],
     explanation: `${v.en} = ${v.de}`,
+  };
+}
+
+export function toGapCard(v) {
+  const gap = gapOf(v);
+  if (!gap) return null;
+  return {
+    ...base(v, 'gap'),
+    type: 'fill_gap',
+    topicLabel: 'Wortschatz',
+    instruction: 'Setz das passende Wort ein:',
+    question: `${gap.sentence} (${v.de})`,
+    correct: gap.answer,
+    alternativeCorrect: gap.alternatives,
+    hint: `Beginnt mit „${gap.answer.charAt(0)}…“`,
+    explanation: `${exampleText(v)} – ${v.en} = ${v.de}`,
   };
 }
 
@@ -78,7 +95,12 @@ function shuffle(arr) {
 const forExam = (exam) => EN6_VOCAB.filter((v) => !exam || v.exam === exam);
 
 function cardsFor(list) {
-  return [...shuffle(list.map(toDeCard)), ...shuffle(list.map(toEnCard)), ...shuffle(list.map(toListenCard))];
+  return [
+    ...shuffle(list.map(toDeCard)),
+    ...shuffle(list.map(toEnCard)),
+    ...shuffle(list.map(toListenCard)),
+    ...shuffle(list.map(toGapCard).filter(Boolean)),
+  ];
 }
 
 /** Wortschatz-Quiz einer Schulaufgabe. */
@@ -98,7 +120,12 @@ export function en6NewVocabCards() {
 
 /** Alle Karten (für das Wiederherstellen gespeicherter Runden per ID). */
 export function en6AllCards() {
-  return [...EN6_VOCAB.map(toDeCard), ...EN6_VOCAB.map(toEnCard), ...EN6_VOCAB.map(toListenCard)];
+  return [
+    ...EN6_VOCAB.map(toDeCard),
+    ...EN6_VOCAB.map(toEnCard),
+    ...EN6_VOCAB.map(toListenCard),
+    ...EN6_VOCAB.map(toGapCard).filter(Boolean),
+  ];
 }
 
 export const EN6_VOCAB_IDS = EN6_VOCAB.map((v) => v.id);

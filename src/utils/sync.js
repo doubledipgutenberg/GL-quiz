@@ -10,7 +10,7 @@ import { api, getKidSession, getParentToken } from '../lib/api';
 import { onDirty } from './dirty';
 import { STORAGE_KEYS, FAMILY_OWNER } from './storage';
 
-const FAMILY_KEYS = ['teacherDismissals', 'teacherMarkedCorrect'];
+const FAMILY_KEYS = ['teacherDismissals', 'teacherMarkedCorrect', 'flagReviews'];
 const DEBOUNCE_MS = 1500;
 const RETRY_MS = 10000;
 const KEEPALIVE_MAX_BYTES = 60000;
@@ -67,8 +67,15 @@ function localValue(owner, key) {
       const d = readJson(STORAGE_KEYS.draft, null);
       return d && d.name === owner ? d : null;
     }
+    case 'answerFlags': {
+      const list = readJson(STORAGE_KEYS.answerFlags, {})[owner];
+      return Array.isArray(list) && list.length ? list : null;
+    }
+    case 'vocabProgress':
+      return readJson(STORAGE_KEYS.vocabProgress, {})[owner] ?? null;
     case 'teacherDismissals':
     case 'teacherMarkedCorrect':
+    case 'flagReviews':
       return readJson(STORAGE_KEYS[key], {});
     default:
       return null;
@@ -150,6 +157,28 @@ export function hydrate(owners, kidName) {
     if (isPending(owner, 'history')) history[owner] = localHistory[owner];
   }
   writeJson(STORAGE_KEYS.history, history);
+
+  // „Fast richtig“-Markierungen: alle Kinder (für den Lehrer-Bereich)
+  const localFlags = readJson(STORAGE_KEYS.answerFlags, {});
+  const flags = {};
+  for (const [owner, data] of Object.entries(serverOwners)) {
+    if (owner !== FAMILY_OWNER && Array.isArray(data?.answerFlags)) flags[owner] = data.answerFlags;
+  }
+  for (const owner of Object.keys(localFlags)) {
+    if (isPending(owner, 'answerFlags')) flags[owner] = localFlags[owner];
+  }
+  writeJson(STORAGE_KEYS.answerFlags, flags);
+
+  // Fortschritt im Wortschatz-Durchgang (Runden à 50 Karten): alle Kinder
+  const localProgress = readJson(STORAGE_KEYS.vocabProgress, {});
+  const progress = {};
+  for (const [owner, data] of Object.entries(serverOwners)) {
+    if (owner !== FAMILY_OWNER && data?.vocabProgress) progress[owner] = data.vocabProgress;
+  }
+  for (const owner of Object.keys(localProgress)) {
+    if (isPending(owner, 'vocabProgress')) progress[owner] = localProgress[owner];
+  }
+  writeJson(STORAGE_KEYS.vocabProgress, progress);
 
   // Highscores: alle Kinder
   const localScores = readJson(STORAGE_KEYS.highscores, []);

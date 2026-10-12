@@ -4,8 +4,10 @@ import HighscoreTable from './HighscoreTable';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { cn } from '@/lib/utils';
+import { passText } from '../utils/vocabPass';
 
-export default function ScoreBoard({ playerName, score, maxScore, answers, onRestart, lang }) {
+// pass: Stand im Wortschatz-Durchgang (Runden à 50), onNextRound startet die nächste Runde.
+export default function ScoreBoard({ playerName, score, maxScore, answers, onRestart, lang, pass, onNextRound }) {
   const percentage = Math.round((score / maxScore) * 100);
   const grade = percentage >= 90 ? 'Fantastisch!'
     : percentage >= 75 ? 'Super!'
@@ -83,11 +85,32 @@ export default function ScoreBoard({ playerName, score, maxScore, answers, onRes
         </CardContent>
       </Card>
 
+      {pass && (
+        <div className="vx-card text-center">
+          <p className="vx-hand">{pass.complete ? 'Ganzer Wortschatz geschafft!' : 'Pause machen ist okay.'}</p>
+          <p className="vx-choice__sub">
+            {pass.complete
+              ? `Du hast alle ${pass.total} Karten einmal geübt. Die nächste Runde startet einen neuen Durchgang.`
+              : passText(pass)}
+          </p>
+          {!pass.complete && (
+            <span className="vx-track block" aria-hidden="true">
+              <i style={{ width: `${Math.round((pass.done / pass.total) * 100)}%` }} />
+            </span>
+          )}
+        </div>
+      )}
+
       <HighscoreTable />
 
-      <div className="flex justify-center">
-        <Button size="lg" onClick={onRestart}>
-          Nochmal spielen
+      <div className="flex flex-wrap justify-center gap-3">
+        {pass && onNextRound && (
+          <button type="button" className="vx-btn vx-btn--primary" onClick={onNextRound}>
+            {pass.complete ? 'Neuer Durchgang' : 'Nächste Runde'}
+          </button>
+        )}
+        <Button size="lg" variant={pass ? 'outline' : 'default'} onClick={onRestart}>
+          {pass ? 'Zur Startseite' : 'Nochmal spielen'}
         </Button>
       </div>
     </div>
