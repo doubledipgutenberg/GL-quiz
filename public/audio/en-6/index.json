@@ -7,7 +7,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "e0fb680995a4bd18"
+    "hash": "a30590c382e3b586",
+    "variant": "Glottisschlag",
+    "onset": 1.48
   },
   "en6_a_bit_ex": {
     "file": "en6_a_bit_ex.m4a",
@@ -17,7 +19,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "b4055a0a9482b122"
+    "hash": "c193da10598ea332",
+    "variant": "Tempo +0,05",
+    "onset": 3.86
   },
   "en6_actually": {
     "file": "en6_actually.m4a",
@@ -27,7 +31,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "0a76c0ec62063139"
+    "hash": "cd5ffa1cae6bfb0f",
+    "variant": "Glottisschlag",
+    "onset": 2.01
   },
   "en6_actually_ex": {
     "file": "en6_actually_ex.m4a",
@@ -37,7 +43,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "b90d41967ba9adc7"
+    "hash": "158a99fd830fd32d",
+    "variant": "Glottisschlag",
+    "onset": 2.76
   },
   "en6_air": {
     "file": "en6_air.m4a",
@@ -47,7 +55,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "f9eaf05ac0b6f26f"
+    "hash": "ee8c388cac150e70",
+    "variant": "Glottisschlag",
+    "onset": 1.9
   },
   "en6_air_ex": {
     "file": "en6_air_ex.m4a",
@@ -57,7 +67,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "dc54c843fc693860"
+    "hash": "c8541015df2832ab",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_almost": {
     "file": "en6_almost.m4a",
@@ -67,7 +79,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "4b609463864d03f0"
+    "hash": "bf760a77b27bede5",
+    "variant": "Glottisschlag",
+    "onset": 2.13
   },
   "en6_almost_ex": {
     "file": "en6_almost_ex.m4a",
@@ -77,7 +91,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "e1cd06220547b8dd"
+    "hash": "2a85ffee6eeb1a53",
+    "variant": "Punkt am Ende",
+    "onset": 2.3
   },
   "en6_art": {
     "file": "en6_art.m4a",
@@ -87,7 +103,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "2214b7bf399c5288"
+    "hash": "f33d03be867cedeb",
+    "variant": "Tempo +0,1",
+    "onset": 1.18
   },
   "en6_art_ex": {
     "file": "en6_art_ex.m4a",
@@ -97,7 +115,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "8921f420c9eecab7"
+    "hash": "2e44daee1e93a374",
+    "variant": "Glottisschlag",
+    "onset": 2.29
   },
   "en6_barrel": {
     "file": "en6_barrel.m4a",
@@ -107,7 +127,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "708428d86927680c"
+    "hash": "947eb5ff42564cff",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_barrel_ex": {
     "file": "en6_barrel_ex.m4a",
@@ -117,7 +139,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "10cdeff9f0f97e0d"
+    "hash": "3e922a4973d525ad",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_bench": {
     "file": "en6_bench.m4a",
@@ -127,7 +151,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "2ee91cc13edd8695"
+    "hash": "df20f98fbf185868",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_bench_ex": {
     "file": "en6_bench_ex.m4a",
@@ -137,7 +163,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "b9a3ca2611626afb"
+    "hash": "4516a5c3106c77ba",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_bird": {
     "file": "en6_bird.m4a",
@@ -147,7 +175,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "5e38a552143aa5a7"
+    "hash": "7e54e761dc0a98b0",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_bird_ex": {
     "file": "en6_bird_ex.m4a",
@@ -157,7 +187,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "8e45104bec4af8c2"
+    "hash": "f3fd57ce403e905f",
+    "variant": "Glottisschlag",
+    "onset": 2.82
   },
   "en6_both": {
     "file": "en6_both.m4a",
@@ -167,7 +199,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "5922b80f07c448e1"
+    "hash": "1f91569022837307",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_both_ex": {
     "file": "en6_both_ex.m4a",
@@ -177,7 +211,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "3f910e2bb4e66a6b"
+    "hash": "4ac0be892cee59b0",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_cheap": {
     "file": "en6_cheap.m4a",
@@ -187,7 +223,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "511ec306f2b9dc00"
+    "hash": "ee71c322ff8897b4",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_cheap_ex": {
     "file": "en6_cheap_ex.m4a",
@@ -197,7 +235,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "141ae4383ff0c9bb"
+    "hash": "1e0d15851dc5ec0d",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_close": {
     "file": "en6_close.m4a",
@@ -207,7 +247,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "bf3c416e54e4e53d"
+    "hash": "db2dd550e603046b",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_close_ex": {
     "file": "en6_close_ex.m4a",
@@ -217,7 +259,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "8b9fded39d4ba91a"
+    "hash": "c5b955f8e771fbba",
+    "variant": "Tempo +0,1",
+    "onset": 3.95
   },
   "en6_daughter": {
     "file": "en6_daughter.m4a",
@@ -227,7 +271,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "a0df4822e39c181d"
+    "hash": "50db8abbd8309338",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_daughter_ex": {
     "file": "en6_daughter_ex.m4a",
@@ -237,7 +283,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "9b327394d7c669d0"
+    "hash": "207cd78286d2557f",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_during": {
     "file": "en6_during.m4a",
@@ -247,7 +295,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "b8d19a18b058afb4"
+    "hash": "4d2e017f7a822b2e",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_during_ex": {
     "file": "en6_during_ex.m4a",
@@ -257,7 +307,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "060d1d5c80c4fba4"
+    "hash": "1043a952131d58ab",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_eagle": {
     "file": "en6_eagle.m4a",
@@ -267,7 +319,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "d3bb889e610a38f7"
+    "hash": "c177c072aad1a9da",
+    "variant": "Glottisschlag",
+    "onset": 2.15
   },
   "en6_eagle_ex": {
     "file": "en6_eagle_ex.m4a",
@@ -277,7 +331,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "692346da0dc727b4"
+    "hash": "a82660eec9081030",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_embarrassed": {
     "file": "en6_embarrassed.m4a",
@@ -287,7 +343,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "7cf20b58f6234623"
+    "hash": "5b7ec41e661dd67b",
+    "variant": "Glottisschlag",
+    "onset": 2.1
   },
   "en6_embarrassed_ex": {
     "file": "en6_embarrassed_ex.m4a",
@@ -297,7 +355,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "1dac88231a410831"
+    "hash": "500983e290b52d81",
+    "variant": "Glottisschlag",
+    "onset": 2.86
   },
   "en6_embarrassing": {
     "file": "en6_embarrassing.m4a",
@@ -307,7 +367,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "91c343ba6baa0caa"
+    "hash": "460c4bc9072c1b8c",
+    "variant": "Glottisschlag",
+    "onset": 3.29
   },
   "en6_embarrassing_ex": {
     "file": "en6_embarrassing_ex.m4a",
@@ -317,7 +379,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "dc218bb4ced772f0"
+    "hash": "5c668aa5660b4303",
+    "variant": "Glottisschlag",
+    "onset": 2.62
   },
   "en6_event": {
     "file": "en6_event.m4a",
@@ -327,7 +391,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "e6f77dd916ace9ee"
+    "hash": "a4851b933285ea70",
+    "variant": "Tempo +0,05",
+    "onset": 1.71
   },
   "en6_event_ex": {
     "file": "en6_event_ex.m4a",
@@ -337,7 +403,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "b360ceecb1d478eb"
+    "hash": "bc061e32f365a8c3",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_expensive": {
     "file": "en6_expensive.m4a",
@@ -347,7 +415,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "1f3db5208a6185ad"
+    "hash": "b0eee06bd5cb3494",
+    "variant": "Tempo +0,05",
+    "onset": 1.77
   },
   "en6_expensive_ex": {
     "file": "en6_expensive_ex.m4a",
@@ -357,7 +427,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "01fe6eebc33b0206"
+    "hash": "8411b93cc8d8b266",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_far_away": {
     "file": "en6_far_away.m4a",
@@ -367,7 +439,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "9439026dfad216a7"
+    "hash": "b83f5976f6a8b369",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_far_away_ex": {
     "file": "en6_far_away_ex.m4a",
@@ -377,7 +451,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "365cb9e8ad5f0bef"
+    "hash": "01fda58ec8969164",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_feeling": {
     "file": "en6_feeling.m4a",
@@ -387,7 +463,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "db356d0328478716"
+    "hash": "e8c5e41aa668877a",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_feeling_ex": {
     "file": "en6_feeling_ex.m4a",
@@ -397,7 +475,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "ffe8e059d66394da"
+    "hash": "54e4dd13ab632564",
+    "variant": "Standard",
+    "onset": 3.92
   },
   "en6_field": {
     "file": "en6_field.m4a",
@@ -407,7 +487,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "fc83d84a3dd6c829"
+    "hash": "8534b1ef18d6064f",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_field_ex": {
     "file": "en6_field_ex.m4a",
@@ -417,7 +499,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "a0299a23704b69e7"
+    "hash": "9ead39e37d8b1231",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_hill": {
     "file": "en6_hill.m4a",
@@ -427,7 +511,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "b2cba8d203bede92"
+    "hash": "8409f366dc1f0081",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_hill_ex": {
     "file": "en6_hill_ex.m4a",
@@ -437,7 +523,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "982230e62c6e912e"
+    "hash": "c0dc6987f28db165",
+    "variant": "Standard",
+    "onset": 1.2
   },
   "en6_home_town": {
     "file": "en6_home_town.m4a",
@@ -447,7 +535,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "6cd71460b566ec1f"
+    "hash": "03a29933810213fe",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_home_town_ex": {
     "file": "en6_home_town_ex.m4a",
@@ -457,7 +547,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "097ca7d6bc45ea98"
+    "hash": "2adb897e859be393",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_huge": {
     "file": "en6_huge.m4a",
@@ -467,7 +559,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "ff982f5a9deb0a37"
+    "hash": "1de749a884494fd8",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_huge_ex": {
     "file": "en6_huge_ex.m4a",
@@ -477,7 +571,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "bdf625bc095437b6"
+    "hash": "b6829eb60df50168",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_i_mean": {
     "file": "en6_i_mean.m4a",
@@ -487,7 +583,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "5d8b75489a5a29f2"
+    "hash": "4a1bc9150a9f7f6b",
+    "variant": "Glottisschlag",
+    "onset": 2.28
   },
   "en6_i_mean_ex": {
     "file": "en6_i_mean_ex.m4a",
@@ -497,7 +595,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "c089cf4a399384fe"
+    "hash": "641f3d554c846da3",
+    "variant": "Standard",
+    "onset": 3.88
   },
   "en6_i_see": {
     "file": "en6_i_see.m4a",
@@ -507,7 +607,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "e840c61d03088bce"
+    "hash": "baa8a121de2020fb",
+    "variant": "Tempo +0,1",
+    "onset": 3.68
   },
   "en6_i_see_ex": {
     "file": "en6_i_see_ex.m4a",
@@ -517,7 +619,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "38470c94724c4d15"
+    "hash": "aa4ae2502d2eed5b",
+    "variant": "Glottisschlag",
+    "onset": 3.03
   },
   "en6_indoors": {
     "file": "en6_indoors.m4a",
@@ -527,7 +631,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "9a67e22b1abcb89d"
+    "hash": "406eae35de003269",
+    "variant": "Punkt am Ende",
+    "onset": 2.57
   },
   "en6_indoors_ex": {
     "file": "en6_indoors_ex.m4a",
@@ -537,7 +643,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "744601bb7e0759fc"
+    "hash": "3c9f23fd650b7bc2",
+    "variant": "Glottisschlag",
+    "onset": 2.8
   },
   "en6_judge": {
     "file": "en6_judge.m4a",
@@ -547,7 +655,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "a81c7adaa12676d5"
+    "hash": "cc7f09a49f51e808",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_judge_ex": {
     "file": "en6_judge_ex.m4a",
@@ -557,7 +667,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "a6734ea165322456"
+    "hash": "67dc10fbc638115f",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_latest": {
     "file": "en6_latest.m4a",
@@ -567,7 +679,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "6ddbb1d954c9e66b"
+    "hash": "d14e8779334b38ca",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_latest_ex": {
     "file": "en6_latest_ex.m4a",
@@ -577,7 +691,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "c6cfea56d7f903dc"
+    "hash": "3909e8a4806e8c54",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_life": {
     "file": "en6_life.m4a",
@@ -587,7 +703,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "e27f348cacfcf960"
+    "hash": "8b33392b6c6fd492",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_life_ex": {
     "file": "en6_life_ex.m4a",
@@ -597,7 +715,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "8c1a3dff6d9fdc34"
+    "hash": "c5c13e655ced19cb",
+    "variant": "Tempo +0,05",
+    "onset": 3.94
   },
   "en6_likes_and_dislikes": {
     "file": "en6_likes_and_dislikes.m4a",
@@ -607,7 +727,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "fb85fe82fe4dace5"
+    "hash": "dad080a9bbc0d70f",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_likes_and_dislikes_ex": {
     "file": "en6_likes_and_dislikes_ex.m4a",
@@ -617,7 +739,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "afccfe2b844a9c31"
+    "hash": "0ea319dcb40d7b23",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_mad": {
     "file": "en6_mad.m4a",
@@ -627,7 +751,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "9f9d738283b1a059"
+    "hash": "355a6086c525aae7",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_mad_ex": {
     "file": "en6_mad_ex.m4a",
@@ -637,7 +763,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "9a57e9520ecff2ea"
+    "hash": "444bf904f9e858fa",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_mall": {
     "file": "en6_mall.m4a",
@@ -647,7 +775,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "c12cf12db06fb305"
+    "hash": "f8e3f5e39458a8f6",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_mall_ex": {
     "file": "en6_mall_ex.m4a",
@@ -657,7 +787,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "d696b12ca461f66e"
+    "hash": "1093ef8935b0eb95",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_movie": {
     "file": "en6_movie.m4a",
@@ -667,7 +799,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "6d2ca6ef1fb562fc"
+    "hash": "c2e44ce0acef7130",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_movie_ex": {
     "file": "en6_movie_ex.m4a",
@@ -677,7 +811,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "9ba72eb77f519e80"
+    "hash": "bfa6ceaf7929a9ed",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_movie_theater": {
     "file": "en6_movie_theater.m4a",
@@ -687,7 +823,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "0451bb0cd30cccf6"
+    "hash": "01394003ddd64ce8",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_movie_theater_ex": {
     "file": "en6_movie_theater_ex.m4a",
@@ -697,7 +835,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "a295fa2568f1d59a"
+    "hash": "31d2fde1c2584960",
+    "variant": "Standard",
+    "onset": 1.42
   },
   "en6_negative": {
     "file": "en6_negative.m4a",
@@ -707,7 +847,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "8e2520be1f81bb16"
+    "hash": "6a4d7bd56a8415eb",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_negative_ex": {
     "file": "en6_negative_ex.m4a",
@@ -717,7 +859,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "9deaec2f88b35c02"
+    "hash": "0bef3ff883b9c3ba",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_nervous": {
     "file": "en6_nervous.m4a",
@@ -727,7 +871,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "15434c2fd2b8714d"
+    "hash": "6dae9412d3e816fe",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_nervous_ex": {
     "file": "en6_nervous_ex.m4a",
@@ -737,7 +883,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "0247a9d5d12dcf0b"
+    "hash": "5b86a46b55055755",
+    "variant": "Glottisschlag",
+    "onset": 2.52
   },
   "en6_noise": {
     "file": "en6_noise.m4a",
@@ -747,7 +895,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "2a44d7942ccd4115"
+    "hash": "362bdf1935d367c7",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_noise_ex": {
     "file": "en6_noise_ex.m4a",
@@ -757,7 +907,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "e296c6f2371b344a"
+    "hash": "fa4d1be9b46a139c",
+    "variant": "Tempo +0,1",
+    "onset": 0.85
   },
   "en6_one_hundred_thousand": {
     "file": "en6_one_hundred_thousand.m4a",
@@ -767,7 +919,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "974b826d832bcafe"
+    "hash": "eed7c02e3bd3e9fb",
+    "variant": "Tempo +0,1",
+    "onset": 0.64
   },
   "en6_one_hundred_thousand_ex": {
     "file": "en6_one_hundred_thousand_ex.m4a",
@@ -777,7 +931,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "faa4dcbfe3acdd05"
+    "hash": "795ace498500078f",
+    "variant": "Standard",
+    "onset": 0.91
   },
   "en6_one_million": {
     "file": "en6_one_million.m4a",
@@ -787,7 +943,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "0676910be6607d64"
+    "hash": "c86fb24a242922cb",
+    "variant": "Tempo +0,1",
+    "onset": 1.07
   },
   "en6_one_million_ex": {
     "file": "en6_one_million_ex.m4a",
@@ -797,7 +955,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "61c8a33ecdadee9b"
+    "hash": "8d7466a10de6ce6b",
+    "variant": "Tempo +0,1",
+    "onset": 0.92
   },
   "en6_one_point_five": {
     "file": "en6_one_point_five.m4a",
@@ -807,7 +967,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "e30242f13d1b382b"
+    "hash": "1f788e334b434d79",
+    "variant": "Tempo +0,1",
+    "onset": 0.59
   },
   "en6_one_point_five_ex": {
     "file": "en6_one_point_five_ex.m4a",
@@ -817,7 +979,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "0654d76e7bc584ed"
+    "hash": "bd27cc40109d7c31",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_one_thousand": {
     "file": "en6_one_thousand.m4a",
@@ -827,7 +991,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "52bea0388e443f20"
+    "hash": "71e6ba579d4b8e70",
+    "variant": "Tempo +0,05",
+    "onset": 2.76
   },
   "en6_one_thousand_ex": {
     "file": "en6_one_thousand_ex.m4a",
@@ -837,7 +1003,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "2b90175382179420"
+    "hash": "d7837adaf4d793d3",
+    "variant": "Standard",
+    "onset": 0.8
   },
   "en6_outdoor_activity": {
     "file": "en6_outdoor_activity.m4a",
@@ -847,7 +1015,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "5ca454c2c7a0be7d"
+    "hash": "f0403800f1d71f93",
+    "variant": "Standard",
+    "onset": 2.72
   },
   "en6_outdoor_activity_ex": {
     "file": "en6_outdoor_activity_ex.m4a",
@@ -857,7 +1027,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "74b23a64e386acdb"
+    "hash": "52521dfc4f21e19b",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_outdoors": {
     "file": "en6_outdoors.m4a",
@@ -867,7 +1039,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "c5b35044c7f5b3fa"
+    "hash": "92b7453ef941b465",
+    "variant": "Tempo +0,05",
+    "onset": 2.02
   },
   "en6_outdoors_ex": {
     "file": "en6_outdoors_ex.m4a",
@@ -877,7 +1051,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "bfff025cc2aa2bc0"
+    "hash": "bd14972b03ad371a",
+    "variant": "Glottisschlag",
+    "onset": 2.34
   },
   "en6_pet": {
     "file": "en6_pet.m4a",
@@ -887,7 +1063,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "fd30135d43fdedb2"
+    "hash": "c394914d5b13575e",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_pet_ex": {
     "file": "en6_pet_ex.m4a",
@@ -897,7 +1075,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "304b97f8cc0e2352"
+    "hash": "b62c7cd187eed65d",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_plan": {
     "file": "en6_plan.m4a",
@@ -907,7 +1087,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "f9b7f9a880ea9190"
+    "hash": "f9dc95efd7261b33",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_plan_ex": {
     "file": "en6_plan_ex.m4a",
@@ -917,7 +1099,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "6ecc08915951b080"
+    "hash": "acf827c1b5fef276",
+    "variant": "Glottisschlag",
+    "onset": 1.02
   },
   "en6_point": {
     "file": "en6_point.m4a",
@@ -927,7 +1111,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "b79375468517cebe"
+    "hash": "9779c359be4cc12a",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_point_ex": {
     "file": "en6_point_ex.m4a",
@@ -937,7 +1123,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "79893cbd6a20cb1d"
+    "hash": "7a2e73fdbb651147",
+    "variant": "Glottisschlag",
+    "onset": 2.92
   },
   "en6_pollution": {
     "file": "en6_pollution.m4a",
@@ -947,7 +1135,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "6bc5a50c15388075"
+    "hash": "21993b15d8ea93e2",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_pollution_ex": {
     "file": "en6_pollution_ex.m4a",
@@ -957,7 +1147,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "e634835a124b349a"
+    "hash": "2de4ab54a09a5946",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_poor": {
     "file": "en6_poor.m4a",
@@ -967,7 +1159,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "d5f882a3c46a5e57"
+    "hash": "7dba72d954af8a03",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_poor_ex": {
     "file": "en6_poor_ex.m4a",
@@ -977,7 +1171,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "7f85bc71c6a9a1e0"
+    "hash": "abd61bb01ae719c2",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_positive": {
     "file": "en6_positive.m4a",
@@ -987,7 +1183,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "eab78a8ba083eb9a"
+    "hash": "058f78a818e68de4",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_positive_ex": {
     "file": "en6_positive_ex.m4a",
@@ -997,7 +1195,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "4ed550e0d4dc2503"
+    "hash": "aec53a3b7371c7eb",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_proud": {
     "file": "en6_proud.m4a",
@@ -1007,7 +1207,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "e7e2627d80428651"
+    "hash": "bbb0c22cedcf1c2b",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_proud_ex": {
     "file": "en6_proud_ex.m4a",
@@ -1017,7 +1219,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "13a4eec4d77fc36e"
+    "hash": "e54e186c3624ed45",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_public_transport": {
     "file": "en6_public_transport.m4a",
@@ -1027,7 +1231,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "8cf7d54be01f738d"
+    "hash": "f120a2d1a7632080",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_public_transport_ex": {
     "file": "en6_public_transport_ex.m4a",
@@ -1037,7 +1243,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "64bc75a424af1dc6"
+    "hash": "cf383cca88eba22d",
+    "variant": "Tempo +0,05",
+    "onset": 4.02
   },
   "en6_race": {
     "file": "en6_race.m4a",
@@ -1047,7 +1255,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "49a2b9a7356d0a90"
+    "hash": "6ee8961a396fed54",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_race_ex": {
     "file": "en6_race_ex.m4a",
@@ -1057,7 +1267,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "bfca47cebad91091"
+    "hash": "d21401583481a3a9",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_real": {
     "file": "en6_real.m4a",
@@ -1067,7 +1279,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "bd4f554fb85ee620"
+    "hash": "d8ad7a98dd14ce76",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_real_ex": {
     "file": "en6_real_ex.m4a",
@@ -1077,7 +1291,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "beaa2fcf09615dd4"
+    "hash": "18ff2e07975dffed",
+    "variant": "Glottisschlag",
+    "onset": 2.13
   },
   "en6_report": {
     "file": "en6_report.m4a",
@@ -1087,7 +1303,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "8fa76c56aecadffa"
+    "hash": "b5787e3b4bd34298",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_report_ex": {
     "file": "en6_report_ex.m4a",
@@ -1097,7 +1315,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "c47de240545c449a"
+    "hash": "677b6b913ebdd7e2",
+    "variant": "Tempo +0,05",
+    "onset": 1.34
   },
   "en6_second": {
     "file": "en6_second.m4a",
@@ -1107,7 +1327,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "fb35ad8e4f8a5739"
+    "hash": "971d40f45c8c781a",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_second_ex": {
     "file": "en6_second_ex.m4a",
@@ -1117,7 +1339,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "750fc8d2b0bab519"
+    "hash": "66e5a49d5c7004d3",
+    "variant": "Punkt am Ende",
+    "onset": 0.57
   },
   "en6_shopping_mall": {
     "file": "en6_shopping_mall.m4a",
@@ -1127,7 +1351,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "9ff94fa71dea2973"
+    "hash": "789b751ee580a4bd",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_shopping_mall_ex": {
     "file": "en6_shopping_mall_ex.m4a",
@@ -1137,7 +1363,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "356b8665fab05834"
+    "hash": "7d0d899261212bcf",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_show_off": {
     "file": "en6_show_off.m4a",
@@ -1147,7 +1375,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "194dcfee9043296e"
+    "hash": "62cddc05a35bec84",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_show_off_ex": {
     "file": "en6_show_off_ex.m4a",
@@ -1157,7 +1387,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "b7f3dd9ce725c827"
+    "hash": "476c4985f3fa8b89",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_space": {
     "file": "en6_space.m4a",
@@ -1167,7 +1399,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "4e8f289aaf71cf5a"
+    "hash": "2d1d0a41a5e8957d",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_space_ex": {
     "file": "en6_space_ex.m4a",
@@ -1177,7 +1411,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "7c03630b9b26dab1"
+    "hash": "94936d997a27283a",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_ten_thousand": {
     "file": "en6_ten_thousand.m4a",
@@ -1187,7 +1423,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "3589e5c02bd2de26"
+    "hash": "4605f7123782faeb",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_ten_thousand_ex": {
     "file": "en6_ten_thousand_ex.m4a",
@@ -1197,7 +1435,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "a86012d45631708b"
+    "hash": "c6078e2c01fd5a46",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_there_s_nothing_more_exciting_than": {
     "file": "en6_there_s_nothing_more_exciting_than.m4a",
@@ -1207,7 +1447,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "e58f2e2c0e1a1dda"
+    "hash": "1613fda6767f1f93",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_there_s_nothing_more_exciting_than_ex": {
     "file": "en6_there_s_nothing_more_exciting_than_ex.m4a",
@@ -1217,7 +1459,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "3900a80a814f10d0"
+    "hash": "25975e271df0a354",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_to_be_interested": {
     "file": "en6_to_be_interested.m4a",
@@ -1227,7 +1471,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "ce727e3f67da8fd9"
+    "hash": "b7761e81cce8b82b",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_to_be_interested_ex": {
     "file": "en6_to_be_interested_ex.m4a",
@@ -1237,7 +1483,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "782e7bec7ffff98d"
+    "hash": "908c88cf431a65e4",
+    "variant": "Glottisschlag",
+    "onset": 2.48
   },
   "en6_to_end_up": {
     "file": "en6_to_end_up.m4a",
@@ -1247,7 +1495,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "6168e67a853eb310"
+    "hash": "a5ea0e0d14baf990",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_to_end_up_ex": {
     "file": "en6_to_end_up_ex.m4a",
@@ -1257,7 +1507,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "7e027500edadb58c"
+    "hash": "e3f1729898fee9a8",
+    "variant": "Tempo +0,1",
+    "onset": 2.1
   },
   "en6_to_fall_off": {
     "file": "en6_to_fall_off.m4a",
@@ -1267,7 +1519,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "223b51b50ad96631"
+    "hash": "85f787c222e7adf0",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_to_fall_off_ex": {
     "file": "en6_to_fall_off_ex.m4a",
@@ -1277,7 +1531,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "b1a613f8db2e80b9"
+    "hash": "db6af31226a26f2e",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_to_fix": {
     "file": "en6_to_fix.m4a",
@@ -1287,7 +1543,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "bbf00f4730caa149"
+    "hash": "358c99cd80d3b398",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_to_fix_ex": {
     "file": "en6_to_fix_ex.m4a",
@@ -1297,7 +1555,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "8c90d631e6352190"
+    "hash": "08d09ae249d0cbc3",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_to_get": {
     "file": "en6_to_get.m4a",
@@ -1307,7 +1567,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "e0dabd7686c40eff"
+    "hash": "fe4f665af3111d14",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_to_get_ex": {
     "file": "en6_to_get_ex.m4a",
@@ -1317,7 +1579,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "811f472f711ce56e"
+    "hash": "239e68c410e7371c",
+    "variant": "Glottisschlag",
+    "onset": 2.94
   },
   "en6_to_grow_up": {
     "file": "en6_to_grow_up.m4a",
@@ -1327,7 +1591,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "7b2f94b8d0c450bf"
+    "hash": "b5c06c6e48021bb7",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_to_grow_up_ex": {
     "file": "en6_to_grow_up_ex.m4a",
@@ -1337,7 +1603,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "76d29421904b730d"
+    "hash": "0139edf914666258",
+    "variant": "Glottisschlag",
+    "onset": 3.24
   },
   "en6_to_hang_out": {
     "file": "en6_to_hang_out.m4a",
@@ -1347,7 +1615,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "c198d322dc21356c"
+    "hash": "81fdf90d3568ff5d",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_to_hang_out_ex": {
     "file": "en6_to_hang_out_ex.m4a",
@@ -1357,7 +1627,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "1876699aa99f2bfe"
+    "hash": "824266afe26dea18",
+    "variant": "Tempo +0,05",
+    "onset": 4.2
   },
   "en6_to_have_to": {
     "file": "en6_to_have_to.m4a",
@@ -1367,7 +1639,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "2777ffbdc1e1f555"
+    "hash": "63a8deda02226cc0",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_to_have_to_ex": {
     "file": "en6_to_have_to_ex.m4a",
@@ -1377,7 +1651,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "4cc3c57df62a42e5"
+    "hash": "f00c2ff03d54e8ba",
+    "variant": "Tempo +0,1",
+    "onset": 4.11
   },
   "en6_to_move": {
     "file": "en6_to_move.m4a",
@@ -1387,7 +1663,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "1a894f2324d892dc"
+    "hash": "ec4c7469e01f73d7",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_to_move_ex": {
     "file": "en6_to_move_ex.m4a",
@@ -1397,7 +1675,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "7c08a2a47cef4068"
+    "hash": "44b4d1f453087101",
+    "variant": "Standard",
+    "onset": 1.09
   },
   "en6_to_point": {
     "file": "en6_to_point.m4a",
@@ -1407,7 +1687,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "533a245644a78df6"
+    "hash": "d700af9260e98b87",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_to_point_ex": {
     "file": "en6_to_point_ex.m4a",
@@ -1417,7 +1699,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "1a6c27c6afef4abf"
+    "hash": "72cd582e1282ec9b",
+    "variant": "Glottisschlag",
+    "onset": 2.51
   },
   "en6_to_teach": {
     "file": "en6_to_teach.m4a",
@@ -1427,7 +1711,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "05be0013cc11c29e"
+    "hash": "8da624abf2843e19",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_to_teach_ex": {
     "file": "en6_to_teach_ex.m4a",
@@ -1437,7 +1723,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "9be8d8e6021ce8f0"
+    "hash": "5dfd5988f28dde9e",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_to_tease_sb": {
     "file": "en6_to_tease_sb.m4a",
@@ -1447,7 +1735,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "95cf5471f4012816"
+    "hash": "17547ce168c265c9",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_to_tease_sb_ex": {
     "file": "en6_to_tease_sb_ex.m4a",
@@ -1457,7 +1747,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "51eb8fa45fe686f6"
+    "hash": "dc05b01af263a08e",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_to_tell": {
     "file": "en6_to_tell.m4a",
@@ -1467,7 +1759,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "21e1fb4d02d382c6"
+    "hash": "35f5c5baced1b058",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_to_tell_ex": {
     "file": "en6_to_tell_ex.m4a",
@@ -1477,7 +1771,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "4dd175542a836113"
+    "hash": "4541b181f43b7a29",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_to_train": {
     "file": "en6_to_train.m4a",
@@ -1487,7 +1783,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "2b4f83c77d3fbdcd"
+    "hash": "aaa8a5d1f5769d59",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_to_train_ex": {
     "file": "en6_to_train_ex.m4a",
@@ -1497,7 +1795,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "a3cafd39977c5a88"
+    "hash": "1f59bbb82bf35b4f",
+    "variant": "Glottisschlag",
+    "onset": 2.74
   },
   "en6_to_worry": {
     "file": "en6_to_worry.m4a",
@@ -1507,7 +1807,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "69fdd943071101bf"
+    "hash": "81840f14ae64c4da",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_to_worry_ex": {
     "file": "en6_to_worry_ex.m4a",
@@ -1517,7 +1819,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "bf142766ef119e39"
+    "hash": "46aaa88e935fb157",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_traffic_jam": {
     "file": "en6_traffic_jam.m4a",
@@ -1527,7 +1831,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "3b4aa2af788ca45f"
+    "hash": "d991603b97f92e28",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_traffic_jam_ex": {
     "file": "en6_traffic_jam_ex.m4a",
@@ -1537,7 +1843,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "c5c082da8de4ee2d"
+    "hash": "5e7257a04d2daa2f",
+    "variant": "Standard",
+    "onset": 1.11
   },
   "en6_turn": {
     "file": "en6_turn.m4a",
@@ -1547,7 +1855,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "7f60a7d3e00ef840"
+    "hash": "672ce30e9f50cb50",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_turn_ex": {
     "file": "en6_turn_ex.m4a",
@@ -1557,7 +1867,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "78057c03d70f064c"
+    "hash": "fc71e5ad816df04a",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_up": {
     "file": "en6_up.m4a",
@@ -1567,7 +1879,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "0d0b99c9197c591e"
+    "hash": "2f45acdd425669a7",
+    "variant": "Tempo +0,1",
+    "onset": 2.25
   },
   "en6_up_ex": {
     "file": "en6_up_ex.m4a",
@@ -1577,7 +1891,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "876574cebd574c72"
+    "hash": "fdd8154cc07a3142",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_watch": {
     "file": "en6_watch.m4a",
@@ -1587,7 +1903,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "2e52fbe22c9b3798"
+    "hash": "c5ef47ad29e731c5",
+    "variant": "Tempo +0,1",
+    "onset": 0.98
   },
   "en6_watch_ex": {
     "file": "en6_watch_ex.m4a",
@@ -1597,7 +1915,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "2ff49ffa059a7d06"
+    "hash": "fd5dd0f939165a3e",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_what_a": {
     "file": "en6_what_a.m4a",
@@ -1607,7 +1927,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "f3b04c87aa04adf5"
+    "hash": "227ae6b32d78b944",
+    "phonemes": "wˈɒt ə",
+    "variant": "Tempo +0,05",
+    "onset": 0.8
   },
   "en6_what_a_ex": {
     "file": "en6_what_a_ex.m4a",
@@ -1617,7 +1940,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "cde76c6c05e5ecd3"
+    "hash": "a819807167314f01",
+    "variant": "Tempo +0,05",
+    "onset": 0.66
   },
   "en6_what_a_shame": {
     "file": "en6_what_a_shame.m4a",
@@ -1627,7 +1952,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "98734cd639c24dce"
+    "hash": "dfa90759ce9faa3f",
+    "variant": "Tempo +0,1",
+    "onset": 0.63
   },
   "en6_what_a_shame_ex": {
     "file": "en6_what_a_shame_ex.m4a",
@@ -1637,7 +1964,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "eab3b699226f7b97"
+    "hash": "0bfb8858d2be2a4a",
+    "variant": "Standard",
+    "onset": 1.9
   },
   "en6_wheelchair": {
     "file": "en6_wheelchair.m4a",
@@ -1647,7 +1976,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "5ec03ad030a8072d"
+    "hash": "e9ecfcbfd01fbdf4",
+    "variant": "Tempo +0,05",
+    "onset": 0.79
   },
   "en6_wheelchair_ex": {
     "file": "en6_wheelchair_ex.m4a",
@@ -1657,7 +1988,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "d41308182606b78f"
+    "hash": "2cbaf8fcda6b4938",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_worried": {
     "file": "en6_worried.m4a",
@@ -1667,7 +2000,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "81d15da1b92cb4b7"
+    "hash": "79da094dbfc6c562",
+    "variant": "Tempo +0,1",
+    "onset": 0.79
   },
   "en6_worried_ex": {
     "file": "en6_worried_ex.m4a",
@@ -1677,7 +2012,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "5290ba18623725d9"
+    "hash": "c670f1a48769f282",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_yearbook": {
     "file": "en6_yearbook.m4a",
@@ -1687,7 +2024,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "ac28dcdf58847424"
+    "hash": "b3e780d1ca0c2545",
+    "variant": "Glottisschlag",
+    "onset": 2.22
   },
   "en6_yearbook_ex": {
     "file": "en6_yearbook_ex.m4a",
@@ -1697,7 +2036,9 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "d08767427cafb3fa"
+    "hash": "45de4989cdfb6cb6",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_youth": {
     "file": "en6_youth.m4a",
@@ -1707,7 +2048,9 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "f8bd2b38df1ca125"
+    "hash": "4a387a1603d6f34e",
+    "variant": "Punkt am Ende",
+    "onset": 1.67
   },
   "en6_youth_ex": {
     "file": "en6_youth_ex.m4a",
@@ -1717,6 +2060,8 @@
     "speed": 0.95,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "7da8a6564267d894"
+    "hash": "be57dc6b2650c922",
+    "variant": "Standard",
+    "onset": 0.0
   }
 }

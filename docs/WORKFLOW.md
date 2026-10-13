@@ -320,6 +320,11 @@ curl -s -o /dev/null -w '%{http_code}' https://<slug>.space.fast/   # muss 403 l
 - Lehrer-Bereich: „Neue Vokabeln“ und „Gesamter Wortschatz“ als eigene Bereiche, alle Listen klappbar, mobil kompakt.
 - Audio: Einzelwörter langsamer (0,8) mit 0,8 s Stille davor, damit kurze Wörter wie „air“ nicht verschluckt
   werden (`KIND` in `scripts/generate-audio.py`); Beispielsätze im normalen Tempo.
+- Audio-Anlaut (2026-10-13): Kokoro setzt vor Vokal-Anfänge oft Klick + Hauchen („air“ ≈ „hair“). Der Generator
+  erzeugt für Einträge mit Vokal/Halbvokal am Anfang mehrere Varianten (Standard, Punkt am Ende, Glottisschlag,
+  etwas schneller) und behält die mit dem saubersten Anfang (`onset_score`, Ergebnis als `variant`/`onset` in
+  `index.json`). Spricht Kokoro ein Wort falsch aus, Laute direkt vorgeben: `sayPhonemes` in der Vokabel
+  (z. B. „what a“ → `wˈɒt ə`, sonst Buchstaben-A).
 - Design System „Clara & Jakob lernen Sprachen“ (`design-system/`, Regeln in `CLAUDE.md`): eingebunden in
   `src/index.css` (tokens.css ohne Layer, bundle.css im Layer `components`, shadcn-Variablen auf die Tokens
   gemappt), Schriften per `<link>` in `index.html`. Stift über `data-course` am `<body>` (App.jsx) – nicht am
