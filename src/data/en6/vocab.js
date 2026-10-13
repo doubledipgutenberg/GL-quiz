@@ -5,7 +5,8 @@
 // Aufbau wie src/data/fr6/vocab.js: Jede Lieferung ist ein BATCH mit dem Datum, an dem sie ins Quiz
 // kam (`added`). „Nur neue Vokabeln“ filtert den Wortschatz auf den jüngsten Batch.
 // Felder pro Eintrag: en, de, optional alt (weitere richtige engl. Antworten),
-// altDe (weitere richtige dt. Antworten), say (gesprochener Text, falls abweichend),
+// altDe (weitere richtige dt. Antworten), say (gesprochener Text, falls abweichend), sayPhonemes (Laute
+// direkt, wenn Kokoro falsch ausspricht – z. B. „what a“ sonst mit Buchstaben-A /eɪ/),
 // ex (kurzer Beispielsatz, eigene Formulierung – wird bei Hör-Karten nach dem Wort vorgelesen;
 // die [Klammer] markiert die Lücke für den Lückentext, siehe gapOf).
 
@@ -25,7 +26,7 @@ const BATCHES = [
           { en: 'real', de: 'echt; richtig; wirklich', ex: 'Is that a [real] eagle?' },
           { en: 'show-off', de: 'Angeber/-in', say: 'show-off', ex: "Don't be such a [show-off]!" },
           { en: 'art', de: 'Kunst', ex: '[Art] is my favourite subject.' },
-          { en: 'what a …', de: 'was für ein/-e …; welch ein/-e …', alt: ['what a'], say: 'what a', ex: '[What a] nice surprise!' },
+          { en: 'what a …', de: 'was für ein/-e …; welch ein/-e …', alt: ['what a'], say: 'what a', sayPhonemes: 'wˈɒt ə', ex: '[What a] nice surprise!' },
           { en: 'home town', de: 'Heimatstadt', alt: ['hometown'], ex: 'My [home town] is small but nice.' },
           { en: 'likes and dislikes', de: 'Vorlieben und Abneigungen', ex: 'Tell me about your [likes and dislikes].' },
           { en: 'huge', de: 'riesig; riesengroß; gewaltig', ex: 'Their new house is [huge]!' },

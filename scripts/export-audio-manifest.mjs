@@ -18,7 +18,7 @@ if (!src || !out) {
 const mod = await import(new URL(src.module, import.meta.url));
 // Pro Vokabel das Wort, dazu – falls gepflegt – der Beispielsatz für die Hör-Karte (<id>_ex).
 const items = mod[src.list].flatMap((v) => [
-  { id: v.id, text: mod.speechText(v), lang: src.lang, kind: 'word' },
+  { id: v.id, text: mod.speechText(v), lang: src.lang, kind: 'word', ...(v.sayPhonemes ? { phonemes: v.sayPhonemes } : {}) },
   ...(v.ex ? [{ id: `${v.id}_ex`, text: mod.exampleText(v), lang: src.lang, kind: 'sentence' }] : []),
 ]);
 writeFileSync(out, JSON.stringify({ course, items }, null, 2));
