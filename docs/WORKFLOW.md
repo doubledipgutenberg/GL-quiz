@@ -282,8 +282,9 @@ curl -s -o /dev/null -w '%{http_code}' https://<slug>.space.fast/   # muss 403 l
   Aufnahmen (Schlüssel mit Inhalts-Hash, neue Fassungen ersetzen alte) und die Google-Schriften im Hintergrund.
   Seitenaufruf: erst Netz, ohne Netz die gespeicherte App; die Spacefast-Passwortseite wird nie gespeichert;
   `/api/` nie über den Zwischenspeicher. Registrierung nur im echten Build (`src/main.jsx`). iPad: in Safari
-  „Teilen → Zum Home-Bildschirm“ (`public/manifest.json`, `apple-touch-icon.png`; App-Symbol aus
-  `design-system/assets/AppIcon/`, 1:1 nach `public/` kopiert). iOS merkt sich das Symbol: nach einem neuen
+  „Teilen → Zum Home-Bildschirm“ (`public/manifest.json`, `touch-icon.png`; App-Symbol aus
+  `design-system/assets/AppIcon/`, 1:1 nach `public/` kopiert; das 180er-Bild heißt dort `touch-icon.png`, weil
+  Spacefast unter `/apple-touch-icon*` immer ein eigenes graues Platzhalterbild ausliefert). iOS merkt sich das Symbol: nach einem neuen
   Symbol die alte Verknüpfung löschen und neu hinzufügen. Die Home-Bildschirm-App hat eigene Cookies: Familien-Passwort und PIN dort einmal mit Netz.
   **Sync offline-fest** (`src/utils/sync.js`): offene Änderungen stehen in `lernquiz_sync_pending` (überstehen
   Neuladen); nach Offline-Zeit erst Server-Stand holen und zusammenführen (Runden per ID, Durchgang, Markierungen,
