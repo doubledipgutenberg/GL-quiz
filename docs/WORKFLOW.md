@@ -277,6 +277,22 @@ curl -s -o /dev/null -w '%{http_code}' https://<slug>.space.fast/   # muss 403 l
   Blöcke, alle Wochentage als Zeilen, Farbtiefe in Rot (en-pen über `.vx-en`, bewusste Ausnahme vom Design System) = Punkte pro Tag in 5 Stufen (0–50, 51–100, 101–150, 151–250, ab 251; Zeitpunkt `at` je Antwort). Kennzahlen:
   Rekord, Geübt an, Runden, Antworten, Gesamt (Punkte), Bester Tag (meiste Punkte). Überschrift (Wahl des Nutzers):
   „5 Tage in Folge geübt!“ / „Tag 1 - Baue deinen neuen Streak! Eine Runde jeden Tag...“ / „… – bleib dran!“. Zeigt eine Reihe aus dem Schuljahr (beginnt im September) mit dem aktuellen Monat – so viele Monate, wie in die Breite passen (gemessen, mind. 3); die Kästchen füllen die Reihe.
+- **Offline (iPad, 2026-10-14):** Service Worker (`scripts/sw-template.js` → beim Build `dist/sw.js` über
+  `scripts/build-sw.mjs`, `npm run build` macht beides). Er speichert die App beim Installieren, lädt danach alle
+  Aufnahmen (Schlüssel mit Inhalts-Hash, neue Fassungen ersetzen alte) und die Google-Schriften im Hintergrund.
+  Seitenaufruf: erst Netz, ohne Netz die gespeicherte App; die Spacefast-Passwortseite wird nie gespeichert;
+  `/api/` nie über den Zwischenspeicher. Registrierung nur im echten Build (`src/main.jsx`). iPad: in Safari
+  „Teilen → Zum Home-Bildschirm“ (`public/manifest.json`, `apple-touch-icon.png`; App-Symbol aus
+  `design-system/assets/AppIcon/`, 1:1 nach `public/` kopiert). iOS merkt sich das Symbol: nach einem neuen
+  Symbol die alte Verknüpfung löschen und neu hinzufügen. Die Home-Bildschirm-App hat eigene Cookies: Familien-Passwort und PIN dort einmal mit Netz.
+  **Sync offline-fest** (`src/utils/sync.js`): offene Änderungen stehen in `lernquiz_sync_pending` (überstehen
+  Neuladen); nach Offline-Zeit erst Server-Stand holen und zusammenführen (Runden per ID, Durchgang, Markierungen,
+  Highscores, gespeicherte Runden), dann hochladen; `online`-Event löst sofort aus.
+  **Statusanzeige** links oben (`src/components/SyncStatus.jsx`): Punkt + Wort („Gespeichert“, „Speichert …“,
+  „Offline“); antippen zeigt Erklärung, ob noch etwas zu übertragen ist, wann zuletzt übertragen wurde, und
+  offline „Jetzt erneut versuchen“. Kein großer Hinweistext mehr auf der Startseite.
+  **Testen:** Launch-Konfiguration `english-topic-quiz-offline` (Produktions-Build + Test-Attrappe auf Port 5177,
+  `configurePreviewServer` in `scripts/dev-mock-api.js`); Server stoppen = offline.
 - **Auto-Save der Ergebnisse** (`useQuiz.js`, `upsertStudentSession` in `storage.js`): Jede Runde hat eine
   `sessionId` und steht nach **jeder Antwort** in der Historie (`complete: false`, am Ende `true`). Der
   Lehrer-Bereich sieht also auch angefangene Runden, ohne „Runde speichern“. Die aktuelle Runde läuft beim

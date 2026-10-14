@@ -73,8 +73,6 @@ export default function WelcomeScreen({
   playerName,
   onSwitchProfile,
   onCourseChange,
-  notice,
-  syncBadge,
   onStart,
   onAdmin,
   onRestoreDraft,
@@ -211,8 +209,6 @@ export default function WelcomeScreen({
   return (
     <div className="max-w-[420px] md:max-w-4xl mx-auto space-y-8">
       {masthead}
-
-      {notice && <p className="text-sm text-center text-destructive">{notice}</p>}
 
       {/* Übungs-Serie des Kindes – nur auf der ersten Seite */}
       {step === 1 && <StreakCalendar sessions={getStudentHistory()[playerName]?.sessions || []} />}
@@ -363,7 +359,6 @@ export default function WelcomeScreen({
             Profil wechseln
           </button>
         </div>
-        {syncBadge}
       </footer>
     </div>
   );
