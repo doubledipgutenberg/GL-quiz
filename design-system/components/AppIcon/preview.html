@@ -1,0 +1,29 @@
+<!-- @dsCard group="Brand" height=430 subtitle="Home screen, Android mask, sizes, browser tab" -->
+<!doctype html>
+<html data-theme="light">
+<head><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><meta charset="utf-8"><title>AppIcon — preview</title><style>body{padding:20px} .cols{display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start} .cols>*{flex:1 1 300px;max-width:420px}</style></head>
+<body>
+<style>
+.ai-row{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-end}
+.ai-home{display:flex;gap:22px;padding:22px 26px;border-radius:22px;background:linear-gradient(160deg,#2B3F7A,#142554)}
+.ai-home.is-light{background:linear-gradient(160deg,#E9E1CF,#CFC4AB)}
+.ai-app{display:flex;flex-direction:column;align-items:center;gap:6px;font:500 12px/14px -apple-system,system-ui,sans-serif;color:#fff}
+.ai-home.is-light .ai-app{color:#142554}
+.ai-app img{width:76px;height:76px;border-radius:17px;display:block;box-shadow:0 1px 2px rgba(0,0,0,.25)}
+.ai-mask{width:76px;height:76px;border-radius:50%;overflow:hidden}.ai-mask img{width:100%;height:100%;display:block}
+.ai-tab{display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:10px 10px 0 0;background:var(--cream-50);border:1.5px solid var(--rule-soft);border-bottom:0;font:500 13px/16px var(--font-sans);color:var(--ink)}
+.ai-tab img{width:16px;height:16px}
+.ai-sizes{display:flex;gap:14px;align-items:flex-end;font:600 11px/14px var(--font-sans);color:var(--ink-muted)}
+.ai-sizes figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:6px}
+.ai-sizes img{border-radius:22%;box-shadow:0 0 0 1.5px var(--rule-soft)}
+</style>
+<div class="ai-row">
+  <div class="ai-home"><div class="ai-app"><img src="../../assets/AppIcon/app-icon.svg" alt="">Lern-Quiz</div><div class="ai-app"><span class="ai-mask"><img src="../../assets/AppIcon/app-icon-maskable.svg" alt=""></span>Android</div></div>
+  <div class="ai-home is-light"><div class="ai-app"><img src="../../assets/AppIcon/app-icon.svg" alt="">Lern-Quiz</div></div>
+</div>
+<div class="ai-row" style="margin-top:24px">
+  <div class="ai-sizes"><figure><img src="../../assets/AppIcon/app-icon.svg" width="120" height="120" alt="">1024 master</figure><figure><img src="../../assets/AppIcon/app-icon.svg" width="60" height="60" alt="">180 iPad</figure><figure><img src="../../assets/AppIcon/favicon.svg" width="32" height="32" alt="">32</figure><figure><img src="../../assets/AppIcon/favicon.svg" width="16" height="16" alt="">16</figure></div>
+  <div class="ai-tab"><img src="../../assets/AppIcon/favicon.svg" alt="">Clara &amp; Jakob lernen Sprachen</div>
+</div>
+</body>
+</html>

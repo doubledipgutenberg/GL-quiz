@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import useQuiz from './hooks/useQuiz';
 import { getDraftSession, getSavedRounds, flagAlmostRight } from './utils/storage';
 import { getKidSession, setKidSession } from './lib/api';
-import { pull, flush, onSyncStatus } from './utils/sync';
+import { pull, flush } from './utils/sync';
+import SyncStatus from './components/SyncStatus';
 import KidLogin from './components/KidLogin';
 import WelcomeScreen from './components/WelcomeScreen';
 import QuizQuestion from './components/QuizQuestion';
@@ -23,13 +24,6 @@ import {
   DialogFooter,
 } from './components/ui/dialog';
 import './App.css';
-
-const SYNC_LABELS = {
-  idle: 'Gespeichert',
-  pending: 'Wird gespeichert …',
-  saving: 'Wird gespeichert …',
-  error: 'Nicht gespeichert – keine Verbindung',
-};
 
 // Stift des Design Systems: data-course="fr" | "en" (aus course.lang); ohne Kurs Navy (house-pen).
 const langOfCourse = (courseId) => COURSES.find((c) => c.id === courseId)?.lang ?? null;
@@ -65,23 +59,12 @@ function RoundProgress({ quiz }) {
   );
 }
 
-function SyncBadge() {
-  const [status, setStatus] = useState('idle');
-  useEffect(() => onSyncStatus(setStatus), []);
-  return (
-    <span className={`text-xs ${status === 'error' ? 'text-destructive' : 'text-muted-foreground'}`}>
-      {SYNC_LABELS[status]}
-    </span>
-  );
-}
-
 export default function App() {
   const [showAdmin, setShowAdmin] = useState(false);
   const [showSaveRound, setShowSaveRound] = useState(false);
   const [saveRoundName, setSaveRoundName] = useState('');
   const [kid, setKid] = useState(() => getKidSession());
   const [loading, setLoading] = useState(() => !!getKidSession());
-  const [loadError, setLoadError] = useState('');
   const [welcomeCourseId, setWelcomeCourseId] = useState(null);
   const quiz = useQuiz();
 
@@ -103,9 +86,9 @@ export default function App() {
   useEffect(() => {
     if (!kid) return;
     let cancelled = false;
+    // Ohne Netz zeigt die Statusanzeige links oben „Offline“; geübt wird mit dem Stand auf dem Gerät.
     pull(kid.name)
-      .then(() => !cancelled && setLoadError(''))
-      .catch(() => !cancelled && setLoadError('Keine Verbindung – du übst mit dem Stand auf diesem Gerät.'))
+      .catch(() => {})
       .finally(() => !cancelled && setLoading(false));
     return () => {
       cancelled = true;
@@ -165,6 +148,9 @@ export default function App() {
   if (showAdmin) {
     return (
       <div className="min-h-screen max-w-5xl mx-auto px-4 py-8 sm:px-6">
+        <div className="mb-4">
+          <SyncStatus />
+        </div>
         <AdminDashboard
           onBack={() => setShowAdmin(false)}
           onCreateVocabReviewQuiz={handleCreateVocabReviewQuiz}
@@ -176,13 +162,17 @@ export default function App() {
 
   return (
     <div className={`min-h-screen ${quiz.phase === 'welcome' ? 'max-w-5xl' : 'max-w-3xl'} mx-auto px-4 py-8 sm:px-6`}>
+      {/* Speicherstatus links oben; in der Runde steht er in der Kopfzeile neben dem Namen. */}
+      {(quiz.phase === 'welcome' || quiz.phase === 'finished') && (
+        <div className="mb-4">
+          <SyncStatus />
+        </div>
+      )}
       {quiz.phase === 'welcome' && (
         <WelcomeScreen
           playerName={kid.name}
           onSwitchProfile={handleSwitchProfile}
           onCourseChange={setWelcomeCourseId}
-          notice={loadError}
-          syncBadge={<SyncBadge />}
           onStart={quiz.startQuiz}
           onAdmin={() => setShowAdmin(true)}
           onRestoreDraft={quiz.restoreDraft}
@@ -195,7 +185,7 @@ export default function App() {
       {(quiz.phase === 'quiz' || quiz.phase === 'feedback') && (
         <div className="space-y-6">
           <div className="flex justify-between items-center text-sm text-muted-foreground font-medium">
-            <SyncBadge />
+            <SyncStatus />
             <span>{quiz.playerName}</span>
           </div>
           {quiz.passExam ? (

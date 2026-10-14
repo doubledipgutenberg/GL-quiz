@@ -416,6 +416,70 @@
      "type": "image/svg+xml"
     }
    }
+  },
+  "AppIcon": {
+   "name": "AppIcon",
+   "tile": "m",
+   "order": [
+    "app-icon.svg",
+    "app-icon-maskable.svg",
+    "favicon.svg",
+    "apple-touch-icon.png",
+    "icon-192.png",
+    "icon-512.png",
+    "icon-maskable-512.png",
+    "favicon-32.png"
+   ],
+   "files": {
+    "app-icon.svg": {
+     "name": "app-icon.svg",
+     "blob": "06974b6524137bc1874c99e06ce6a271",
+     "size": 4911,
+     "type": "image/svg+xml"
+    },
+    "app-icon-maskable.svg": {
+     "name": "app-icon-maskable.svg",
+     "blob": "d91fcbca68e3972417cda0462cdc55c2",
+     "size": 4912,
+     "type": "image/svg+xml"
+    },
+    "favicon.svg": {
+     "name": "favicon.svg",
+     "blob": "88aee4376fbd074c784d1549fdac7126",
+     "size": 2402,
+     "type": "image/svg+xml"
+    },
+    "apple-touch-icon.png": {
+     "name": "apple-touch-icon.png",
+     "blob": "62b0cbc7a3ded0f7cd43363c2bbe98d8",
+     "size": 27015,
+     "type": "image/png"
+    },
+    "icon-192.png": {
+     "name": "icon-192.png",
+     "blob": "860229cf76ee9d86364717ea4b52534d",
+     "size": 29991,
+     "type": "image/png"
+    },
+    "icon-512.png": {
+     "name": "icon-512.png",
+     "blob": "d16415053ac6b33596baed7a6537404a",
+     "size": 153515,
+     "type": "image/png"
+    },
+    "icon-maskable-512.png": {
+     "name": "icon-maskable-512.png",
+     "blob": "9ac7ac86e421adc44bb7a3fe149d4523",
+     "size": 130103,
+     "type": "image/png"
+    },
+    "favicon-32.png": {
+     "name": "favicon-32.png",
+     "blob": "d65cccfc3fb239980eca11149b11831a",
+     "size": 1486,
+     "type": "image/png"
+    }
+   }
   }
  },
  "blobs": {},
@@ -430,13 +494,14 @@
  "groups": [
   "Illustrations",
   "Stickers",
-  "Icons"
+  "Icons",
+  "AppIcon"
  ],
  "lastChange": {
   "by": "Thomas",
-  "at": "2026-10-12T08:09:25Z",
+  "at": "2026-10-14T15:21:02Z",
   "via": "Claude",
-  "note": "Wortschatz-Durchgang: Runden statt Sessions. Komponenten heißen jetzt ReviewPlan, RoundProgress, RoundBreak (Klassen .vx-rounds, .vx-rprogress, .vx-break)."
+  "note": "App-Symbol: Clara & Jakob winken unter der Lampe – PNGs für iPad/Manifest, Favicon, SVG-Master (Gruppe AppIcon, Karte AppIcon)."
  },
  "layout": "files",
  "libraries": [],
