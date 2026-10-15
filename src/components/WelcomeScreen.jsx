@@ -138,8 +138,10 @@ export default function WelcomeScreen({
   );
 
   if (showRoundList) {
-    const draft = getDraftSession();
-    const savedRounds = getSavedRounds();
+    // Nur Runden des angemeldeten Kindes (nach einem Profilwechsel ohne Netz liegen evtl. noch andere hier).
+    const ownDraft = getDraftSession();
+    const draft = ownDraft?.name === playerName ? ownDraft : null;
+    const savedRounds = getSavedRounds().filter((r) => r?.playerName === playerName);
     const hasAny = !!draft || savedRounds.length > 0;
 
     const handleExport = () => {

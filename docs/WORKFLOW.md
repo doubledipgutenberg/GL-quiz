@@ -301,6 +301,11 @@ curl -s -o /dev/null -w '%{http_code}' https://<slug>.space.fast/   # muss 403 l
   Symbol-Dateien müssen deshalb ohne Passwort abrufbar sein (Space-Freigabe nur für diese Pfade).
   **Test mit Safari-Engine:** Playwright-WebKit gegen einen lokalen Spacefast-Nachbau (Cookie-Sperre, 307 für
   `/assets/`); „offline“ dabei durch Abschalten des Servers, nicht `setOffline` (das bricht in WebKit ab).
+  **Profilwechsel offline** (2026-10-15, `src/lib/api.js`, `KidLogin.jsx`): Nach jeder Anmeldung mit Netz merkt sich
+  das Gerät Profilliste (`lernquiz_kids_cache`) und je Kind Token + PIN-Prüfwert (PBKDF2 mit Salz, `lernquiz_known_kids`).
+  Ohne Netz zeigt die Anmeldung die gemerkte Liste; anmelden kann, wer sich auf dem Gerät schon einmal mit Netz angemeldet
+  hat (5 Fehlversuche → 5 Minuten Pause; PIN festlegen nur mit Netz). `sync.js` lädt jedes Kind mit seinem eigenen
+  Token hoch; Runden anderer Kinder werden beim Abgleich nicht überschrieben, die Startseite zeigt nur eigene Runden.
   **iPad:** Die Home-Bildschirm-App hat eigenen Speicher (Cookies, Service Worker, Daten) – sie muss selbst einmal
   mit Internet geöffnet werden (Passwort + PIN darin), erst dann ist sie offline nutzbar.
   **Testen:** Launch-Konfiguration `english-topic-quiz-offline` (Produktions-Build + Test-Attrappe auf Port 5177,

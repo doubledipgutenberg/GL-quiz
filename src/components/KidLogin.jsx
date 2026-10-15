@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { api } from '../lib/api';
+import { api, loadKids, loginOffline, rememberKid, isKnownKid } from '../lib/api';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
@@ -20,6 +20,7 @@ function errorText(err) {
 
 export default function KidLogin({ onLogin }) {
   const [kids, setKids] = useState(null);
+  const [offline, setOffline] = useState(false);
   const [loadError, setLoadError] = useState('');
   const [selected, setSelected] = useState(null);
   const [pin, setPin] = useState('');
@@ -29,9 +30,12 @@ export default function KidLogin({ onLogin }) {
 
   const load = () => {
     setLoadError('');
-    api
-      .kids()
-      .then((d) => setKids(d.kids))
+    // Ohne Netz: zuletzt geladene Profilliste (Anmeldung dann mit der auf diesem Gerät gemerkten PIN).
+    loadKids()
+      .then((d) => {
+        setKids(d.kids);
+        setOffline(d.offline);
+      })
       .catch((e) => setLoadError(e.message));
   };
 
@@ -52,8 +56,18 @@ export default function KidLogin({ onLogin }) {
     }
     setBusy(true);
     try {
-      const res = await api.login(selected.name, pin);
-      await onLogin({ name: res.name, token: res.token });
+      let session;
+      try {
+        const res = await api.login(selected.name, pin);
+        session = { name: res.name, token: res.token };
+        await rememberKid(res.name, pin, res.token);
+      } catch (err) {
+        if (err?.status !== 0) throw err;
+        // Keine Verbindung: PIN auf diesem Gerät prüfen (nur wer sich hier schon einmal angemeldet hat).
+        if (firstTime) throw new Error('Die PIN kann nur mit Internet festgelegt werden.');
+        session = await loginOffline(selected.name, pin);
+      }
+      await onLogin(session);
     } catch (err) {
       setError(errorText(err));
       setPin('');
@@ -92,11 +106,17 @@ export default function KidLogin({ onLogin }) {
               </div>
             )}
             {!kids && !loadError && <p className="text-sm text-muted-foreground">Lade …</p>}
+            {offline && (
+              <p className="text-sm text-muted-foreground">
+                Gerade offline – anmelden kann sich, wer das auf diesem Gerät schon einmal mit Internet gemacht hat.
+              </p>
+            )}
             {kids?.map((k) => (
               <Button
                 key={k.name}
                 variant="outline"
                 className="w-full h-14 text-lg justify-start px-5"
+                disabled={offline && !isKnownKid(k.name)}
                 onClick={() => {
                   setSelected(k);
                   setError('');
@@ -105,6 +125,9 @@ export default function KidLogin({ onLogin }) {
                 }}
               >
                 {k.name}
+                {offline && !isKnownKid(k.name) && (
+                  <span className="ml-auto text-xs text-muted-foreground">nur mit Internet</span>
+                )}
               </Button>
             ))}
           </CardContent>
