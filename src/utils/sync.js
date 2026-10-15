@@ -9,8 +9,10 @@
 //   Netz). War das Gerät offline oder gab es beim Start noch offene Änderungen, wird VOR dem Hochladen der
 //   Server-Stand geholt und zusammengeführt (Runden per ID, Markierungen per ID, Durchgang, Highscores …),
 //   damit ein iPad, das offline geübt hat, keine Runden von anderen Geräten überschreibt.
+// - Profilwechsel offline (2026-10-15): Jedes Kind wird mit seinem eigenen, auf dem Gerät gemerkten Token
+//   hochgeladen (getKnownKidToken) – auch wenn gerade ein anderes Kind angemeldet ist.
 
-import { api, getKidSession, getParentToken } from '../lib/api';
+import { api, getKidSession, getParentToken, getKnownKidToken } from '../lib/api';
 import { onDirty } from './dirty';
 import { STORAGE_KEYS, FAMILY_OWNER } from './storage';
 
@@ -133,8 +135,11 @@ function localValue(owner, key) {
       return list.length ? list : null;
     }
     case 'draft': {
+      // Es gibt nur einen Platz für die laufende Runde. Liegt dort die Runde eines anderen Kindes,
+      // den Server-Stand dieses Kindes nicht anfassen (undefined = nicht hochladen).
       const d = readJson(STORAGE_KEYS.draft, null);
-      return d && d.name === owner ? d : null;
+      if (d && d.name !== owner) return undefined;
+      return d || null;
     }
     case 'answerFlags': {
       const list = readJson(STORAGE_KEYS.answerFlags, {})[owner];
@@ -182,7 +187,14 @@ export async function flush({ keepalive = false } = {}) {
   if (flushing) await flushing;
   const kid = getKidSession();
   const parent = getParentToken();
-  const token = parent || kid?.token;
+  // Token je Eintrag: Eltern dürfen alles, Kinder nur ihre eigenen Daten (mit ihrem gemerkten Token).
+  const tokenFor = (owner, key) => {
+    if (parent) return parent;
+    if (owner === FAMILY_OWNER || FAMILY_KEYS.includes(key)) return null;
+    return kid?.name === owner ? kid.token : getKnownKidToken(owner);
+  };
+  let token = parent || kid?.token;
+  if (!token) for (const { owner, key } of pending.values()) token ||= tokenFor(owner, key);
   if (!token || pending.size === 0) {
     if (status !== 'error') setStatus('idle');
     return;
@@ -201,40 +213,50 @@ export async function flush({ keepalive = false } = {}) {
     }
   }
 
-  const batch = [];
+  // Je Token ein Paket (mehrere Kinder nach Profilwechsel ohne Netz).
+  const batches = new Map(); // token -> [{ id, owner, key }]
   for (const [id, { owner, key }] of pending) {
-    const allowed = parent || (kid && owner === kid.name && !FAMILY_KEYS.includes(key) && owner !== FAMILY_OWNER);
-    if (allowed) batch.push({ id, owner, key });
+    const t = tokenFor(owner, key);
+    if (!t) continue;
+    if (!batches.has(t)) batches.set(t, []);
+    batches.get(t).push({ id, owner, key });
   }
-  if (batch.length === 0) {
+  if (batches.size === 0) {
     setStatus('idle');
     return;
   }
 
-  const items = batch.map(({ owner, key }) => ({ owner, key, value: localValue(owner, key) }));
-  batch.forEach(({ id }) => pending.delete(id));
-  savePending();
-  const size = JSON.stringify(items).length;
-
   setStatus('saving');
-  flushing = api
-    .putState(items, token, keepalive && size < KEEPALIVE_MAX_BYTES)
-    .then(() => {
-      markSynced();
-      setStatus(pending.size ? 'pending' : 'idle');
-    })
-    .catch(() => {
-      batch.forEach(({ id, owner, key }) => {
-        if (!pending.has(id)) pending.set(id, { owner, key });
-      });
+  flushing = (async () => {
+    let failed = false;
+    for (const [t, batch] of batches) {
+      const values = batch.map(({ owner, key }) => ({ owner, key, value: localValue(owner, key) }));
+      const items = values.filter((it) => it.value !== undefined);
+      batch.forEach(({ id }) => pending.delete(id));
       savePending();
+      if (!items.length) continue;
+      const size = JSON.stringify(items).length;
+      try {
+        await api.putState(items, t, keepalive && size < KEEPALIVE_MAX_BYTES);
+      } catch {
+        batch.forEach(({ id, owner, key }) => {
+          if (!pending.has(id)) pending.set(id, { owner, key });
+        });
+        savePending();
+        failed = true;
+      }
+    }
+    if (failed) {
       needsMerge = true; // vielleicht offline: vor dem nächsten Versuch zusammenführen
       setStatus('error');
       schedule(RETRY_MS);
-    })
-    .finally(() => {
-      flushing = null;
-    });
+    } else {
+      markSynced();
+      setStatus(pending.size ? 'pending' : 'idle');
+    }
+  })().finally(() => {
+    flushing = null;
+  });
   await flushing;
 }
 
@@ -299,14 +321,20 @@ export function hydrate(owners, kidName) {
   writeJson(STORAGE_KEYS.highscores, highscores.slice(0, 50));
 
   // Gespeicherte Runden + laufende Runde: nur die des angemeldeten Kindes
+  // Noch nicht hochgeladene Runden anderer Kinder (Profilwechsel ohne Netz) bleiben dabei erhalten.
   if (kidName) {
     const serverRounds = serverOwners[kidName]?.savedRounds || [];
-    if (!isPending(kidName, 'savedRounds')) writeJson(STORAGE_KEYS.savedRounds, serverRounds);
-    else {
-      const localRounds = readJson(STORAGE_KEYS.savedRounds, []);
-      writeJson(STORAGE_KEYS.savedRounds, byKey([...serverRounds, ...localRounds], (r) => r.id, (a, b) => b));
-    }
-    if (!isPending(kidName, 'draft')) writeJson(STORAGE_KEYS.draft, serverOwners[kidName]?.draft || null);
+    const localRounds = readJson(STORAGE_KEYS.savedRounds, []);
+    const othersPending = localRounds.filter(
+      (r) => r?.playerName && r.playerName !== kidName && isPending(r.playerName, 'savedRounds'),
+    );
+    const own = isPending(kidName, 'savedRounds')
+      ? byKey([...serverRounds, ...localRounds.filter((r) => r?.playerName === kidName)], (r) => r.id, (a, b) => b)
+      : serverRounds;
+    writeJson(STORAGE_KEYS.savedRounds, [...own, ...othersPending]);
+    const slot = readJson(STORAGE_KEYS.draft, null);
+    const otherDraftPending = slot?.name && slot.name !== kidName && isPending(slot.name, 'draft');
+    if (!isPending(kidName, 'draft') && !otherDraftPending) writeJson(STORAGE_KEYS.draft, serverOwners[kidName]?.draft || null);
   }
 
   // Lehrer-Markierungen (familienweit)

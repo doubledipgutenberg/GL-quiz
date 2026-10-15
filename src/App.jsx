@@ -177,8 +177,8 @@ export default function App() {
           onAdmin={() => setShowAdmin(true)}
           onRestoreDraft={quiz.restoreDraft}
           onRestoreSavedRound={quiz.restoreSavedRound}
-          hasDraft={!!getDraftSession()}
-          hasSavedRounds={getSavedRounds().length > 0}
+          hasDraft={getDraftSession()?.name === kid.name}
+          hasSavedRounds={getSavedRounds().some((r) => r?.playerName === kid.name)}
         />
       )}
 
