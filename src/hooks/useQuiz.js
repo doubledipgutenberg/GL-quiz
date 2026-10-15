@@ -2,6 +2,7 @@ import { useReducer, useCallback, useEffect, useRef } from 'react';
 import questions, { EXAMS, getVocabularyQuestions, getNewVocabularyQuestions, DEFAULT_EXAM } from '../data/questions';
 import { checkAnswer, calculatePoints, getMaxPoints } from '../utils/scoring';
 import { planVocabRound, markVocabDone, vocabPassStatus } from '../utils/vocabPass';
+import { spreadByWord } from '../utils/spreadCards';
 import { saveHighscore, upsertStudentSession, saveDraftSession, clearDraftSession, getDraftSession, addSavedRound, getStudentHistory } from '../utils/storage';
 
 // Shuffle array (Fisher-Yates)
@@ -52,7 +53,8 @@ function reducer(state, action) {
           action.questions ??
           (mode === 'newvocab' ? getNewVocabularyQuestions(EXAMS[exam]?.course) : getVocabularyQuestions(exam));
         if (pool.length === 0) return state;
-        const shuffled = withShuffledOptions(shuffle(pool));
+        // Gemischt, aber dasselbe Wort nie direkt hintereinander (utils/spreadCards.js).
+        const shuffled = withShuffledOptions(spreadByWord(shuffle(pool)));
         return {
           ...state,
           phase: 'quiz',
@@ -252,7 +254,7 @@ export default function useQuiz() {
     // Union-Pool: Vokabel-Fehler können vocab_card ODER normale Fragen (fill_gap/picture) sein.
     const pool = [...questions, ...getVocabularyQuestions()];
     const byId = Object.fromEntries(pool.map(q => [q.id, q]));
-    const restoredQuestions = questionIds.map(id => byId[id]).filter(Boolean);
+    const restoredQuestions = spreadByWord(questionIds.map(id => byId[id]).filter(Boolean));
     if (restoredQuestions.length === 0) return;
     const maxScore = getMaxPoints(restoredQuestions);
     dispatch({
