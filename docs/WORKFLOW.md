@@ -347,6 +347,8 @@ curl -s -o /dev/null -w '%{http_code}' https://<slug>.space.fast/   # muss 403 l
   bf_emma. Fragen nach Grammatik G1–G3 und Practice pool der Unit.
 - Hör-Karten: erst das Wort, dann ein kurzer Beispielsatz (nur bei Hör-Karten).
 - Wortschatz hat vier Kartenarten: übersetzen, in der Fremdsprache schreiben, Lückentext, nach Gehör schreiben.
+- Dasselbe Wort **nie direkt hintereinander** (auch nicht in anderer Kartenart), möglichst 5 andere Karten
+  dazwischen (`src/utils/spreadCards.js`, nach dem Mischen in `useQuiz` und bei Wiederholungen aus dem Lehrer-Bereich).
 - „Na ja, schon fast richtig“ (nur Wortschatz): Kind meldet, Eltern urteilen, Agent wertet aus (siehe oben).
 - „Alle Vokabeln“ in Runden à 50 Karten mit Anzeige der restlichen Karten/Runden; in der Oberfläche heißt eine
   Session „Runde“. Serien-Kalender auf der Startseite (Monate als Blöcke, Wochentage als Zeilen).
