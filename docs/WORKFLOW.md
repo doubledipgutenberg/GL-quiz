@@ -291,7 +291,18 @@ curl -s -o /dev/null -w '%{http_code}' https://<slug>.space.fast/   # muss 403 l
   Highscores, gespeicherte Runden), dann hochladen; `online`-Event löst sofort aus.
   **Statusanzeige** links oben (`src/components/SyncStatus.jsx`): Punkt + Wort („Gespeichert“, „Speichert …“,
   „Offline“); antippen zeigt Erklärung, ob noch etwas zu übertragen ist, wann zuletzt übertragen wurde, und
-  offline „Jetzt erneut versuchen“. Kein großer Hinweistext mehr auf der Startseite.
+  offline „Jetzt erneut versuchen“. Kein großer Hinweistext mehr auf der Startseite. Zeile „Offline nutzbar“ fragt den
+  Service Worker (Nachricht `status`), ob App und wie viele Aufnahmen auf dem Gerät liegen – so lässt sich auf dem
+  iPad ohne Entwicklerwerkzeuge prüfen, ob es offline bereit ist. Beim Start schickt die App `fill`, damit fehlende
+  Aufnahmen nachgeladen werden (iOS beendet den Service Worker manchmal mitten im Laden).
+  **Spacefast-Besonderheiten** (live gemessen 2026-10-15): `/assets/*` antwortet mit 307 auf `/assets/*;sf-private`
+  (gleicher Host, braucht das Cookie); ohne Cookie gibt es für alles 403 + Passwortseite; `/apple-touch-icon*` und
+  `/favicon.ico` liefert die Plattform selbst aus (graues Bild). Safari lädt App-Symbole ohne Cookie – die
+  Symbol-Dateien müssen deshalb ohne Passwort abrufbar sein (Space-Freigabe nur für diese Pfade).
+  **Test mit Safari-Engine:** Playwright-WebKit gegen einen lokalen Spacefast-Nachbau (Cookie-Sperre, 307 für
+  `/assets/`); „offline“ dabei durch Abschalten des Servers, nicht `setOffline` (das bricht in WebKit ab).
+  **iPad:** Die Home-Bildschirm-App hat eigenen Speicher (Cookies, Service Worker, Daten) – sie muss selbst einmal
+  mit Internet geöffnet werden (Passwort + PIN darin), erst dann ist sie offline nutzbar.
   **Testen:** Launch-Konfiguration `english-topic-quiz-offline` (Produktions-Build + Test-Attrappe auf Port 5177,
   `configurePreviewServer` in `scripts/dev-mock-api.js`); Server stoppen = offline.
 - **Auto-Save der Ergebnisse** (`useQuiz.js`, `upsertStudentSession` in `storage.js`): Jede Runde hat eine

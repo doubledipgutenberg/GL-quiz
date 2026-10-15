@@ -24,11 +24,44 @@ function formatTime(iso) {
   return today ? `heute, ${time} Uhr` : `${d.toLocaleDateString('de-DE')}, ${time} Uhr`;
 }
 
+// Beim Service Worker nachfragen, was für offline auf diesem Gerät liegt (nur im veröffentlichten Build).
+function askOfflineReadiness() {
+  const sw = typeof navigator !== 'undefined' ? navigator.serviceWorker?.controller : null;
+  if (!sw) return Promise.resolve(null);
+  return new Promise((resolve) => {
+    const channel = new MessageChannel();
+    const timer = setTimeout(() => resolve(null), 3000);
+    channel.port1.onmessage = (e) => {
+      clearTimeout(timer);
+      resolve(e.data);
+    };
+    sw.postMessage('status', [channel.port2]);
+  });
+}
+
+function readinessText(r) {
+  if (r === undefined) return 'wird geprüft …';
+  if (!r?.app) return 'noch nicht – App einmal mit Internet öffnen und kurz warten';
+  if (r.audioCached < r.audioTotal) return `ja – Aufnahmen werden noch geladen (${r.audioCached} von ${r.audioTotal})`;
+  return `ja – App und alle ${r.audioTotal} Aufnahmen auf diesem Gerät`;
+}
+
 export default function SyncStatus() {
   const [, setTick] = useState(0);
   const [open, setOpen] = useState(false);
   const [retrying, setRetrying] = useState(false);
+  const [readiness, setReadiness] = useState(undefined);
   const ref = useRef(null);
+
+  // Offline-Bereitschaft bei jedem Öffnen neu abfragen.
+  useEffect(() => {
+    if (!open) return undefined;
+    let cancelled = false;
+    askOfflineReadiness().then((r) => !cancelled && setReadiness(r));
+    return () => {
+      cancelled = true;
+    };
+  }, [open]);
 
   // Neu zeichnen bei Statuswechsel und wenn das Gerät on-/offline geht.
   useEffect(() => {
@@ -72,7 +105,10 @@ export default function SyncStatus() {
     <div ref={ref} className="relative inline-block">
       <button
         type="button"
-        onClick={() => setOpen((o) => !o)}
+        onClick={() => {
+          setReadiness(undefined);
+          setOpen((o) => !o);
+        }}
         aria-expanded={open}
         aria-label={`Speicherstatus: ${label}`}
         className="inline-flex items-center gap-1.5 rounded-full border-[2px] border-[var(--pen)] bg-[var(--cream-50)] px-2.5 py-1 text-xs font-semibold text-[var(--ink)]"
@@ -113,6 +149,8 @@ export default function SyncStatus() {
             <dd>{info.pendingCount ? 'ja – deine letzten Antworten' : 'nichts'}</dd>
             <dt>Zuletzt übertragen</dt>
             <dd>{last || 'auf diesem Gerät noch nie'}</dd>
+            <dt>Offline nutzbar</dt>
+            <dd>{readinessText(readiness)}</dd>
           </dl>
           {state === 'offline' && (
             <button type="button" className="vx-btn vx-btn--sm" onClick={retry} disabled={retrying}>
