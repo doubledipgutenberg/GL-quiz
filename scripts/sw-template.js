@@ -102,6 +102,22 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('message', (event) => {
   if (event.data === 'fill') event.waitUntil(Promise.all([fillAudio(), fillFonts()]));
+  // Für die Statusanzeige: Wie viel ist auf diesem Gerät für offline gespeichert?
+  if (event.data === 'status' && event.ports[0]) {
+    event.waitUntil(
+      (async () => {
+        const shell = await caches.open(SHELL_CACHE);
+        const audio = await caches.open(AUDIO_CACHE);
+        let audioCached = 0;
+        for (const path of Object.keys(AUDIO)) if (await audio.match(audioKey(path))) audioCached++;
+        event.ports[0].postMessage({
+          app: !!(await shell.match(scopeUrl('index.html'))),
+          audioCached,
+          audioTotal: Object.keys(AUDIO).length,
+        });
+      })(),
+    );
+  }
 });
 
 async function fromNetworkOrApp(request) {

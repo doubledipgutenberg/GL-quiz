@@ -13,5 +13,7 @@ createRoot(document.getElementById('root')).render(
 if (import.meta.env.PROD && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`).catch(() => {});
+    // Fehlende Aufnahmen bei jedem Start nachladen (iOS beendet den Service Worker manchmal mittendrin).
+    navigator.serviceWorker.ready.then((reg) => reg.active?.postMessage('fill'));
   });
 }
