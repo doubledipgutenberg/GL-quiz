@@ -110,14 +110,53 @@ auf seinen Wunsch **keine** Karten.
 - I mean – ich meine
 - both – beide
 
+## S. 198–199 – Buchfotos vom 16.10.2026 (neue Lieferung)
+
+Quelle: Fotos der Buchseiten 198 und 199 (16.10.2026). S. 198 (judge … to fix, positive … I mean) und „both“
+(S. 199 oben) sind **schon im Wortschatz** – das Buch bestätigt die Heft-Einträge vom 12.10., keine Duplikate.
+Der Kasten „AE pronunciation“ (S. 198 unten) wird wie bisher **keine** Karte. Neu ist nur der Rest von S. 199:
+
+### Skills: How to use a dictionary
+
+- electronic – elektronisch 📖
+- search – Suche; Such- 📖
+- to look up – nachschlagen; nachschauen 📖
+- meaning – Bedeutung; Sinn 📖
+- time – Mal 📖
+
+### Story: What a wonderful world
+
+- wonderful – wunderbar 📖
+- news (sg) – Nachricht(en); Neuigkeit(en) 📖
+- competition – Wettbewerb; Turnier 📖
+- title – Titel; Überschrift 📖
+- to feel – sich anfühlen 📖
+- to share – teilen 📖
+- to enter – hineingehen; betreten; eintreten; *hier:* mitmachen 📖
+- to be surprised – überrascht sein 📖
+- himself – er/sich (selbst); selber 📖
+- dirty – dreckig; schmutzig 📖
+- flower – Blume 📖
+- to notice – bemerken; wahrnehmen 📖
+- drawing – Zeichnung 📖
+- could – konnte/-n; könnte/-n 📖
+- confident – selbstsicher; selbstbewusst 📖
+- moment – Moment; Augenblick 📖
+
+**21 neue Vokabeln**, vom Nutzer am 16.10. geprüft und freigegeben (Umfang: bis „moment“, S. 199 Ende) →
+Batch `2026-10-16` = „Nur neue Vokabeln“. Zusätzlich richtig (mit dem Nutzer abgestimmt): time → „Zeit“;
+to feel → „fühlen“ (auch „anfühlen“, „sich fühlen“); could → konnte, konnten, könnte, könnten; himself → er selbst,
+sich selbst, selbst, selber, sich; to enter → „mitmachen“; news → „Nachrichten“, „Neuigkeiten“;
+to be surprised → „überrascht“. Lückentext- und Hörsätze selbst formuliert.
+
 Ebenfalls auf den Fotos vom 05.10. und 09.10., aber schon im Wortschatz: der Kasten „Numbers“
 (one thousand … one point five), „City and country“ (cheap … outdoor activity) und die ganze Liste
 „Station 2: Come on, Em!“ (youth … to fix).
 
 ---
 
-**Zusammenfassung:** 86 Vokabeln (je 4 Karten: übersetzen, auf Englisch schreiben, Lückentext, nach Gehör
-schreiben → 344 Karten), Audio mit der Stimme bf_emma. Nicht als Karte: LOL, Jahreszahlen, American-English-Kasten,
+**Zusammenfassung:** 107 Vokabeln (je 4 Karten: übersetzen, auf Englisch schreiben, Lückentext, nach Gehör
+schreiben → 428 Karten), Audio mit der Stimme bf_emma. Nicht als Karte: LOL, Jahreszahlen, American-English-Kasten,
 „AE pronunciation“-Kasten.
 
 **Fragen (67)**, selbst formuliert nach Grammatik G1–G3 und Practice pool: going-to future, question tags,

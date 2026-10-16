@@ -784,7 +784,7 @@ export const EXAMS = {
     id: 'en6-u1',
     course: 'en-6',
     label: 'Unit 1 – My friends and I',
-    units: 'Check-in, Station 1, Station 2 (bis „to fix“)',
+    units: 'Check-in, Station 1, Station 2, Skills, Story (bis „moment“)',
     subtitle: 'Englisch Unit 1',
   },
   'fr6-u1': {

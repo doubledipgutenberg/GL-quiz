@@ -1,5 +1,5 @@
 // Englisch Klasse 6 – Vokabeln (Band 2 des Englisch-Lehrwerks; der Name steht nirgends im Repo).
-// Quelle: Vokabelteil des Buchs (S. 195–198) + Vokabelheft der Kinder (siehe VOCAB_EN6_U1_review.md).
+// Quelle: Vokabelteil des Buchs (S. 195–199) + Vokabelheft der Kinder (siehe VOCAB_EN6_U1_review.md).
 // Diese Datei hat KEINE Importe, damit scripts/export-audio-manifest.mjs sie direkt mit Node lesen kann.
 //
 // Aufbau wie src/data/fr6/vocab.js: Jede Lieferung ist ein BATCH mit dem Datum, an dem sie ins Quiz
@@ -141,6 +141,44 @@ const BATCHES = [
           { en: 'I see.', de: 'Ich verstehe; Aha; Ach so!', ex: 'Oh, [I see]! Now I understand.' },
           { en: 'I mean', de: 'ich meine', ex: '[I mean], he is really nice.' },
           { en: 'both', de: 'beide', ex: '[Both] of my brothers play football.' },
+        ],
+      },
+    ],
+  },
+  {
+    exam: 'en6-u1',
+    added: '2026-10-16',
+    sections: [
+      {
+        // Buch S. 199 (Fotos vom 16.10.), vom Nutzer geprüft; zusätzliche Antworten mit ihm abgestimmt.
+        section: 'Unit 1 – Skills: How to use a dictionary',
+        items: [
+          { en: 'electronic', de: 'elektronisch', ex: 'My little sister has an [electronic] toy that can talk.' },
+          { en: 'search', de: 'Suche; Such-', ex: 'Use the [search] button to find the song.' },
+          { en: 'to look up', de: 'nachschlagen; nachschauen', ex: "Can you [look up] the word 'yearbook' for me?" },
+          { en: 'meaning', de: 'Bedeutung; Sinn', ex: 'Do you know the [meaning] of this word?' },
+          { en: 'time', de: 'Mal', altDe: ['Zeit'], ex: 'We went to London two [times] last year.' },
+        ],
+      },
+      {
+        section: 'Unit 1 – Story: What a wonderful world',
+        items: [
+          { en: 'wonderful', de: 'wunderbar', ex: 'We had a [wonderful] day at the beach.' },
+          { en: 'news (sg)', de: 'Nachricht(en); Neuigkeit(en)', altDe: ['Nachrichten', 'Neuigkeiten'], ex: 'Have you heard the [news]? We have a new teacher!' },
+          { en: 'competition', de: 'Wettbewerb; Turnier', ex: 'Emma won the dance [competition].' },
+          { en: 'title', de: 'Titel; Überschrift', ex: 'What is the [title] of your favourite book?' },
+          { en: 'to feel', de: 'sich anfühlen', altDe: ['anfühlen', 'fühlen', 'sich fühlen'], ex: 'The water [feels] cold today.' },
+          { en: 'to share', de: 'teilen', ex: 'My brother and I [share] a room.' },
+          { en: 'to enter', de: 'hineingehen; betreten; eintreten; hier: mitmachen', altDe: ['mitmachen'], ex: 'Are you going to [enter] the competition?' },
+          { en: 'to be surprised', de: 'überrascht sein', altDe: ['überrascht'], ex: 'Mum was very [surprised] about her birthday party.' },
+          { en: 'himself', de: 'er/sich (selbst); selber', altDe: ['er selbst', 'sich selbst', 'selbst'], ex: 'Max made the cake all by [himself].' },
+          { en: 'dirty', de: 'dreckig; schmutzig', ex: 'Take off your [dirty] shoes, please!' },
+          { en: 'flower', de: 'Blume', ex: 'Grandpa has lots of [flowers] in his garden.' },
+          { en: 'to notice', de: 'bemerken; wahrnehmen', ex: 'Nobody [noticed] the cat under the table.' },
+          { en: 'drawing', de: 'Zeichnung', ex: 'Your [drawing] of the horse is really good!' },
+          { en: 'could', de: 'konnte/-n; könnte/-n', ex: 'When I was four, I [could] already ride a bike.' },
+          { en: 'confident', de: 'selbstsicher; selbstbewusst', ex: 'Lena is always [confident] before a test.' },
+          { en: 'moment', de: 'Moment; Augenblick', ex: 'Can you wait a [moment]? I need my jacket.' },
         ],
       },
     ],
