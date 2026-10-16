@@ -263,6 +263,78 @@
     "variant": "Tempo +0,1",
     "onset": 3.95
   },
+  "en6_competition": {
+    "file": "en6_competition.m4a",
+    "text": "competition",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "b370f8a25bfe8dd4",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_competition_ex": {
+    "file": "en6_competition_ex.m4a",
+    "text": "Emma won the dance competition.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "feebf8e1f999fdd4",
+    "variant": "Standard",
+    "onset": 4.67
+  },
+  "en6_confident": {
+    "file": "en6_confident.m4a",
+    "text": "confident",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "dcb9ec335785bbb3",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_confident_ex": {
+    "file": "en6_confident_ex.m4a",
+    "text": "Lena is always confident before a test.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "e96e845beb96a75c",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_could": {
+    "file": "en6_could.m4a",
+    "text": "could",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "1f305acb749e3e57",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_could_ex": {
+    "file": "en6_could_ex.m4a",
+    "text": "When I was four, I could already ride a bike.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "234899429c36e7bf",
+    "variant": "Standard",
+    "onset": 1.25
+  },
   "en6_daughter": {
     "file": "en6_daughter.m4a",
     "text": "daughter",
@@ -286,6 +358,54 @@
     "hash": "207cd78286d2557f",
     "variant": "Standard",
     "onset": 0.0
+  },
+  "en6_dirty": {
+    "file": "en6_dirty.m4a",
+    "text": "dirty",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "fc5656f6c7ceb0fb",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_dirty_ex": {
+    "file": "en6_dirty_ex.m4a",
+    "text": "Take off your dirty shoes, please!",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "dc9b776d9c50b52d",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_drawing": {
+    "file": "en6_drawing.m4a",
+    "text": "drawing",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "74685bea80db7ede",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_drawing_ex": {
+    "file": "en6_drawing_ex.m4a",
+    "text": "Your drawing of the horse is really good!",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "315c9dc12d4dcc12",
+    "variant": "Tempo +0,05",
+    "onset": 2.13
   },
   "en6_during": {
     "file": "en6_during.m4a",
@@ -332,6 +452,30 @@
     "lead": 0.3,
     "tail": 0.2,
     "hash": "a82660eec9081030",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_electronic": {
+    "file": "en6_electronic.m4a",
+    "text": "electronic",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "43d47125a58d038e",
+    "variant": "Standard",
+    "onset": 2.39
+  },
+  "en6_electronic_ex": {
+    "file": "en6_electronic_ex.m4a",
+    "text": "My little sister has an electronic toy that can talk.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "7f4182d543175735",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -503,6 +647,30 @@
     "variant": "Standard",
     "onset": 0.0
   },
+  "en6_flower": {
+    "file": "en6_flower.m4a",
+    "text": "flower",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "03d28d1fe0cb82e7",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_flower_ex": {
+    "file": "en6_flower_ex.m4a",
+    "text": "Grandpa has lots of flowers in his garden.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "f108c5afdd6c4922",
+    "variant": "Standard",
+    "onset": 0.0
+  },
   "en6_hill": {
     "file": "en6_hill.m4a",
     "text": "hill",
@@ -526,6 +694,30 @@
     "hash": "c0dc6987f28db165",
     "variant": "Standard",
     "onset": 1.2
+  },
+  "en6_himself": {
+    "file": "en6_himself.m4a",
+    "text": "himself",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "98d50f590aced379",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_himself_ex": {
+    "file": "en6_himself_ex.m4a",
+    "text": "Max made the cake all by himself.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "d5864fad253b142f",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_home_town": {
     "file": "en6_home_town.m4a",
@@ -791,6 +983,54 @@
     "variant": "Standard",
     "onset": 0.0
   },
+  "en6_meaning": {
+    "file": "en6_meaning.m4a",
+    "text": "meaning",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "f45496fd82a1a8f6",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_meaning_ex": {
+    "file": "en6_meaning_ex.m4a",
+    "text": "Do you know the meaning of this word?",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "134136816d8e8b30",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_moment": {
+    "file": "en6_moment.m4a",
+    "text": "moment",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "3efc3e4374480884",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_moment_ex": {
+    "file": "en6_moment_ex.m4a",
+    "text": "Can you wait a moment? I need my jacket.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "4f7ff5e387a899a1",
+    "variant": "Standard",
+    "onset": 0.0
+  },
   "en6_movie": {
     "file": "en6_movie.m4a",
     "text": "movie",
@@ -886,6 +1126,30 @@
     "hash": "5b86a46b55055755",
     "variant": "Glottisschlag",
     "onset": 2.52
+  },
+  "en6_news": {
+    "file": "en6_news.m4a",
+    "text": "news",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "602d5f01a9eb22e7",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_news_ex": {
+    "file": "en6_news_ex.m4a",
+    "text": "Have you heard the news? We have a new teacher!",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "2b89e6273bbc5da1",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_noise": {
     "file": "en6_noise.m4a",
@@ -1319,6 +1583,30 @@
     "variant": "Tempo +0,05",
     "onset": 1.34
   },
+  "en6_search": {
+    "file": "en6_search.m4a",
+    "text": "search",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "474bcbdd74e9672e",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_search_ex": {
+    "file": "en6_search_ex.m4a",
+    "text": "Use the search button to find the song.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "ddae99bfa9131c76",
+    "variant": "Tempo +0,1",
+    "onset": 1.53
+  },
   "en6_second": {
     "file": "en6_second.m4a",
     "text": "second",
@@ -1463,6 +1751,54 @@
     "variant": "Standard",
     "onset": 0.0
   },
+  "en6_time": {
+    "file": "en6_time.m4a",
+    "text": "time",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "cee0088b62656299",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_time_ex": {
+    "file": "en6_time_ex.m4a",
+    "text": "We went to London two times last year.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "f9d171cc27c65d81",
+    "variant": "Standard",
+    "onset": 1.23
+  },
+  "en6_title": {
+    "file": "en6_title.m4a",
+    "text": "title",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "45d52290e754d23d",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_title_ex": {
+    "file": "en6_title_ex.m4a",
+    "text": "What is the title of your favourite book?",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "11863fbf0734c1b6",
+    "variant": "Punkt am Ende",
+    "onset": 0.84
+  },
   "en6_to_be_interested": {
     "file": "en6_to_be_interested.m4a",
     "text": "to be interested in",
@@ -1486,6 +1822,30 @@
     "hash": "908c88cf431a65e4",
     "variant": "Glottisschlag",
     "onset": 2.48
+  },
+  "en6_to_be_surprised": {
+    "file": "en6_to_be_surprised.m4a",
+    "text": "to be surprised",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "f20203dff41cd743",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_to_be_surprised_ex": {
+    "file": "en6_to_be_surprised_ex.m4a",
+    "text": "Mum was very surprised about her birthday party.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "66cee73be14a3268",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_to_end_up": {
     "file": "en6_to_end_up.m4a",
@@ -1511,6 +1871,30 @@
     "variant": "Tempo +0,1",
     "onset": 2.1
   },
+  "en6_to_enter": {
+    "file": "en6_to_enter.m4a",
+    "text": "to enter",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "4704b1d05aacedb0",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_to_enter_ex": {
+    "file": "en6_to_enter_ex.m4a",
+    "text": "Are you going to enter the competition?",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "9f3eaa238396a644",
+    "variant": "Glottisschlag",
+    "onset": 2.72
+  },
   "en6_to_fall_off": {
     "file": "en6_to_fall_off.m4a",
     "text": "to fall off",
@@ -1532,6 +1916,30 @@
     "lead": 0.3,
     "tail": 0.2,
     "hash": "db6af31226a26f2e",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_to_feel": {
+    "file": "en6_to_feel.m4a",
+    "text": "to feel",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "b1ed76e2cfd1c115",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_to_feel_ex": {
+    "file": "en6_to_feel_ex.m4a",
+    "text": "The water feels cold today.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "1725c88d891fae9d",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1655,6 +2063,30 @@
     "variant": "Tempo +0,1",
     "onset": 4.11
   },
+  "en6_to_look_up": {
+    "file": "en6_to_look_up.m4a",
+    "text": "to look up",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "f9055b96df7745fa",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_to_look_up_ex": {
+    "file": "en6_to_look_up_ex.m4a",
+    "text": "Can you look up the word 'yearbook' for me?",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "6350b6bacb16e951",
+    "variant": "Standard",
+    "onset": 0.0
+  },
   "en6_to_move": {
     "file": "en6_to_move.m4a",
     "text": "to move house",
@@ -1679,6 +2111,30 @@
     "variant": "Standard",
     "onset": 1.09
   },
+  "en6_to_notice": {
+    "file": "en6_to_notice.m4a",
+    "text": "to notice",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "e0d60ee296bc7ce0",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_to_notice_ex": {
+    "file": "en6_to_notice_ex.m4a",
+    "text": "Nobody noticed the cat under the table.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "f8cf92863c64caf2",
+    "variant": "Standard",
+    "onset": 0.0
+  },
   "en6_to_point": {
     "file": "en6_to_point.m4a",
     "text": "to point",
@@ -1702,6 +2158,30 @@
     "hash": "72cd582e1282ec9b",
     "variant": "Glottisschlag",
     "onset": 2.51
+  },
+  "en6_to_share": {
+    "file": "en6_to_share.m4a",
+    "text": "to share",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "6e4457462486c67c",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_to_share_ex": {
+    "file": "en6_to_share_ex.m4a",
+    "text": "My brother and I share a room.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "917acf02cac73f9c",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_to_teach": {
     "file": "en6_to_teach.m4a",
@@ -1991,6 +2471,30 @@
     "hash": "2cbaf8fcda6b4938",
     "variant": "Standard",
     "onset": 0.0
+  },
+  "en6_wonderful": {
+    "file": "en6_wonderful.m4a",
+    "text": "wonderful",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "bfe7f0067e5c3390",
+    "variant": "Tempo +0,1",
+    "onset": 1.51
+  },
+  "en6_wonderful_ex": {
+    "file": "en6_wonderful_ex.m4a",
+    "text": "We had a wonderful day at the beach.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "8bc758b6910d175a",
+    "variant": "Tempo +0,05",
+    "onset": 1.32
   },
   "en6_worried": {
     "file": "en6_worried.m4a",
