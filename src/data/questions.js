@@ -791,7 +791,7 @@ export const EXAMS = {
     id: 'fr6-u1',
     course: 'fr-6',
     label: 'Unité 1 – Bonjour, Paris!',
-    units: 'Au début + Unité 1 (Ateliers A1–B5)',
+    units: 'Au début + Unité 1 (A1–B6) + Unité 2 (bis A2 „travailler“)',
     subtitle: 'Französisch Unité 1',
   },
 };

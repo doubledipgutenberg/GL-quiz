@@ -52,7 +52,7 @@ export function toEnCard(v) {
 
 // Beispielsatz zur Hör-Karte (eigene Audiodatei <id>_ex.m4a), nur wenn `ex` gepflegt ist.
 function exampleAudioOf(v) {
-  return v.ex ? { course: COURSE, id: `${v.id}_ex`, text: exampleText(v), lang: 'en' } : null;
+  return v.ex ? { course: COURSE, id: `${v.id}_ex`, text: v.sayEx || exampleText(v), lang: 'en' } : null;
 }
 
 export function toListenCard(v) {

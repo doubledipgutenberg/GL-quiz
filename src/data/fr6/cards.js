@@ -55,7 +55,7 @@ export function toFrCard(v) {
 
 // Beispielsatz zur Hör-Karte (eigene Audiodatei <id>_ex.m4a), nur wenn `ex` gepflegt ist.
 function exampleAudioOf(v) {
-  return v.ex ? { course: COURSE, id: `${v.id}_ex`, text: exampleText(v), lang: 'fr' } : null;
+  return v.ex ? { course: COURSE, id: `${v.id}_ex`, text: v.sayEx || exampleText(v), lang: 'fr' } : null;
 }
 
 export function toListenCard(v) {
