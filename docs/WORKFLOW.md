@@ -359,7 +359,10 @@ curl -s -o /dev/null -w '%{http_code}' https://<slug>.space.fast/   # muss 403 l
   erzeugt für Einträge mit Vokal/Halbvokal am Anfang mehrere Varianten (Standard, Punkt am Ende, Glottisschlag,
   etwas schneller) und behält die mit dem saubersten Anfang (`onset_score`, Ergebnis als `variant`/`onset` in
   `index.json`). Spricht Kokoro ein Wort falsch aus, Laute direkt vorgeben: `sayPhonemes` in der Vokabel
-  (z. B. „what a“ → `wˈɒt ə`, sonst Buchstaben-A).
+  (z. B. „what a“ → `wˈɒt ə`, sonst Buchstaben-A). Für Beispielsätze: `sayEx` (anderer gesprochener Text) bzw.
+  `sayExPhonemes` (Laute direkt). Französische Stolperfallen (2026-10-19): „BD“ wird zu „boulevard“ (→ `bédé`),
+  „sac à dos“ springt bei „dos“ ins Englische (→ Laute `sˈak a dˈo`). Neue Wörter und Sätze vor dem Veröffentlichen
+  mit `kokoro.tokenizer.phonemize(text, 'fr-fr')` prüfen – `(en)…(fr)` in der Ausgabe heißt: falsche Sprache.
 - Design System „Clara & Jakob lernen Sprachen“ (`design-system/`, Regeln in `CLAUDE.md`): eingebunden in
   `src/index.css` (tokens.css ohne Layer, bundle.css im Layer `components`, shadcn-Variablen auf die Tokens
   gemappt), Schriften per `<link>` in `index.html`. Stift über `data-course` am `<body>` (App.jsx) – nicht am

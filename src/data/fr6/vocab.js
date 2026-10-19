@@ -1,5 +1,5 @@
 // Französisch Klasse 6 – Vokabeln (Découvertes 1, Ausgabe Bayern).
-// Quelle: Vokabelteil des Buchs + Vokabelheft der Kinder, geprüft vom Nutzer
+// Quelle: Vokabelteil des Buchs (S. 162–168) + Vokabelheft der Kinder, geprüft vom Nutzer
 // (siehe VOCAB_FR6_U1_review.md). Diese Datei hat KEINE Importe, damit
 // scripts/export-audio-manifest.mjs sie direkt mit Node lesen kann.
 //
@@ -7,6 +7,9 @@
 // Der Modus „Neue Vokabeln“ fragt den jüngsten Batch des Kurses ab.
 // Felder pro Eintrag: fr, de, optional alt (weitere richtige frz. Antworten),
 // altDe (weitere richtige dt. Antworten), say (gesprochener Text, falls abweichend),
+// sayEx (gesprochener Beispielsatz, falls abweichend – z. B. „BD“ liest die Sprachausgabe sonst als „boulevard“),
+// sayPhonemes / sayExPhonemes (Laute direkt für Wort bzw. Satz, wenn die Aussprache sonst falsch ist –
+// z. B. „sac à dos“: die Sprachausgabe springt bei „dos“ ins Englische),
 // ex (kurzer Beispielsatz, eigene Formulierung – wird bei Hör-Karten nach dem Wort vorgelesen;
 // die [Klammer] markiert die Lücke für den Lückentext, siehe gapOf).
 
@@ -112,6 +115,69 @@ const BATCHES = [
           { fr: 'un perroquet', de: 'ein Papagei', ex: 'Coco est [un perroquet].' },
           { fr: 'un canari', de: 'ein Kanarienvogel', ex: 'Voilà [un canari].' },
           { fr: 'un cochon', de: 'ein Schwein', ex: "C'est [un cochon] ! Il est super." },
+        ],
+      },
+    ],
+  },
+  {
+    // Buch S. 167–168 + Vokabelheft (Fotos vom 19.10.), Umfang laut Nutzer „bis A2 travailler“ (dans = A3).
+    exam: 'fr6-u1',
+    added: '2026-10-19',
+    sections: [
+      {
+        // Stand am 11.10. nur im Buch, jetzt auch im Heft.
+        section: 'Unité 1 – Atelier B6',
+        items: [
+          { fr: 'madame …', de: 'Frau …', say: 'madame', ex: 'Bonjour, [madame] ! Ça va ?' },
+          { fr: 'mademoiselle …', de: 'Fräulein …', say: 'mademoiselle', ex: 'Merci, [mademoiselle] !' },
+          { fr: 'Bof!', de: 'Na ja. (ugs.); Ach. (ugs.)', altDe: ['Naja'], say: 'Bof !', ex: 'Ça va ? – [Bof] …' },
+        ],
+      },
+      {
+        section: 'Unité 2 – Copain, copine',
+        items: [
+          { fr: 'un magasin', de: 'ein Geschäft; ein Laden', ex: 'Marie cherche [un magasin].' },
+          { fr: 'un journal', de: 'eine Zeitung', ex: 'Le monsieur regarde [un journal].' },
+          { fr: 'une BD', de: 'ein Comic', say: 'une bédé', ex: 'Marie regarde [une BD] avec Léo.', sayEx: 'Marie regarde une bédé avec Léo.' },
+          { fr: 'une affiche', de: 'ein Plakat; ein Poster', ex: 'Voilà [une affiche] de Malabar.' },
+          { fr: "Qu'est-ce que c'est?", de: 'Was ist das?', ex: "[Qu'est-ce que c'est] ? – C'est un livre." },
+          { fr: 'à (Paris)', de: 'in; nach (Paris)', say: 'à', ex: 'Je suis [à] Paris.' },
+          { fr: 'une maison', de: 'ein Haus', ex: "C'est [une maison] à Nice." },
+          { fr: 'une maison de la presse', de: 'ein Zeitschriften- und Schreibwarengeschäft', altDe: ['Zeitschriftengeschäft', 'Schreibwarengeschäft'], ex: 'Marie arrive à [la maison de la presse].' },
+          { fr: 'Que fait Léo?', de: 'Was macht Léo?', ex: '[Que fait] Léo ? – Il regarde une BD.', sayEx: 'Que fait Léo ? – Il regarde une bédé.' },
+          { fr: 'regarder qc', de: 'etwas ansehen; etwas betrachten', alt: ['regarder'], altDe: ['ansehen', 'betrachten'], say: 'regarder', ex: 'Marie [regarde] une affiche.' },
+        ],
+      },
+      {
+        section: 'Unité 2 – Verben und mehr',
+        items: [
+          { fr: 'parler', de: 'sprechen', ex: 'Marie [parle] avec Léo.' },
+          { fr: 'avec', de: 'mit', ex: 'Je suis ici [avec] Malabar.' },
+          { fr: 'arriver', de: 'kommen; ankommen', ex: 'Voilà Léo ! Il [arrive].' },
+          { fr: 'chercher qn/qc', de: 'jemanden/etwas suchen', alt: ['chercher'], altDe: ['suchen', 'jemanden suchen'], say: 'chercher', ex: 'Léo [cherche] Malabar.' },
+        ],
+      },
+      {
+        section: 'Unité 2 – Atelier A1',
+        items: [
+          { fr: 'français', de: 'französisch', ex: "C'est un livre [français]." },
+          { fr: 'en français', de: 'auf Französisch', ex: 'Marie parle [en français].' },
+          { fr: 'un sac à dos', de: 'ein Rucksack', sayPhonemes: 'œ̃ sˈak a dˈo', ex: 'Marie cherche [un sac à dos].', sayExPhonemes: 'maʁˈi ʃˈɛʁʃ œ̃ sˈak a dˈo.' },
+          { fr: 'un livre', de: 'ein Buch', ex: 'Léo regarde [un livre].' },
+          { fr: 'un crayon', de: 'ein Bleistift', ex: 'Voilà [un crayon] et une gomme.' },
+          { fr: 'un cahier', de: 'ein Heft', ex: 'Voilà [un cahier] et un livre.' },
+          { fr: 'un stylo', de: 'ein Füller; ein Kuli', ex: 'Léo cherche [un stylo].' },
+          { fr: 'une gomme', de: 'ein Radiergummi', ex: "Qu'est-ce que c'est ? – C'est [une gomme]." },
+          { fr: 'un truc (fam.)', de: 'ein Ding; eine Sache', say: 'un truc', ex: 'Marie trouve [un truc] ici.' },
+        ],
+      },
+      {
+        section: 'Unité 2 – Atelier A2',
+        items: [
+          { fr: 'écouter qn/qc', de: 'jemandem zuhören; etwas anhören', alt: ['écouter'], altDe: ['zuhören', 'anhören'], say: 'écouter', ex: 'Léo [écoute] Marie.' },
+          { fr: 'trouver qn/qc', de: 'jemanden/etwas finden', alt: ['trouver'], altDe: ['finden', 'jemanden finden'], say: 'trouver', ex: 'Marie [trouve] Malabar !' },
+          { fr: 'porter qc', de: 'etwas tragen', alt: ['porter'], altDe: ['tragen'], say: 'porter', ex: 'Le monsieur [porte] un journal.' },
+          { fr: 'travailler', de: 'arbeiten', ex: 'Le monsieur [travaille] à Paris.' },
         ],
       },
     ],
