@@ -1,6 +1,8 @@
-// Englisch Klasse 6 – Unit 1 „My friends and I“ (Check-in, Station 1, Station 2 bis „to fix“).
-// Inhalte nach dem Vokabelteil (S. 195–198), der Grammatik (G1 going-to future, G2 question tags,
-// G3 Fragen mit Präpositionen) und dem Practice pool der Unit – alle Sätze selbst formuliert.
+// Englisch Klasse 6 – Unit 1 „My friends and I“, Schulaufgabe am 26.10.2026 (Stoffplan vom 19.10.).
+// Inhalte nach dem Vokabelteil (S. 195–201, „embarrassing“ bis „fishing“, mit grünen Kästen), der Grammatik
+// (G1 going-to future, G2 question tags, G3 Fragen mit Präpositionen), „Grundwissen aller bereits gelernten
+// Zeiten“ (Zeiten-Mix: simple present, present progressive, simple past, going-to future) und dem Practice
+// pool der Unit – alle Sätze selbst formuliert. Aufbau der Schulaufgabe: Hörverstehen + Mediation.
 // Hinweis: Kein Komma und kein Semikolon in `correct` von Freitext-Fragen – die trennen dort
 // Alternativen. Weitere richtige Lösungen → alternativeCorrect.
 
@@ -16,6 +18,7 @@ const T = {
   numbers: ['en_numbers', 'Numbers & years'],
   reading: ['en_reading', 'Reading'],
   mediation: ['mediation', 'Sprachmittlung'],
+  tenses: ['en_tenses', 'Zeiten-Mix'],
 };
 
 const q = (id, [topic, topicLabel], category, rest) => ({
@@ -354,6 +357,145 @@ const questionsEN6 = [
     question: 'Sag auf Englisch: „Mein Bruder ist so ein Angeber!“',
     correct: 'My brother is such a show-off', alternativeCorrect: ["My brother's such a show-off", 'My brother is a show-off', 'My brother is a real show-off'],
     hint: 'Angeber = show-off', explanation: 'My brother is such a show-off!',
+  }),
+
+  // ---------- Stoffplan 19.10.: Zeiten-Mix („Grundwissen aller bereits gelernten Zeiten“) ----------
+  q('ten-1', T.tenses, 'grammar', {
+    type: 'multiple_choice', question: 'Emily ___ her horse every morning.', options: ['rides', 'is riding', 'rode'], correct: 'rides',
+    hint: 'every morning = immer wieder', explanation: 'every morning → simple present: Emily rides …',
+  }),
+  q('ten-2', T.tenses, 'grammar', {
+    type: 'multiple_choice', question: 'Look! Luke ___ a cake for his mum.', options: ['is making', 'makes', 'made'], correct: 'is making',
+    hint: 'Look! = gerade jetzt', explanation: 'Look! → present progressive: Luke is making …',
+  }),
+  q('ten-3', T.tenses, 'grammar', {
+    type: 'multiple_choice', question: 'Yesterday we ___ to the mall.', options: ['went', 'go', 'are going'], correct: 'went',
+    hint: 'yesterday = gestern', explanation: 'yesterday → simple past: go – went',
+  }),
+  q('ten-4', T.tenses, 'grammar', {
+    type: 'multiple_choice', question: 'Next Saturday I ___ my aunt in Chicago.', options: ['am going to visit', 'visited', 'visit'], correct: 'am going to visit',
+    hint: 'next Saturday = Plan für die Zukunft', explanation: 'Plan für die Zukunft → going-to future: I am going to visit …',
+  }),
+  q('ten-5', T.tenses, 'grammar', {
+    type: 'multiple_choice', question: 'Be quiet! The baby ___.', options: ['is sleeping', 'sleeps', 'slept'], correct: 'is sleeping',
+    hint: 'Be quiet! = jetzt gerade', explanation: 'Es passiert gerade → present progressive: The baby is sleeping.',
+  }),
+  q('ten-6', T.tenses, 'grammar', {
+    type: 'fill_gap', difficulty: 2, question: 'Last week Jay ___ his phone. (lose)', correct: 'lost',
+    hint: 'last week → simple past (unregelmäßig)', explanation: 'lose – lost – lost',
+  }),
+  q('ten-7', T.tenses, 'grammar', {
+    type: 'fill_gap', difficulty: 2, question: 'My dad usually ___ to work. (drive)', correct: 'drives',
+    hint: 'usually → simple present, he → -s', explanation: 'usually → simple present: he drives',
+  }),
+  q('ten-8', T.tenses, 'grammar', {
+    type: 'fill_gap', difficulty: 2, question: 'Listen! Somebody ___ the piano. (play)', correct: 'is playing',
+    alternativeCorrect: ["'s playing"], hint: 'Listen! = jetzt gerade', explanation: 'Listen! → present progressive: Somebody is playing …',
+  }),
+  q('ten-9', T.tenses, 'grammar', {
+    type: 'fill_gap', difficulty: 2, question: 'We ___ a movie tonight. We’ve got the tickets! (watch)', correct: 'are going to watch',
+    alternativeCorrect: ["'re going to watch"], hint: 'Plan für heute Abend', explanation: 'Feststehender Plan → going-to future: We are going to watch …',
+  }),
+  q('ten-10', T.tenses, 'grammar', {
+    type: 'multiple_choice', question: 'Did you ___ the news yesterday?', options: ['hear', 'heard', 'hears'], correct: 'hear',
+    hint: 'did + Grundform', explanation: 'Frage im simple past: Did you hear …? (nicht: heard)',
+  }),
+  q('ten-11', T.tenses, 'grammar', {
+    type: 'multiple_choice', question: 'Emily ___ to school on Sundays.', options: ["doesn't go", "don't go", "didn't went"], correct: "doesn't go",
+    hint: 'she → does', explanation: 'Verneinung im simple present: she doesn’t go',
+  }),
+  q('ten-12', T.tenses, 'grammar', {
+    type: 'multiple_choice', question: 'When ___ you start riding? – Three years ago.', options: ['did', 'do', 'are'], correct: 'did',
+    hint: 'ago → Vergangenheit', explanation: 'three years ago → simple past: When did you start …?',
+  }),
+  q('ten-13', T.tenses, 'grammar', {
+    type: 'fill_gap', difficulty: 2, question: 'I ___ my homework yesterday. Sorry! (not do)', correct: "didn't do",
+    alternativeCorrect: ['did not do'], hint: 'Verneinung im simple past', explanation: 'didn’t + Grundform: I didn’t do my homework.',
+  }),
+  q('ten-14', T.tenses, 'grammar', {
+    type: 'translate', difficulty: 3, question: 'Schreib auf Englisch: „Wir spielen morgen Fußball.“ (Plan)',
+    correct: "We're going to play football tomorrow",
+    alternativeCorrect: ['We are going to play football tomorrow', "Tomorrow we're going to play football", 'Tomorrow we are going to play football', "We're going to play soccer tomorrow", 'We are going to play soccer tomorrow'],
+    hint: 'Plan → going-to future', explanation: 'We’re going to play football tomorrow. – Für Pläne nicht das Präsens!',
+  }),
+
+  // ---------- Stoffplan 19.10.: neue Wörter (S. 199–201) und Kästen ----------
+  q('tag-12', T.tags, 'grammar', {
+    type: 'fill_gap', question: 'Jay didn’t steal the money, ___?', correct: 'did he',
+    hint: 'verneint → bejaht', explanation: 'didn’t … → did he?',
+  }),
+  q('tag-13', T.tags, 'grammar', {
+    type: 'fill_gap', question: 'Luke is upset, ___?', correct: "isn't he",
+    hint: 'is → isn’t', explanation: 'Luke is … → isn’t he?',
+  }),
+  q('tag-14', T.tags, 'grammar', {
+    type: 'fill_gap', question: 'They had a big fight, ___?', correct: "didn't they",
+    hint: 'had = Vollverb → did', explanation: 'have als Vollverb im simple past → didn’t they?',
+  }),
+  q('fee-7', T.feelings, 'vocabulary', {
+    type: 'multiple_choice', question: 'Max can’t sleep because tomorrow is his birthday. He feels …', options: ['excited', 'angry', 'upset'], correct: 'excited',
+    hint: 'Er freut sich sehr.', explanation: 'excited = aufgeregt (vor etwas Schönem)',
+  }),
+  q('fee-8', T.feelings, 'vocabulary', {
+    type: 'multiple_choice', question: 'Lisa’s brother broke her new phone. She is …', options: ['angry', 'excited', 'proud'], correct: 'angry',
+    hint: 'verärgert', explanation: 'angry = verärgert, wütend',
+  }),
+  q('fee-9', T.feelings, 'vocabulary', {
+    type: 'multiple_choice', question: 'Grandpa is singing and laughing today. He’s in a ___ mood.', options: ['good', 'bad', 'nice'], correct: 'good',
+    hint: 'guter Laune', explanation: 'to be in a good mood = guter Laune sein',
+  }),
+  q('fee-10', T.feelings, 'vocabulary', {
+    type: 'multiple_choice', question: 'We were ___ when we saw the accident.', options: ['shocked', 'excited', 'proud'], correct: 'shocked',
+    hint: 'schockiert', explanation: 'shocked = schockiert, geschockt',
+  }),
+  q('wrd-10', T.words, 'grammar', {
+    type: 'multiple_choice', question: 'You ___ practise more before the race.', options: ['should', 'shall', 'would'], correct: 'should',
+    hint: 'solltest', explanation: 'should = sollte/solltest',
+  }),
+  q('wrd-11', T.words, 'grammar', {
+    type: 'multiple_choice', question: 'Emma and Sophie are best friends. They help ___ a lot.', options: ['each other', 'every other', 'other'], correct: 'each other',
+    hint: 'einander', explanation: 'each other = einander, sich gegenseitig',
+  }),
+  q('wrd-12', T.words, 'grammar', {
+    type: 'multiple_choice', question: 'The words “teach” and “teacher” are ___.', options: ['related', 'ready', 'finished'], correct: 'related',
+    hint: 'verwandt', explanation: 'related = verwandt (gleiche Wortfamilie)',
+  }),
+  q('wrd-13', T.words, 'grammar', {
+    type: 'multiple_choice', question: 'Are you ___? The bus is leaving!', options: ['ready', 'quickly', 'strong'], correct: 'ready',
+    hint: 'bereit', explanation: 'ready = fertig, bereit',
+  }),
+  q('ae-7', T.ae, 'grammar', {
+    type: 'multiple_choice', question: 'British English „not any more“ = American English …', options: ['not anymore', 'no more', 'not any'], correct: 'not anymore',
+    hint: 'AE schreibt es zusammen.', explanation: 'not any more (BE) = not anymore (AE) – nicht mehr',
+  }),
+  q('ae-8', T.ae, 'grammar', {
+    type: 'multiple_choice', question: 'British English „Maths“ = American English …', options: ['Math', 'Mathematic', 'Maths'], correct: 'Math',
+    hint: 'AE ohne s', explanation: 'Maths (BE) = Math (AE) – Mathe',
+  }),
+  q('ae-9', T.ae, 'grammar', {
+    type: 'multiple_choice', question: 'Wie schreibt man „Herr Smith“ im American English?', options: ['Mr. Smith', 'Mr Smith', 'Mister. Smith'], correct: 'Mr. Smith',
+    hint: 'AE mit Punkt', explanation: 'Mr/Mrs (BE) = Mr./Mrs. (AE) – im amerikanischen Englisch mit Punkt',
+  }),
+  q('med-7', T.mediation, 'mediation', {
+    type: 'multiple_choice', difficulty: 2, question: 'Nicht Wort für Wort übersetzen! Wie sagst du am besten auf Englisch: „Das ist mir total peinlich.“',
+    options: ["I'm so embarrassed.", 'That is me totally painful.', 'It is total embarrassing me.'], correct: "I'm so embarrassed.",
+    hint: 'Was willst du sagen? Ich bin verlegen.', explanation: 'I’m so embarrassed. – einfach sagen, was gemeint ist, nicht Wort für Wort.',
+  }),
+  q('med-8', T.mediation, 'mediation', {
+    type: 'translate', difficulty: 2, question: 'Erkläre deinem englischen Freund: „Ich bin heute schlechter Laune.“',
+    correct: "I'm in a bad mood today", alternativeCorrect: ['I am in a bad mood today', "Today I'm in a bad mood", 'Today I am in a bad mood'],
+    hint: 'schlechter Laune = in a bad mood', explanation: 'I’m in a bad mood today.',
+  }),
+  q('med-9', T.mediation, 'mediation', {
+    type: 'translate', difficulty: 2, question: 'Sag auf Englisch: „Du solltest dich beruhigen.“',
+    correct: 'You should calm down', alternativeCorrect: ['You should calm down now'],
+    hint: 'sollte = should · sich beruhigen = to calm down', explanation: 'You should calm down. – „dich“ wird im Englischen nicht übersetzt.',
+  }),
+  q('med-10', T.mediation, 'mediation', {
+    type: 'translate', difficulty: 2, question: 'Sag auf Englisch: „Mein Vater geht am Wochenende angeln.“',
+    correct: 'My dad goes fishing at the weekend',
+    alternativeCorrect: ['My father goes fishing at the weekend', 'At the weekend my dad goes fishing', 'At the weekend my father goes fishing', 'My dad goes fishing on the weekend', 'My father goes fishing on the weekend', 'My dad goes fishing at weekends'],
+    hint: 'angeln gehen = to go fishing', explanation: 'My dad goes fishing at the weekend. – simple present, he → goes',
   }),
 ];
 

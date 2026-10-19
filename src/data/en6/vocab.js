@@ -183,6 +183,75 @@ const BATCHES = [
       },
     ],
   },
+  {
+    // Stoffplan der Schulaufgabe am 26.10.2026: S. 195–201 („embarrassing“ bis „fishing“) inklusive der
+    // grünen Kästen. Buch S. 200–201 (Fotos vom 19.10.) + Kasten „American English“ (S. 196, Scan vom 11.10.).
+    exam: 'en6-u1',
+    added: '2026-10-19',
+    sections: [
+      {
+        section: 'Unit 1 – Story: What a wonderful world (S. 200)',
+        items: [
+          { en: 'brilliant', de: 'toll; prima; leuchtend', ex: 'Your idea is [brilliant]!' },
+          { en: 'to leave', de: 'lassen; verlassen; abfahren; losgehen', ex: "Our bus [leaves] at eight o'clock." },
+          { en: 'quickly', de: 'schnell', ex: 'Come here [quickly]!' },
+          { en: 'eye', de: 'Auge', ex: 'Close your [eyes] and listen.' },
+          { en: 'bee', de: 'Biene', ex: 'A [bee] is sitting on the flower.' },
+          { en: 'clever', de: 'schlau; klug', ex: 'My little sister is very [clever].' },
+          { en: 'amazing', de: 'unglaublich; toll; erstaunlich', ex: 'The view from the hill is [amazing]!' },
+          { en: 'finished', de: 'fertig', ex: 'Are you [finished] with your homework?' },
+          { en: 'shocked', de: 'schockiert; geschockt', ex: 'We were [shocked] when we saw the accident.' },
+          { en: 'to steal', de: 'stehlen', ex: 'Did that boy [steal] your phone?' },
+          { en: 'to calm down', de: 'sich beruhigen', altDe: ['beruhigen'], ex: "Please [calm down], it's only a game!" },
+          { en: 'to push', de: 'stoßen; schieben; schubsen', ex: "Don't [push] me!" },
+          { en: 'to turn (a)round', de: '(sich) umdrehen; wenden', alt: ['to turn around'], say: 'to turn around', ex: 'Emily [turned around|turned round] when she heard her name.' },
+          { en: 'fight', de: 'Kampf; Streit', ex: 'The two brothers had a [fight] about the TV.' },
+          { en: 'upset', de: 'aufgebracht; bestürzt', ex: 'Lisa is [upset] because she lost her cat.' },
+          { en: 'idiot', de: 'Idiot/-in', ex: "Don't call your brother an [idiot]!" },
+          { en: 'should', de: 'sollte; solltest; sollten; solltet', ex: 'You [should] go to bed early tonight.' },
+          { en: 'each other', de: 'einander; sich; sich gegenseitig', ex: 'Tom and Max help [each other] with their homework.' },
+          { en: 'to take out', de: 'herausnehmen', ex: 'Can you [take out] the milk, please?' },
+          { en: 'paper', de: 'Papier', ex: 'I need a piece of [paper] for my drawing.' },
+          { en: 'ready', de: 'fertig; bereit', ex: "Are you [ready]? Let's go!" },
+          { en: 'beginning', de: 'Anfang; Beginn', ex: "I didn't see the [beginning] of the movie." },
+          { en: 'related', de: 'verwandt; bezogen', ex: "The words 'teach' and 'teacher' are [related]." },
+          { en: 'strong', de: 'stark', ex: 'My dad is very [strong].' },
+          { en: 'drama', de: 'Theater; Drama', ex: 'We have [drama] club after school.' },
+          { en: 'to hate', de: 'hassen; nicht mögen', ex: 'I [hate] rainy days!' },
+        ],
+      },
+      {
+        // Grüner Kasten „Feelings and reactions“ (S. 201) – nervous, embarrassed, surprised, upset, shocked sind schon drin.
+        section: 'Unit 1 – Kasten: Feelings and reactions',
+        items: [
+          { en: 'excited', de: 'aufgeregt', ex: "I'm so [excited] about my birthday!" },
+          { en: 'angry', de: 'verärgert', altDe: ['wütend', 'sauer'], ex: "Dad is [angry] because I'm late again." },
+          { en: 'in a good mood', de: 'guter Laune', altDe: ['gute Laune', 'gut gelaunt'], ex: 'Grandma is always [in a good mood].' },
+          { en: 'in a bad mood', de: 'schlechter Laune', altDe: ['schlechte Laune', 'schlecht gelaunt'], ex: "Leave me alone, I'm [in a bad mood]!" },
+        ],
+      },
+      {
+        section: 'Unit 1 – Check-out',
+        items: [{ en: 'fishing', de: 'Angeln; Fischen; Fischerei', ex: 'My grandpa often goes [fishing] at the lake.' }],
+      },
+      {
+        // Grüner Kasten „American English“ (S. 196): movie, movie theater, mall und hometown sind schon drin.
+        // Karte = amerikanisches Wort; das britische Wort zählt beim Schreiben auf Englisch auch.
+        section: 'Unit 1 – Kasten: American English',
+        items: [
+          { en: 'fall (AE)', de: 'Herbst', alt: ['autumn'], ex: 'My birthday is in [fall].' },
+          { en: 'trash (AE)', de: 'Müll', alt: ['rubbish'], ex: 'Can you take out the [trash], please?' },
+          { en: 'Math (AE)', de: 'Mathe', alt: ['Maths'], ex: 'We have [Math] on Monday and Friday.' },
+          { en: 'program (AE)', de: 'Programm; Sendung', alt: ['programme'], ex: "What's your favorite TV [program]?" },
+          { en: 'dialog (AE)', de: 'Dialog', alt: ['dialogue'], ex: 'Read the [dialog] with a partner.' },
+          { en: 'organize (AE)', de: 'organisieren', alt: ['organise'], ex: "Let's [organize] a party for Emily!" },
+          { en: 'practice (AE)', de: 'üben; trainieren', alt: ['practise'], ex: 'I [practice] the piano every day.' },
+          { en: 'not anymore (AE)', de: 'nicht mehr', alt: ['not any more'], ex: "We don't live in Berlin [anymore|any more]." },
+          { en: 'meter (AE)', de: 'Meter', alt: ['metre'], ex: 'The tree is ten [meters|metres] tall.' },
+        ],
+      },
+    ],
+  },
 ];
 
 function slug(s) {

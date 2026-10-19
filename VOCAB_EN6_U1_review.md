@@ -163,3 +163,47 @@ schreiben → 428 Karten), Audio mit der Stimme bf_emma. Nicht als Karte: LOL, J
 Fragen mit Präpositionen, Feelings, Wörter im Satz, American English, Numbers & years, ein Lesetext und
 Sprachmittlung (Flyer). Die Wörter nach „to fix“ sind seit dem 12.10. als eigener Batch im Wortschatz
 („Neue Vokabeln“); Fragen dazu gibt es noch keine.
+
+---
+
+## Stoffplan Schulaufgabe 26.10.2026 (Foto vom 19.10.) – S. 200–201 + grüne Kästen
+
+Stoffplan: Vokabeln S. 195–201 („embarrassing“ bis „fishing“) **inklusive der Vokabeln in den grünen Kästen**;
+Grammatik G1 going-to future, G2 question tags, G3 Fragen mit Präpositionen, Grundwissen aller gelernten Zeiten;
+Aufbau: Hörverstehen + Mediation. Vom Nutzer vorab freigegeben („Update alles – und dann pushe es“).
+Batch `2026-10-19` = „Nur neue Vokabeln“. Alles 📖 (Buchseiten, kein Heft).
+
+### S. 200 – Story (Fortsetzung)
+
+brilliant – toll; prima; leuchtend · to leave – lassen; verlassen; abfahren; losgehen · quickly – schnell ·
+eye – Auge · bee – Biene · clever – schlau; klug · amazing – unglaublich; toll; erstaunlich · finished – fertig ·
+shocked – schockiert; geschockt · to steal – stehlen · to calm down – sich beruhigen ·
+to push – stoßen; schieben; schubsen · to turn (a)round – (sich) umdrehen; wenden · fight – Kampf; Streit ·
+upset – aufgebracht; bestürzt · idiot – Idiot/-in · should – sollte; solltest; sollten; solltet ·
+each other – einander; sich; sich gegenseitig · to take out – herausnehmen · paper – Papier ·
+ready – fertig; bereit · beginning – Anfang; Beginn · related – verwandt; bezogen · strong – stark ·
+drama – Theater; Drama · to hate – hassen; nicht mögen
+
+### S. 201
+
+📦 **Feelings and reactions** (grün): nervous/embarrassed/excited/angry – nervös/verlegen/aufgeregt/verärgert;
+surprised/upset/shocked – überrascht/bestürzt/schockiert; in a good/bad mood – guter/schlechter Laune.
+Neu als Karte: excited, angry, in a good mood, in a bad mood (die anderen sind schon im Wortschatz).
+
+**Check-out:** fishing – Angeln; Fischen; Fischerei. (Danach beginnt „Focus 1 – Regions of the US“ – nicht im Stoff.)
+
+### Grüne Kästen auf S. 195–198, die bisher keine Karten waren
+
+📦 **American English** (S. 196) – jetzt **als Karten** (amerikanisches Wort; das britische zählt beim
+Schreiben auch): fall – Herbst · trash – Müll · Math – Mathe · program – Programm; Sendung · dialog – Dialog ·
+organize – organisieren · practice – üben; trainieren · not anymore – nicht mehr · meter – Meter.
+Schon drin: movie, movie theater, mall, hometown. Mr./Mrs. (nur Punkt-Unterschied) → als Frage.
+
+📦 **AE pronunciation** (S. 198) – nur Aussprache (ask, dance, fast, half, car, her, other, work, better,
+cattle, party, bottom), keine Übersetzungen → **keine Karten**.
+
+**Nicht im Stoff:** G4 Steigerung der Adjektive (S. 174 – der Stoffplan nennt für G3 „S. 173–174“, auf S. 174
+beginnt aber schon G4 aus Unit 2).
+
+**40 neue Vokabeln** (26 + 4 + 1 + 9). **32 neue Fragen:** Zeiten-Mix (14), Question tags (3), Feelings (4),
+Wörter im Satz (4), American English (3), Sprachmittlung (4) – alle selbst formuliert.
