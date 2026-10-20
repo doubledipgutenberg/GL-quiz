@@ -155,7 +155,7 @@ beim ersten Tippen stumm freigeschaltet (Safari). Die Sprachausgabe des Browsers
 fehlenden/kaputten Datei ein – nie bei `AbortError` (Unterbrechung) oder `NotAllowedError` (Autoplay
 blockiert). Sonst spricht eine fremde Stimme in die 0,8 s Stille vor dem Wort (Fehler vom 2026-10-12). Fehlt eine Datei, spricht die Sprachausgabe des Browsers (`src/lib/audio.js`).
 
-Freigegebene Stimmen: Französisch `ff_siwis` mit Tempo 0.9, Englisch (britisch) `bf_emma` mit 0.95,
+Freigegebene Stimmen: Französisch `ff_siwis` mit Tempo 0.75 (bis 19.10.: 0.9 – Sätze waren zu schnell), Englisch (britisch) `bf_emma` mit 0.95,
 optional `bm_george`. Das Skript erzeugt nur neue oder geänderte Einträge. Das Modell und die
 Python-Umgebung gehören **nicht** ins Repo (325 MB, rechnerspezifisch); das Setup-Skript stellt sie
 jederzeit wieder her.
@@ -209,6 +209,12 @@ gegenüber dem Nutzer in höchstens einer Zeile berichten.
 ```bash
 scripts/publish-spacefast.sh "Änderungsnotiz"    # baut, packt dist/ + functions/, veröffentlicht klasse-6d
 ```
+
+**Versionsnummer in der App** (2026-10-19): Das Skript fragt vor dem Bauen die nächste Spacefast-Version ab
+(`sf versions list`, höchste Nummer + 1) und baut sie mit Datum ein (`VITE_APP_VERSION`, `VITE_APP_BUILT` →
+`src/components/AppVersion.jsx`). Angezeigt ganz unten auf der Anmeldeseite und in der Fußzeile der Startseite,
+z. B. „Version 25 · 19.10.2026“. Weicht die vergebene Nummer ab, warnt das Skript. Lokale Builds zeigen „Version lokal“.
+Dem Nutzer die Nummer nennen, damit er auf dem iPad sieht, ob das Update angekommen ist.
 
 GitHub Pages baut **nicht** mehr automatisch, weil die App dort kein Backend hätte. Die alte Seite
 bleibt aber auf Wunsch des Nutzers online; manuell bauen ginge mit `VITE_BASE=/GL-quiz/`.

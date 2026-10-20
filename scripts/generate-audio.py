@@ -40,8 +40,9 @@ MODEL = KOKORO_HOME / "models/kokoro-v1.0.onnx"
 VOICES = KOKORO_HOME / "models/voices-v1.0.bin"
 
 # Vom Nutzer freigegebene Stimmen (Hörproben 2026-10-10). `speed` gilt für Sätze.
+# Französisch langsamer (2026-10-19, Wunsch des Nutzers): Die Beispielsätze der Hör-Karten waren zu schnell.
 DEFAULTS = {
-    "fr": {"voice": "ff_siwis", "lang": "fr-fr", "speed": 0.9},
+    "fr": {"voice": "ff_siwis", "lang": "fr-fr", "speed": 0.75},
     "en": {"voice": "bf_emma", "lang": "en-gb", "speed": 0.95},
 }
 # Einzelwörter (2026-10-11, Wunsch des Nutzers): kurze Wörter wie „air“ waren kaum zu verstehen →
