@@ -7,6 +7,7 @@ import { SPACE_TITLE } from './KidLogin';
 import { vocabPassStatus, passText, ROUND_SIZE } from '../utils/vocabPass';
 import parisScene from '../../design-system/assets/Illustrations/paris-scene.svg';
 import londonScene from '../../design-system/assets/Illustrations/london-scene.svg';
+import AppVersion from './AppVersion';
 
 // Design System „Clara & Jakob lernen Sprachen“: Klassen .vx-* aus design-system/components/bundle.css
 // (Masthead, CourseCard, Choice, StreetSign, Button). Farben nur über den Stift (data-course).
@@ -361,6 +362,7 @@ export default function WelcomeScreen({
             Profil wechseln
           </button>
         </div>
+        <AppVersion />
       </footer>
     </div>
   );

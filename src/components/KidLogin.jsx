@@ -3,6 +3,7 @@ import { api, loadKids, loginOffline, rememberKid, isKnownKid } from '../lib/api
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
+import AppVersion from './AppVersion';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 
 export const SPACE_TITLE = 'Klasse 6d';
@@ -87,7 +88,8 @@ export default function KidLogin({ onLogin }) {
   };
 
   return (
-    <div className="max-w-[400px] mx-auto space-y-8">
+    // Ganze Bildschirmhöhe (abzüglich Rand), damit die Versionsnummer ganz unten steht.
+    <div className="max-w-[400px] mx-auto min-h-[calc(100dvh-4rem)] flex flex-col gap-8">
       <header className="text-center space-y-1">
         <h1 className="text-2xl font-bold tracking-tight">Quiz Challenge</h1>
         <p className="text-sm text-muted-foreground">{SPACE_TITLE}</p>
@@ -180,6 +182,8 @@ export default function KidLogin({ onLogin }) {
           </CardContent>
         </Card>
       )}
+
+      <AppVersion className="mt-auto" />
     </div>
   );
 }
