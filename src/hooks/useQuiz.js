@@ -53,8 +53,9 @@ function reducer(state, action) {
           action.questions ??
           (mode === 'newvocab' ? getNewVocabularyQuestions(EXAMS[exam]?.course) : getVocabularyQuestions(exam));
         if (pool.length === 0) return state;
-        // Gemischt, aber dasselbe Wort nie direkt hintereinander (utils/spreadCards.js).
-        const shuffled = withShuffledOptions(spreadByWord(shuffle(pool)));
+        // Gemischt, aber dasselbe Wort nie direkt hintereinander und erst jedes Wort einmal (utils/spreadCards.js).
+        // Runden im Durchgang kommen schon fertig geordnet aus planVocabRound (auch über Rundengrenzen hinweg).
+        const shuffled = withShuffledOptions(action.passExam ? pool : spreadByWord(shuffle(pool)));
         return {
           ...state,
           phase: 'quiz',
