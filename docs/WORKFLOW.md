@@ -355,6 +355,12 @@ curl -s -o /dev/null -w '%{http_code}' https://<slug>.space.fast/   # muss 403 l
 - Wortschatz hat vier Kartenarten: übersetzen, in der Fremdsprache schreiben, Lückentext, nach Gehör schreiben.
 - Dasselbe Wort **nie direkt hintereinander** (auch nicht in anderer Kartenart), möglichst 5 andere Karten
   dazwischen (`src/utils/spreadCards.js`, nach dem Mischen in `useQuiz` und bei Wiederholungen aus dem Lehrer-Bereich).
+- **Erst jedes Wort einmal** (2026-10-20): Nach der Hälfte einer Runde bzw. eines Durchgangs muss jedes Wort
+  mindestens einmal drangekommen sein. `spreadByWord` legt zuerst je eine Karte pro Wort (zufälliger Kartentyp),
+  danach die übrigen. „Alle Vokabeln“: Die Reihenfolge des ganzen Durchgangs entsteht so in `planVocabRound`
+  (fest per Startwert, schon erledigte Wörter ohne Vorrang, `recent` = zuletzt gefragte Wörter gegen Doppel über
+  Rundengrenzen); Runden des Durchgangs werden in `useQuiz` nicht noch einmal gemischt. Simulation: jedes Wort
+  spätestens nach ~25 % dran (angefangene Durchgänge mit alter Reihenfolge: ~36 %), nie ein Doppel.
 - „Na ja, schon fast richtig“ (nur Wortschatz): Kind meldet, Eltern urteilen, Agent wertet aus (siehe oben).
 - „Alle Vokabeln“ in Runden à 50 Karten mit Anzeige der restlichen Karten/Runden; in der Oberfläche heißt eine
   Session „Runde“. Serien-Kalender auf der Startseite (Monate als Blöcke, Wochentage als Zeilen).

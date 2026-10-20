@@ -3,9 +3,11 @@
 // jeder Runde Pause machen; angezeigt wird, wie viele Karten und Runden noch übrig sind.
 // Pro Kind und Schulaufgabe ein Durchgang: feste, zufällige Reihenfolge (seed) + erledigte Karten (done).
 // Jede beantwortete Karte zählt sofort als erledigt. Ist alles erledigt, beginnt der nächste Durchgang.
+// Reihenfolge: erst jedes Wort einmal, dann die weiteren Kartentypen (siehe planVocabRound, spreadCards.js).
 // „Nur neue Vokabeln“ ist davon nicht betroffen (kleiner Ausschnitt, eine Runde).
 import { getVocabularyQuestions } from '../data/questions';
 import { getVocabProgress, setVocabProgress } from './storage';
+import { spreadByWord, wordOf, MIN_GAP } from './spreadCards';
 
 export const ROUND_SIZE = 50;
 
@@ -95,10 +97,16 @@ export function planVocabRound(name, exam) {
     s = summarize(ids, entry);
   }
   const byId = new Map(cards.map((c) => [c.id, c]));
-  return seededShuffle(ids, entry.seed)
+  // Reihenfolge des Durchgangs (2026-10-20): erst jedes Wort einmal, dann die weiteren Karten (spreadCards.js) –
+  // so ist spätestens nach der Hälfte jedes Wort drangekommen. Fest per Startwert (auf jedem Gerät gleich);
+  // Wörter, die in diesem Durchgang schon drankamen, haben keinen Vorrang mehr.
+  const remaining = seededShuffle(ids, entry.seed)
     .filter((id) => !s.doneSet.has(id))
-    .slice(0, s.size - s.cur)
     .map((id) => byId.get(id));
+  const seen = new Set([...s.doneSet].map((id) => wordOf(byId.get(id))));
+  // recent: die zuletzt gefragten Wörter (aus markVocabDone) – kein Doppel über die Rundengrenze.
+  const recent = entry.recent || [];
+  return spreadByWord(remaining, { random: mulberry32(entry.seed ^ 0x5bd1e995), seen, recent }).slice(0, s.size - s.cur);
 }
 
 /** Beantwortete Karten als erledigt eintragen (Auto-Save nach jeder Antwort). */
@@ -109,7 +117,9 @@ export function markVocabDone(name, exam, questionIds) {
   const before = done.size;
   questionIds.forEach((id) => done.add(id));
   if (done.size === before) return;
-  setVocabProgress(name, exam, { ...entry, done: [...done] });
+  // Die zuletzt gefragten Wörter merken (für die nächste Runde, siehe planVocabRound).
+  const recent = [...(entry.recent || []), ...questionIds.map((id) => wordOf({ id }))].slice(-MIN_GAP);
+  setVocabProgress(name, exam, { ...entry, done: [...done], recent });
 }
 
 const runden = (n) => `${n} ${n === 1 ? 'Runde' : 'Runden'}`;
