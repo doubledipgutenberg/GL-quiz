@@ -1273,15 +1273,15 @@
   },
   "fr6_s_p_a": {
     "file": "fr6_s_p_a.m4a",
-    "text": "la S. P. A.",
+    "text": "S. P. A.",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "4db53d27068071e3",
-    "variant": "Standard",
-    "onset": 0.0
+    "hash": "d5e8d4629a3c45ad",
+    "variant": "Glottisschlag",
+    "onset": 1.27
   },
   "fr6_s_p_a_ex": {
     "file": "fr6_s_p_a_ex.m4a",
@@ -1573,15 +1573,15 @@
   },
   "fr6_un_ami_une_amie": {
     "file": "fr6_un_ami_une_amie.m4a",
-    "text": "un ami, une amie",
+    "text": "ami, amie",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "b2d49ccb00be97b7",
-    "variant": "Glottisschlag",
-    "onset": 2.91
+    "hash": "1c4e841b82713724",
+    "variant": "Standard",
+    "onset": 1.84
   },
   "fr6_un_ami_une_amie_ex": {
     "file": "fr6_un_ami_une_amie_ex.m4a",
@@ -1597,15 +1597,15 @@
   },
   "fr6_un_animal": {
     "file": "fr6_un_animal.m4a",
-    "text": "un animal",
+    "text": "animal",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "585a073c95976016",
-    "variant": "Punkt am Ende",
-    "onset": 2.0
+    "hash": "734477e46f0db12d",
+    "variant": "Glottisschlag",
+    "onset": 3.53
   },
   "fr6_un_animal_ex": {
     "file": "fr6_un_animal_ex.m4a",
@@ -1621,15 +1621,15 @@
   },
   "fr6_un_cahier": {
     "file": "fr6_un_cahier.m4a",
-    "text": "un cahier",
+    "text": "cahier",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "92fc0118ce3b88a8",
-    "variant": "Glottisschlag",
-    "onset": 1.56
+    "hash": "d2dc7f5fd6d40ed9",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "fr6_un_cahier_ex": {
     "file": "fr6_un_cahier_ex.m4a",
@@ -1645,15 +1645,15 @@
   },
   "fr6_un_canari": {
     "file": "fr6_un_canari.m4a",
-    "text": "un canari",
+    "text": "canari",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "ac21d0488b130311",
-    "variant": "Tempo +0,1",
-    "onset": 1.63
+    "hash": "2d2b5c4cf5de2eb1",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "fr6_un_canari_ex": {
     "file": "fr6_un_canari_ex.m4a",
@@ -1669,15 +1669,15 @@
   },
   "fr6_un_chat": {
     "file": "fr6_un_chat.m4a",
-    "text": "un chat",
+    "text": "chat",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "1a0fd9b125bf202d",
+    "hash": "5632235c9ed9f360",
     "variant": "Standard",
-    "onset": 1.31
+    "onset": 0.0
   },
   "fr6_un_chat_ex": {
     "file": "fr6_un_chat_ex.m4a",
@@ -1693,15 +1693,15 @@
   },
   "fr6_un_chien": {
     "file": "fr6_un_chien.m4a",
-    "text": "un chien",
+    "text": "chien",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "dc62943d3b94ab36",
-    "variant": "Glottisschlag",
-    "onset": 3.14
+    "hash": "185b0a214bb3d547",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "fr6_un_chien_ex": {
     "file": "fr6_un_chien_ex.m4a",
@@ -1717,15 +1717,15 @@
   },
   "fr6_un_cochon": {
     "file": "fr6_un_cochon.m4a",
-    "text": "un cochon",
+    "text": "cochon",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "d26c8524de263c24",
-    "variant": "Tempo +0,05",
-    "onset": 3.61
+    "hash": "98f8c7c20a6972b5",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "fr6_un_cochon_ex": {
     "file": "fr6_un_cochon_ex.m4a",
@@ -1741,15 +1741,15 @@
   },
   "fr6_un_copain_une_copine": {
     "file": "fr6_un_copain_une_copine.m4a",
-    "text": "un copain, une copine",
+    "text": "copain, copine",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "e2ab09cec5780ea2",
-    "variant": "Glottisschlag",
-    "onset": 2.22
+    "hash": "b1ffa1a11b95fb25",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "fr6_un_copain_une_copine_ex": {
     "file": "fr6_un_copain_une_copine_ex.m4a",
@@ -1765,15 +1765,15 @@
   },
   "fr6_un_crayon": {
     "file": "fr6_un_crayon.m4a",
-    "text": "un crayon",
+    "text": "crayon",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "4f0480a18f56c00d",
-    "variant": "Tempo +0,1",
-    "onset": 1.87
+    "hash": "2a1d159fdc80de56",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "fr6_un_crayon_ex": {
     "file": "fr6_un_crayon_ex.m4a",
@@ -1801,15 +1801,15 @@
   },
   "fr6_un_garcon": {
     "file": "fr6_un_garcon.m4a",
-    "text": "un garçon",
+    "text": "garçon",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "4e7f86f8722104cc",
-    "variant": "Tempo +0,05",
-    "onset": 1.2
+    "hash": "1ecfb0560cf51a0a",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "fr6_un_garcon_ex": {
     "file": "fr6_un_garcon_ex.m4a",
@@ -1825,15 +1825,15 @@
   },
   "fr6_un_hamster": {
     "file": "fr6_un_hamster.m4a",
-    "text": "un hamster",
+    "text": "hamster",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "e2e4d46963f9d04c",
-    "variant": "Standard",
-    "onset": 1.28
+    "hash": "863d8ead8c93548b",
+    "variant": "Punkt am Ende",
+    "onset": 1.3
   },
   "fr6_un_hamster_ex": {
     "file": "fr6_un_hamster_ex.m4a",
@@ -1849,15 +1849,15 @@
   },
   "fr6_un_journal": {
     "file": "fr6_un_journal.m4a",
-    "text": "un journal",
+    "text": "journal",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "c7d817553b9e97f7",
-    "variant": "Tempo +0,1",
-    "onset": 3.33
+    "hash": "3f95d235ed674587",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "fr6_un_journal_ex": {
     "file": "fr6_un_journal_ex.m4a",
@@ -1873,15 +1873,15 @@
   },
   "fr6_un_livre": {
     "file": "fr6_un_livre.m4a",
-    "text": "un livre",
+    "text": "livre",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "952430c2c0e63897",
+    "hash": "20087cb4a92b1062",
     "variant": "Standard",
-    "onset": 3.69
+    "onset": 0.0
   },
   "fr6_un_livre_ex": {
     "file": "fr6_un_livre_ex.m4a",
@@ -1897,15 +1897,15 @@
   },
   "fr6_un_magasin": {
     "file": "fr6_un_magasin.m4a",
-    "text": "un magasin",
+    "text": "magasin",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "6683605ca3106b45",
-    "variant": "Glottisschlag",
-    "onset": 1.55
+    "hash": "7cd283c754e89764",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "fr6_un_magasin_ex": {
     "file": "fr6_un_magasin_ex.m4a",
@@ -1921,15 +1921,15 @@
   },
   "fr6_un_monsieur": {
     "file": "fr6_un_monsieur.m4a",
-    "text": "un monsieur",
+    "text": "monsieur",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "b61ba9cd0272da8d",
-    "variant": "Glottisschlag",
-    "onset": 3.46
+    "hash": "0cd5663e247cee06",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "fr6_un_monsieur_ex": {
     "file": "fr6_un_monsieur_ex.m4a",
@@ -1945,15 +1945,15 @@
   },
   "fr6_un_perroquet": {
     "file": "fr6_un_perroquet.m4a",
-    "text": "un perroquet",
+    "text": "perroquet",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "18fa6dfa22d1e8ae",
-    "variant": "Glottisschlag",
-    "onset": 2.3
+    "hash": "cc2a82749fad9a75",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "fr6_un_perroquet_ex": {
     "file": "fr6_un_perroquet_ex.m4a",
@@ -1969,15 +1969,15 @@
   },
   "fr6_un_rat": {
     "file": "fr6_un_rat.m4a",
-    "text": "un rat",
+    "text": "rat",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "5d72e46d651b9baf",
-    "variant": "Glottisschlag",
-    "onset": 2.87
+    "hash": "fff7d96f55fa4e9d",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "fr6_un_rat_ex": {
     "file": "fr6_un_rat_ex.m4a",
@@ -1993,16 +1993,16 @@
   },
   "fr6_un_sac_a_dos": {
     "file": "fr6_un_sac_a_dos.m4a",
-    "text": "un sac à dos",
+    "text": "sac à dos",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "d6166f3821ccf357",
-    "phonemes": "œ̃ sˈak a dˈo",
-    "variant": "Punkt am Ende",
-    "onset": 1.61
+    "hash": "654c3ece2ec3ca3e",
+    "phonemes": "sˈak a dˈo",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "fr6_un_sac_a_dos_ex": {
     "file": "fr6_un_sac_a_dos_ex.m4a",
@@ -2019,15 +2019,15 @@
   },
   "fr6_un_serpent": {
     "file": "fr6_un_serpent.m4a",
-    "text": "un serpent",
+    "text": "serpent",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "7231069082faa391",
-    "variant": "Punkt am Ende",
-    "onset": 3.52
+    "hash": "ff1442ed9d710534",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "fr6_un_serpent_ex": {
     "file": "fr6_un_serpent_ex.m4a",
@@ -2043,15 +2043,15 @@
   },
   "fr6_un_stylo": {
     "file": "fr6_un_stylo.m4a",
-    "text": "un stylo",
+    "text": "stylo",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "bc12cda23ce4afd2",
-    "variant": "Tempo +0,05",
-    "onset": 1.85
+    "hash": "8733181191490ce4",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "fr6_un_stylo_ex": {
     "file": "fr6_un_stylo_ex.m4a",
@@ -2067,15 +2067,15 @@
   },
   "fr6_un_truc": {
     "file": "fr6_un_truc.m4a",
-    "text": "un truc",
+    "text": "truc",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "8a076b115a6a34c9",
-    "variant": "Tempo +0,05",
-    "onset": 1.64
+    "hash": "1c787c4b8c733df0",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "fr6_un_truc_ex": {
     "file": "fr6_un_truc_ex.m4a",
@@ -2091,15 +2091,15 @@
   },
   "fr6_une_affiche": {
     "file": "fr6_une_affiche.m4a",
-    "text": "une affiche",
+    "text": "affiche",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "2fae9caadd9c5fbe",
-    "variant": "Punkt am Ende",
-    "onset": 0.83
+    "hash": "955d8db4c1f9d9dc",
+    "variant": "Glottisschlag",
+    "onset": 0.79
   },
   "fr6_une_affiche_ex": {
     "file": "fr6_une_affiche_ex.m4a",
@@ -2115,15 +2115,15 @@
   },
   "fr6_une_bd": {
     "file": "fr6_une_bd.m4a",
-    "text": "une bédé",
+    "text": "bédé",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "623a8a89acb523df",
-    "variant": "Tempo +0,1",
-    "onset": 1.82
+    "hash": "f19ddccfd6ceeb15",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "fr6_une_bd_ex": {
     "file": "fr6_une_bd_ex.m4a",
@@ -2139,15 +2139,15 @@
   },
   "fr6_une_chanson": {
     "file": "fr6_une_chanson.m4a",
-    "text": "une chanson",
+    "text": "chanson",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "bd2b9267505472f8",
-    "variant": "Glottisschlag",
-    "onset": 3.2
+    "hash": "5e4de869bcba6920",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "fr6_une_chanson_ex": {
     "file": "fr6_une_chanson_ex.m4a",
@@ -2163,15 +2163,15 @@
   },
   "fr6_une_dame": {
     "file": "fr6_une_dame.m4a",
-    "text": "une dame",
+    "text": "dame",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "35b97efd5009c875",
-    "variant": "Punkt am Ende",
-    "onset": 2.04
+    "hash": "2e1aa3992a99566f",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "fr6_une_dame_ex": {
     "file": "fr6_une_dame_ex.m4a",
@@ -2187,15 +2187,15 @@
   },
   "fr6_une_fille": {
     "file": "fr6_une_fille.m4a",
-    "text": "une fille",
+    "text": "fille",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "99a866151b6e014e",
-    "variant": "Punkt am Ende",
-    "onset": 2.96
+    "hash": "d399aa31da078d3e",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "fr6_une_fille_ex": {
     "file": "fr6_une_fille_ex.m4a",
@@ -2211,15 +2211,15 @@
   },
   "fr6_une_gomme": {
     "file": "fr6_une_gomme.m4a",
-    "text": "une gomme",
+    "text": "gomme",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "cdc44a3a390c4f30",
-    "variant": "Glottisschlag",
-    "onset": 2.73
+    "hash": "9a1cb35f9f403448",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "fr6_une_gomme_ex": {
     "file": "fr6_une_gomme_ex.m4a",
@@ -2235,27 +2235,27 @@
   },
   "fr6_une_maison": {
     "file": "fr6_une_maison.m4a",
-    "text": "une maison",
+    "text": "maison",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "861e43719d11752e",
-    "variant": "Tempo +0,1",
-    "onset": 1.94
+    "hash": "83013ac80ff08d5d",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "fr6_une_maison_de_la_presse": {
     "file": "fr6_une_maison_de_la_presse.m4a",
-    "text": "une maison de la presse",
+    "text": "maison de la presse",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "2c17d4bc300e0f04",
+    "hash": "7502a794e70e9890",
     "variant": "Standard",
-    "onset": 1.26
+    "onset": 0.0
   },
   "fr6_une_maison_de_la_presse_ex": {
     "file": "fr6_une_maison_de_la_presse_ex.m4a",
@@ -2283,15 +2283,15 @@
   },
   "fr6_une_perruche": {
     "file": "fr6_une_perruche.m4a",
-    "text": "une perruche",
+    "text": "perruche",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "8caace786634c09c",
-    "variant": "Punkt am Ende",
-    "onset": 0.88
+    "hash": "7a5fffd255214c06",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "fr6_une_perruche_ex": {
     "file": "fr6_une_perruche_ex.m4a",
@@ -2307,15 +2307,15 @@
   },
   "fr6_une_tortue": {
     "file": "fr6_une_tortue.m4a",
-    "text": "une tortue",
+    "text": "tortue",
     "lang": "fr-fr",
     "voice": "ff_siwis",
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "50ffab65b5e8cf9c",
-    "variant": "Punkt am Ende",
-    "onset": 1.22
+    "hash": "9735f280cd794ad4",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "fr6_une_tortue_ex": {
     "file": "fr6_une_tortue_ex.m4a",
