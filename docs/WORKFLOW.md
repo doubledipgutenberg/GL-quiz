@@ -369,6 +369,10 @@ curl -s -o /dev/null -w '%{http_code}' https://<slug>.space.fast/   # muss 403 l
   `sayExPhonemes` (Laute direkt). Französische Stolperfallen (2026-10-19): „BD“ wird zu „boulevard“ (→ `bédé`),
   „sac à dos“ springt bei „dos“ ins Englische (→ Laute `sˈak a dˈo`). Neue Wörter und Sätze vor dem Veröffentlichen
   mit `kokoro.tokenizer.phonemize(text, 'fr-fr')` prüfen – `(en)…(fr)` in der Ausgabe heißt: falsche Sprache.
+- Wort-Audio **ohne Artikel** (2026-10-20, Nutzer: „am Anfang voller Fokus auf den puren Begriff“): Französische
+  Nomen werden ohne un/une/le/la gesprochen („magasin“), der Artikel steht auf der Karte und im Beispielsatz
+  (`speechText` in `src/data/fr6/vocab.js`; Wendungen wie „Bonjour, les amis!“ und „un“ als Zahl bleiben).
+  Englisch: Vokabeln stehen ohne Artikel; „a bit“ ist eine feste Wendung und bleibt.
 - Design System „Clara & Jakob lernen Sprachen“ (`design-system/`, Regeln in `CLAUDE.md`): eingebunden in
   `src/index.css` (tokens.css ohne Layer, bundle.css im Layer `components`, shadcn-Variablen auf die Tokens
   gemappt), Schriften per `<link>` in `index.html`. Stift über `data-course` am `<body>` (App.jsx) – nicht am

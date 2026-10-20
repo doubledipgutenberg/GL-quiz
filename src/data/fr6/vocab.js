@@ -162,7 +162,7 @@ const BATCHES = [
         items: [
           { fr: 'français', de: 'französisch', ex: "C'est un livre [français]." },
           { fr: 'en français', de: 'auf Französisch', ex: 'Marie parle [en français].' },
-          { fr: 'un sac à dos', de: 'ein Rucksack', sayPhonemes: 'œ̃ sˈak a dˈo', ex: 'Marie cherche [un sac à dos].', sayExPhonemes: 'maʁˈi ʃˈɛʁʃ œ̃ sˈak a dˈo.' },
+          { fr: 'un sac à dos', de: 'ein Rucksack', sayPhonemes: 'sˈak a dˈo', ex: 'Marie cherche [un sac à dos].', sayExPhonemes: 'maʁˈi ʃˈɛʁʃ œ̃ sˈak a dˈo.' },
           { fr: 'un livre', de: 'ein Buch', ex: 'Léo regarde [un livre].' },
           { fr: 'un crayon', de: 'ein Bleistift', ex: 'Voilà [un crayon] et une gomme.' },
           { fr: 'un cahier', de: 'ein Heft', ex: 'Voilà [un cahier] et un livre.' },
@@ -213,9 +213,17 @@ export function gapOf(entry) {
 }
 
 // Was gesprochen wird: ohne Hinweise in Klammern, „ / “ als Aufzählung.
+// Wort-Audio OHNE Artikel (Wunsch des Nutzers, 2026-10-20): voller Fokus auf den reinen Begriff („magasin“,
+// nicht „un magasin“). Der Artikel steht auf der Karte und kommt im Beispielsatz vor. „un“ allein (Zahl) bleibt.
+const ARTICLE = /^(?:un|une|le|la|les|des|du)\s+|^l['’]\s*/i;
+// Nur bei Nomen, die mit Artikel beginnen („un ami, une amie“ → „ami, amie“) – Wendungen wie
+// „Bonjour, les amis!“ bleiben unverändert.
+const withoutArticle = (text) =>
+  ARTICLE.test(text) ? text.split(/,\s*/).map((part) => part.replace(ARTICLE, '')).join(', ') : text;
+
 export function speechText(entry) {
-  if (entry.say) return entry.say;
-  return entry.fr.replace(/\([^)]*\)/g, '').replace(/\s*\/\s*/g, ', ').replace(/…/g, '').replace(/\s+/g, ' ').trim();
+  const text = entry.say || entry.fr.replace(/\([^)]*\)/g, '').replace(/\s*\/\s*/g, ', ').replace(/…/g, '').replace(/\s+/g, ' ').trim();
+  return withoutArticle(text);
 }
 
 export const FR6_VOCAB = BATCHES.flatMap((batch) =>
