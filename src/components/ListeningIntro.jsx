@@ -17,6 +17,9 @@ function groups(questions) {
   return out;
 }
 
+// Leeres Kästchen wie auf dem Arbeitsblatt (größer als das Zeichen ☐, Stil in App.css).
+const Box = () => <span className="listen-box" aria-hidden="true" />;
+
 function Preview({ q, n }) {
   return (
     <li className="space-y-1">
@@ -24,15 +27,17 @@ function Preview({ q, n }) {
         <span className="mr-2 font-semibold tabular-nums">{n}.</span>
         {q.question}
         {q.type === 'reading_true_false' && (
-          <span className="ml-2 whitespace-nowrap text-sm text-muted-foreground">
-            ☐ {q.tfLabels?.[0] || 'Right'} ☐ {q.tfLabels?.[1] || 'Wrong'}
+          <span className="ml-2 inline-flex items-center gap-1.5 whitespace-nowrap align-middle text-sm text-muted-foreground">
+            <Box /> {q.tfLabels?.[0] || 'Right'} <Box /> {q.tfLabels?.[1] || 'Wrong'}
           </span>
         )}
       </p>
       {q.type === 'multi_select' && (
-        <ul className="ml-6 space-y-0.5 text-sm">
+        <ul className="ml-6 space-y-1 text-sm">
           {q.options.map((o) => (
-            <li key={o}>☐ {o}</li>
+            <li key={o} className="flex items-center gap-2">
+              <Box /> {o}
+            </li>
           ))}
         </ul>
       )}

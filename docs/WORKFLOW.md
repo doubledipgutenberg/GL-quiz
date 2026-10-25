@@ -133,11 +133,23 @@ derselben Reihenfolge wie später in der Runde) – wie in der Schulaufgabe: ers
   `speakers` (Sprecher → Stimme, nur freigegebene: `bf_emma`, `bm_george`), `lines` (Dialog) und `questions` nach
   dem Arbeitsblatt der Klasse: `rw` (Right or wrong? – `reading_true_false` mit Right/Wrong), `grid` (Complete the
   grid – `fill_gap`), `tick` (Tick all the correct answers – `multi_select`, richtig nur bei genau den richtigen
-  Optionen), `answer` (Answer the questions – `short_answer`, geprüft über `keywords`: aus jeder Gruppe ein Wort).
+  Optionen), `answer` (Answer the questions – `short_answer`, geprüft über `keywords`: aus jeder Gruppe ein Wort),
+  `long` (längere offene Frage, „in one or two sentences“ – mehrzeiliges Feld, alle `keywords`-Gruppen **und**
+  `minWords` Wörter; zu kurz → falsch mit Hinweis). Schlüsselwörter mit Wortformen angeben („stop/stops/stopped“,
+  AE-Wörter wie „elevator“), sie werden als ganze Wörter gesucht. „Na ja, schon fast richtig“ geht wie sonst an die Eltern.
   Texte selbst schreiben, mit Unit-Wortschatz und bekannter Grammatik; nicht aus dem Buch/Workbook abschreiben.
+- **Keine Kopien** (Wunsch des Nutzers, 2026-10-25): Neue Hörtexte, Mediationen und Fragen übernehmen keine Handlung
+  und keine Details aus vorhandenen Aufgaben. Kommt ein Thema wieder, wird darauf **aufgebaut** (dieselben Figuren in
+  einer neuen Lage, eine Fortsetzung, eine andere Sicht). Vorher die vorhandenen Aufgaben und ihre Kernpunkte
+  ansehen (`listening.js`, Mediationen in `Lernmaterial/`). Hörtext 2 „The movie for Minneapolis“ setzt Mediation 1
+  (Talentshow → Film für die Partnerschule) fort, Hörtext 3 „Kayla's visit“ Mediation 2 (Austausch → Gegenbesuch).
+- **Ausmustern statt löschen:** Ein ersetzter Hörtext bekommt `retired: true` und bleibt in der Datei, damit alte
+  Antworten im Lehrer-Bereich ihre Frage finden. Er ist nicht mehr wählbar (`listeningTasksFor`) und hat kein Audio
+  mehr (Manifest ohne ausgemusterte, `--prune` löscht die Datei). Neue Texte bekommen neue IDs (`en6-l4`, …).
 - **Audio:** `npm run audio` erzeugt je Hörtext eine Aufnahme `public/audio/en-6/<id>.m4a` (Art `listening`: jede
   Zeile mit ihrer Stimme, Tempo 0,9, 0,55 s Pause). Vorher die Aussprache prüfen (`phonemize`), z. B. „Mrs.“ mit
-  Punkt wird als Satzende gelesen → im Sprechtext „Mrs Clark“ (britisch, ohne Punkt).
+  Punkt wird als Satzende gelesen → im Sprechtext „Mrs Clark“ (britisch, ohne Punkt). Für deutsche Wörter oder Namen
+  kann eine Zeile als 3. Eintrag eine gesprochene Fassung haben (`['Kayla', '… "Danke".', '… "Danka".']`).
 - Die Fragen gehören zur Schulaufgabe (Historie, Lehrer-Bereich), laufen aber nicht im normalen Quiz und nicht in
   „Schwächen üben“ (`q.listening`). Im Verlauf des Lehrer-Bereichs: helle Säule mit gestricheltem Rand.
 - **Offline/Safari:** Das Offline-Skript liefert Aufnahmen auch in Teilstücken (Range-Anfragen) aus – sonst spielt

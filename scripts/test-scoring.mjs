@@ -6,6 +6,13 @@ import { en6VocabCards } from '../src/data/en6/cards.js';
 
 const cards = Object.fromEntries([...fr6VocabCards(), ...en6VocabCards()].map((c) => [c.id, c]));
 const q = (correct, extra = {}) => ({ type: 'vocab_card', correct, ...extra });
+const longQ = {
+  type: 'short_answer',
+  correct: "She is worried about her wheelchair. Lukas says there's a lift.",
+  keywords: [['wheelchair'], ['lift', 'elevator', 'ground floor', 'path', 'worry', 'ok', 'okay', 'fine']],
+  minWords: 8,
+};
+const helpQ = { type: 'short_answer', correct: 'They help each other with the languages.', keywords: [['german', 'english', 'language', 'languages']], minWords: 5 };
 
 // [Frage, Antwort, erwartet, Beschreibung]
 const CASES = [
@@ -92,6 +99,17 @@ const CASES = [
   [{ type: 'short_answer', correct: 'In the fall.', keywords: [['fall', 'autumn']] }, 'in summer', false, 'Kurzantwort: ohne Schlüsselwort falsch'],
   [{ type: 'short_answer', correct: 'They are going to watch a barrel race.', keywords: [['barrel race', 'race']] }, 'watch a barrel race', true, 'Kurzantwort: Wortgruppe'],
   [{ type: 'short_answer', correct: 'At four o’clock.', keywords: [['four', '4']] }, 'at 4', true, 'Kurzantwort: Ziffer'],
+
+  // Längere offene Fragen (ein bis zwei Sätze): alle Schlüsselwort-Gruppen + Mindestlänge
+  [longQ, 'She is worried about her wheelchair, but Lukas says there is a lift.', true, 'Lang: beide Gruppen, lang genug'],
+  [longQ, "She's worried about her wheelchair. Lukas says don’t worry.", true, 'Lang: Kurzform + typogr. Apostroph'],
+  [longQ, 'Because of her wheelchair and the lift', false, 'Lang: zu kurz (7 Wörter)'],
+  [longQ, 'wheelchair', false, 'Lang: nur ein Schlüsselwort'],
+  [longQ, 'She is worried about her wheelchair at the new school.', false, 'Lang: zweite Gruppe fehlt'],
+  [longQ, 'She is a bit worried about the school. The school has a lift.', false, 'Lang: erste Gruppe fehlt'],
+  [longQ, 'Kayla is worried about her wheelchair. There is an elevator.', true, 'Lang: AE-Wort elevator'],
+  [helpQ, 'They help with the languages.', true, 'Lang: genau minWords'],
+  [helpQ, 'With German and English.', false, 'Lang: 4 Wörter < 5'],
 
   // Echte Karten
   [cards.fr6_une_affiche_de, 'Poster, Plakat', true, 'affiche → Poster, Plakat'],

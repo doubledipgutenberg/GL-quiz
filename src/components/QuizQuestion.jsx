@@ -4,7 +4,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { cn } from '@/lib/utils';
 import { playAudio, playSequence } from '@/lib/audio';
-import { requiredMeanings, MULTI_SEPARATOR } from '@/utils/scoring';
+import { requiredMeanings, MULTI_SEPARATOR, wordCount } from '@/utils/scoring';
 import { listeningTaskById } from '@/data/questions';
 import { listeningAudio } from '@/data/en6/listening';
 import ListeningPlayer from './ListeningPlayer';
@@ -184,10 +184,11 @@ export default function QuizQuestion({ question, onSubmit }) {
                   type="button"
                   role="checkbox"
                   aria-checked={on}
-                  className={cn('vx-option', on && 'bg-[var(--pen-tint)]')}
+                  className={cn('vx-option vx-option--check', on && 'is-on')}
                   onClick={() => toggleOption(option)}
                 >
-                  <span className={cn('vx-option__key', on && 'bg-[var(--pen)] text-[var(--cream-50)]')} aria-hidden="true">
+                  {/* Großes, eckiges Kästchen (2026-10-25, Wunsch des Nutzers) – Stil in App.css */}
+                  <span className="vx-check" aria-hidden="true">
                     {on ? '✓' : ''}
                   </span>
                   <span className="vx-option__text">{option}</span>
@@ -236,7 +237,39 @@ export default function QuizQuestion({ question, onSubmit }) {
           </div>
         )}
 
-        {!['multiple_choice', 'reading_true_false', 'multi_select'].includes(question.type) && (
+        {/* Längere offene Frage (Hörverstehen): mehrzeiliges Feld, Enter schickt ab, Umschalt+Enter = neue Zeile. */}
+        {question.multiline && (
+          <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+            <textarea
+              ref={inputRef}
+              value={answer}
+              onChange={(e) => setAnswer(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' && !e.shiftKey && !e.nativeEvent.isComposing) handleSubmit(e);
+              }}
+              placeholder="Deine Antwort in ein bis zwei Sätzen ..."
+              rows={3}
+              autoFocus
+              autoComplete="off"
+              autoCorrect="off"
+              autoCapitalize="sentences"
+              spellCheck={false}
+              lang={question.answerLang || undefined}
+              className="w-full resize-y rounded-md border border-input bg-transparent px-3 py-2 text-base leading-relaxed shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+            />
+            <div className="flex items-center justify-between gap-3">
+              <p className="text-sm text-muted-foreground">
+                Schreib <strong>ein bis zwei Sätze</strong>
+                {question.minWords ? ` (mindestens ${question.minWords} Wörter · bisher ${wordCount(answer)})` : ''}.
+              </p>
+              <Button type="submit" disabled={!answer.trim()}>
+                Antworten
+              </Button>
+            </div>
+          </form>
+        )}
+
+        {!question.multiline && !['multiple_choice', 'reading_true_false', 'multi_select'].includes(question.type) && (
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
             <Input
               ref={inputRef}
@@ -283,7 +316,7 @@ export default function QuizQuestion({ question, onSubmit }) {
           </div>
         )}
 
-        {!isCard && (
+        {!isCard && question.hint && (
           <div className="pt-2">
             {!showHint ? (
               <Button variant="ghost" size="sm" onClick={() => setShowHint(true)}>

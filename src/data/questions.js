@@ -855,7 +855,7 @@ export function latestVocabBatch(courseId) {
 
 /** Hörverstehen (2026-10-25): die Hörtexte einer Schulaufgabe bzw. einer per ID. */
 const LISTENING_TASKS = [...EN6_LISTENING];
-export const listeningTasksFor = (exam) => LISTENING_TASKS.filter((t) => t.exam === exam);
+export const listeningTasksFor = (exam) => LISTENING_TASKS.filter((t) => t.exam === exam && !t.retired);
 export const listeningTaskById = (id) => LISTENING_TASKS.find((t) => t.id === id) || null;
 
 export default allQuestions;
