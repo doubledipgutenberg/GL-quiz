@@ -5,7 +5,8 @@
 // Aufbau wie src/data/fr6/vocab.js: Jede Lieferung ist ein BATCH mit dem Datum, an dem sie ins Quiz
 // kam (`added`). „Nur neue Vokabeln“ filtert den Wortschatz auf den jüngsten Batch.
 // Felder pro Eintrag: en, de, optional alt (weitere richtige engl. Antworten),
-// altDe (weitere richtige dt. Antworten), say (gesprochener Text, falls abweichend), sayPhonemes (Laute
+// altDe (weitere richtige dt. Antworten), minAnswers (Ausnahme von „mind. zwei Bedeutungen“ bei ≥ 3 Teilen, z. B.
+// bei bloßen Formen wie sollte/solltest), say (gesprochener Text, falls abweichend), sayPhonemes (Laute
 // direkt, wenn Kokoro falsch ausspricht – z. B. „what a“ sonst mit Buchstaben-A /eɪ/),
 // ex (kurzer Beispielsatz, eigene Formulierung – wird bei Hör-Karten nach dem Wort vorgelesen;
 // die [Klammer] markiert die Lücke für den Lückentext, siehe gapOf).
@@ -55,7 +56,7 @@ const BATCHES = [
           { en: 'wheelchair', de: 'Rollstuhl', ex: 'My grandpa is in a [wheelchair].' },
           { en: 'to teach', de: 'unterrichten; lehren; beibringen', ex: 'Can you [teach] me to swim?' },
           { en: 'to tease sb', de: 'jmdn. aufziehen; jmdn. hänseln; jmdn. ärgern', alt: ['to tease'], say: 'to tease somebody', ex: 'Please stop [teasing] your little brother!' },
-          { en: 'latest', de: 'neueste/-r/-s', ex: 'Have you heard their [latest] song?' },
+          { en: 'latest', de: 'neueste/-r/-s', altDe: ['neuste/-r/-s'], ex: 'Have you heard their [latest] song?' },
           { en: 'movie (AE)', de: 'Film', alt: ['film'], say: 'movie', ex: "Let's watch a [movie] tonight." },
           { en: 'movie theater (AE)', de: 'Kino (amerik.)', alt: ['cinema'], say: 'movie theater', ex: 'We went to the [movie theater] on Saturday.' },
           { en: "There's nothing more exciting than …", de: 'Es gibt nichts Spannenderes als …', alt: ['There is nothing more exciting than'], say: "There's nothing more exciting than", ex: "[There's nothing more exciting than] a horse race." },
@@ -208,7 +209,7 @@ const BATCHES = [
           { en: 'fight', de: 'Kampf; Streit', ex: 'The two brothers had a [fight] about the TV.' },
           { en: 'upset', de: 'aufgebracht; bestürzt', ex: 'Lisa is [upset] because she lost her cat.' },
           { en: 'idiot', de: 'Idiot/-in', ex: "Don't call your brother an [idiot]!" },
-          { en: 'should', de: 'sollte; solltest; sollten; solltet', ex: 'You [should] go to bed early tonight.' },
+          { en: 'should', de: 'sollte; solltest; sollten; solltet', minAnswers: 1, ex: 'You [should] go to bed early tonight.' },
           { en: 'each other', de: 'einander; sich; sich gegenseitig', ex: 'Tom and Max help [each other] with their homework.' },
           { en: 'to take out', de: 'herausnehmen', ex: 'Can you [take out] the milk, please?' },
           { en: 'paper', de: 'Papier', ex: 'I need a piece of [paper] for my drawing.' },

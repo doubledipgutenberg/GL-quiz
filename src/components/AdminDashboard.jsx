@@ -9,6 +9,7 @@ import {
   getAnswerReviewExport,
 } from '../utils/storage';
 import { getAllStudentOverview } from '../utils/analytics';
+import { regradeHistory } from '../utils/regrade';
 import { api, getParentToken, setParentToken, getKidSession } from '../lib/api';
 import { flush, pull } from '../utils/sync';
 import { coursesForDashboard, filterHistoryByCourse } from '../utils/courseOf';
@@ -252,7 +253,8 @@ export default function AdminDashboard({ onBack, onCreateVocabReviewQuiz, onCrea
   };
 
   // Jedes Kind hat sein eigenes Dashboard: erst Schüler wählen, dann – getrennt nach Fach – seine Inhalte.
-  const allHistory = getStudentHistory();
+  // Mit dem aktuellen Antwort-Check neu bewertet (z. B. „fast, beinahe“ = „fast; beinahe“), siehe utils/regrade.js.
+  const allHistory = regradeHistory(getStudentHistory());
   const names = [...new Set([...kids.map((k) => k.name), ...Object.keys(allHistory)])];
   const overviewByName = new Map(getAllStudentOverview(allHistory).map((o) => [o.name, o]));
   const allFlags = getAnswerFlags();

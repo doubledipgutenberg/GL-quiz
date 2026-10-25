@@ -57,5 +57,6 @@ unter `design-system/components/<Name>/README.md` (Ansicht: `preview.html` im Br
 
 ## Prüfen vor dem Abschluss
 
-`npm run build` · `npx eslint <geänderte Dateien>` · `npm run check:names` · Änderungen im Browser
+`npm run build` · `npx eslint <geänderte Dateien>` · `npm run check:names` · `npm run check:scoring` (bei Änderungen
+am Antwort-Check) · Änderungen im Browser
 durchspielen (Ablauf siehe WORKFLOW §2.6 und §3).

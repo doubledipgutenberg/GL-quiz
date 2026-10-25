@@ -127,6 +127,24 @@ wörtlich übernommen. Material aus offensichtlich illegalen Quellen (z. B. Scha
 Satzzeichen, führender Artikel/„to“, ä=ae/ß=ss, Klammern optional (mit *und* ohne Inhalt), eine von
 mehreren Bedeutungen und Genus-Endungen (`/-in`) zählen als richtig. Echte Tippfehler zählen als falsch,
 es gibt bewusst keine Toleranz für Tippfehler.
+**Mehrere Bedeutungen auf einmal** (2026-10-20): „Plakat, Poster“ = „Poster, Plakat“ = „Plakat und Poster“ – richtig,
+wenn jeder Teil für sich richtig ist (Trenner: Komma, Semikolon, Schrägstrich, und/oder, et/ou, and/or). Die
+Musterlösung wörtlich abgetippt („Juror/-in“) zählt auch. **Auswahlfragen** werden exakt verglichen (gewählte Option
+= richtige Option); vorher zerlegte der Freitext-Check auch sie, sodass z. B. „Salut, Léo !“ als falsch galt.
+Weitere Regeln (2026-10-25, Wünsche des Nutzers):
+- **Drei oder mehr Bedeutungen** (Vokabel → Deutsch): mindestens **zwei** verschiedene nennen; die Karte zeigt
+  den Hinweis unter dem Eingabefeld, nach nur einer richtigen Bedeutung kommt ein freundlicher Zusatz.
+  Endungen („neueste/-r/-s“) sind Formen, keine Bedeutungen. Ausnahme an der Vokabel: `minAnswers: 1` (should).
+- **Platzhalter** „jmdn./jmdm./etw./sb/sth“ dürfen fehlen („ärgern“ = „jmdn. ärgern“, „tease“ = „to tease sb“).
+- **Englische Kurzformen = Langformen** (there's/there is, I'm/I am, don't/do not, can't/cannot …), **außer bei
+  Question tags** (`topic: 'en_question_tags'`). **Typografische Apostrophe** (’ vom iPad) zählen wie '.
+- „…“ darf fehlen. Echte Tippfehler bleiben falsch („nothig“).
+- **Nachträgliche Neubewertung** (`src/utils/regrade.js`): Der Lehrer-Bereich bewertet gespeicherte falsche
+  Antworten mit dem heutigen Check neu (nur falsch → richtig); „fast richtig“-Meldungen, die der Check jetzt
+  akzeptiert, stehen als „Automatisch richtig“ unter „Schon entschieden“.
+- **„Na ja, schon fast richtig“** gibt es bei allen Fragen mit eigener Eingabe, auch im normalen Quiz (nicht bei
+  Auswahl/Richtig-Falsch). Im Lehrer-Bereich haben auch Fehler aus dem normalen Quiz einen „Doch richtig“-Knopf.
+Testfälle: `npm run check:scoring` (`scripts/test-scoring.mjs`) – neue Regeln im Matcher immer dort absichern.
 
 **Französisch** (`answerLang: 'fr'`, Entscheidung des Nutzers): Ein fehlender oder falscher Akzent
 (auch Cedille) zählt als **falsch**. Der Artikel (`le/la/l'/les/un/une/des/du`) darf fehlen, ein
