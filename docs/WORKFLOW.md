@@ -387,6 +387,10 @@ curl -s -o /dev/null -w '%{http_code}' https://<slug>.space.fast/   # muss 403 l
 - „Alle Vokabeln“ in Runden à 50 Karten mit Anzeige der restlichen Karten/Runden; in der Oberfläche heißt eine
   Session „Runde“. Serien-Kalender auf der Startseite (Monate als Blöcke, Wochentage als Zeilen).
 - Lehrer-Bereich: „Neue Vokabeln“ und „Gesamter Wortschatz“ als eigene Bereiche, alle Listen klappbar, mobil kompakt.
+- Lehrer-Bereich, **Verlauf** (2026-10-25): bleibt in seiner Karte (waagerecht scrollen, startet bei den neuesten
+  Runden), Datum einmal pro Tag; Säule gefüllt = Quiz, hell mit Rand = Wortschatz (Runde überwiegend aus
+  Vokabelkarten, erkannt an den Karten-IDs `_de/_en/_fr/_gap/_listen`). Prozent je Runde aus den Antworten
+  (zählt Nachbewertung und „Doch richtig“ mit).
 - Audio: Einzelwörter langsamer (0,8) mit 0,8 s Stille davor, damit kurze Wörter wie „air“ nicht verschluckt
   werden (`KIND` in `scripts/generate-audio.py`); Beispielsätze im normalen Tempo.
 - Audio-Anlaut (2026-10-13): Kokoro setzt vor Vokal-Anfänge oft Klick + Hauchen („air“ ≈ „hair“). Der Generator

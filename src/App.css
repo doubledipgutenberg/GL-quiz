@@ -119,14 +119,25 @@
 .detail-section { background: var(--card); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow); margin-bottom: 24px; border: 1px solid var(--border); }
 .detail-section h3 { margin-bottom: 16px; }
 
-.trend-chart { display: flex; align-items: flex-end; gap: 8px; height: 180px; padding-top: 20px; }
-.trend-bar-container { flex: 1; display: flex; flex-direction: column; align-items: center; height: 100%; justify-content: flex-end; }
+/* Verlauf (2026-10-25): bleibt in der Karte (waagerecht scrollen), Quiz = gefüllt, Wortschatz = hell mit Rand. */
+.trend-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; margin-bottom: 8px; }
+.trend-head h3 { margin-bottom: 0; }
+.trend-legend { display: flex; gap: 16px; font-size: 0.8rem; color: var(--muted-foreground); }
+.trend-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.trend-swatch { display: inline-block; width: 14px; height: 14px; border-radius: 4px; border: 2px solid var(--pen, var(--primary)); }
+.trend-swatch--quiz { background: var(--pen, var(--primary)); }
+.trend-swatch--vocab { background: var(--pen-tint, var(--muted)); }
+.trend-scroll { overflow-x: auto; overscroll-behavior-x: contain; padding-bottom: 6px; }
+.trend-chart { display: flex; align-items: flex-end; gap: 8px; height: 190px; padding-top: 20px; min-width: min-content; }
+.trend-bar-container { flex: 1 0 44px; min-width: 44px; max-width: 72px; display: flex; flex-direction: column; align-items: center; height: 100%; justify-content: flex-end; }
 .trend-bar {
-  width: 100%; max-width: 60px; background: var(--primary); border-radius: 8px 8px 0 0;
-  display: flex; align-items: flex-start; justify-content: center; min-height: 20px;
+  width: 100%; background: var(--pen, var(--primary)); border: 2px solid var(--pen, var(--primary)); border-bottom: 0;
+  border-radius: 8px 8px 0 0; display: flex; align-items: flex-start; justify-content: center; min-height: 20px;
 }
-.trend-value { color: white; font-size: 0.75rem; font-weight: 700; padding: 4px; }
-.trend-date { font-size: 0.7rem; color: var(--muted-foreground); margin-top: 4px; text-align: center; }
+.trend-bar--vocab { background: var(--pen-tint, var(--muted)); }
+.trend-value { color: white; font-size: 0.75rem; font-weight: 700; padding: 4px 2px; white-space: nowrap; }
+.trend-bar--vocab .trend-value { color: var(--pen, var(--primary)); }
+.trend-date { font-size: 0.7rem; color: var(--muted-foreground); margin-top: 4px; text-align: center; white-space: nowrap; min-height: 1.2em; }
 
 .category-bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
 .cat-label { width: 100px; font-weight: 600; font-size: 0.9rem; }
@@ -184,8 +195,9 @@
   .stat-label { font-size: 0.75rem; }
   .detail-section { padding: 16px 14px; margin-bottom: 16px; }
   .detail-section h3 { margin-bottom: 12px; font-size: 1rem; }
-  .trend-chart { height: 140px; gap: 4px; }
-  .trend-value { font-size: 0.65rem; padding: 2px; }
+  .trend-chart { height: 150px; gap: 4px; }
+  .trend-bar-container { flex-basis: 36px; min-width: 36px; }
+  .trend-value { font-size: 0.65rem; padding: 2px 1px; }
   .category-bar-row { flex-wrap: wrap; gap: 4px 8px; }
   .cat-label { width: auto; flex: 1; }
   .cat-pct { width: auto; white-space: nowrap; }

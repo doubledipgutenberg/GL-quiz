@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { analyzeStudent } from '../utils/analytics';
 import { checkAnswer } from '../utils/scoring';
 import {
@@ -45,6 +45,14 @@ export default function StudentDetail({ name, courseId, courseLabel, sessions, o
     () => analyzeStudent(sessions, studentDismissals, studentMarkedCorrect, courseId),
     [sessions, studentDismissals, studentMarkedCorrect, courseId],
   );
+
+  // Verlauf: beim Öffnen ans Ende scrollen, damit die neuesten Runden sichtbar sind.
+  const trendScrollRef = useRef(null);
+  const trendCount = analysis?.scoreTrend?.length || 0;
+  useEffect(() => {
+    const el = trendScrollRef.current;
+    if (el) el.scrollLeft = el.scrollWidth;
+  }, [trendCount]);
 
   const questionById = useMemo(() => {
     const map = {};
@@ -432,16 +440,34 @@ export default function StudentDetail({ name, courseId, courseLabel, sessions, o
       {/* Score Trend */}
       {analysis.scoreTrend.length > 1 && (
         <div className="detail-section">
-          <h3>Verlauf</h3>
-          <div className="trend-chart">
-            {analysis.scoreTrend.map((entry, i) => (
-              <div key={i} className="trend-bar-container">
-                <div className="trend-bar" style={{ height: `${entry.percentage}%` }}>
-                  <span className="trend-value">{entry.percentage}%</span>
-                </div>
-                <span className="trend-date">{entry.date}</span>
-              </div>
-            ))}
+          <div className="trend-head">
+            <h3>Verlauf</h3>
+            <div className="trend-legend" aria-hidden="true">
+              <span><i className="trend-swatch trend-swatch--quiz" />Quiz</span>
+              <span><i className="trend-swatch trend-swatch--vocab" />Wortschatz</span>
+            </div>
+          </div>
+          {/* Viele Runden: innerhalb der Karte waagerecht scrollen, beim Öffnen stehen die neuesten rechts im Blick. */}
+          <div className="trend-scroll" ref={trendScrollRef}>
+            <div className="trend-chart">
+              {analysis.scoreTrend.map((entry, i) => {
+                const kindLabel = entry.kind === 'vocab' ? 'Wortschatz' : 'Quiz';
+                const newDay = i === 0 || entry.day !== analysis.scoreTrend[i - 1].day;
+                return (
+                  <div
+                    key={i}
+                    className="trend-bar-container"
+                    title={`${kindLabel} · ${entry.date} · ${entry.percentage} % (${entry.correct}/${entry.total})`}
+                    aria-label={`${kindLabel} am ${entry.date}: ${entry.percentage} Prozent`}
+                  >
+                    <div className={`trend-bar trend-bar--${entry.kind}`} style={{ height: `${Math.max(entry.percentage, 14)}%` }}>
+                      <span className="trend-value">{entry.percentage}%</span>
+                    </div>
+                    <span className="trend-date">{newDay ? entry.day : ''}</span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       )}
