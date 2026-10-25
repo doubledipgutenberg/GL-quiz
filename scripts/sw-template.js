@@ -5,7 +5,8 @@
  * - Seitenaufruf: erst Netz (damit Updates und die Spacefast-Passwortseite ankommen), ohne Netz die
  *   gespeicherte App. Die Passwortseite wird NIE als App gespeichert (Prüfung auf APP_MARKER).
  * - Aufnahmen (audio/…m4a): nach dem Installieren im Hintergrund geladen; Schlüssel mit Inhalts-Hash,
- *   damit neu erzeugte Aufnahmen die alten ersetzen.
+ *   damit neu erzeugte Aufnahmen die alten ersetzen. Ausgeliefert auch in Teilstücken (Range), sonst spielt
+ *   Safari sie nicht ab.
  * - Schriften (Google Fonts): beim ersten Laden zwischengespeichert.
  * - /api/ läuft nie über den Zwischenspeicher.
  */
@@ -130,6 +131,44 @@ async function fromNetworkOrApp(request) {
   }
 }
 
+// Aufnahmen mit Teilstücken (2026-10-25): Safari fragt Audio in Stücken an („Range: bytes=…“) und spielt nichts ab,
+// wenn darauf die ganze Datei (200) kommt – gefunden beim Hörverstehen, betraf auch die Vokabel-Aufnahmen.
+// Deshalb: immer die GANZE Datei zwischenspeichern (ohne Range holen) und das gewünschte Stück daraus schneiden.
+async function audioResponse(path, request) {
+  const cache = await caches.open(AUDIO_CACHE);
+  const key = audioKey(path);
+  let full = await cache.match(key);
+  if (!full) {
+    full = await fetch(scopeUrl(path), { cache: 'no-cache' }); // ohne Range → ganze Datei
+    if (storable(full) && full.status === 200) await cache.put(key, full.clone());
+  }
+  const range = request.headers.get('range');
+  if (!range || full.status !== 200) return full;
+  const body = await full.arrayBuffer();
+  const size = body.byteLength;
+  const m = /bytes=(\d*)-(\d*)/.exec(range);
+  let start = m && m[1] ? Number(m[1]) : 0;
+  let end = m && m[2] ? Number(m[2]) : size - 1;
+  if (m && !m[1] && m[2]) {
+    start = Math.max(0, size - Number(m[2])); // „die letzten n Bytes“
+    end = size - 1;
+  }
+  end = Math.min(end, size - 1);
+  if (start > end || start >= size) {
+    return new Response(null, { status: 416, headers: { 'Content-Range': `bytes */${size}` } });
+  }
+  return new Response(body.slice(start, end + 1), {
+    status: 206,
+    statusText: 'Partial Content',
+    headers: {
+      'Content-Type': full.headers.get('Content-Type') || 'audio/mp4',
+      'Content-Range': `bytes ${start}-${end}/${size}`,
+      'Content-Length': String(end - start + 1),
+      'Accept-Ranges': 'bytes',
+    },
+  });
+}
+
 async function cacheFirst(cacheName, key, request) {
   const cache = await caches.open(cacheName);
   const hit = await cache.match(key);
@@ -158,7 +197,7 @@ self.addEventListener('fetch', (event) => {
 
   const path = url.href.startsWith(self.registration.scope) ? url.href.slice(self.registration.scope.length).split('?')[0] : null;
   if (path && AUDIO[path]) {
-    event.respondWith(cacheFirst(AUDIO_CACHE, audioKey(path), request));
+    event.respondWith(audioResponse(path, request));
     return;
   }
   if (path && SHELL.includes(path)) {

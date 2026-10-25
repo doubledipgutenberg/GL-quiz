@@ -753,6 +753,7 @@ import { getVocabularyQuestionsSA4 } from './vocabListSA4';
 import questionsFR6 from './fr6/questions';
 import { fr6VocabCards, fr6NewVocabCards, fr6LatestBatch, fr6AllCards } from './fr6/cards';
 import questionsEN6 from './en6/questions';
+import { EN6_LISTENING, EN6_LISTENING_QUESTIONS } from './en6/listening';
 import { en6VocabCards, en6NewVocabCards, en6LatestBatch, en6AllCards } from './en6/cards';
 
 // Kurse = Sprache + Klasse. Ein Kurs ohne Schulaufgaben wird als „kommt bald" angezeigt.
@@ -817,6 +818,8 @@ const allQuestions = [
   ...questionsSA4.map((q) => ({ ...q, exam: 'sa4' })),
   ...questionsFR6,
   ...questionsEN6,
+  // Hörverstehen: gehören zur Schulaufgabe, laufen aber nur mit ihrem Hörtext (nicht im normalen Quiz).
+  ...EN6_LISTENING_QUESTIONS,
 ];
 
 // Vertonte Kurse mit datierten Vokabel-Batches (Klasse 6).
@@ -849,5 +852,10 @@ export function latestVocabBatch(courseId) {
   const { added, vocab } = cv.latest();
   return added ? { added, count: vocab.length } : null;
 }
+
+/** Hörverstehen (2026-10-25): die Hörtexte einer Schulaufgabe bzw. einer per ID. */
+const LISTENING_TASKS = [...EN6_LISTENING];
+export const listeningTasksFor = (exam) => LISTENING_TASKS.filter((t) => t.exam === exam);
+export const listeningTaskById = (id) => LISTENING_TASKS.find((t) => t.id === id) || null;
 
 export default allQuestions;

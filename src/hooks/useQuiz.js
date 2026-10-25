@@ -1,5 +1,5 @@
 import { useReducer, useCallback, useEffect, useRef } from 'react';
-import questions, { EXAMS, getVocabularyQuestions, getNewVocabularyQuestions, DEFAULT_EXAM } from '../data/questions';
+import questions, { EXAMS, getVocabularyQuestions, getNewVocabularyQuestions, DEFAULT_EXAM, listeningTaskById } from '../data/questions';
 import { checkAnswer, calculatePoints, getMaxPoints } from '../utils/scoring';
 import { planVocabRound, markVocabDone, vocabPassStatus } from '../utils/vocabPass';
 import { spreadByWord } from '../utils/spreadCards';
@@ -22,7 +22,9 @@ const newSessionId = () => `${Date.now().toString(36)}-${Math.random().toString(
 
 // Antwortoptionen bei jeder Runde neu mischen – sonst steht die richtige Antwort immer an derselben Stelle.
 function withShuffledOptions(list) {
-  return list.map((q) => (q.type === 'multiple_choice' && Array.isArray(q.options) ? { ...q, options: shuffle(q.options) } : q));
+  return list.map((q) =>
+    ['multiple_choice', 'multi_select'].includes(q.type) && Array.isArray(q.options) ? { ...q, options: shuffle(q.options) } : q,
+  );
 }
 
 const initialState = {
@@ -35,6 +37,7 @@ const initialState = {
   answersOffset: 0,         // Antworten davor gehören zu einem früheren Historien-Eintrag
   passExam: null,           // Runde im Wortschatz-Durchgang dieser Schulaufgabe (utils/vocabPass.js)
   passInfo: null,           // { round, roundsTotal, size, startCur } beim Start der Runde (für RoundProgress)
+  listeningTask: null,      // Hörverstehen: ID des Hörtexts (Phase „listen“ = erst anhören, dann Fragen)
   currentIndex: 0,
   score: 0,
   answers: [],
@@ -46,6 +49,28 @@ function reducer(state, action) {
     case 'START_QUIZ': {
       const mode = action.mode || 'normal';
       const exam = action.exam || DEFAULT_EXAM;
+      // Hörverstehen: erst der Hörtext (Phase „listen“), dann die Fragen in fester Reihenfolge wie im Arbeitsblatt.
+      if (mode === 'listening') {
+        const task = listeningTaskById(action.taskId);
+        if (!task) return state;
+        return {
+          ...state,
+          phase: 'listen',
+          playerName: action.name,
+          mode,
+          exam,
+          questions: withShuffledOptions(task.questions),
+          listeningTask: task.id,
+          sessionId: newSessionId(),
+          answersOffset: 0,
+          passExam: null,
+          passInfo: null,
+          currentIndex: 0,
+          score: 0,
+          answers: [],
+          lastAnswer: null,
+        };
+      }
       // Vokabel-Modi: alle Karten der Auswahl (inkl. Hör-Karten), gemischt (kein 15er-Limit)
       if (mode === 'vocabulary' || mode === 'newvocab') {
         // „Alle Vokabeln“: die Karten der nächsten Runde kommen vorgeplant (action.questions, à 50).
@@ -76,7 +101,8 @@ function reducer(state, action) {
 
       // Normal-Modus: nur Fragen der gewählten Schulaufgabe; noch nicht gesehene zuerst,
       // aufgefüllt mit bereits gesehenen, damit die Runde voll wird.
-      const examPool = questions.filter((q) => q.exam === exam);
+      // Ohne Hörverstehen – diese Fragen laufen nur mit ihrem Hörtext (Modus „listening“).
+      const examPool = questions.filter((q) => q.exam === exam && !q.listening);
       let candidatePool = shuffle(examPool);
       try {
         const history = getStudentHistory();
@@ -150,6 +176,8 @@ function reducer(state, action) {
         lastAnswer: null,
       };
     }
+    case 'BEGIN_QUESTIONS':
+      return state.phase === 'listen' ? { ...state, phase: 'quiz' } : state;
     case 'RESTART':
       clearDraftSession();
       return { ...initialState, phase: 'welcome' };
@@ -236,7 +264,11 @@ export default function useQuiz() {
     saveHighscore(state.playerName, state.score, getMaxPoints(state.questions), state.questions.length);
   }, [state.phase, state.sessionId, state.playerName, state.score, state.questions]);
 
-  const startQuiz = useCallback((name, mode = 'normal', exam = DEFAULT_EXAM) => {
+  const startQuiz = useCallback((name, mode = 'normal', exam = DEFAULT_EXAM, taskId = null) => {
+    if (mode === 'listening') {
+      dispatch({ type: 'START_QUIZ', name, mode, exam, taskId });
+      return;
+    }
     // „Alle Vokabeln“ = nächste Runde (50 Karten) im Wortschatz-Durchgang dieser Schulaufgabe.
     if (mode === 'vocabulary') {
       const questions = planVocabRound(name, exam);
@@ -297,6 +329,10 @@ export default function useQuiz() {
     dispatch({ type: 'SUBMIT_ANSWER', answer });
   }, []);
 
+  const beginQuestions = useCallback(() => {
+    dispatch({ type: 'BEGIN_QUESTIONS' });
+  }, []);
+
   const nextQuestion = useCallback(() => {
     dispatch({ type: 'NEXT_QUESTION' });
   }, []);
@@ -346,6 +382,7 @@ export default function useQuiz() {
     maxScore,
     progress,
     startQuiz,
+    beginQuestions,
     startVocabReview,
     startNormalReview,
     submitAnswer,

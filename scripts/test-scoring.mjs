@@ -84,6 +84,15 @@ const CASES = [
   [q("isn't she", { type: 'fill_gap', topic: 'en_question_tags' }), 'isn’t she', true, 'Question tag: typografischer Apostroph'],
   [q("Emily's horse", { type: 'translate' }), 'Emily is horse', false, 'Besitz-’s wird nicht zu „is“'],
 
+  // Hörverstehen (2026-10-25): Ankreuzen genau richtig; Kurzantworten über Schlüsselwörter
+  [{ type: 'multi_select', correctOptions: ['A', 'C'], options: [] }, 'C | A', true, 'Ankreuzen: genau die richtigen'],
+  [{ type: 'multi_select', correctOptions: ['A', 'C'], options: [] }, 'A', false, 'Ankreuzen: eine fehlt'],
+  [{ type: 'multi_select', correctOptions: ['A', 'C'], options: [] }, 'A | B | C', false, 'Ankreuzen: eine zu viel'],
+  [{ type: 'short_answer', correct: 'In the fall.', keywords: [['fall', 'autumn']] }, 'in autumn', true, 'Kurzantwort: Schlüsselwort'],
+  [{ type: 'short_answer', correct: 'In the fall.', keywords: [['fall', 'autumn']] }, 'in summer', false, 'Kurzantwort: ohne Schlüsselwort falsch'],
+  [{ type: 'short_answer', correct: 'They are going to watch a barrel race.', keywords: [['barrel race', 'race']] }, 'watch a barrel race', true, 'Kurzantwort: Wortgruppe'],
+  [{ type: 'short_answer', correct: 'At four o’clock.', keywords: [['four', '4']] }, 'at 4', true, 'Kurzantwort: Ziffer'],
+
   // Echte Karten
   [cards.fr6_une_affiche_de, 'Poster, Plakat', true, 'affiche → Poster, Plakat'],
   [cards.fr6_un_magasin_de, 'Laden, Geschäft', true, 'magasin → Laden, Geschäft'],

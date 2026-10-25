@@ -176,18 +176,19 @@ export function analyzeStudent(sessions, dismissals = { questions: {}, wrongAtte
   }));
 
   // Score trend (last sessions)
-  // Verlauf je Runde (2026-10-25): Art der Runde (Wortschatz = überwiegend Vokabelkarten, sonst Quiz) und Prozent
+  // Verlauf je Runde (2026-10-25): Art der Runde (Hörverstehen / Wortschatz = überwiegend Vokabelkarten / Quiz) und Prozent
   // aus den Antworten – so zählen nachbewertete und als „Doch richtig“ markierte Antworten mit.
   const isVocabCard = (id) => /_(de|en|fr|gap|listen|second)$/.test(String(id));
   const scoreTrend = sessions.map(s => {
     const answers = (s.answers || []).filter(Boolean);
     const correct = answers.filter((a) => a.isCorrect || (markedCorrect[a.questionId] || []).includes(s.date)).length;
     const vocab = answers.filter((a) => isVocabCard(a.questionId)).length;
+    const listening = answers.filter((a) => a.category === 'listening').length;
     const d = new Date(s.date);
     return {
       date: d.toLocaleDateString('de-DE'),
       day: d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit' }),
-      kind: answers.length && vocab * 2 >= answers.length ? 'vocab' : 'quiz',
+      kind: answers.length && listening * 2 >= answers.length ? 'listening' : answers.length && vocab * 2 >= answers.length ? 'vocab' : 'quiz',
       correct,
       total: answers.length,
       percentage: answers.length ? Math.round((correct / answers.length) * 100) : s.percentage ?? 0,

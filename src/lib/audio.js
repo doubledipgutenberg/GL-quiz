@@ -90,6 +90,13 @@ function playOne(audio, token, onEnd) {
   });
 }
 
+/** Laufende Wiedergabe (Datei oder Ersatzstimme) beenden – z. B. bevor ein Hörtext startet. */
+export function stopAudio() {
+  run += 1;
+  if (player) player.pause();
+  cancelSpeech();
+}
+
 /** @param {{course: string, id: string, text: string, lang: string}} audio */
 export function playAudio(audio) {
   if (!audio) return;

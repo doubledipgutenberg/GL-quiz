@@ -11,7 +11,8 @@ import FeedbackCard from './components/FeedbackCard';
 import ScoreBoard from './components/ScoreBoard';
 import ProgressBar from './components/ProgressBar';
 import AdminDashboard from './components/AdminDashboard';
-import { COURSES, EXAMS } from './data/questions';
+import { COURSES, EXAMS, listeningTaskById } from './data/questions';
+import ListeningIntro from './components/ListeningIntro';
 import { vocabPassStatus, roundNote } from './utils/vocabPass';
 import RoundBreak from './components/RoundBreak';
 import { Button } from './components/ui/button';
@@ -168,6 +169,11 @@ export default function App() {
           <SyncStatus />
         </div>
       )}
+      {/* Hörverstehen: erst den Text anhören, dann „Zu den Fragen“ */}
+      {quiz.phase === 'listen' && listeningTaskById(quiz.listeningTask) && (
+        <ListeningIntro task={listeningTaskById(quiz.listeningTask)} onStart={quiz.beginQuestions} onBack={quiz.restart} />
+      )}
+
       {quiz.phase === 'welcome' && (
         <WelcomeScreen
           playerName={kid.name}

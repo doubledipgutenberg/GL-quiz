@@ -4,7 +4,10 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { cn } from '@/lib/utils';
 import { playAudio, playSequence } from '@/lib/audio';
-import { requiredMeanings } from '@/utils/scoring';
+import { requiredMeanings, MULTI_SEPARATOR } from '@/utils/scoring';
+import { listeningTaskById } from '@/data/questions';
+import { listeningAudio } from '@/data/en6/listening';
+import ListeningPlayer from './ListeningPlayer';
 
 // Akzent-Tasten für französische Antworten (Akzente zählen streng).
 const FR_ACCENTS = ['é', 'è', 'ê', 'ë', 'à', 'â', 'ç', 'î', 'ï', 'ô', 'û', 'ù', 'œ'];
@@ -22,6 +25,14 @@ function SpeakerButton({ audio, sequence, size = 'sm', label = 'Anhören' }) {
 export default function QuizQuestion({ question, onSubmit }) {
   const [answer, setAnswer] = useState('');
   const [showHint, setShowHint] = useState(false);
+  // Hörverstehen „Tick all the correct answers“: angekreuzte Optionen (neue Frage → leer).
+  const [selected, setSelected] = useState([]);
+  const [selectedFor, setSelectedFor] = useState(question.id);
+  if (selectedFor !== question.id) {
+    setSelectedFor(question.id);
+    setSelected([]);
+  }
+  const listeningTask = question.listening ? listeningTaskById(question.listening) : null;
   const inputRef = useRef(null);
   const isListen = question.type === 'listen_card';
   const isCard = question.type === 'vocab_card' || isListen;
@@ -51,6 +62,15 @@ export default function QuizQuestion({ question, onSubmit }) {
       setAnswer('');
       setShowHint(false);
     }
+  };
+
+  const toggleOption = (option) =>
+    setSelected((list) => (list.includes(option) ? list.filter((o) => o !== option) : [...list, option]));
+
+  const submitSelected = () => {
+    if (!selected.length) return;
+    onSubmit(selected.join(MULTI_SEPARATOR));
+    setSelected([]);
   };
 
   const handleOptionClick = (option) => {
@@ -139,8 +159,45 @@ export default function QuizQuestion({ question, onSubmit }) {
           </div>
         )}
 
+        {/* Hörverstehen: Hörtext noch einmal anhören + Aufgabenform wie im Arbeitsblatt („Right or wrong?“ …) */}
+        {listeningTask && (
+          <div className="space-y-3 rounded-[var(--radius-md)] border border-border bg-muted/30 p-3">
+            <p className="text-sm font-semibold">{listeningTask.title}</p>
+            <ListeningPlayer compact audio={listeningAudio(listeningTask)} />
+          </div>
+        )}
+        {question.listening && question.instruction && (
+          <p className="text-sm font-semibold text-muted-foreground">{question.instruction}</p>
+        )}
+
         {!isCard && (
           <h2 className="text-lg font-semibold leading-tight">{question.question}</h2>
+        )}
+
+        {question.type === 'multi_select' && question.options && (
+          <div className="grid gap-2">
+            {question.options.map((option) => {
+              const on = selected.includes(option);
+              return (
+                <button
+                  key={option}
+                  type="button"
+                  role="checkbox"
+                  aria-checked={on}
+                  className={cn('vx-option', on && 'bg-[var(--pen-tint)]')}
+                  onClick={() => toggleOption(option)}
+                >
+                  <span className={cn('vx-option__key', on && 'bg-[var(--pen)] text-[var(--cream-50)]')} aria-hidden="true">
+                    {on ? '✓' : ''}
+                  </span>
+                  <span className="vx-option__text">{option}</span>
+                </button>
+              );
+            })}
+            <Button type="button" className="mt-1" disabled={!selected.length} onClick={submitSelected}>
+              Antworten
+            </Button>
+          </div>
         )}
 
         {question.type === 'word_order' && (
@@ -179,7 +236,7 @@ export default function QuizQuestion({ question, onSubmit }) {
           </div>
         )}
 
-        {!['multiple_choice', 'reading_true_false'].includes(question.type) && (
+        {!['multiple_choice', 'reading_true_false', 'multi_select'].includes(question.type) && (
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
             <Input
               ref={inputRef}

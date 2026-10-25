@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { EXAMS, COURSES, DEFAULT_COURSE, examsForCourse, defaultExamForCourse, latestVocabBatch } from '../data/questions';
+import { EXAMS, COURSES, DEFAULT_COURSE, examsForCourse, defaultExamForCourse, latestVocabBatch, listeningTasksFor } from '../data/questions';
 import { getDraftSession, getSavedRounds, getFullExportPayload, getStudentHistory } from '../utils/storage';
 import StreakCalendar from './StreakCalendar';
 import ReviewPlan from './ReviewPlan';
@@ -87,6 +87,8 @@ export default function WelcomeScreen({
   const [step, setStep] = useState(1);
   // ReviewPlan: Übersicht vor einer Runde „Alle Vokabeln“ – ein eigener Schritt, „Zurück“ = ein Schritt zurück.
   const [showPlan, setShowPlan] = useState(false);
+  // Hörverstehen (2026-10-25): dritte Kategorie neben Quiz und Wortschatz → danach „Welcher Hörtext?“.
+  const [pickListening, setPickListening] = useState(false);
 
   const course = COURSES.find((c) => c.id === courseId) || COURSES[0];
   const courseExams = examsForCourse(course.id);
@@ -104,17 +106,30 @@ export default function WelcomeScreen({
   // Schritt für Schritt, immer nur eine Frage sichtbar: Fach → Schulaufgabe → Modus
   // → (nur Wortschatz) alle oder neue Vokabeln. Die letzte Wahl startet das Quiz.
   const chooseCourse = (id) => {
+    setPickListening(false);
     setCourseId(id);
     setExam(defaultExamForCourse(id));
     setStep(2);
   };
 
   const chooseExam = (id) => {
+    setPickListening(false);
     setExam(id);
     setStep(3);
   };
 
-  const start = (mode) => exam && onStart(playerName, mode, exam);
+  const start = (mode, taskId) => exam && onStart(playerName, mode, exam, taskId);
+
+  // Hörtexte der Schulaufgabe und das letzte Ergebnis je Hörtext (aus der eigenen Historie).
+  const listeningTasks = exam ? listeningTasksFor(exam) : [];
+  const lastListening = (task) => {
+    const sessions = getStudentHistory()[playerName]?.sessions || [];
+    for (let i = sessions.length - 1; i >= 0; i--) {
+      const answers = (sessions[i].answers || []).filter((a) => String(a?.questionId).startsWith(`${task.id}-`));
+      if (answers.length) return `Zuletzt: ${answers.filter((a) => a.isCorrect).length} von ${answers.length} richtig`;
+    }
+    return null;
+  };
 
   // Stand im Wortschatz-Durchgang (Runden à 50 Karten) der gewählten Schulaufgabe.
   const pass = step >= 3 && exam ? vocabPassStatus(playerName, exam) : null;
@@ -222,7 +237,7 @@ export default function WelcomeScreen({
         </div>
       ) : (
         <div className="vx-stack">
-          <StepHead step={step} title={titles[step - 1]} />
+          <StepHead step={step} title={step === 3 && pickListening ? 'Welcher Hörtext?' : titles[step - 1]} />
 
           {/* Schritt 1: eine Karte pro Stadt – Paris (Französisch), London (Englisch) – mit je einem
               Button pro Klasse (z. B. London: Klasse 6 und Klasse 5). */}
@@ -301,8 +316,22 @@ export default function WelcomeScreen({
             </div>
           )}
 
-          {step === 3 && (
+          {step === 3 && pickListening && (
             <div className="grid gap-3 md:grid-cols-2">
+              {listeningTasks.map((task, i) => (
+                <Choice
+                  key={task.id}
+                  icon="speaker"
+                  title={`${i + 1}. ${task.title}`}
+                  sub={lastListening(task) || `Erst zuhören, dann ${task.questions.length} Fragen`}
+                  onClick={() => start('listening', task.id)}
+                />
+              ))}
+            </div>
+          )}
+
+          {step === 3 && !pickListening && (
+            <div className={`grid gap-3 ${listeningTasks.length ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
               <Choice icon="grammar" title="Normales Quiz" sub="Gemischte Fragen aus dem ganzen Stoff" onClick={() => start('normal')} />
               <Choice
                 icon="book"
@@ -317,6 +346,14 @@ export default function WelcomeScreen({
                 progress={newBatch ? null : passProgress}
                 onClick={chooseVocabulary}
               />
+              {listeningTasks.length > 0 && (
+                <Choice
+                  icon="speaker"
+                  title="Hörverstehen"
+                  sub={`${listeningTasks.length} Hörtexte: erst zuhören, dann Fragen – wie in der Schulaufgabe`}
+                  onClick={() => setPickListening(true)}
+                />
+              )}
             </div>
           )}
 
@@ -340,7 +377,11 @@ export default function WelcomeScreen({
 
           {step > 1 && (
             <div className="pt-2">
-              <button type="button" className="vx-btn vx-btn--sm" onClick={() => setStep(step - 1)}>
+              <button
+                type="button"
+                className="vx-btn vx-btn--sm"
+                onClick={() => (step === 3 && pickListening ? setPickListening(false) : setStep(step - 1))}
+              >
                 Zurück
               </button>
             </div>

@@ -20,9 +20,12 @@ const hash = (path) => createHash('sha1').update(readFileSync(join(dist, path)))
 const shell = files.filter((f) => !f.startsWith('audio/') && f !== 'sw.js').sort();
 const audio = Object.fromEntries(files.filter((f) => f.startsWith('audio/') && f.endsWith('.m4a')).sort().map((f) => [f, hash(f)]));
 const fontCss = (readFileSync(join(dist, 'index.html'), 'utf8').match(/href="(https:\/\/fonts\.googleapis\.com\/css2[^"]+)"/) || [])[1] || '';
+// Auch die Vorlage selbst gehört zur Version: Ändert sich die Logik des Service Workers, gibt es eine neue Version.
+const template = readFileSync(new URL('./sw-template.js', import.meta.url), 'utf8');
 const version = createHash('sha1')
   .update(shell.map((f) => `${f}:${hash(f)}`).join('\n'))
   .update(JSON.stringify(audio))
+  .update(template)
   .digest('hex')
   .slice(0, 12);
 
@@ -33,7 +36,7 @@ const values = {
   AUDIO: JSON.stringify(audio),
   FONT_CSS: JSON.stringify(fontCss.replace(/&amp;/g, '&')),
 };
-let sw = readFileSync(new URL('./sw-template.js', import.meta.url), 'utf8');
+let sw = template;
 for (const [name, value] of Object.entries(values)) {
   const assignment = new RegExp(`^const ${name} = '?__${name}__'?;`, 'm');
   if (!assignment.test(sw)) throw new Error(`sw-template.js: Zuweisung für ${name} fehlt`);

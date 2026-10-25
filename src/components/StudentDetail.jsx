@@ -107,7 +107,7 @@ export default function StudentDetail({ name, courseId, courseLabel, sessions, o
     (analysis.questionMistakes || []).forEach((q) => {
       if (studentDismissals.questions?.[q.questionId]) return;
       const def = questionById[q.questionId];
-      if (!def || def.type === 'vocab_card' || def.category === 'vocabulary') return;
+      if (!def || def.type === 'vocab_card' || def.category === 'vocabulary' || def.listening) return;
       if (!weakTopics.has(def.topic)) return;
       const dismissedAttempts = studentDismissals.wrongAttempts?.[q.questionId] || [];
       const visibleAttempts = (q.wrongAttempts || []).filter(
@@ -119,7 +119,7 @@ export default function StudentDetail({ name, courseId, courseLabel, sessions, o
     // 2) Zusätzliche frische Fragen aus denselben Schwäche-Themen (nur gespielte Schulaufgaben)
     const fresh = [];
     questions.forEach((q) => {
-      if (q.type === 'vocab_card' || q.category === 'vocabulary') return;
+      if (q.type === 'vocab_card' || q.category === 'vocabulary' || q.listening) return;
       if (!weakTopics.has(q.topic)) return;
       if (playedExams.size > 0 && q.exam && !playedExams.has(q.exam)) return;
       if (!ids.has(q.id)) fresh.push(q.id);
@@ -260,6 +260,8 @@ export default function StudentDetail({ name, courseId, courseLabel, sessions, o
     translate: 'Übersetzung',
     word_order: 'Satzbau',
     picture_vocab: 'Bild-Vokabel',
+    short_answer: 'Hörverstehen – Kurzantwort',
+    multi_select: 'Hörverstehen – Ankreuzen',
   };
   const flagKind = (flag) => FLAG_KINDS[flag.type] || 'Quiz-Frage';
 
@@ -445,13 +447,14 @@ export default function StudentDetail({ name, courseId, courseLabel, sessions, o
             <div className="trend-legend" aria-hidden="true">
               <span><i className="trend-swatch trend-swatch--quiz" />Quiz</span>
               <span><i className="trend-swatch trend-swatch--vocab" />Wortschatz</span>
+              <span><i className="trend-swatch trend-swatch--listening" />Hörverstehen</span>
             </div>
           </div>
           {/* Viele Runden: innerhalb der Karte waagerecht scrollen, beim Öffnen stehen die neuesten rechts im Blick. */}
           <div className="trend-scroll" ref={trendScrollRef}>
             <div className="trend-chart">
               {analysis.scoreTrend.map((entry, i) => {
-                const kindLabel = entry.kind === 'vocab' ? 'Wortschatz' : 'Quiz';
+                const kindLabel = { vocab: 'Wortschatz', listening: 'Hörverstehen' }[entry.kind] || 'Quiz';
                 const newDay = i === 0 || entry.day !== analysis.scoreTrend[i - 1].day;
                 return (
                   <div

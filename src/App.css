@@ -135,8 +135,10 @@
   border-radius: 8px 8px 0 0; display: flex; align-items: flex-start; justify-content: center; min-height: 20px;
 }
 .trend-bar--vocab { background: var(--pen-tint, var(--muted)); }
+/* Hörverstehen: hell mit gestricheltem Rand (gut lesbar, klar anders als Quiz und Wortschatz) */
+.trend-bar--listening, .trend-swatch--listening { background: var(--cream-50, #fff); border-style: dashed; }
 .trend-value { color: white; font-size: 0.75rem; font-weight: 700; padding: 4px 2px; white-space: nowrap; }
-.trend-bar--vocab .trend-value { color: var(--pen, var(--primary)); }
+.trend-bar--vocab .trend-value, .trend-bar--listening .trend-value { color: var(--pen, var(--primary)); }
 .trend-date { font-size: 0.7rem; color: var(--muted-foreground); margin-top: 4px; text-align: center; white-space: nowrap; min-height: 1.2em; }
 
 .category-bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }

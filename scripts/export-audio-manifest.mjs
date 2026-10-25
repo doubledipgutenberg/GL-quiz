@@ -25,5 +25,18 @@ const items = mod[src.list].flatMap((v) => [
     ? [{ id: `${v.id}_ex`, text: v.sayEx || mod.exampleText(v), lang: src.lang, kind: 'sentence', ...(v.sayExPhonemes ? { phonemes: v.sayExPhonemes } : {}) }]
     : []),
 ]);
+// Hörverstehen (2026-10-25): ein Dialog pro Hörtext, jede Zeile mit der Stimme ihres Sprechers (Art „listening“).
+if (course === 'en-6') {
+  const listening = await import(new URL('../src/data/en6/listening.js', import.meta.url));
+  for (const task of listening.EN6_LISTENING) {
+    items.push({
+      id: task.id,
+      text: listening.listeningText(task),
+      lang: 'en',
+      kind: 'listening',
+      segments: listening.listeningSegments(task),
+    });
+  }
+}
 writeFileSync(out, JSON.stringify({ course, items }, null, 2));
 console.log(`${course}: ${items.length} Einträge → ${out}`);
