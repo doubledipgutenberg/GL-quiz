@@ -245,6 +245,11 @@ const sameOption = (a, b) => {
   return norm(a) === norm(b);
 };
 
+// Längere offene Fragen im Hörverstehen (2026-10-25): Antwort in ein bis zwei Sätzen. Zu kurz → falsch, auch wenn
+// ein Schlüsselwort vorkommt („wheelchair“ allein beantwortet nicht „Why is Kayla worried, and what does Lukas say?“).
+export const wordCount = (text) => String(text ?? '').split(/\s+/).filter((w) => /[\p{L}\p{N}]/u.test(w)).length;
+export const tooShort = (question, userAnswer) => !!question?.minWords && wordCount(userAnswer) < question.minWords;
+
 export function checkAnswer(question, userAnswer) {
   keepContractions = question?.topic === 'en_question_tags';
   try {
@@ -266,6 +271,7 @@ function checkMultiSelect(question, userAnswer) {
 
 function checkAnswerFor(question, userAnswer) {
   if (question.type === 'multi_select') return checkMultiSelect(question, userAnswer);
+  if (tooShort(question, userAnswer)) return false;
   if (question.type === 'multiple_choice') {
     return [question.correct, ...(Array.isArray(question.alternativeCorrect) ? question.alternativeCorrect : [])].some((c) =>
       sameOption(c, userAnswer),

@@ -28,7 +28,7 @@ const items = mod[src.list].flatMap((v) => [
 // Hörverstehen (2026-10-25): ein Dialog pro Hörtext, jede Zeile mit der Stimme ihres Sprechers (Art „listening“).
 if (course === 'en-6') {
   const listening = await import(new URL('../src/data/en6/listening.js', import.meta.url));
-  for (const task of listening.EN6_LISTENING) {
+  for (const task of listening.EN6_LISTENING.filter((t) => !t.retired)) {
     items.push({
       id: task.id,
       text: listening.listeningText(task),

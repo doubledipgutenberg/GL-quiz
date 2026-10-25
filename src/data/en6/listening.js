@@ -58,11 +58,20 @@ const TASKS = [
       { kind: 'answer', text: 'How did Sophie feel when the boy teased her?', answer: 'She was upset.', keywords: [['upset', 'sad', 'unhappy', 'angry']] },
       { kind: 'answer', text: 'What are Sophie and Ava going to do on Saturday?', answer: 'They are going to watch a barrel race.', keywords: [['barrel race', 'race']] },
       { kind: 'answer', text: 'When is Grandpa going to visit Sophie?', answer: 'In the fall.', keywords: [['fall', 'autumn']] },
+      {
+        kind: 'long',
+        text: 'How is the new town different from Chicago?',
+        answer: "It's very quiet – there's no noise and there are no traffic jams. But everything is far away, and the bus only comes once an hour.",
+        keywords: [['quiet', 'noise', 'noisy', 'traffic', 'traffic jams'], ['far', 'far away', 'bus', 'mall', 'car']],
+        minWords: 8,
+      },
     ],
   },
   {
     id: 'en6-l2',
     exam: 'en6-u1',
+    // Ausgemustert 2026-10-25: zu nah an den Mediationsaufgaben (Nutzer). Nur noch für alte Antworten im Lehrer-Bereich.
+    retired: true,
     title: 'The talent show',
     situation:
       'Hannah und Max gehen in die 6. Klasse. Am Freitag ist die Talentshow ihrer Schule. Die beiden unterhalten ' +
@@ -121,6 +130,8 @@ const TASKS = [
   {
     id: 'en6-l3',
     exam: 'en6-u1',
+    // Ausgemustert 2026-10-25: zu nah an den Mediationsaufgaben (Nutzer). Nur noch für alte Antworten im Lehrer-Bereich.
+    retired: true,
     title: 'A Saturday at the lake',
     situation: 'Tom erzählt von einem Samstag, an dem er mit seinem Vater und seiner Schwester Lucy angeln war.',
     speakers: { Tom: 'bm_george', Lucy: 'bf_emma' },
@@ -164,6 +175,136 @@ const TASKS = [
       { kind: 'answer', text: 'What are Tom and Lucy going to do next weekend?', answer: 'They are going to go to the lake again.', keywords: [['lake', 'fishing', 'fish']] },
     ],
   },
+  {
+    // Baut auf Mediation 1 auf (Talentshow → geplanter Film für die Partnerschule), keine Wiederholung.
+    id: 'en6-l4',
+    exam: 'en6-u1',
+    title: 'The movie for Minneapolis',
+    situation:
+      'Nach der Talentshow drehen Mia und Noah aus der 6b einen kurzen Film für die Partnerschule in Minneapolis. ' +
+      'In der Pause besprechen sie, was noch fehlt.',
+    speakers: { Mia: 'bf_emma', Noah: 'bm_george' },
+    lines: [
+      ['Mia', 'Noah, how much of our movie is finished?'],
+      ['Noah', "About half of it. We've got the songs from the talent show and the interview with our principal."],
+      ['Mia', "Great. And what about Lena? She won the competition, so she should be in the movie, shouldn't she?"],
+      ['Noah', "Yes, but she's really shy. When I asked her yesterday, she said no. She doesn't like cameras."],
+      ['Mia', "What a shame! Maybe she could just sing, and we don't film her face. We could film her hands on the piano."],
+      ['Noah', "That's a brilliant idea. I'm going to ask her again at lunch."],
+      ['Mia', "OK. But there's another problem. The camera isn't working. The battery is old, and it always stops after five minutes."],
+      ['Noah', 'My uncle can fix it. He works in an electronics shop.'],
+      ['Mia', 'Cool. And we need a title for the movie. Any ideas?'],
+      ['Noah', 'What about "A Day at Our School"?'],
+      ['Mia', 'Hmm, that\'s a bit boring. What about "Hello from Germany"?'],
+      ['Noah', 'I like that! The kids in Minneapolis are going to understand it at once.'],
+      ['Mia', 'And we have to be quick. Mrs Weber wants to send the movie before the Christmas holidays.'],
+      ['Noah', "That's in three weeks. No problem. Let's meet on Saturday and work on it together."],
+      ['Mia', 'Saturday is bad. I have a drama rehearsal in the morning. Can we meet on Sunday afternoon?'],
+      ['Noah', "Sure. Come to my house at two o'clock. My mum is going to make pizza."],
+      ['Mia', "Perfect! I'm so excited. I hope they like it in Minneapolis."],
+    ],
+    questions: [
+      { kind: 'rw', text: 'About half of the movie is finished.', right: true },
+      { kind: 'rw', text: 'Lena wants to be in the movie.', right: false, why: "Wrong – she said no. She doesn't like cameras." },
+      { kind: 'rw', text: 'The camera always stops after ten minutes.', right: false, why: 'Wrong – it stops after five minutes.' },
+      { kind: 'rw', text: "Noah's uncle works in an electronics shop.", right: true },
+      { kind: 'grid', text: 'Title of the movie: "___"', answer: 'Hello from Germany', alt: ['Hello from Germany!'] },
+      { kind: 'grid', text: 'They have to send the movie before the ___ holidays.', answer: 'Christmas' },
+      { kind: 'grid', text: "Mia and Noah meet on Sunday at ___ o'clock.", answer: 'two', alt: ['2'] },
+      {
+        kind: 'tick',
+        text: 'What is already in the movie?',
+        options: [
+          ['the songs from the talent show', true],
+          ['an interview with the principal', true],
+          ['an interview with Lena', false],
+          ['a song by Lena', false],
+          ['photos of Minneapolis', false],
+        ],
+      },
+      { kind: 'answer', text: "Why can't Mia meet on Saturday?", answer: 'She has a drama rehearsal.', keywords: [['drama', 'rehearsal']] },
+      {
+        kind: 'long',
+        text: "What is Mia's idea for Lena?",
+        answer: "Lena could just sing, and they don't film her face. They could film her hands on the piano.",
+        keywords: [['sing', 'sings', 'singing', 'song', 'songs'], ['hand', 'hands', 'piano', 'face']],
+        minWords: 6,
+      },
+      {
+        kind: 'long',
+        text: 'What is the problem with the camera, and who can help?',
+        answer: "The battery is old, so the camera always stops after five minutes. Noah's uncle can fix it.",
+        keywords: [['battery', 'stop', 'stops', 'stopped', 'old', 'five minutes', '5 minutes'], ['uncle', 'fix', 'fixes', 'repair']],
+        minWords: 8,
+      },
+    ],
+  },
+  {
+    // Baut auf Mediation 2 auf (Austausch nach Iowa → Gegenbesuch in Deutschland), keine Wiederholung.
+    id: 'en6-l5',
+    exam: 'en6-u1',
+    title: "Kayla's visit",
+    situation:
+      'Kayla aus Decorah in Iowa kommt im Herbst mit ihrer Klasse nach Deutschland und wohnt dann bei Lukas und seiner ' +
+      'Familie. Die beiden telefonieren per Video.',
+    speakers: { Lukas: 'bm_george', Kayla: 'bf_emma' },
+    lines: [
+      ['Lukas', 'Hi Kayla! Can you hear me?'],
+      ['Kayla', "Yes, I can! Hi Lukas! I've got great news. My mom says I can stay with your family for two weeks!"],
+      ['Lukas', "That's wonderful! When are you going to arrive?"],
+      ['Kayla', 'On October the third. Our plane lands in Munich at seven in the morning.'],
+      ['Lukas', "Great. My dad and I are going to pick you up at the airport. Our house is close to the airport, so it's only twenty minutes by car."],
+      ['Kayla', "Cool. Actually, I'm a bit worried about my wheelchair. Is your school OK for me?"],
+      ['Lukas', "Yes, don't worry. There's a lift, and our classroom is on the ground floor."],
+      ['Kayla', 'And what about your town? Is there a lot of traffic?'],
+      ['Lukas', "In the morning, yes. There are always traffic jams. But we can take the tram. The trams here are really good, and they're cheap."],
+      ['Kayla', "A tram! We don't have trams in Decorah.", "A tram! We don't have trams in de Cora."], // Betonung auf „co“
+      ['Lukas', 'And there\'s a big mall in the city center with a movie theater. We could watch a movie there on Saturday.'],
+      ['Kayla', 'Sounds great. What should I bring? Is it cold in October?'],
+      ['Lukas', "Sometimes. Bring a warm jacket. We're going to visit a castle with my class. Don't worry, there's a path for wheelchairs."],
+      // Gesprochen „Danka“: Kokoro liest „Danke“ sonst englisch ohne Schluss-e („dank“).
+      ['Kayla', 'Awesome! Oh, and one more thing. My German is really bad. I only know "Hallo" and "Danke".',
+        'Awesome! Oh, and one more thing. My German is really bad. I only know "Hallo" and "Danka".'],
+      ['Lukas', "That's OK. My English isn't perfect either. We can help each other."],
+      ['Kayla', "Deal! I'm so excited. See you in October!"],
+      ['Lukas', 'See you, Kayla!'],
+    ],
+    questions: [
+      { kind: 'rw', text: "Kayla is going to stay with Lukas's family for two weeks.", right: true },
+      { kind: 'rw', text: "Kayla's plane lands in Frankfurt.", right: false, why: 'Wrong – it lands in Munich.' },
+      { kind: 'rw', text: "Lukas's classroom is on the ground floor.", right: true },
+      { kind: 'rw', text: "The trams in Lukas's town are expensive.", right: false, why: "Wrong – they're cheap." },
+      { kind: 'grid', text: 'From the airport to Lukas\'s house: ___ minutes by car', answer: 'twenty', alt: ['20'] },
+      { kind: 'grid', text: 'Kayla arrives on October ___.', answer: 'the third', alt: ['third', '3rd', '3', 'the 3rd'] },
+      { kind: 'grid', text: 'Kayla knows two German words: "Hallo" and "___"', answer: 'Danke' },
+      {
+        kind: 'tick',
+        text: 'What are Kayla and Lukas going to do or could they do?',
+        options: [
+          ['take the tram', true],
+          ['watch a movie at the mall', true],
+          ['visit a castle with the class', true],
+          ['go skiing in the mountains', false],
+          ['visit a farm in Germany', false],
+        ],
+      },
+      { kind: 'answer', text: 'Who is going to pick Kayla up at the airport?', answer: 'Lukas and his dad.', keywords: [['dad', 'father']] },
+      {
+        kind: 'long',
+        text: 'Why is Kayla a bit worried, and what does Lukas say?',
+        answer: "She is worried about her wheelchair. Lukas says there's a lift and the classroom is on the ground floor.",
+        keywords: [['wheelchair'], ['lift', 'elevator', 'ground floor', 'path', 'worry', 'ok', 'okay', 'fine']],
+        minWords: 8,
+      },
+      {
+        kind: 'long',
+        text: 'How can Kayla and Lukas help each other?',
+        answer: "Kayla's German is bad and Lukas's English isn't perfect, so they can help each other with the languages.",
+        keywords: [['german', 'english', 'language', 'languages']],
+        minWords: 5,
+      },
+    ],
+  },
 ];
 
 const SECTIONS = {
@@ -171,6 +312,7 @@ const SECTIONS = {
   grid: 'Complete the grid.',
   tick: 'Tick all the correct answers.',
   answer: "Answer the questions. You needn't write complete sentences.",
+  long: 'Answer the questions in one or two sentences.',
 };
 
 /** Text zum Mitlesen (Lehrer-Bereich, Ersatzstimme) – mit Sprechernamen. */
@@ -178,9 +320,10 @@ export function listeningText(task) {
   return task.lines.map(([who, text]) => `${who}: ${text}`).join('\n');
 }
 
-/** Abschnitte fürs Audio: jede Zeile mit der Stimme ihres Sprechers. */
+/** Abschnitte fürs Audio: jede Zeile mit der Stimme ihres Sprechers. Optional 3. Eintrag = gesprochene Fassung
+ *  (Schreibweise nur für die Aussprache, z. B. „Danka“ statt „Danke“). */
 export function listeningSegments(task) {
-  return task.lines.map(([who, text]) => ({ voice: task.speakers[who], text }));
+  return task.lines.map(([who, text, spoken]) => ({ voice: task.speakers[who], text: spoken || text }));
 }
 
 /** Audio-Angabe für den Player (public/audio/en-6/<id>.m4a). */
@@ -224,6 +367,7 @@ function buildQuestions(task) {
         explanation: `Richtig: ${correctOptions.join(' · ')}`,
       };
     }
+    // „answer“ = Kurzantwort, „long“ = längere offene Frage (ein bis zwei Sätze, mehrzeilig, Mindestlänge).
     return {
       ...base,
       type: 'short_answer',
@@ -231,10 +375,12 @@ function buildQuestions(task) {
       correct: q.answer,
       alternativeCorrect: q.alt || [],
       keywords: q.keywords,
+      ...(q.kind === 'long' ? { multiline: true, minWords: q.minWords || 6, difficulty: 3 } : {}),
       explanation: `Zum Beispiel: ${q.answer}`,
     };
   });
 }
 
+// Alle Hörtexte (auch ausgemusterte – für alte Antworten); zur Auswahl nur die aktiven (siehe questions.js).
 export const EN6_LISTENING = TASKS.map((t) => ({ ...t, questions: buildQuestions(t) }));
 export const EN6_LISTENING_QUESTIONS = EN6_LISTENING.flatMap((t) => t.questions);

@@ -3,7 +3,7 @@ import { Button } from './ui/button';
 import { cn } from '@/lib/utils';
 import { playAudio } from '@/lib/audio';
 import { langOfQuestion, nextSticker, stickerTilt } from '@/data/stickers';
-import { requiredMeanings, countCorrectMeanings } from '@/utils/scoring';
+import { requiredMeanings, countCorrectMeanings, tooShort } from '@/utils/scoring';
 
 // Rückmeldung nach jeder Antwort – Design System: Feedback + FeedbackSticker
 // (design-system/components/Feedback/README.md, …/FeedbackSticker/README.md).
@@ -27,6 +27,8 @@ export default function FeedbackCard({ lastAnswer, onNext, onFlagAlmostRight }) 
   // Mehrere Bedeutungen verlangt, aber nur eine genannt → freundlicher Hinweis statt nur „falsch“.
   const required = requiredMeanings(question);
   const onlySome = !isCorrect && required >= 2 && countCorrectMeanings(question, userAnswer) > 0;
+  // Längere offene Frage zu knapp beantwortet → sagen, warum.
+  const short = !isCorrect && tooShort(question, userAnswer);
   // AE-Karte richtig, aber mit dem britischen Wort beantwortet („autumn“) → das amerikanische nennen.
   const aeWord = question.ae ? String(question.correct).replace(/\s*\(AE\)\s*/g, '').trim() : '';
   const plain = (x) => String(x).toLowerCase().replace(/[’']/g, "'").replace(/[.!?…]/g, '').replace(/^(to|the|a|an)\s+/, '').trim();
@@ -62,8 +64,9 @@ export default function FeedbackCard({ lastAnswer, onNext, onFlagAlmostRight }) 
           <dd>
             <s>{show(userAnswer)}</s>
           </dd>
-          <dt>Richtig ist</dt>
-          <dd className="is-right">
+          {/* Längere offene Frage: Musterantwort als Beispiel, in normaler Schriftgröße (sonst riesig). */}
+          <dt>{question.multiline ? 'Zum Beispiel' : 'Richtig ist'}</dt>
+          <dd className={cn('is-right', question.multiline && 'is-right--long')}>
             {show(question.correct)}
             {question.ae && !/\bAE\b/.test(String(question.correct)) ? ' (AE)' : ''}
           </dd>
@@ -79,6 +82,13 @@ export default function FeedbackCard({ lastAnswer, onNext, onFlagAlmostRight }) 
       {onlySome && (
         <p className="vx-feedback__body">
           Das stimmt schon zum Teil – hier sind aber <strong>mindestens zwei</strong> Bedeutungen gefragt.
+        </p>
+      )}
+
+      {short && (
+        <p className="vx-feedback__body">
+          Deine Antwort ist zu kurz – hier sind <strong>ein bis zwei Sätze</strong> gefragt (mindestens{' '}
+          {question.minWords} Wörter).
         </p>
       )}
 
@@ -98,7 +108,9 @@ export default function FeedbackCard({ lastAnswer, onNext, onFlagAlmostRight }) 
           </button>
         ))}
 
-      {question.explanation && <p className="vx-feedback__body">{question.explanation}</p>}
+      {question.explanation && !(question.multiline && !isCorrect) && (
+        <p className="vx-feedback__body">{question.explanation}</p>
+      )}
 
       {question.audio && (
         <Button type="button" variant="outline" size="sm" className="self-start" onClick={() => playAudio(question.audio)}>

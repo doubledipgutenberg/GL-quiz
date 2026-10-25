@@ -11,27 +11,27 @@
     "variant": "Dialog",
     "onset": 0.0
   },
-  "en6-l2": {
-    "file": "en6-l2.m4a",
-    "text": "Hannah: Max, are you ready for the talent show on Friday?\nMax: Not really. I'm so nervous! What if I fall off the stage again?\nHannah: Again? What happened?\nMax: At the rehearsal yesterday I was dancing, and I didn't see the end of the stage. So I fell off! Everybody laughed. It was so embarrassing.\nHannah: Oh no! Did you hurt yourself?\nMax: No, I was OK. But now I don't want to dance alone.\nHannah: Then let's do it together! I can sing and you can dance. We could practise every day after school.\nMax: That's a brilliant idea! But we only have four days.\nHannah: That's enough time. Mrs Clark from the drama club is going to help us. She says we can use the music room.\nMax: Great. Who are the judges this year?\nHannah: There are three judges: Mrs Clark, the principal and a girl from Year 9. They give points for every act, and the winner gets a prize.\nMax: What's the prize?\nHannah: Two tickets for the movie theater in town.\nMax: Cool! And how many acts are there?\nHannah: Twelve. There's a boy who does magic tricks, two girls who tell jokes, and Lena. She's going to draw a picture on stage in only three minutes.\nMax: Wow, that's amazing. OK, what song are we going to do?\nHannah: What about \"Happy Days\"? Everybody knows it, and it isn't too difficult.\nMax: Perfect. Let's meet in the music room at four o'clock, OK?\nHannah: OK! And Max – don't worry. You're going to be great!",
+  "en6-l4": {
+    "file": "en6-l4.m4a",
+    "text": "Mia: Noah, how much of our movie is finished?\nNoah: About half of it. We've got the songs from the talent show and the interview with our principal.\nMia: Great. And what about Lena? She won the competition, so she should be in the movie, shouldn't she?\nNoah: Yes, but she's really shy. When I asked her yesterday, she said no. She doesn't like cameras.\nMia: What a shame! Maybe she could just sing, and we don't film her face. We could film her hands on the piano.\nNoah: That's a brilliant idea. I'm going to ask her again at lunch.\nMia: OK. But there's another problem. The camera isn't working. The battery is old, and it always stops after five minutes.\nNoah: My uncle can fix it. He works in an electronics shop.\nMia: Cool. And we need a title for the movie. Any ideas?\nNoah: What about \"A Day at Our School\"?\nMia: Hmm, that's a bit boring. What about \"Hello from Germany\"?\nNoah: I like that! The kids in Minneapolis are going to understand it at once.\nMia: And we have to be quick. Mrs Weber wants to send the movie before the Christmas holidays.\nNoah: That's in three weeks. No problem. Let's meet on Saturday and work on it together.\nMia: Saturday is bad. I have a drama rehearsal in the morning. Can we meet on Sunday afternoon?\nNoah: Sure. Come to my house at two o'clock. My mum is going to make pizza.\nMia: Perfect! I'm so excited. I hope they like it in Minneapolis.",
     "lang": "en-gb",
     "voice": "bf_emma",
     "speed": 0.9,
     "lead": 0.6,
     "tail": 0.8,
-    "hash": "5b738873dd9d3bef",
+    "hash": "e0ab2d705b4bc0cc",
     "variant": "Dialog",
     "onset": 0.0
   },
-  "en6-l3": {
-    "file": "en6-l3.m4a",
-    "text": "Tom: Last Saturday my dad, my sister Lucy and I went fishing at Pine Lake. We left the house at six o'clock in the morning, so Lucy was in a really bad mood.\nLucy: Why do we always have to get up so early? I hate fishing!\nTom: Because the fish are hungry in the morning. Come on, it's going to be fun!\nTom: The lake was beautiful. The air was cold, and there was nobody there. After an hour Dad pointed at a big bird in a tree.\nLucy: Look! Is that an eagle?\nTom: Yes, it is! Wow, it's huge!\nTom: Lucy wanted to take a photo, but she couldn't find her phone.\nLucy: Tom, you took my phone, didn't you?\nTom: No, I didn't! I don't have your phone.\nLucy: You always take my things! You're such an idiot!\nTom: She was really angry, and she pushed me. Then Dad said we should calm down and look for the phone together. We looked in the car and under the bench. Then Dad noticed something in the pocket of Lucy's dirty jacket.\nLucy: Oh no … it's in my pocket. I'm sorry, Tom.\nTom: That's OK.\nTom: In the end we were both happy. I caught three fish, and Lucy took a lot of photos of the eagle. Next weekend we're going to go to the lake again – and this time Lucy wants to bring her friend Mia.",
+  "en6-l5": {
+    "file": "en6-l5.m4a",
+    "text": "Lukas: Hi Kayla! Can you hear me?\nKayla: Yes, I can! Hi Lukas! I've got great news. My mom says I can stay with your family for two weeks!\nLukas: That's wonderful! When are you going to arrive?\nKayla: On October the third. Our plane lands in Munich at seven in the morning.\nLukas: Great. My dad and I are going to pick you up at the airport. Our house is close to the airport, so it's only twenty minutes by car.\nKayla: Cool. Actually, I'm a bit worried about my wheelchair. Is your school OK for me?\nLukas: Yes, don't worry. There's a lift, and our classroom is on the ground floor.\nKayla: And what about your town? Is there a lot of traffic?\nLukas: In the morning, yes. There are always traffic jams. But we can take the tram. The trams here are really good, and they're cheap.\nKayla: A tram! We don't have trams in Decorah.\nLukas: And there's a big mall in the city center with a movie theater. We could watch a movie there on Saturday.\nKayla: Sounds great. What should I bring? Is it cold in October?\nLukas: Sometimes. Bring a warm jacket. We're going to visit a castle with my class. Don't worry, there's a path for wheelchairs.\nKayla: Awesome! Oh, and one more thing. My German is really bad. I only know \"Hallo\" and \"Danke\".\nLukas: That's OK. My English isn't perfect either. We can help each other.\nKayla: Deal! I'm so excited. See you in October!\nLukas: See you, Kayla!",
     "lang": "en-gb",
     "voice": "bf_emma",
     "speed": 0.9,
     "lead": 0.6,
     "tail": 0.8,
-    "hash": "3d627a8cd9a66d60",
+    "hash": "b07ce8609522e271",
     "variant": "Dialog",
     "onset": 0.0
   },
