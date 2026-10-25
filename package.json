@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "check:names": "scripts/check-names.sh",
-    "audio": "scripts/build-audio.sh"
+    "audio": "scripts/build-audio.sh",
+    "check:scoring": "node scripts/test-scoring.mjs"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",

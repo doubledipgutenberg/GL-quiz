@@ -4,6 +4,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { cn } from '@/lib/utils';
 import { playAudio, playSequence } from '@/lib/audio';
+import { requiredMeanings } from '@/utils/scoring';
 
 // Akzent-Tasten für französische Antworten (Akzente zählen streng).
 const FR_ACCENTS = ['é', 'è', 'ê', 'ë', 'à', 'â', 'ç', 'î', 'ï', 'ô', 'û', 'ù', 'œ'];
@@ -192,6 +193,13 @@ export default function QuizQuestion({ question, onSubmit }) {
               Antworten
             </Button>
           </form>
+        )}
+
+        {/* Vokabeln mit drei oder mehr Bedeutungen: mindestens zwei nennen (utils/scoring.js). */}
+        {requiredMeanings(question) >= 2 && (
+          <p className="text-sm text-muted-foreground">
+            Dieses Wort hat mehrere Bedeutungen – gib <strong>mindestens zwei</strong> an, mit Komma getrennt.
+          </p>
         )}
 
         {question.answerLang === 'fr' && !['multiple_choice', 'reading_true_false'].includes(question.type) && (

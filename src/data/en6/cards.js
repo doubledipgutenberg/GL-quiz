@@ -34,6 +34,7 @@ export function toDeCard(v) {
     promptAudio: true,
     correct: v.de,
     alternativeCorrect: v.altDe || [],
+    ...(v.minAnswers != null ? { minAnswers: v.minAnswers } : {}),
     explanation: `${v.en} = ${v.de}`,
   };
 }

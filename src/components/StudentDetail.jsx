@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { analyzeStudent } from '../utils/analytics';
+import { checkAnswer } from '../utils/scoring';
 import {
   getTeacherDismissals,
   dismissQuestionForStudent,
@@ -11,7 +12,6 @@ import {
   reviewFlag,
 } from '../utils/storage';
 import { courseOfQuestion } from '../utils/courseOf';
-import { Check } from 'lucide-react';
 import questions, { getVocabularyQuestions, latestVocabBatch } from '../data/questions';
 import { Card, CardContent } from './ui/card';
 import { Button } from './ui/button';
@@ -225,8 +225,13 @@ export default function StudentDetail({ name, courseId, courseLabel, sessions, o
 
   // „Na ja, schon fast richtig“: vom Kind gemeldete Antworten dieses Fachs, offen bzw. entschieden.
   const flags = (getAnswerFlags()[name] || []).filter((f) => !courseId || courseOfQuestion(f.questionId) === courseId);
-  const openFlags = flags.filter((f) => !flagReviews[f.id]);
-  const decidedFlags = flags.filter((f) => flagReviews[f.id]);
+  // Was der heutige Antwort-Check ohnehin als richtig wertet (z. B. „fast, beinahe“), muss niemand mehr prüfen.
+  const autoCorrect = (f) => {
+    const def = questionById[f.questionId];
+    return !!def && checkAnswer(def, f.userAnswer);
+  };
+  const openFlags = flags.filter((f) => !flagReviews[f.id] && !autoCorrect(f));
+  const decidedFlags = flags.filter((f) => flagReviews[f.id] || autoCorrect(f));
 
   // Urteil speichern; „doch richtig“ zählt den Versuch auch in der Auswertung als richtig.
   const decideFlag = (flag, verdict) => {
@@ -240,11 +245,18 @@ export default function StudentDetail({ name, courseId, courseLabel, sessions, o
     setMarkedCorrect(getTeacherMarkedCorrect());
   };
 
-  const flagKind = (flag) =>
-    flag.type === 'listen_card' ? 'Hör-Karte' : flag.type === 'vocab_card' ? 'Vokabelkarte' : 'Lückentext';
+  const FLAG_KINDS = {
+    listen_card: 'Hör-Karte',
+    vocab_card: 'Vokabelkarte',
+    fill_gap: 'Lückentext',
+    translate: 'Übersetzung',
+    word_order: 'Satzbau',
+    picture_vocab: 'Bild-Vokabel',
+  };
+  const flagKind = (flag) => FLAG_KINDS[flag.type] || 'Quiz-Frage';
 
   const renderFlag = (flag) => {
-    const verdict = flagReviews[flag.id]?.verdict;
+    const verdict = flagReviews[flag.id]?.verdict ?? (autoCorrect(flag) ? 'auto' : null);
     return (
       <Card key={flag.id} className="w-full max-w-[560px] border-[2.5px] border-[var(--lamp-300)]">
         <CardContent className="p-4 sm:p-6 space-y-3">
@@ -267,13 +279,15 @@ export default function StudentDetail({ name, courseId, courseLabel, sessions, o
           {verdict ? (
             <div className="flex flex-wrap items-center gap-2">
               <span
-                className={`vx-pill ${verdict === 'correct' ? 'border-[var(--olive-600)] text-[var(--olive-600)]' : 'border-[var(--ochre-600)] text-[var(--ochre-600)]'}`}
+                className={`vx-pill ${verdict === 'wrong' ? 'border-[var(--ochre-600)] text-[var(--ochre-600)]' : 'border-[var(--olive-600)] text-[var(--olive-600)]'}`}
               >
-                {verdict === 'correct' ? 'Doch richtig' : 'Falsch'}
+                {verdict === 'auto' ? 'Automatisch richtig (neuer Antwort-Check)' : verdict === 'correct' ? 'Doch richtig' : 'Falsch'}
               </span>
-              <button type="button" className="vx-btn vx-btn--link" onClick={() => decideFlag(flag, null)}>
-                Urteil zurücknehmen
-              </button>
+              {verdict !== 'auto' && (
+                <button type="button" className="vx-btn vx-btn--link" onClick={() => decideFlag(flag, null)}>
+                  Urteil zurücknehmen
+                </button>
+              )}
             </div>
           ) : (
             <div className="flex flex-wrap gap-2">
@@ -343,19 +357,20 @@ export default function StudentDetail({ name, courseId, courseLabel, sessions, o
                   <p><strong>Korrekt:</strong> „{primaryAttempt.correctAnswer}“</p>
                 </div>
               )}
-            </div>
-            <div className="flex items-center gap-1">
+              {/* Wie bei „Na ja, schon fast richtig“: die Antwort(en) zählen in der Auswertung als richtig. */}
               <button
                 type="button"
-                className="mistake-dismiss text-green-600 hover:text-green-700 hover:bg-green-100 dark:text-green-400 dark:hover:bg-green-900/30"
+                className="vx-btn vx-btn--sm mt-1 border-[var(--olive-600)] bg-[var(--olive-100)] text-[var(--olive-600)] shadow-[3px_3px_0_var(--olive-600)]"
                 onClick={() => {
                   markAttemptsAsCorrect(name, q.questionId, visibleAttempts.map((a) => a.date));
                   setMarkedCorrect(getTeacherMarkedCorrect());
                 }}
-                aria-label="Als richtig werten"
               >
-                <Check className="size-5" />
+                <i className="vx-ico vx-ico--sm vx-ico--check" aria-hidden="true" />
+                Doch richtig
               </button>
+            </div>
+            <div className="flex items-center gap-1">
               <button
                 type="button"
                 className="mistake-dismiss"
@@ -506,7 +521,8 @@ export default function StudentDetail({ name, courseId, courseLabel, sessions, o
           </div>
           <p className="admin-hint">
             Jede Karte = ein konkretes Item. „Später richtig“ bedeutet, dass die Frage nach einem
-            ersten Fehler mindestens einmal korrekt beantwortet wurde.
+            ersten Fehler mindestens einmal korrekt beantwortet wurde. „Doch richtig“ zählt die Antwort in der
+            Auswertung als richtig.
           </p>
           {isOpen('grammar', true) && <div className="space-y-3">{nonVocabMistakes.map(renderMistakeCard)}</div>}
         </div>

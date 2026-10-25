@@ -3,15 +3,21 @@ import { Button } from './ui/button';
 import { cn } from '@/lib/utils';
 import { playAudio } from '@/lib/audio';
 import { langOfQuestion, nextSticker, stickerTilt } from '@/data/stickers';
+import { requiredMeanings, countCorrectMeanings } from '@/utils/scoring';
 
 // Rückmeldung nach jeder Antwort – Design System: Feedback + FeedbackSticker
 // (design-system/components/Feedback/README.md, …/FeedbackSticker/README.md).
 // Farbe kommt vom Ergebnis (Oliv / Ocker), nie Rot; Icon + Wort tragen die Bedeutung, der Sticker ist Deko.
 export default function FeedbackCard({ lastAnswer, onNext, onFlagAlmostRight }) {
   const { isCorrect, points, question, userAnswer } = lastAnswer;
-  // Wortschatz: Das Kind kann eine als falsch gewertete Antwort zur Prüfung melden („fast richtig“).
-  const canFlag = !isCorrect && question.category === 'vocabulary' && !!onFlagAlmostRight;
+  // Das Kind kann eine als falsch gewertete Antwort zur Prüfung melden („fast richtig“) – im Wortschatz und
+  // (seit 2026-10-25) auch im normalen Quiz, bei allen Fragen mit eigener Eingabe (nicht bei Auswahl/Richtig-Falsch).
+  const canFlag =
+    !isCorrect && !['multiple_choice', 'reading_true_false'].includes(question.type) && !!onFlagAlmostRight;
   const [flagged, setFlagged] = useState(false);
+  // Mehrere Bedeutungen verlangt, aber nur eine genannt → freundlicher Hinweis statt nur „falsch“.
+  const required = requiredMeanings(question);
+  const onlySome = !isCorrect && required >= 2 && countCorrectMeanings(question, userAnswer) > 0;
   // Einmal pro Antwort ziehen (FeedbackCard wird pro Antwort neu eingehängt).
   const [sticker] = useState(() => nextSticker(langOfQuestion(question), isCorrect));
   const [tilt] = useState(stickerTilt);
@@ -46,6 +52,12 @@ export default function FeedbackCard({ lastAnswer, onNext, onFlagAlmostRight }) 
           <dt>Richtig ist</dt>
           <dd className="is-right">{question.correct}</dd>
         </dl>
+      )}
+
+      {onlySome && (
+        <p className="vx-feedback__body">
+          Das stimmt schon zum Teil – hier sind aber <strong>mindestens zwei</strong> Bedeutungen gefragt.
+        </p>
       )}
 
       {canFlag &&
