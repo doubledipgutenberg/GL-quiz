@@ -1,4 +1,40 @@
 {
+  "en6-l1": {
+    "file": "en6-l1.m4a",
+    "text": "Grandpa: Hi Sophie, it's Grandpa! How was your first week at your new school?\nSophie: Hi Grandpa! It was OK, I think. On Monday I was really nervous. I didn't know anybody, and the school is huge!\nGrandpa: I see. And what about the town? It's very different from Chicago, isn't it?\nSophie: Yes, it is! It's so quiet here. There's no noise, and there are no traffic jams. But everything is far away. The next mall is forty minutes by car, and the bus only comes once an hour.\nGrandpa: Oh, that's not great. Do you have any friends yet?\nSophie: Yes! There's a girl in my class. Her name is Ava. She's in a wheelchair, but she can ride a horse. And she's going to teach me!\nGrandpa: Wow, that's amazing. Does she live close to you?\nSophie: Yes, her family has a farm just five minutes from our house. They have three horses, two dogs and a lot of cats.\nGrandpa: And what about the other kids in your class?\nSophie: Most of them are really nice. But on Tuesday a boy teased me because of my accent. I was so upset.\nGrandpa: Oh no! What did you do?\nSophie: Ava told him to stop, and our teacher, Mr Brown, talked to him. On Thursday he said sorry. Now we're actually friends.\nGrandpa: That's good news. So what are you going to do this weekend?\nSophie: On Saturday Ava and I are going to watch a barrel race. Her big sister is in the competition. And on Sunday Dad is going to take me fishing at the lake.\nGrandpa: That sounds wonderful. I'm proud of you, Sophie.\nSophie: Thanks, Grandpa! I miss you. Can you visit us in the fall?\nGrandpa: Of course I can. See you soon, Sophie!",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.9,
+    "lead": 0.6,
+    "tail": 0.8,
+    "hash": "c27e310606929363",
+    "variant": "Dialog",
+    "onset": 0.0
+  },
+  "en6-l2": {
+    "file": "en6-l2.m4a",
+    "text": "Hannah: Max, are you ready for the talent show on Friday?\nMax: Not really. I'm so nervous! What if I fall off the stage again?\nHannah: Again? What happened?\nMax: At the rehearsal yesterday I was dancing, and I didn't see the end of the stage. So I fell off! Everybody laughed. It was so embarrassing.\nHannah: Oh no! Did you hurt yourself?\nMax: No, I was OK. But now I don't want to dance alone.\nHannah: Then let's do it together! I can sing and you can dance. We could practise every day after school.\nMax: That's a brilliant idea! But we only have four days.\nHannah: That's enough time. Mrs Clark from the drama club is going to help us. She says we can use the music room.\nMax: Great. Who are the judges this year?\nHannah: There are three judges: Mrs Clark, the principal and a girl from Year 9. They give points for every act, and the winner gets a prize.\nMax: What's the prize?\nHannah: Two tickets for the movie theater in town.\nMax: Cool! And how many acts are there?\nHannah: Twelve. There's a boy who does magic tricks, two girls who tell jokes, and Lena. She's going to draw a picture on stage in only three minutes.\nMax: Wow, that's amazing. OK, what song are we going to do?\nHannah: What about \"Happy Days\"? Everybody knows it, and it isn't too difficult.\nMax: Perfect. Let's meet in the music room at four o'clock, OK?\nHannah: OK! And Max – don't worry. You're going to be great!",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.9,
+    "lead": 0.6,
+    "tail": 0.8,
+    "hash": "5b738873dd9d3bef",
+    "variant": "Dialog",
+    "onset": 0.0
+  },
+  "en6-l3": {
+    "file": "en6-l3.m4a",
+    "text": "Tom: Last Saturday my dad, my sister Lucy and I went fishing at Pine Lake. We left the house at six o'clock in the morning, so Lucy was in a really bad mood.\nLucy: Why do we always have to get up so early? I hate fishing!\nTom: Because the fish are hungry in the morning. Come on, it's going to be fun!\nTom: The lake was beautiful. The air was cold, and there was nobody there. After an hour Dad pointed at a big bird in a tree.\nLucy: Look! Is that an eagle?\nTom: Yes, it is! Wow, it's huge!\nTom: Lucy wanted to take a photo, but she couldn't find her phone.\nLucy: Tom, you took my phone, didn't you?\nTom: No, I didn't! I don't have your phone.\nLucy: You always take my things! You're such an idiot!\nTom: She was really angry, and she pushed me. Then Dad said we should calm down and look for the phone together. We looked in the car and under the bench. Then Dad noticed something in the pocket of Lucy's dirty jacket.\nLucy: Oh no … it's in my pocket. I'm sorry, Tom.\nTom: That's OK.\nTom: In the end we were both happy. I caught three fish, and Lucy took a lot of photos of the eagle. Next weekend we're going to go to the lake again – and this time Lucy wants to bring her friend Mia.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.9,
+    "lead": 0.6,
+    "tail": 0.8,
+    "hash": "3d627a8cd9a66d60",
+    "variant": "Dialog",
+    "onset": 0.0
+  },
   "en6_a_bit": {
     "file": "en6_a_bit.m4a",
     "text": "a bit",

@@ -254,7 +254,18 @@ export function checkAnswer(question, userAnswer) {
   }
 }
 
+// Hörverstehen „Tick all the correct answers“ (2026-10-25): genau die richtigen Optionen angekreuzt,
+// nicht mehr und nicht weniger. Die Antwort kommt als Optionen, getrennt durch „ | “.
+export const MULTI_SEPARATOR = ' | ';
+function checkMultiSelect(question, userAnswer) {
+  const norm = (x) => String(x).replace(/[’‘]/g, "'").replace(/\s+/g, ' ').trim().toLowerCase();
+  const chosen = new Set(String(userAnswer ?? '').split(MULTI_SEPARATOR).map(norm).filter(Boolean));
+  const right = (question.correctOptions || []).map(norm);
+  return chosen.size === right.length && right.every((o) => chosen.has(o));
+}
+
 function checkAnswerFor(question, userAnswer) {
+  if (question.type === 'multi_select') return checkMultiSelect(question, userAnswer);
   if (question.type === 'multiple_choice') {
     return [question.correct, ...(Array.isArray(question.alternativeCorrect) ? question.alternativeCorrect : [])].some((c) =>
       sameOption(c, userAnswer),
@@ -283,6 +294,13 @@ function checkAnswerFor(question, userAnswer) {
   // wie die Musterlösung geschrieben sein („Juror/-in“ → Juror und Jurorin).
   if (!['word_order', 'reading_true_false'].includes(question.type)) {
     if (answerParts(userAnswer).every(partOk)) return true;
+  }
+
+  // Hörverstehen „Answer the questions“ (keine ganzen Sätze nötig): richtig, wenn aus jeder Gruppe von
+  // Schlüsselwörtern eines vorkommt (z. B. [['fall', 'autumn']] → „In the fall.“, „fall“, „In autumn“).
+  if (Array.isArray(question.keywords) && question.keywords.length) {
+    const words = ` ${userCanon} `;
+    if (question.keywords.every((group) => group.some((k) => words.includes(` ${canonical(k)} `)))) return true;
   }
 
   // True/False: verschiedene Schreibweisen akzeptieren

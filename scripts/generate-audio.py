@@ -50,7 +50,10 @@ DEFAULTS = {
 KIND = {
     "word": {"speed": 0.8, "lead": 0.8, "tail": 0.3},
     "sentence": {"speed": None, "lead": 0.3, "tail": 0.2},
+    # Hörverstehen (2026-10-25): Dialog aus mehreren Zeilen/Stimmen, etwas langsamer, Pause zwischen den Zeilen.
+    "listening": {"speed": 0.9, "lead": 0.6, "tail": 0.8},
 }
+LISTENING_GAP = 0.55  # Sekunden Stille zwischen zwei Zeilen eines Dialogs
 AAC_BITRATE = "48000"
 
 # Anlaut-Störgeräusche (gefunden 2026-10-13): Kokoro setzt vor Wörter, die mit einem Vokal beginnen, oft einen
@@ -112,8 +115,23 @@ def trim_pre_voicing(audio, rate, max_cut=0.15):
     return out
 
 
+def synthesize_dialog(kokoro, it, s):
+    """Hörverstehen: jede Zeile mit ihrer Stimme, dazwischen kurze Stille → eine Aufnahme."""
+    import numpy as np
+
+    parts, rate = [], 24000
+    for seg in it["segments"]:
+        audio, rate = kokoro.create(seg["text"], voice=seg["voice"], speed=s["speed"], lang=s["lang"])
+        if parts:
+            parts.append(np.zeros(int(rate * LISTENING_GAP), dtype=audio.dtype))
+        parts.append(audio)
+    return np.concatenate(parts), rate, "Dialog", 0.0
+
+
 def synthesize(kokoro, it, s):
     """Gibt (audio, rate, gewählte Variante, Score) zurück."""
+    if it.get("segments"):
+        return synthesize_dialog(kokoro, it, s)
     ph = it.get("phonemes") or kokoro.tokenizer.phonemize(it["text"], s["lang"])
     variants = [("Standard", ph, s["speed"])]
     if first_phoneme(ph) in VOWEL_START:
@@ -178,7 +196,9 @@ def main():
     todo = []
     for it in items:
         s = settings(it)
-        h = fingerprint(it["text"], s, it.get("phonemes"))
+        # Dialoge: auch die Stimmen gehören zum Fingerabdruck (andere Stimme → neu erzeugen).
+        fp_text = it["text"] if not it.get("segments") else it["text"] + "\n" + json.dumps(it["segments"], ensure_ascii=False)
+        h = fingerprint(fp_text, s, it.get("phonemes"))
         f = out_dir / f"{it['id']}.m4a"
         if index.get(it["id"], {}).get("hash") == h and f.exists():
             continue
@@ -211,7 +231,8 @@ def main():
                     **({"phonemes": it["phonemes"]} if it.get("phonemes") else {}),
                     "variant": variant, "onset": round(score, 2),
                 }
-                print(f"  [{n}/{len(todo)}] {it['id']}: {it['text']}  ({variant}, Anlaut {score:.1f})")
+                shown = it["text"] if not it.get("segments") else f"Dialog, {len(it['segments'])} Zeilen, {len(audio) / rate:.0f} s"
+                print(f"  [{n}/{len(todo)}] {it['id']}: {shown}  ({variant}, Anlaut {score:.1f})")
 
     if args.prune:
         keep = set(ids)

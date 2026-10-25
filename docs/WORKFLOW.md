@@ -121,6 +121,26 @@ wörtlich übernommen. Material aus offensichtlich illegalen Quellen (z. B. Scha
 - **Name:** Der Name des Englisch-Lehrwerks steht nirgends im Repo, auch nicht in Kommentaren oder
   Doku (Nutzerwunsch). Im Quiz heißt es „English Topic“.
 
+### 2.3a Hörverstehen (Englisch, seit 2026-10-25)
+
+Teil der Schulaufgabe sind längere Listening-Aufgaben. In der App ist „Hörverstehen“ die dritte Kategorie neben
+„Normales Quiz“ und „Wortschatz“ (Startseite → Schulaufgabe → Hörverstehen → Hörtext wählen). Ablauf: erst den Text
+anhören („Zu den Fragen“ geht erst nach einmal ganz Hören), dann die Fragen; der Text lässt sich dabei erneut anhören.
+
+- **Daten:** `src/data/en6/listening.js` (ohne Importe): je Hörtext `id`, `exam`, `title`, `situation` (Deutsch),
+  `speakers` (Sprecher → Stimme, nur freigegebene: `bf_emma`, `bm_george`), `lines` (Dialog) und `questions` nach
+  dem Arbeitsblatt der Klasse: `rw` (Right or wrong? – `reading_true_false` mit Right/Wrong), `grid` (Complete the
+  grid – `fill_gap`), `tick` (Tick all the correct answers – `multi_select`, richtig nur bei genau den richtigen
+  Optionen), `answer` (Answer the questions – `short_answer`, geprüft über `keywords`: aus jeder Gruppe ein Wort).
+  Texte selbst schreiben, mit Unit-Wortschatz und bekannter Grammatik; nicht aus dem Buch/Workbook abschreiben.
+- **Audio:** `npm run audio` erzeugt je Hörtext eine Aufnahme `public/audio/en-6/<id>.m4a` (Art `listening`: jede
+  Zeile mit ihrer Stimme, Tempo 0,9, 0,55 s Pause). Vorher die Aussprache prüfen (`phonemize`), z. B. „Mrs.“ mit
+  Punkt wird als Satzende gelesen → im Sprechtext „Mrs Clark“ (britisch, ohne Punkt).
+- Die Fragen gehören zur Schulaufgabe (Historie, Lehrer-Bereich), laufen aber nicht im normalen Quiz und nicht in
+  „Schwächen üben“ (`q.listening`). Im Verlauf des Lehrer-Bereichs: helle Säule mit gestricheltem Rand.
+- **Offline/Safari:** Das Offline-Skript liefert Aufnahmen auch in Teilstücken (Range-Anfragen) aus – sonst spielt
+  Safari Audio aus dem Zwischenspeicher nicht ab (gefunden 2026-10-25, betraf auch die Vokabel-Aufnahmen).
+
 ### 2.4 Antwort-Check (`src/utils/scoring.js`)
 
 „Freundlich bei der Form, streng bei der Rechtschreibung“: Groß-/Kleinschreibung, Leerzeichen,

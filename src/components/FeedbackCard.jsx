@@ -10,10 +10,19 @@ import { requiredMeanings, countCorrectMeanings } from '@/utils/scoring';
 // Farbe kommt vom Ergebnis (Oliv / Ocker), nie Rot; Icon + Wort tragen die Bedeutung, der Sticker ist Deko.
 export default function FeedbackCard({ lastAnswer, onNext, onFlagAlmostRight }) {
   const { isCorrect, points, question, userAnswer } = lastAnswer;
+  // Lesbar anzeigen: Richtig/Falsch-Fragen mit ihrer Beschriftung („Right“/„Wrong“), Ankreuzen als Liste.
+  const tfLabel = (v) =>
+    v === 'true' ? question.tfLabels?.[0] || 'True' : v === 'false' ? question.tfLabels?.[1] || 'False' : v;
+  const show = (v) =>
+    question.type === 'reading_true_false'
+      ? tfLabel(v)
+      : question.type === 'multi_select'
+        ? String(v).split(' | ').join(' · ')
+        : v;
   // Das Kind kann eine als falsch gewertete Antwort zur Prüfung melden („fast richtig“) – im Wortschatz und
   // (seit 2026-10-25) auch im normalen Quiz, bei allen Fragen mit eigener Eingabe (nicht bei Auswahl/Richtig-Falsch).
   const canFlag =
-    !isCorrect && !['multiple_choice', 'reading_true_false'].includes(question.type) && !!onFlagAlmostRight;
+    !isCorrect && !['multiple_choice', 'reading_true_false', 'multi_select'].includes(question.type) && !!onFlagAlmostRight;
   const [flagged, setFlagged] = useState(false);
   // Mehrere Bedeutungen verlangt, aber nur eine genannt → freundlicher Hinweis statt nur „falsch“.
   const required = requiredMeanings(question);
@@ -51,11 +60,11 @@ export default function FeedbackCard({ lastAnswer, onNext, onFlagAlmostRight }) 
         <dl className="vx-feedback__answers">
           <dt>Deine Antwort</dt>
           <dd>
-            <s>{userAnswer}</s>
+            <s>{show(userAnswer)}</s>
           </dd>
           <dt>Richtig ist</dt>
           <dd className="is-right">
-            {question.correct}
+            {show(question.correct)}
             {question.ae && !/\bAE\b/.test(String(question.correct)) ? ' (AE)' : ''}
           </dd>
         </dl>
