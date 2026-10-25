@@ -126,6 +126,8 @@ wörtlich übernommen. Material aus offensichtlich illegalen Quellen (z. B. Scha
 Teil der Schulaufgabe sind längere Listening-Aufgaben. In der App ist „Hörverstehen“ die dritte Kategorie neben
 „Normales Quiz“ und „Wortschatz“ (Startseite → Schulaufgabe → Hörverstehen → Hörtext wählen). Ablauf: erst den Text
 anhören („Zu den Fragen“ geht erst nach einmal ganz Hören), dann die Fragen; der Text lässt sich dabei erneut anhören.
+Die Fragen stehen schon **vor dem ersten Hören** auf der Hörtext-Seite (gruppiert nach Aufgabenform, Optionen in
+derselben Reihenfolge wie später in der Runde) – wie in der Schulaufgabe: erst lesen, dann hören.
 
 - **Daten:** `src/data/en6/listening.js` (ohne Importe): je Hörtext `id`, `exam`, `title`, `situation` (Deutsch),
   `speakers` (Sprecher → Stimme, nur freigegebene: `bf_emma`, `bm_george`), `lines` (Dialog) und `questions` nach

@@ -171,7 +171,12 @@ export default function App() {
       )}
       {/* Hörverstehen: erst den Text anhören, dann „Zu den Fragen“ */}
       {quiz.phase === 'listen' && listeningTaskById(quiz.listeningTask) && (
-        <ListeningIntro task={listeningTaskById(quiz.listeningTask)} onStart={quiz.beginQuestions} onBack={quiz.restart} />
+        <ListeningIntro
+          task={listeningTaskById(quiz.listeningTask)}
+          questions={quiz.questions}
+          onStart={quiz.beginQuestions}
+          onBack={quiz.restart}
+        />
       )}
 
       {quiz.phase === 'welcome' && (
