@@ -139,6 +139,10 @@ Weitere Regeln (2026-10-25, Wünsche des Nutzers):
 - **Englische Kurzformen = Langformen** (there's/there is, I'm/I am, don't/do not, can't/cannot …), **außer bei
   Question tags** (`topic: 'en_question_tags'`). **Typografische Apostrophe** (’ vom iPad) zählen wie '.
 - „…“ darf fehlen. Echte Tippfehler bleiben falsch („nothig“).
+- **AE-Wörter deutlich markieren** (Vokabel mit „(AE)“ im englischen Wort → Karten haben `ae: true`): Hinweis
+  „AE · amerikanisches Englisch“ oben auf der Karte, Aufgabentext „… auf amerikanischem Englisch (AE)?“, im
+  Lückentext „(Herbst – AE)“. Deutsch → Englisch: das britische Wort zählt weiter, die Rückmeldung nennt dann das
+  amerikanische („Richtig – auf amerikanischem Englisch heißt es „fall““). Im Lückentext zählt nur das AE-Wort.
 - **Nachträgliche Neubewertung** (`src/utils/regrade.js`): Der Lehrer-Bereich bewertet gespeicherte falsche
   Antworten mit dem heutigen Check neu (nur falsch → richtig); „fast richtig“-Meldungen, die der Check jetzt
   akzeptiert, stehen als „Automatisch richtig“ unter „Schon entschieden“.

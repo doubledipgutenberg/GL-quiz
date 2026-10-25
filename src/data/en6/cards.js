@@ -10,8 +10,12 @@ function audioOf(v) {
   return { course: COURSE, id: v.id, text: speechText(v), lang: 'en' };
 }
 
+// Amerikanisches Englisch (Eintrag mit „(AE)“): Karte deutlich markieren (2026-10-25, Wunsch des Nutzers).
+const isAE = (v) => /\(AE\)/.test(v.en);
+
 function base(v, suffix) {
   return {
+    ...(isAE(v) ? { ae: true } : {}),
     id: `${v.id}_${suffix}`,
     vocabId: v.id,
     exam: v.exam,
@@ -43,7 +47,7 @@ export function toEnCard(v) {
   return {
     ...base(v, 'en'),
     type: 'vocab_card',
-    instruction: 'Wie heißt das auf Englisch?',
+    instruction: isAE(v) ? 'Wie heißt das auf amerikanischem Englisch (AE)?' : 'Wie heißt das auf Englisch?',
     word: v.de,
     correct: v.en,
     alternativeCorrect: v.alt || [],
@@ -61,7 +65,7 @@ export function toListenCard(v) {
     ...base(v, 'listen'),
     exampleAudio: exampleAudioOf(v),
     type: 'listen_card',
-    instruction: 'Hör zu und schreib das Wort auf Englisch:',
+    instruction: isAE(v) ? 'Hör zu und schreib das amerikanische Wort (AE):' : 'Hör zu und schreib das Wort auf Englisch:',
     correct: v.en,
     alternativeCorrect: v.alt || [],
     explanation: `${v.en} = ${v.de}`,
@@ -75,8 +79,8 @@ export function toGapCard(v) {
     ...base(v, 'gap'),
     type: 'fill_gap',
     topicLabel: 'Wortschatz',
-    instruction: 'Setz das passende Wort ein:',
-    question: `${gap.sentence} (${v.de})`,
+    instruction: isAE(v) ? 'Setz das passende amerikanische Wort (AE) ein:' : 'Setz das passende Wort ein:',
+    question: `${gap.sentence} (${v.de}${isAE(v) ? ' – AE' : ''})`,
     correct: gap.answer,
     alternativeCorrect: gap.alternatives,
     hint: `Beginnt mit „${gap.answer.charAt(0)}…“`,

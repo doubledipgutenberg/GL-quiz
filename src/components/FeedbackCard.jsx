@@ -18,6 +18,10 @@ export default function FeedbackCard({ lastAnswer, onNext, onFlagAlmostRight }) 
   // Mehrere Bedeutungen verlangt, aber nur eine genannt → freundlicher Hinweis statt nur „falsch“.
   const required = requiredMeanings(question);
   const onlySome = !isCorrect && required >= 2 && countCorrectMeanings(question, userAnswer) > 0;
+  // AE-Karte richtig, aber mit dem britischen Wort beantwortet („autumn“) → das amerikanische nennen.
+  const aeWord = question.ae ? String(question.correct).replace(/\s*\(AE\)\s*/g, '').trim() : '';
+  const plain = (x) => String(x).toLowerCase().replace(/[’']/g, "'").replace(/[.!?…]/g, '').replace(/^(to|the|a|an)\s+/, '').trim();
+  const usedBritish = isCorrect && !!aeWord && plain(userAnswer) !== plain(aeWord);
   // Einmal pro Antwort ziehen (FeedbackCard wird pro Antwort neu eingehängt).
   const [sticker] = useState(() => nextSticker(langOfQuestion(question), isCorrect));
   const [tilt] = useState(stickerTilt);
@@ -50,8 +54,17 @@ export default function FeedbackCard({ lastAnswer, onNext, onFlagAlmostRight }) 
             <s>{userAnswer}</s>
           </dd>
           <dt>Richtig ist</dt>
-          <dd className="is-right">{question.correct}</dd>
+          <dd className="is-right">
+            {question.correct}
+            {question.ae && !/\bAE\b/.test(String(question.correct)) ? ' (AE)' : ''}
+          </dd>
         </dl>
+      )}
+
+      {usedBritish && (
+        <p className="vx-feedback__body">
+          Richtig – auf amerikanischem Englisch heißt es <strong>„{aeWord}“</strong>.
+        </p>
       )}
 
       {onlySome && (

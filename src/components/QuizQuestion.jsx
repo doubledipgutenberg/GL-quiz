@@ -62,6 +62,12 @@ export default function QuizQuestion({ question, onSubmit }) {
   return (
     <Card>
       <CardContent className="pt-6 space-y-6">
+        {/* Antwort ist amerikanisches Englisch (data: ae) – deutlich sagen, damit niemand „autumn“ statt „fall“ schreibt. */}
+        {question.ae && (
+          <p className="flex justify-center">
+            <span className="vx-pill">AE · amerikanisches Englisch</span>
+          </p>
+        )}
         {!isCard && (
           <div className="flex items-center justify-between gap-2">
             <span className={cn(
