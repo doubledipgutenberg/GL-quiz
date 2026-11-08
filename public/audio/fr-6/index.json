@@ -407,6 +407,32 @@
     "variant": "Standard",
     "onset": 0.0
   },
+  "fr6_chut": {
+    "file": "fr6_chut.m4a",
+    "text": "Chut !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "60e510d9784e5049",
+    "phonemes": "ʃˈyt",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_chut_ex": {
+    "file": "fr6_chut_ex.m4a",
+    "text": "Chut ! Léo travaille.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "ba8722d8f8659139",
+    "phonemes": "ʃˈyt ! leˈo tʁavˈaj.",
+    "variant": "Standard",
+    "onset": 0.0
+  },
   "fr6_cinq": {
     "file": "fr6_cinq.m4a",
     "text": "cinq",
@@ -452,6 +478,54 @@
     "lead": 0.3,
     "tail": 0.2,
     "hash": "96f116b958f033fd",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_dans": {
+    "file": "fr6_dans.m4a",
+    "text": "dans",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "24c8467ca6bba3b3",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_dans_ex": {
+    "file": "fr6_dans_ex.m4a",
+    "text": "Malabar est dans le magasin.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "4f37280d8438a3c0",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_dans_la_rue": {
+    "file": "fr6_dans_la_rue.m4a",
+    "text": "dans la rue",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "3329d4b0d5bf2ad2",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_dans_la_rue_ex": {
+    "file": "fr6_dans_la_rue_ex.m4a",
+    "text": "Le chien est dans la rue.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "900dc33da74ebf20",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -623,6 +697,54 @@
     "variant": "Standard",
     "onset": 0.0
   },
+  "fr6_en_vacances": {
+    "file": "fr6_en_vacances.m4a",
+    "text": "en vacances",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "feba5fef88fe1732",
+    "variant": "Tempo +0,1",
+    "onset": 1.35
+  },
+  "fr6_en_vacances_ex": {
+    "file": "fr6_en_vacances_ex.m4a",
+    "text": "Super ! On est en vacances !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "eea2666c77d1c607",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_entrer": {
+    "file": "fr6_entrer.m4a",
+    "text": "entrer",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "a1066624a7e85165",
+    "variant": "Tempo +0,05",
+    "onset": 1.49
+  },
+  "fr6_entrer_ex": {
+    "file": "fr6_entrer_ex.m4a",
+    "text": "Marie entre dans la maison de la presse.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "5a0c88d4035e0398",
+    "variant": "Standard",
+    "onset": 0.0
+  },
   "fr6_et": {
     "file": "fr6_et.m4a",
     "text": "et",
@@ -646,6 +768,30 @@
     "hash": "00678dcf16969413",
     "variant": "Standard",
     "onset": 0.0
+  },
+  "fr6_euh": {
+    "file": "fr6_euh.m4a",
+    "text": "euh",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "47d57f2c3cfa1ac0",
+    "variant": "Glottisschlag",
+    "onset": 1.35
+  },
+  "fr6_euh_ex": {
+    "file": "fr6_euh_ex.m4a",
+    "text": "Euh … je cherche un stylo.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "1a1ebca0c98bbd30",
+    "variant": "Tempo +0,05",
+    "onset": 0.87
   },
   "fr6_fantastique": {
     "file": "fr6_fantastique.m4a",
@@ -743,6 +889,30 @@
     "variant": "Standard",
     "onset": 0.0
   },
+  "fr6_il_dit_elle_dit": {
+    "file": "fr6_il_dit_elle_dit.m4a",
+    "text": "il dit, elle dit",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "e13b93e4c750044f",
+    "variant": "Tempo +0,05",
+    "onset": 3.35
+  },
+  "fr6_il_dit_elle_dit_ex": {
+    "file": "fr6_il_dit_elle_dit_ex.m4a",
+    "text": "Marie arrive et elle dit bonjour.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "21191d58f0eb6f85",
+    "variant": "Standard",
+    "onset": 0.0
+  },
   "fr6_il_est": {
     "file": "fr6_il_est.m4a",
     "text": "il est",
@@ -812,6 +982,30 @@
     "lead": 0.3,
     "tail": 0.2,
     "hash": "96974ef13f4a6bdb",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_la": {
+    "file": "fr6_la.m4a",
+    "text": "là",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "f5ce65dad5196557",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_la_ex": {
+    "file": "fr6_la_ex.m4a",
+    "text": "Malabar ? Il est là !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "fd4a085da6161b2b",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1151,6 +1345,30 @@
     "variant": "Standard",
     "onset": 0.0
   },
+  "fr6_pour": {
+    "file": "fr6_pour.m4a",
+    "text": "pour",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "fd5bba51be48ab2b",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_pour_ex": {
+    "file": "fr6_pour_ex.m4a",
+    "text": "C'est un livre pour Marie.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "3b5d6c8070b4311d",
+    "variant": "Standard",
+    "onset": 0.0
+  },
   "fr6_qu_est_ce_que_c_est": {
     "file": "fr6_qu_est_ce_que_c_est.m4a",
     "text": "Qu'est-ce que c'est?",
@@ -1415,6 +1633,30 @@
     "variant": "Standard",
     "onset": 0.0
   },
+  "fr6_tiens": {
+    "file": "fr6_tiens.m4a",
+    "text": "Tiens !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "3aefdd22c8206040",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_tiens_ex": {
+    "file": "fr6_tiens_ex.m4a",
+    "text": "Tiens ! Voilà Malabar !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "b0d1584bbe18003f",
+    "variant": "Standard",
+    "onset": 0.0
+  },
   "fr6_toi": {
     "file": "fr6_toi.m4a",
     "text": "toi",
@@ -1667,6 +1909,54 @@
     "variant": "Standard",
     "onset": 0.0
   },
+  "fr6_un_cartable": {
+    "file": "fr6_un_cartable.m4a",
+    "text": "cartable",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "a70a7aa3fead1797",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_un_cartable_ex": {
+    "file": "fr6_un_cartable_ex.m4a",
+    "text": "Voilà un cartable pour Léo.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "c5cc82386a8c7df3",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_un_carton": {
+    "file": "fr6_un_carton.m4a",
+    "text": "carton",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "0de1d463e61516fc",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_un_carton_ex": {
+    "file": "fr6_un_carton_ex.m4a",
+    "text": "Le chat est dans un carton.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "bd04a292028d6eb3",
+    "variant": "Standard",
+    "onset": 0.0
+  },
   "fr6_un_chat": {
     "file": "fr6_un_chat.m4a",
     "text": "chat",
@@ -1712,6 +2002,30 @@
     "lead": 0.3,
     "tail": 0.2,
     "hash": "3ec1cddaa3fd723f",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_un_classeur": {
+    "file": "fr6_un_classeur.m4a",
+    "text": "classeur",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "294462fbdbaf952d",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_un_classeur_ex": {
+    "file": "fr6_un_classeur_ex.m4a",
+    "text": "C'est un classeur pour l'école.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "e8c0ab69d25b3144",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2137,6 +2451,30 @@
     "variant": "Standard",
     "onset": 0.0
   },
+  "fr6_une_catastrophe": {
+    "file": "fr6_une_catastrophe.m4a",
+    "text": "catastrophe",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "845eecfff4e2c523",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_une_catastrophe_ex": {
+    "file": "fr6_une_catastrophe_ex.m4a",
+    "text": "Oh non, c'est une catastrophe !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "0670a8940a1acbc1",
+    "variant": "Tempo +0,05",
+    "onset": 0.9
+  },
   "fr6_une_chanson": {
     "file": "fr6_une_chanson.m4a",
     "text": "chanson",
@@ -2185,6 +2523,54 @@
     "variant": "Standard",
     "onset": 0.0
   },
+  "fr6_une_ecole": {
+    "file": "fr6_une_ecole.m4a",
+    "text": "école",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "03053df5ade35ab5",
+    "variant": "Glottisschlag",
+    "onset": 1.69
+  },
+  "fr6_une_ecole_ex": {
+    "file": "fr6_une_ecole_ex.m4a",
+    "text": "Marie cherche une école à Paris.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "5541c8696db10a24",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_une_feuille": {
+    "file": "fr6_une_feuille.m4a",
+    "text": "feuille",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "62acd8edea0e2861",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_une_feuille_ex": {
+    "file": "fr6_une_feuille_ex.m4a",
+    "text": "Voilà une feuille et un crayon.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "87b5d9fa9d40e1d4",
+    "variant": "Standard",
+    "onset": 0.0
+  },
   "fr6_une_fille": {
     "file": "fr6_une_fille.m4a",
     "text": "fille",
@@ -2230,6 +2616,30 @@
     "lead": 0.3,
     "tail": 0.2,
     "hash": "ac23c60ad683e137",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_une_grand_mere": {
+    "file": "fr6_une_grand_mere.m4a",
+    "text": "grand-mère",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "782c171e743b526f",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_une_grand_mere_ex": {
+    "file": "fr6_une_grand_mere_ex.m4a",
+    "text": "C'est la grand-mère de Léo.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "e5805f8ac6a8fba0",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2305,6 +2715,30 @@
     "variant": "Standard",
     "onset": 0.0
   },
+  "fr6_une_rue": {
+    "file": "fr6_une_rue.m4a",
+    "text": "rue",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "4e2372ce0e0ef8ff",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_une_rue_ex": {
+    "file": "fr6_une_rue_ex.m4a",
+    "text": "C'est une rue de Paris.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "743e42db0d3aaf04",
+    "variant": "Standard",
+    "onset": 0.0
+  },
   "fr6_une_tortue": {
     "file": "fr6_une_tortue.m4a",
     "text": "tortue",
@@ -2326,6 +2760,30 @@
     "lead": 0.3,
     "tail": 0.2,
     "hash": "55a87b26fa5464b3",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_une_trousse": {
+    "file": "fr6_une_trousse.m4a",
+    "text": "trousse",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "cce72f5f67f5a7e7",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_une_trousse_ex": {
+    "file": "fr6_une_trousse_ex.m4a",
+    "text": "Le stylo est dans la trousse.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "1621470ca3d0c765",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2422,6 +2880,30 @@
     "lead": 0.3,
     "tail": 0.2,
     "hash": "5e37d3714c6bbff0",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_zut": {
+    "file": "fr6_zut.m4a",
+    "text": "Zut !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "8ba684a228b624f8",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_zut_ex": {
+    "file": "fr6_zut_ex.m4a",
+    "text": "Zut ! Malabar est dans la rue !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "d46d4e61862be1ee",
     "variant": "Standard",
     "onset": 0.0
   }

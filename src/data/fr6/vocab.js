@@ -182,6 +182,47 @@ const BATCHES = [
       },
     ],
   },
+  {
+    // Buch S. 168–169 (Fotos vom 08.11.), Umfang laut Nutzer „bis une catastrophe“ (Atelier A3, vor B2).
+    // Nicht als Karte: Latière, Malou (Namen, Übersetzung gleich), un ami / une amie (schon in „Au début“).
+    exam: 'fr6-u1',
+    added: '2026-11-08',
+    sections: [
+      {
+        section: 'Unité 2 – Atelier A3',
+        items: [
+          // „in“ allein ist mehrdeutig: „à“ (wie in „à Paris“) gilt bei dieser Karte auch.
+          { fr: 'dans', de: 'in', alt: ['à'], ex: 'Malabar est [dans] le magasin.' },
+          { fr: 'une rue', de: 'eine Straße', ex: "C'est [une rue] de Paris." },
+          { fr: 'dans la rue', de: 'auf der Straße', ex: 'Le chien est [dans la rue].' },
+          { fr: 'entrer', de: 'eintreten; hereinkommen', ex: 'Marie [entre] dans la maison de la presse.' },
+          { fr: 'euh …', de: 'äh …', say: 'euh', ex: '[Euh] … je cherche un stylo.' },
+          { fr: 'là', de: 'da; dort', ex: 'Malabar ? Il est [là] !' },
+          // Die Sprachausgabe verschluckt sonst das t am Ende („chu“).
+          { fr: 'Chut!', de: 'Pst!', say: 'Chut !', sayPhonemes: 'ʃˈyt', sayExPhonemes: 'ʃˈyt ! leˈo tʁavˈaj.', ex: '[Chut] ! Léo travaille.' },
+          { fr: 'pour', de: 'für', ex: "C'est un livre [pour] Marie." },
+          { fr: 'une école', de: 'eine Schule', ex: 'Marie cherche [une école] à Paris.' },
+          { fr: 'en vacances', de: 'in den Ferien', ex: 'Super ! On est [en vacances] !' },
+          { fr: 'Tiens!', de: 'Sieh mal!; Schau mal!', say: 'Tiens !', ex: '[Tiens] ! Voilà Malabar !' },
+          { fr: 'une grand-mère', de: 'eine Großmutter', altDe: ['eine Oma'], ex: "C'est [la grand-mère] de Léo." },
+          { fr: 'il dit / elle dit', de: 'er sagt / sie sagt', say: 'il dit, elle dit', ex: 'Marie arrive et [elle dit] bonjour.' },
+          { fr: 'un carton', de: 'ein Karton', ex: 'Le chat est dans [un carton].' },
+          { fr: 'Zut! (fam.)', de: 'Mist!; Verdammt!', say: 'Zut !', ex: '[Zut] ! Malabar est dans la rue !' },
+          { fr: 'une catastrophe', de: 'eine Katastrophe', ex: "Oh non, c'est [une catastrophe] !" },
+        ],
+      },
+      {
+        // Kasten „A l'école“ (S. 169): im Buch nur Bilder, Übersetzung vom Nutzer freigegeben.
+        section: "Unité 2 – A l'école",
+        items: [
+          { fr: 'un cartable', de: 'eine Schultasche; ein Schulranzen', altDe: ['ein Ranzen'], ex: 'Voilà [un cartable] pour Léo.' },
+          { fr: 'une trousse', de: 'ein Federmäppchen', altDe: ['ein Mäppchen', 'eine Federmappe'], ex: 'Le stylo est dans [la trousse].' },
+          { fr: 'une feuille', de: 'ein Blatt (Papier)', ex: 'Voilà [une feuille] et un crayon.' },
+          { fr: 'un classeur', de: 'ein Ordner', ex: "C'est [un classeur] pour l'école." },
+        ],
+      },
+    ],
+  },
 ];
 
 function slug(s) {
