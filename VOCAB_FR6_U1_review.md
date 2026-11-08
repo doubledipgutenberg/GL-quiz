@@ -193,3 +193,45 @@ Wiederholung aus Unité 1, steht schon im Wortschatz → keine neuen Karten.
 **30 neue Vokabeln** (3 aus B6 + 27 aus Unité 2), je 4 Karten. Zusätzlich richtig: bei „qn/qc“-Verben das Verb
 allein (regarder, chercher, écouter, trouver, porter) bzw. auf Deutsch ohne „etwas/jemanden“; „Naja“;
 „Zeitschriftengeschäft“, „Schreibwarengeschäft“. Lückentext- und Hörsätze selbst formuliert.
+
+---
+
+## Lieferung 08.11.2026 – Unité 2, Atelier A3 bis „une catastrophe“ (Buch S. 168–169)
+
+Fotos: S. 163, 164, 166, 167, 168, 169. S. 163–167 und S. 168 bis „travailler“ sind schon im Wortschatz.
+
+**Atelier A3** (S. 168)
+
+- dans – in ✓ (Karte: „à“ gilt auch, weil „in“ allein mehrdeutig ist)
+- une rue – eine Straße ✓
+- dans la rue – auf der Straße ✓
+- entrer – eintreten, hereinkommen ✓
+- euh … – äh … ✓
+- là – da, dort ✓
+- Chut! – Pst! ✓
+- pour – für ✓
+- une école – eine Schule ✓
+- en vacances – in den Ferien ✓
+
+**Atelier A3, Fortsetzung** (S. 169, vor Atelier B2)
+
+- Tiens! – Sieh mal! / Schau mal! ✓
+- une grand-mère – eine Großmutter ✓ (auch „Oma“)
+- il dit / elle dit – er sagt / sie sagt ✓
+- un carton – ein Karton ✓
+- Zut! (fam.) – Mist!, Verdammt! ✓
+- une catastrophe – eine Katastrophe ✓
+
+Nicht als Karte: Latière (Familienname), Malou (Name einer Katze), un ami / une amie (schon in „Au début“).
+
+**Kasten „A l'école“** (S. 169, nach „une catastrophe“, nur Bilder, Übersetzung vom Nutzer freigegeben)
+
+- un cartable – eine Schultasche / ein Schulranzen ✓
+- une trousse – ein Federmäppchen ✓
+- une feuille – ein Blatt (Papier) ✓
+- un classeur – ein Ordner ✓
+
+Schon drin: un stylo, un crayon, une gomme, un livre, un cahier, un sac à dos.
+
+**20 neue Vokabeln**, je 4 Karten. Lückentext- und Hörsätze selbst formuliert. Aussprache: „Chut“ mit hörbarem t
+(Laute vorgegeben).
