@@ -6,7 +6,6 @@ import { cn } from '@/lib/utils';
 import { playAudio, playSequence } from '@/lib/audio';
 import { requiredMeanings, MULTI_SEPARATOR, wordCount } from '@/utils/scoring';
 import { listeningTaskById } from '@/data/questions';
-import { listeningAudio } from '@/data/en6/listening';
 import ListeningPlayer from './ListeningPlayer';
 
 // Akzent-Tasten für französische Antworten (Akzente zählen streng).
@@ -163,7 +162,7 @@ export default function QuizQuestion({ question, onSubmit }) {
         {listeningTask && (
           <div className="space-y-3 rounded-[var(--radius-md)] border border-border bg-muted/30 p-3">
             <p className="text-sm font-semibold">{listeningTask.title}</p>
-            <ListeningPlayer compact audio={listeningAudio(listeningTask)} />
+            <ListeningPlayer compact audio={listeningTask.audio} />
           </div>
         )}
         {question.listening && question.instruction && (

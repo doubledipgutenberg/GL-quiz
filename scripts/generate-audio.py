@@ -41,8 +41,12 @@ VOICES = KOKORO_HOME / "models/voices-v1.0.bin"
 
 # Vom Nutzer freigegebene Stimmen (Hörproben 2026-10-10). `speed` gilt für Sätze.
 # Französisch langsamer (2026-10-19, Wunsch des Nutzers): Die Beispielsätze der Hör-Karten waren zu schnell.
+# Französisch mit `stretch` (2026-11-15, Fehler gemeldet vom Nutzer): Bei langsamem Tempo (Kokoro speed < 1) setzt
+# ff_siwis vor viele Wörter und Sätze 60–100 ms tiefes Brummen – klingt wie ein verschluckter Artikel („un“/„le“).
+# Bei Tempo 1,0 fast nie. Deshalb mit Tempo 1,0 erzeugen und danach ohne Tonhöhenänderung langsamer machen
+# (time_stretch), Reste vor stimmlosen Anlauten werden abgeschnitten (trim_ghost).
 DEFAULTS = {
-    "fr": {"voice": "ff_siwis", "lang": "fr-fr", "speed": 0.75},
+    "fr": {"voice": "ff_siwis", "lang": "fr-fr", "speed": 0.75, "stretch": True},
     "en": {"voice": "bf_emma", "lang": "en-gb", "speed": 0.95},
 }
 # Einzelwörter (2026-10-11, Wunsch des Nutzers): kurze Wörter wie „air“ waren kaum zu verstehen →
@@ -115,13 +119,107 @@ def trim_pre_voicing(audio, rate, max_cut=0.15):
     return out
 
 
+def shift_pitch(audio, factor):
+    """Tonhöhe × factor durch Umrechnen der Abtastung (Tempo ändert sich mit, daher vorher langsamer/schneller
+    sprechen lassen). Für Französisch gibt es nur eine Stimme (ff_siwis) – so klingt ein zweiter Sprecher anders."""
+    import numpy as np
+
+    n = int(len(audio) / factor)
+    return np.interp(np.arange(n) * factor, np.arange(len(audio)), audio).astype(audio.dtype)
+
+
+def time_stretch(x, rate, sr, win_s=0.03, tol_s=0.012):
+    """Tempo × rate (rate < 1 = langsamer), Tonhöhe bleibt (WSOLA: überlappende Stücke, jeweils an der
+    ähnlichsten Stelle angesetzt)."""
+    import numpy as np
+
+    win = int(win_s * sr)
+    hs, tol = win // 2, int(tol_s * sr)
+    w = np.hanning(win)
+    ha = hs * rate
+    x = np.concatenate([np.zeros(tol), x, np.zeros(win + tol)]).astype(np.float64)
+    n = int((len(x) - win - 2 * tol) / ha)
+    y, ws = np.zeros(n * hs + win), np.zeros(n * hs + win)
+    prev = tol
+    for i in range(n):
+        nom = int(i * ha) + tol
+        if i == 0:
+            st = nom
+        else:
+            target = x[prev + hs: prev + hs + win]
+            lo, hi = max(0, nom - tol), min(len(x) - win, nom + tol)
+            cands = np.lib.stride_tricks.sliding_window_view(x[lo: hi + win], win)[: hi - lo + 1]
+            st = lo + int(np.argmax(cands @ target))
+        y[i * hs: i * hs + win] += x[st: st + win] * w
+        ws[i * hs: i * hs + win] += w
+        prev = st
+    return (y / np.maximum(ws, 1e-3)).astype(np.float32)
+
+
+UNVOICED_START = set("sʃftkp")
+FRICATIVE_START = set("sʃf")
+
+
+def trim_ghost(audio, rate, phonemes):
+    """Beginnt der Text mit einem stimmlosen Laut (s, ch, f, t, k, p), darf davor nichts Stimmhaftes klingen.
+    Tiefes Brummen (fast nur Energie unter 500 Hz) vor diesem Laut wird abgeschnitten (höchstens 0,2 s)."""
+    import numpy as np
+
+    first = first_phoneme(phonemes)
+    if first not in UNVOICED_START:
+        return audio
+    peak = float(np.abs(audio).max()) or 1.0
+    onset = int(np.argmax(np.abs(audio) > peak * 0.02))
+    win, hop = int(0.02 * rate), int(0.005 * rate)
+    cut = None
+    low_run = 0
+    for i in range(40):
+        st = onset + i * hop
+        f = audio[st: st + win]
+        if len(f) < win:
+            break
+        sp = np.abs(np.fft.rfft(f * np.hanning(win))) ** 2
+        fq = np.fft.rfftfreq(win, 1 / rate)
+        tot = sp[fq > 60].sum() + 1e-12
+        lo, hi = sp[(fq > 60) & (fq < 500)].sum() / tot, sp[fq > 3000].sum() / tot
+        if first in FRICATIVE_START and hi > 0.25:
+            cut = st
+            break
+        if lo > 0.85:
+            low_run = i + 1
+        elif first not in FRICATIVE_START or i > low_run + 2:
+            cut = onset + low_run * hop
+            break
+    if cut is None or cut - onset < int(0.03 * rate):
+        return audio
+    cut = max(onset, cut - int(0.005 * rate))
+    out = audio[cut:].copy()
+    fade = int(0.005 * rate)
+    out[:fade] *= np.linspace(0, 1, fade, dtype=out.dtype)
+    return out
+
+
+def speak(kokoro, text, voice, speed, lang, s, is_phonemes=False, shift=1.0):
+    """Ein Stück Sprache; bei `stretch` mit Tempo 1,0 erzeugt und danach verlangsamt (siehe DEFAULTS)."""
+    if not s.get("stretch"):
+        audio, rate = kokoro.create(text, voice=voice, speed=speed / shift, lang=lang, is_phonemes=is_phonemes)
+        return (shift_pitch(audio, shift) if shift != 1.0 else audio), rate
+    audio, rate = kokoro.create(text, voice=voice, speed=1.0 / shift, lang=lang, is_phonemes=is_phonemes)
+    if shift != 1.0:
+        audio = shift_pitch(audio, shift)
+    audio = time_stretch(audio, speed, rate)
+    ph = text if is_phonemes else kokoro.tokenizer.phonemize(text, lang)
+    return trim_ghost(audio, rate, ph), rate
+
+
 def synthesize_dialog(kokoro, it, s):
-    """Hörverstehen: jede Zeile mit ihrer Stimme, dazwischen kurze Stille → eine Aufnahme."""
+    """Hörverstehen: jede Zeile mit ihrer Stimme, dazwischen kurze Stille → eine Aufnahme.
+    Optional `shift` je Zeile (z. B. 0.85 = tiefer): gleiche Stimme, andere Tonlage, gleiches Tempo."""
     import numpy as np
 
     parts, rate = [], 24000
     for seg in it["segments"]:
-        audio, rate = kokoro.create(seg["text"], voice=seg["voice"], speed=s["speed"], lang=s["lang"])
+        audio, rate = speak(kokoro, seg["text"], seg["voice"], s["speed"], s["lang"], s, shift=float(seg.get("shift", 1.0)))
         if parts:
             parts.append(np.zeros(int(rate * LISTENING_GAP), dtype=audio.dtype))
         parts.append(audio)
@@ -144,7 +242,7 @@ def synthesize(kokoro, it, s):
     vowel = len(variants) > 1
     best = None
     for name, phonemes, speed in variants:
-        audio, rate = kokoro.create(phonemes, voice=s["voice"], speed=speed, lang=s["lang"], is_phonemes=True)
+        audio, rate = speak(kokoro, phonemes, s["voice"], speed, s["lang"], s, is_phonemes=True)
         if vowel:
             audio = trim_pre_voicing(audio, rate)
         score = onset_score(audio, rate) if vowel else 0.0
@@ -166,6 +264,8 @@ def settings(item):
         "speed": float(item.get("speed", kind["speed"] or base["speed"])),
         "lead": kind["lead"],
         "tail": kind["tail"],
+        # Nur wenn gesetzt im Fingerabdruck – sonst würden alle englischen Aufnahmen neu erzeugt.
+        **({"stretch": True} if base.get("stretch") else {}),
     }
 
 

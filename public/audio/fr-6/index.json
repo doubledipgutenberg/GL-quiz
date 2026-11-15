@@ -1,4 +1,30 @@
 {
+  "fr6-l1": {
+    "file": "fr6-l1.m4a",
+    "text": "Monsieur Petit: Bonjour, mademoiselle !\nLina: Bonjour, monsieur ! Je cherche un cartable pour l’école.\nMonsieur Petit: Un cartable ? Voilà un cartable. Il est super, non ?\nLina: Euh … il est bizarre. Et le cartable là, dans le carton ?\nMonsieur Petit: Ah oui ! Voilà.\nLina: Oh, il est fantastique ! Merci, monsieur.\nMonsieur Petit: Et qu’est-ce que tu cherches aussi ?\nLina: Je cherche une trousse, un classeur et une gomme.\nMonsieur Petit: Voilà une trousse et un classeur. Et une gomme … Zut ! Où est la gomme ?\nLina: Tiens ! Elle est là, devant le journal.\nMonsieur Petit: Ouf ! Merci.\nLina: Et qu’est-ce que c’est ?\nMonsieur Petit: C’est une BD. Tu aimes la BD ?\nLina: Bof … Moi, j’aime le sport. Et vous, monsieur, vous habitez à Paris ?\nMonsieur Petit: Oui ! J’habite ici, et je travaille ici. Et toi, tu habites où ?\nLina: J’habite rue Custine. Alors, au revoir, monsieur !\nMonsieur Petit: Au revoir, mademoiselle !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.6,
+    "tail": 0.8,
+    "stretch": true,
+    "hash": "20ad8deeb201f8e1",
+    "variant": "Dialog",
+    "onset": 0.0
+  },
+  "fr6-l2": {
+    "file": "fr6-l2.m4a",
+    "text": "Lina: Bonjour, madame ! C’est pour le journal de l’école. Vous êtes d’accord ?\nMadame Roux: Bonjour, Lina ! Oui, d’accord. Viens !\nLina: Merci ! Alors … vous êtes de Paris, madame ?\nMadame Roux: Non, je suis de Strasbourg. Mais j’habite ici, rue Custine.\nLina: Et vous travaillez ?\nMadame Roux: Oui, je travaille dans une école, à Paris.\nLina: Qu’est-ce que vous aimez ?\nMadame Roux: J’aime le sport : le rugby et le judo !\nLina: Le judo ? Super ! Et la musique ?\nMadame Roux: La musique ? Bof … Je déteste ça ! Et toi, Lina, qu’est-ce que tu aimes ?\nLina: Moi ? J’aime la musique ! Euh … qui est-ce ?\nMadame Roux: C’est Pirate. C’est un chien. Il est sympa !\nLina: Salut, Pirate ! Merci, madame. Au revoir !\nMadame Roux: Au revoir, Lina !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.6,
+    "tail": 0.8,
+    "stretch": true,
+    "hash": "2e4abb3a78fced6b",
+    "variant": "Dialog",
+    "onset": 0.0
+  },
   "fr6_a": {
     "file": "fr6_a.m4a",
     "text": "à",
@@ -7,9 +33,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "f59949294a05ac8e",
-    "variant": "Glottisschlag",
-    "onset": 1.77
+    "stretch": true,
+    "hash": "a59ddd75d420e8e7",
+    "variant": "Standard",
+    "onset": 1.89
   },
   "fr6_a_ex": {
     "file": "fr6_a_ex.m4a",
@@ -19,7 +46,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "411cc92472bf3410",
+    "stretch": true,
+    "hash": "bb8a77e2e2d88991",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -31,9 +59,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "9c325bf63a6f9769",
+    "stretch": true,
+    "hash": "2cdb0e85f616b02d",
     "variant": "Glottisschlag",
-    "onset": 1.61
+    "onset": 2.26
   },
   "fr6_a_plus_ex": {
     "file": "fr6_a_plus_ex.m4a",
@@ -43,9 +72,10 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "f9eefa1335feddff",
-    "variant": "Tempo +0,05",
-    "onset": 0.9
+    "stretch": true,
+    "hash": "0136958fca35a35c",
+    "variant": "Glottisschlag",
+    "onset": 2.08
   },
   "fr6_aimer_qn_qc": {
     "file": "fr6_aimer_qn_qc.m4a",
@@ -55,9 +85,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "40ead2bf9e3c00b8",
+    "stretch": true,
+    "hash": "342bc532a37cba4f",
     "variant": "Glottisschlag",
-    "onset": 1.8
+    "onset": 3.09
   },
   "fr6_aimer_qn_qc_ex": {
     "file": "fr6_aimer_qn_qc_ex.m4a",
@@ -67,7 +98,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "1ea7f7640c4b7d3d",
+    "stretch": true,
+    "hash": "f585e247b476eb61",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -79,9 +111,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "35e4d1986b0c842d",
-    "variant": "Standard",
-    "onset": 2.25
+    "stretch": true,
+    "hash": "06e9ca01c412dc04",
+    "variant": "Tempo +0,1",
+    "onset": 2.7
   },
   "fr6_alors_ex": {
     "file": "fr6_alors_ex.m4a",
@@ -91,9 +124,10 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "2b56657eb3da4d4a",
-    "variant": "Tempo +0,1",
-    "onset": 1.72
+    "stretch": true,
+    "hash": "7be7af89a70d3105",
+    "variant": "Glottisschlag",
+    "onset": 0.54
   },
   "fr6_arriver": {
     "file": "fr6_arriver.m4a",
@@ -103,9 +137,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "663f6a46f7dd4d1c",
+    "stretch": true,
+    "hash": "c69a50aeb584c977",
     "variant": "Glottisschlag",
-    "onset": 1.24
+    "onset": 2.75
   },
   "fr6_arriver_ex": {
     "file": "fr6_arriver_ex.m4a",
@@ -115,7 +150,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "e25710a58a9ac065",
+    "stretch": true,
+    "hash": "b329d19fab580f8c",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -127,9 +163,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "080f139ff5b80e4e",
-    "variant": "Tempo +0,1",
-    "onset": 1.71
+    "stretch": true,
+    "hash": "ce5cdfd00d5a1ec5",
+    "variant": "Glottisschlag",
+    "onset": 0.68
   },
   "fr6_attention_ex": {
     "file": "fr6_attention_ex.m4a",
@@ -139,9 +176,10 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "a7e8e73dabf5c487",
-    "variant": "Tempo +0,05",
-    "onset": 1.6
+    "stretch": true,
+    "hash": "520e12e29f12177f",
+    "variant": "Glottisschlag",
+    "onset": 0.46
   },
   "fr6_au_revoir": {
     "file": "fr6_au_revoir.m4a",
@@ -151,9 +189,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "e4bbe7bf390a15ba",
-    "variant": "Tempo +0,1",
-    "onset": 0.94
+    "stretch": true,
+    "hash": "768f39e30ec22a73",
+    "variant": "Glottisschlag",
+    "onset": 0.71
   },
   "fr6_au_revoir_ex": {
     "file": "fr6_au_revoir_ex.m4a",
@@ -163,9 +202,10 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "7ba8321afaf5217d",
-    "variant": "Tempo +0,05",
-    "onset": 1.06
+    "stretch": true,
+    "hash": "9bf30e9039f42c4b",
+    "variant": "Glottisschlag",
+    "onset": 0.4
   },
   "fr6_aussi": {
     "file": "fr6_aussi.m4a",
@@ -175,9 +215,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "a3a38c856f59cbd0",
-    "variant": "Tempo +0,1",
-    "onset": 1.24
+    "stretch": true,
+    "hash": "e0ff79f0abae7947",
+    "variant": "Glottisschlag",
+    "onset": 0.56
   },
   "fr6_aussi_ex": {
     "file": "fr6_aussi_ex.m4a",
@@ -187,7 +228,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "2aa319104ae9fa97",
+    "stretch": true,
+    "hash": "9dec31c6bec58393",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -199,9 +241,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "80159ada9b6adbcb",
-    "variant": "Glottisschlag",
-    "onset": 0.85
+    "stretch": true,
+    "hash": "25e58f4cb86cf88f",
+    "variant": "Standard",
+    "onset": 1.54
   },
   "fr6_avec_ex": {
     "file": "fr6_avec_ex.m4a",
@@ -211,7 +254,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "54736660841d492c",
+    "stretch": true,
+    "hash": "8d3d1330bbe4148b",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -223,7 +267,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "8aa8715b965a5315",
+    "stretch": true,
+    "hash": "23951d75515b93ab",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -235,9 +280,10 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "bc097ae6be774d93",
-    "variant": "Punkt am Ende",
-    "onset": 0.83
+    "stretch": true,
+    "hash": "1204e4e6ef8ac407",
+    "variant": "Standard",
+    "onset": 0.71
   },
   "fr6_bienvenue": {
     "file": "fr6_bienvenue.m4a",
@@ -247,7 +293,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "b265dfef45f356d0",
+    "stretch": true,
+    "hash": "2c6ca2739c1fb338",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -259,7 +306,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "afbd6832c26c4ef8",
+    "stretch": true,
+    "hash": "6b4981159c562758",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -271,7 +319,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "6a4ec7a2f0a46dee",
+    "stretch": true,
+    "hash": "ef978ea7af7245f6",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -283,7 +332,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "a2f5d091b015407b",
+    "stretch": true,
+    "hash": "13de6e9a5bdb7235",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -295,7 +345,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "cc2b5b8ccce98640",
+    "stretch": true,
+    "hash": "e6898d2556549773",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -307,7 +358,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "87d5e938cc103b3a",
+    "stretch": true,
+    "hash": "01ac82f9e8893330",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -319,7 +371,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "ebb510b0025f0ca5",
+    "stretch": true,
+    "hash": "11c695f41d1f190f",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -331,7 +384,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "9ba04d4eb4c177f4",
+    "stretch": true,
+    "hash": "91af5a6b98b35e61",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -343,7 +397,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "e65ad9c70bc3c059",
+    "stretch": true,
+    "hash": "5dbe0f9478cc3328",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -355,7 +410,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "155d937d22cb523d",
+    "stretch": true,
+    "hash": "f8d3d14a154748bf",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -367,7 +423,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "827e5f14bf4d14f1",
+    "stretch": true,
+    "hash": "77f4d808030a401d",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -379,7 +436,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "9b1e45496c0987a1",
+    "stretch": true,
+    "hash": "001558c99b0981e2",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -391,7 +449,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "93c187b38b712473",
+    "stretch": true,
+    "hash": "fc0f672b9d1d48d1",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -403,7 +462,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "0fd5684cd6992082",
+    "stretch": true,
+    "hash": "b89c84a77af2f06f",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -415,7 +475,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "aa22f2484a54fd53",
+    "stretch": true,
+    "hash": "f35510553cf97306",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -427,9 +488,10 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "efe75b65aa9ff4c3",
-    "variant": "Standard",
-    "onset": 1.21
+    "stretch": true,
+    "hash": "913fc40a2b0bde1d",
+    "variant": "Glottisschlag",
+    "onset": 2.42
   },
   "fr6_ca_va": {
     "file": "fr6_ca_va.m4a",
@@ -439,7 +501,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "8bc87407705c6f7e",
+    "stretch": true,
+    "hash": "0700cc2b14159358",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -451,7 +514,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "e77826556c75f655",
+    "stretch": true,
+    "hash": "9e5b14dbcf88c6db",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -463,7 +527,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "6211e85ad0c30fbf",
+    "stretch": true,
+    "hash": "8daccf9b885bb7d2",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -475,7 +540,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "76de1fee10c196d6",
+    "stretch": true,
+    "hash": "466ab4af1ab248fa",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -487,7 +553,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "60e510d9784e5049",
+    "stretch": true,
+    "hash": "7988a25e084d0aad",
     "phonemes": "ʃˈyt",
     "variant": "Standard",
     "onset": 0.0
@@ -500,7 +567,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "ba8722d8f8659139",
+    "stretch": true,
+    "hash": "a68eec53db219542",
     "phonemes": "ʃˈyt ! leˈo tʁavˈaj.",
     "variant": "Standard",
     "onset": 0.0
@@ -513,7 +581,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "24447a235b28bd5e",
+    "stretch": true,
+    "hash": "88d92a892b2ec76e",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -525,7 +594,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "cc3ab058630ff051",
+    "stretch": true,
+    "hash": "9d02f01ed522efa6",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -537,7 +607,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "c95c0484c03da40c",
+    "stretch": true,
+    "hash": "fb3be61b8844248e",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -549,7 +620,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "96f116b958f033fd",
+    "stretch": true,
+    "hash": "6c5d04b2ae1d277a",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -561,7 +633,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "ad67d659d0973f3e",
+    "stretch": true,
+    "hash": "6d9c1a5f5c1036c0",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -573,9 +646,10 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "e196b81b47cf1d9e",
-    "variant": "Tempo +0,1",
-    "onset": 0.64
+    "stretch": true,
+    "hash": "897e8c1bc94b079d",
+    "variant": "Standard",
+    "onset": 0.58
   },
   "fr6_dans": {
     "file": "fr6_dans.m4a",
@@ -585,7 +659,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "24c8467ca6bba3b3",
+    "stretch": true,
+    "hash": "5f6d9ed928bb696e",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -597,7 +672,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "4f37280d8438a3c0",
+    "stretch": true,
+    "hash": "40e384c749fef1ca",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -609,7 +685,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "3329d4b0d5bf2ad2",
+    "stretch": true,
+    "hash": "6d5939adf924dbb8",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -621,7 +698,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "900dc33da74ebf20",
+    "stretch": true,
+    "hash": "a5328a186fc025bc",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -633,7 +711,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "33b533986be655dc",
+    "stretch": true,
+    "hash": "fd7e0bc7fe9c010c",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -645,7 +724,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "373a015aaf8f8fbe",
+    "stretch": true,
+    "hash": "51558de0766e41d4",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -657,7 +737,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "057838c2a0532014",
+    "stretch": true,
+    "hash": "9b2e72b2488c263f",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -669,7 +750,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "7733e1078b97fc56",
+    "stretch": true,
+    "hash": "dd43f10288b61c9e",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -681,7 +763,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "e179aebbe044a44d",
+    "stretch": true,
+    "hash": "394b08137e19bb6d",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -693,7 +776,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "d6cb0f9596a0975f",
+    "stretch": true,
+    "hash": "d82ee4d034601eb9",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -705,7 +789,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "a1ac3e72a8051048",
+    "stretch": true,
+    "hash": "006b21206779c0fe",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -717,7 +802,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "5876022fa298511f",
+    "stretch": true,
+    "hash": "f22bc746ae05c037",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -729,7 +815,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "cb618173b8755808",
+    "stretch": true,
+    "hash": "e0f19437762add7e",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -741,7 +828,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "9f3cbe7ddae9640c",
+    "stretch": true,
+    "hash": "56ec0a198409dfef",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -753,7 +841,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "231c891d0aa8da79",
+    "stretch": true,
+    "hash": "72541479bdc0ee41",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -765,7 +854,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "77addb43cd40c03e",
+    "stretch": true,
+    "hash": "8209bbe64e4ba35a",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -777,9 +867,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "d98d12241316a930",
-    "variant": "Tempo +0,05",
-    "onset": 1.71
+    "stretch": true,
+    "hash": "2351674e7038b9ef",
+    "variant": "Glottisschlag",
+    "onset": 2.68
   },
   "fr6_ecouter_qn_qc_ex": {
     "file": "fr6_ecouter_qn_qc_ex.m4a",
@@ -789,7 +880,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "a650fe62b67ba775",
+    "stretch": true,
+    "hash": "557bd0152b096a7e",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -801,9 +893,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "9c64ad6272d83a36",
-    "variant": "Glottisschlag",
-    "onset": 1.39
+    "stretch": true,
+    "hash": "ee5760b507bceb29",
+    "variant": "Tempo +0,1",
+    "onset": 2.02
   },
   "fr6_elle_est_ex": {
     "file": "fr6_elle_est_ex.m4a",
@@ -813,7 +906,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "9124d92f95659212",
+    "stretch": true,
+    "hash": "2debf3e18fe41df2",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -825,9 +919,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "85da8abb5a17573d",
+    "stretch": true,
+    "hash": "9f0398bde150dcb3",
     "variant": "Glottisschlag",
-    "onset": 1.29
+    "onset": 0.32
   },
   "fr6_en_francais_ex": {
     "file": "fr6_en_francais_ex.m4a",
@@ -837,7 +932,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "273d18781edbc8f9",
+    "stretch": true,
+    "hash": "ac47ed7e24df55aa",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -849,9 +945,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "feba5fef88fe1732",
-    "variant": "Tempo +0,1",
-    "onset": 1.35
+    "stretch": true,
+    "hash": "6835dbacd563bc04",
+    "variant": "Glottisschlag",
+    "onset": 0.43
   },
   "fr6_en_vacances_ex": {
     "file": "fr6_en_vacances_ex.m4a",
@@ -861,7 +958,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "eea2666c77d1c607",
+    "stretch": true,
+    "hash": "5959d78a0be47c67",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -873,9 +971,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "a1066624a7e85165",
-    "variant": "Tempo +0,05",
-    "onset": 1.49
+    "stretch": true,
+    "hash": "6b0665b76e50739e",
+    "variant": "Standard",
+    "onset": 3.24
   },
   "fr6_entrer_ex": {
     "file": "fr6_entrer_ex.m4a",
@@ -885,7 +984,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "5a0c88d4035e0398",
+    "stretch": true,
+    "hash": "a914d82fd9cea236",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -897,9 +997,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "74c2bafe0bd93627",
-    "variant": "Glottisschlag",
-    "onset": 1.38
+    "stretch": true,
+    "hash": "6ba5f59f9a14baf6",
+    "variant": "Standard",
+    "onset": 1.47
   },
   "fr6_et_ex": {
     "file": "fr6_et_ex.m4a",
@@ -909,7 +1010,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "00678dcf16969413",
+    "stretch": true,
+    "hash": "8ac451401af1f86a",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -921,9 +1023,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "0e33af7cbe78dc98",
-    "variant": "Tempo +0,1",
-    "onset": 1.28
+    "stretch": true,
+    "hash": "4ad08b71c8b9eed0",
+    "variant": "Glottisschlag",
+    "onset": 2.73
   },
   "fr6_etre_ex": {
     "file": "fr6_etre_ex.m4a",
@@ -933,7 +1036,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "7eed14606b6b8630",
+    "stretch": true,
+    "hash": "3d9cf18c8efae98f",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -945,9 +1049,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "47d57f2c3cfa1ac0",
-    "variant": "Glottisschlag",
-    "onset": 1.35
+    "stretch": true,
+    "hash": "99e591cbe92b5b82",
+    "variant": "Standard",
+    "onset": 2.07
   },
   "fr6_euh_ex": {
     "file": "fr6_euh_ex.m4a",
@@ -957,9 +1062,10 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "1a1ebca0c98bbd30",
-    "variant": "Tempo +0,05",
-    "onset": 0.87
+    "stretch": true,
+    "hash": "f6b4fd8573fdd5f8",
+    "variant": "Glottisschlag",
+    "onset": 0.4
   },
   "fr6_fantastique": {
     "file": "fr6_fantastique.m4a",
@@ -969,7 +1075,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "7200bea4d26c83e4",
+    "stretch": true,
+    "hash": "240ba91ca99bf52e",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -981,7 +1088,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "46a54ff244ea5026",
+    "stretch": true,
+    "hash": "76ef1f7adcc8a1c3",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -993,7 +1101,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "aa0a0f560e3da621",
+    "stretch": true,
+    "hash": "9526219c548d3123",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1005,7 +1114,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "b328b7389be8a451",
+    "stretch": true,
+    "hash": "cb9e2df708e28477",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1017,9 +1127,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "d66a1a29f3a50350",
-    "variant": "Glottisschlag",
-    "onset": 1.55
+    "stretch": true,
+    "hash": "316346660ebcaaf2",
+    "variant": "Standard",
+    "onset": 3.69
   },
   "fr6_habiter_ex": {
     "file": "fr6_habiter_ex.m4a",
@@ -1029,7 +1140,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "979ea965984bf8cd",
+    "stretch": true,
+    "hash": "29e5e44da19e308b",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1041,9 +1153,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "18703f347e24e7bf",
+    "stretch": true,
+    "hash": "df28459129521e34",
     "variant": "Punkt am Ende",
-    "onset": 3.13
+    "onset": 1.29
   },
   "fr6_huit_ex": {
     "file": "fr6_huit_ex.m4a",
@@ -1053,7 +1166,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "9ab301c93b714498",
+    "stretch": true,
+    "hash": "50c0b25adbc245f6",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1065,9 +1179,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "44c3326d6e3fae2d",
+    "stretch": true,
+    "hash": "e545bdadb2aca717",
     "variant": "Glottisschlag",
-    "onset": 3.27
+    "onset": 0.53
   },
   "fr6_ici_ex": {
     "file": "fr6_ici_ex.m4a",
@@ -1077,7 +1192,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "9d9093d3d495604f",
+    "stretch": true,
+    "hash": "3f5a5510c68ae532",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1089,9 +1205,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "e13b93e4c750044f",
-    "variant": "Tempo +0,05",
-    "onset": 3.35
+    "stretch": true,
+    "hash": "db60fc418e830b8a",
+    "variant": "Punkt am Ende",
+    "onset": 1.61
   },
   "fr6_il_dit_elle_dit_ex": {
     "file": "fr6_il_dit_elle_dit_ex.m4a",
@@ -1101,7 +1218,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "21191d58f0eb6f85",
+    "stretch": true,
+    "hash": "18765a36228ae30f",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1113,9 +1231,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "878381bfd583eb4a",
+    "stretch": true,
+    "hash": "5700bbf0a39840fd",
     "variant": "Punkt am Ende",
-    "onset": 1.22
+    "onset": 3.55
   },
   "fr6_il_est_ex": {
     "file": "fr6_il_est_ex.m4a",
@@ -1125,7 +1244,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "34f6514f87450332",
+    "stretch": true,
+    "hash": "a985cd07cf55356c",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1137,7 +1257,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "ebbb4fb9233cf3aa",
+    "stretch": true,
+    "hash": "6393d4669ad1efc3",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1149,7 +1270,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "27855473fa9c16fb",
+    "stretch": true,
+    "hash": "588b7c3ab1c719e0",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1161,7 +1283,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "4cb3de4b6517f6f7",
+    "stretch": true,
+    "hash": "f54621054648593d",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1173,7 +1296,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "96974ef13f4a6bdb",
+    "stretch": true,
+    "hash": "0280eb7b75206a46",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1185,7 +1309,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "f5ce65dad5196557",
+    "stretch": true,
+    "hash": "20bf9b46e4e58891",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1197,7 +1322,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "fd4a085da6161b2b",
+    "stretch": true,
+    "hash": "7f3a9a90d4e49da6",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1209,7 +1335,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "67a663edb6ac182a",
+    "stretch": true,
+    "hash": "0e7d63ac925010c9",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1221,7 +1348,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "3c8cdd311de2c141",
+    "stretch": true,
+    "hash": "791bcff02f459d2e",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1233,7 +1361,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "aad50a08083ead27",
+    "stretch": true,
+    "hash": "f0e25f11619fee99",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1245,7 +1374,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "df1a792413936b5d",
+    "stretch": true,
+    "hash": "731f7736669e2872",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1257,7 +1387,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "b686eb98c8ac834c",
+    "stretch": true,
+    "hash": "18ecfcb522802c54",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1269,7 +1400,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "13e5130902355abb",
+    "stretch": true,
+    "hash": "126a1fd825c3ee07",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1281,7 +1413,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "ce92755e30c90bf3",
+    "stretch": true,
+    "hash": "ee27938c5ec3f981",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1293,7 +1426,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "1a3e49da1b2d41b3",
+    "stretch": true,
+    "hash": "39de3b74661be2e3",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1305,7 +1439,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "9b17b6e9f21dd0e7",
+    "stretch": true,
+    "hash": "18501134a18c88b6",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1317,7 +1452,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "9c75962220e2ff10",
+    "stretch": true,
+    "hash": "f244bb10d1eadbe3",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1329,7 +1465,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "971a89f5280ef06e",
+    "stretch": true,
+    "hash": "b9633a7a5c7e3d90",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1341,7 +1478,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "24f63f6695aab23d",
+    "stretch": true,
+    "hash": "86fd16c4977c1c95",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1353,7 +1491,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "e49a39a4026b9fe8",
+    "stretch": true,
+    "hash": "db00d8bd426afb11",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1365,7 +1504,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "8d90ffd6b4709700",
+    "stretch": true,
+    "hash": "714ae6caab227eb9",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1377,7 +1517,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "c63c5c145fa4ed24",
+    "stretch": true,
+    "hash": "20cbdeeecc47c579",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1389,7 +1530,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "38080e1aa4df065e",
+    "stretch": true,
+    "hash": "35aa57563dd336a0",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1401,7 +1543,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "e5efc1c393920def",
+    "stretch": true,
+    "hash": "17139c255de2ea28",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1413,7 +1556,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "d75db80ccd68d132",
+    "stretch": true,
+    "hash": "70beddaf80be5c6a",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1425,7 +1569,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "97e2e57d4fc80377",
+    "stretch": true,
+    "hash": "5ebb0847d4951908",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1437,7 +1582,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "6459fbe6a8aa8f4d",
+    "stretch": true,
+    "hash": "bdf290b9a031121f",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1449,7 +1595,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "9767d7a2fb0339f6",
+    "stretch": true,
+    "hash": "fcfd147dad40ab91",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1461,7 +1608,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "1a0a643f6f06509e",
+    "stretch": true,
+    "hash": "08c657fe84e55820",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1473,7 +1621,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "6d9363362d5d2e12",
+    "stretch": true,
+    "hash": "10074e84837423db",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1485,7 +1634,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "35c53b303837dd1c",
+    "stretch": true,
+    "hash": "67b4583f070551ac",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1497,9 +1647,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "9fe4fabbbafac6b1",
+    "stretch": true,
+    "hash": "27ce9fb16407509b",
     "variant": "Glottisschlag",
-    "onset": 1.52
+    "onset": 2.89
   },
   "fr6_onze_ex": {
     "file": "fr6_onze_ex.m4a",
@@ -1509,7 +1660,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "1b8d5930fb658172",
+    "stretch": true,
+    "hash": "1094f2b9644eaa86",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1521,9 +1673,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "5e95eddd2a5e3f1d",
-    "variant": "Glottisschlag",
-    "onset": 4.3
+    "stretch": true,
+    "hash": "b7bce7f53a327470",
+    "variant": "Punkt am Ende",
+    "onset": 2.54
   },
   "fr6_ou_ex": {
     "file": "fr6_ou_ex.m4a",
@@ -1533,9 +1686,10 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "b466369b96021f5b",
-    "variant": "Standard",
-    "onset": 0.98
+    "stretch": true,
+    "hash": "ff91fa7016d3ca74",
+    "variant": "Tempo +0,05",
+    "onset": 2.65
   },
   "fr6_ouf": {
     "file": "fr6_ouf.m4a",
@@ -1545,9 +1699,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "a3609eb1cbddc850",
-    "variant": "Tempo +0,1",
-    "onset": 1.0
+    "stretch": true,
+    "hash": "cd273c052aeced30",
+    "variant": "Punkt am Ende",
+    "onset": 0.97
   },
   "fr6_ouf_ex": {
     "file": "fr6_ouf_ex.m4a",
@@ -1557,9 +1712,10 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "8437258132528e51",
-    "variant": "Punkt am Ende",
-    "onset": 1.05
+    "stretch": true,
+    "hash": "405a66933c0bd4c2",
+    "variant": "Tempo +0,1",
+    "onset": 2.74
   },
   "fr6_oui": {
     "file": "fr6_oui.m4a",
@@ -1569,9 +1725,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "824516cbb91a6c89",
+    "stretch": true,
+    "hash": "3f9172e595f324e0",
     "variant": "Punkt am Ende",
-    "onset": 1.03
+    "onset": 2.66
   },
   "fr6_oui_ex": {
     "file": "fr6_oui_ex.m4a",
@@ -1581,9 +1738,10 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "e9082695292834c5",
-    "variant": "Standard",
-    "onset": 0.82
+    "stretch": true,
+    "hash": "9ab14b37098efcef",
+    "variant": "Glottisschlag",
+    "onset": 1.38
   },
   "fr6_papa": {
     "file": "fr6_papa.m4a",
@@ -1593,7 +1751,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "935672841d579754",
+    "stretch": true,
+    "hash": "ea593fa4de90f252",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1605,7 +1764,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "1ba6171a7c1adede",
+    "stretch": true,
+    "hash": "e8ae2bfddb413201",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1617,7 +1777,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "c9b4637004005938",
+    "stretch": true,
+    "hash": "0526ebd95f940448",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1629,9 +1790,10 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "9563fd37675e8540",
-    "variant": "Tempo +0,05",
-    "onset": 1.38
+    "stretch": true,
+    "hash": "fbcf85d99a51c9be",
+    "variant": "Glottisschlag",
+    "onset": 0.73
   },
   "fr6_parler": {
     "file": "fr6_parler.m4a",
@@ -1641,7 +1803,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "5f3bae8144a9d34c",
+    "stretch": true,
+    "hash": "df65aead3fb6d3f5",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1653,7 +1816,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "c441df02e02d1f47",
+    "stretch": true,
+    "hash": "708d7f5a7436edbc",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1665,7 +1829,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "ca4ccbe5e1ebf266",
+    "stretch": true,
+    "hash": "ebe7d806395a4aff",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1677,7 +1842,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "ce91bf874a9d13d6",
+    "stretch": true,
+    "hash": "7a7b5991b45451e1",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1689,7 +1855,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "fd5bba51be48ab2b",
+    "stretch": true,
+    "hash": "baa183183c694996",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1701,7 +1868,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "3b5d6c8070b4311d",
+    "stretch": true,
+    "hash": "1c0f4541bc8ab4b4",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1713,7 +1881,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "e634635b2ef60018",
+    "stretch": true,
+    "hash": "39e3b58e74c21a03",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1725,7 +1894,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "241a78542ba0bcac",
+    "stretch": true,
+    "hash": "374eb34b83efa858",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1737,7 +1907,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "cdd7179d6eca6c29",
+    "stretch": true,
+    "hash": "ab9042bf467d8a7f",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1749,7 +1920,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "3a0abc3ebc614fb4",
+    "stretch": true,
+    "hash": "71904ba6e96ad1d4",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1761,7 +1933,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "2b500dea0fa553b5",
+    "stretch": true,
+    "hash": "d80544f6636ce2a9",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1773,7 +1946,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "0086ddc36375f332",
+    "stretch": true,
+    "hash": "70eebb77b1e4d835",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1785,7 +1959,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "964bc02446458084",
+    "stretch": true,
+    "hash": "cfcd8d4ad1b7824d",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1797,7 +1972,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "205a993dc41fba79",
+    "stretch": true,
+    "hash": "187b8a47595642a7",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1809,7 +1985,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "688c49cd2698985d",
+    "stretch": true,
+    "hash": "622569cac0bac8d9",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1821,7 +1998,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "21cdc3d7dd10eae1",
+    "stretch": true,
+    "hash": "56567d32698136b9",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1833,7 +2011,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "696fd60e3bb6ff04",
+    "stretch": true,
+    "hash": "8c3a0ff13bdda4b2",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1845,7 +2024,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "39e5c75133d4ad57",
+    "stretch": true,
+    "hash": "94e695d2d28e1d85",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1857,9 +2037,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "d5e8d4629a3c45ad",
+    "stretch": true,
+    "hash": "12c3c43e72f907bb",
     "variant": "Glottisschlag",
-    "onset": 1.27
+    "onset": 1.25
   },
   "fr6_s_p_a_ex": {
     "file": "fr6_s_p_a_ex.m4a",
@@ -1869,7 +2050,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "8d867c7db2c70d70",
+    "stretch": true,
+    "hash": "e521e315d63e8aa4",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1881,7 +2063,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "680fcbfc8faaf632",
+    "stretch": true,
+    "hash": "a9ed825ce6e953b1",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1893,7 +2076,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "6806b7d15b4c828c",
+    "stretch": true,
+    "hash": "11544797826d88c3",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1905,7 +2089,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "02b834b4d92a41ce",
+    "stretch": true,
+    "hash": "25f09b3ee1d2648c",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1917,7 +2102,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "319ccccc31377439",
+    "stretch": true,
+    "hash": "1850c88f8d9c16fd",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1929,7 +2115,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "40ec70d9eab4cd28",
+    "stretch": true,
+    "hash": "86a9b20395ed4384",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1941,7 +2128,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "50204c9aceeb652f",
+    "stretch": true,
+    "hash": "b24990ee4cf13b73",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1953,7 +2141,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "56fea5b59328b75a",
+    "stretch": true,
+    "hash": "cbb165d03337aa76",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1965,7 +2154,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "ca050420e2acfdc6",
+    "stretch": true,
+    "hash": "84fd727a31bf91b6",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1977,7 +2167,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "a42c3cf2396a59b0",
+    "stretch": true,
+    "hash": "630e8d76e3ff3c9b",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1989,7 +2180,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "055f6fa2b6766077",
+    "stretch": true,
+    "hash": "22ebda810f3f9f90",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2001,7 +2193,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "58d55ba5cd17d02e",
+    "stretch": true,
+    "hash": "780fcac4560500fd",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2013,7 +2206,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "1a133fabcc6fe4eb",
+    "stretch": true,
+    "hash": "cd6dba13eedfec8b",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2025,7 +2219,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "3aefdd22c8206040",
+    "stretch": true,
+    "hash": "3b8dd1b34281bf1c",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2037,7 +2232,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "b0d1584bbe18003f",
+    "stretch": true,
+    "hash": "21c669c5d5ada5ac",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2049,7 +2245,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "0ad4ef32acbe74d0",
+    "stretch": true,
+    "hash": "2dfe0fe02b19b4a4",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2061,7 +2258,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "e28d4a6018701414",
+    "stretch": true,
+    "hash": "3ace2b6fb35516c8",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2073,7 +2271,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "e66a6f8427507d85",
+    "stretch": true,
+    "hash": "76fff384ff0b27d4",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2085,7 +2284,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "0b6bd1b3d9d082c1",
+    "stretch": true,
+    "hash": "a3f71fd00228adf2",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2097,7 +2297,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "5a0437d2b7041e43",
+    "stretch": true,
+    "hash": "821189e174e34154",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2109,9 +2310,10 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "407c12f74038bb68",
-    "variant": "Tempo +0,05",
-    "onset": 1.63
+    "stretch": true,
+    "hash": "dbf2a5cdd4856027",
+    "variant": "Standard",
+    "onset": 3.65
   },
   "fr6_trouver_qn_qc": {
     "file": "fr6_trouver_qn_qc.m4a",
@@ -2121,7 +2323,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "abd5e11c3323b3a1",
+    "stretch": true,
+    "hash": "022093889565f95b",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2133,7 +2336,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "28e9b2e975b4a97e",
+    "stretch": true,
+    "hash": "f4b9432ff9c7ac6a",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2145,7 +2349,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "100c1c26a2d1f1f9",
+    "stretch": true,
+    "hash": "cfc88df2fa5df8d2",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2157,7 +2362,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "5dd9b4af7a179edf",
+    "stretch": true,
+    "hash": "ed0ef07867e8ebce",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2169,7 +2375,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "03cf0788828e6fdb",
+    "stretch": true,
+    "hash": "154585a4d80ecbdc",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2181,7 +2388,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "95e262ba817578b2",
+    "stretch": true,
+    "hash": "9612fd87bedb9413",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2193,9 +2401,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "ff54630793ae7d8a",
-    "variant": "Glottisschlag",
-    "onset": 1.89
+    "stretch": true,
+    "hash": "a05e660a728b4f08",
+    "variant": "Tempo +0,05",
+    "onset": 1.96
   },
   "fr6_un_ami_une_amie": {
     "file": "fr6_un_ami_une_amie.m4a",
@@ -2205,9 +2414,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "1c4e841b82713724",
-    "variant": "Standard",
-    "onset": 1.84
+    "stretch": true,
+    "hash": "0b9d040dc606c962",
+    "variant": "Glottisschlag",
+    "onset": 2.58
   },
   "fr6_un_ami_une_amie_ex": {
     "file": "fr6_un_ami_une_amie_ex.m4a",
@@ -2217,7 +2427,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "f11652489bf98221",
+    "stretch": true,
+    "hash": "341b487106e45a67",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2229,9 +2440,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "734477e46f0db12d",
+    "stretch": true,
+    "hash": "928fc50e8aedeb6a",
     "variant": "Glottisschlag",
-    "onset": 3.53
+    "onset": 3.47
   },
   "fr6_un_animal_ex": {
     "file": "fr6_un_animal_ex.m4a",
@@ -2241,7 +2453,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "ab7d84b9cd0d6ac1",
+    "stretch": true,
+    "hash": "f485ebbf435a93af",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2253,7 +2466,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "d2dc7f5fd6d40ed9",
+    "stretch": true,
+    "hash": "b8f410290f45d0e3",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2265,7 +2479,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "038952f004dab0ed",
+    "stretch": true,
+    "hash": "15c5ce3c2c481fb2",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2277,7 +2492,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "2d2b5c4cf5de2eb1",
+    "stretch": true,
+    "hash": "c4ab97cd39857c19",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2289,7 +2505,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "32e4e3b262e4efa8",
+    "stretch": true,
+    "hash": "6f035b2a253fad63",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2301,7 +2518,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "a70a7aa3fead1797",
+    "stretch": true,
+    "hash": "cd5f6e14dd37fc11",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2313,7 +2531,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "c5cc82386a8c7df3",
+    "stretch": true,
+    "hash": "6ff187b072d678e5",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2325,7 +2544,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "0de1d463e61516fc",
+    "stretch": true,
+    "hash": "633e9d441c456b5b",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2337,7 +2557,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "bd04a292028d6eb3",
+    "stretch": true,
+    "hash": "cf0a356bdf76c516",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2349,7 +2570,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "5632235c9ed9f360",
+    "stretch": true,
+    "hash": "0f6c3879901e6034",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2361,7 +2583,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "919ab3127d100751",
+    "stretch": true,
+    "hash": "166a4ca1c59b8865",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2373,7 +2596,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "185b0a214bb3d547",
+    "stretch": true,
+    "hash": "3357f0cfba38ee6f",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2385,7 +2609,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "3ec1cddaa3fd723f",
+    "stretch": true,
+    "hash": "bd25cfde3df453b9",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2397,7 +2622,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "294462fbdbaf952d",
+    "stretch": true,
+    "hash": "cec1b108538c782b",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2409,7 +2635,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "e8c0ab69d25b3144",
+    "stretch": true,
+    "hash": "6387ed0e1d8528cf",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2421,7 +2648,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "98f8c7c20a6972b5",
+    "stretch": true,
+    "hash": "156b839c45baa969",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2433,7 +2661,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "d3572989d15a7e51",
+    "stretch": true,
+    "hash": "642e303634878158",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2445,7 +2674,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "b1ffa1a11b95fb25",
+    "stretch": true,
+    "hash": "ad28954963cc9cb0",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2457,7 +2687,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "1752505a2f8c4616",
+    "stretch": true,
+    "hash": "64bb19b85b9e972f",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2469,7 +2700,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "2a1d159fdc80de56",
+    "stretch": true,
+    "hash": "c2eb9d436b18412e",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2481,7 +2713,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "f63fb350c37700db",
+    "stretch": true,
+    "hash": "16fffd5ba4462197",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2493,9 +2726,10 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "bdc0513fcf25c218",
-    "variant": "Standard",
-    "onset": 1.27
+    "stretch": true,
+    "hash": "a9db50d4730354cb",
+    "variant": "Glottisschlag",
+    "onset": 0.46
   },
   "fr6_un_frere": {
     "file": "fr6_un_frere.m4a",
@@ -2505,7 +2739,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "28985e35523ec2cd",
+    "stretch": true,
+    "hash": "69845319eafde1c2",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2517,7 +2752,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "a0160abfa8d9a1e4",
+    "stretch": true,
+    "hash": "2a2469213e80e78c",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2529,7 +2765,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "1ecfb0560cf51a0a",
+    "stretch": true,
+    "hash": "f6c79bcb4c9b101b",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2541,7 +2778,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "461206d976e6ce37",
+    "stretch": true,
+    "hash": "a2541c31d14e5bf8",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2553,9 +2791,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "863d8ead8c93548b",
-    "variant": "Punkt am Ende",
-    "onset": 1.3
+    "stretch": true,
+    "hash": "06c60f43921b12a5",
+    "variant": "Glottisschlag",
+    "onset": 1.29
   },
   "fr6_un_hamster_ex": {
     "file": "fr6_un_hamster_ex.m4a",
@@ -2565,7 +2804,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "983c666b47a9c445",
+    "stretch": true,
+    "hash": "26a973e41ef72bc8",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2577,7 +2817,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "3f95d235ed674587",
+    "stretch": true,
+    "hash": "d80060585f0f6fa3",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2589,7 +2830,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "8fd9b2e981ced948",
+    "stretch": true,
+    "hash": "5677ccd206d932b1",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2601,7 +2843,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "20087cb4a92b1062",
+    "stretch": true,
+    "hash": "bdbe5acdac056a0f",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2613,7 +2856,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "4b0698724a63a0f0",
+    "stretch": true,
+    "hash": "263095c6341173ac",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2625,7 +2869,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "7cd283c754e89764",
+    "stretch": true,
+    "hash": "f6338544549e43b1",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2637,7 +2882,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "f59544816534a7ec",
+    "stretch": true,
+    "hash": "24c421e180511bdd",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2649,7 +2895,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "0cd5663e247cee06",
+    "stretch": true,
+    "hash": "9d010b0a4486fd47",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2661,7 +2908,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "649738bc8700f911",
+    "stretch": true,
+    "hash": "68f4d40f30049c28",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2673,7 +2921,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "cc2a82749fad9a75",
+    "stretch": true,
+    "hash": "620b4ff29961964b",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2685,7 +2934,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "e6e347272d7c5701",
+    "stretch": true,
+    "hash": "68041c016148d8c3",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2697,7 +2947,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "fff7d96f55fa4e9d",
+    "stretch": true,
+    "hash": "7b6ae864fcaf0a06",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2709,7 +2960,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "cb763e1613894e8e",
+    "stretch": true,
+    "hash": "7e99d47a9624a476",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2721,7 +2973,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "654c3ece2ec3ca3e",
+    "stretch": true,
+    "hash": "8d3a394c9b90285e",
     "phonemes": "sˈak a dˈo",
     "variant": "Standard",
     "onset": 0.0
@@ -2734,7 +2987,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "9575b4d8b35f32f6",
+    "stretch": true,
+    "hash": "decfb469f24e86fc",
     "phonemes": "maʁˈi ʃˈɛʁʃ œ̃ sˈak a dˈo.",
     "variant": "Standard",
     "onset": 0.0
@@ -2747,7 +3001,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "ff1442ed9d710534",
+    "stretch": true,
+    "hash": "9aed4d2a6265965e",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2759,9 +3014,10 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "1b691b82ccf9b633",
+    "stretch": true,
+    "hash": "d82ee8a1287dc4e6",
     "variant": "Glottisschlag",
-    "onset": 1.64
+    "onset": 0.42
   },
   "fr6_un_stylo": {
     "file": "fr6_un_stylo.m4a",
@@ -2771,7 +3027,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "8733181191490ce4",
+    "stretch": true,
+    "hash": "1454364c824de1d2",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2783,7 +3040,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "2f65213ae734a6aa",
+    "stretch": true,
+    "hash": "62585ab1e26f2589",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2795,7 +3053,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "f6168feb8390cd55",
+    "stretch": true,
+    "hash": "a8d997e4c4af18da",
     "phonemes": "tiʃˈœʁt",
     "variant": "Standard",
     "onset": 0.0
@@ -2808,7 +3067,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "a3ae754d78ceda33",
+    "stretch": true,
+    "hash": "2c37f173478541ba",
     "phonemes": "leˈo pˈɔʁt œ̃ tiʃˈœʁt.",
     "variant": "Standard",
     "onset": 0.0
@@ -2821,7 +3081,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "1c787c4b8c733df0",
+    "stretch": true,
+    "hash": "282d81717482bc04",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2833,7 +3094,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "5d4c7d5b29e83dbc",
+    "stretch": true,
+    "hash": "fe0f1982c88e36d2",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2845,9 +3107,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "955d8db4c1f9d9dc",
+    "stretch": true,
+    "hash": "b2f368ddbeacc32a",
     "variant": "Glottisschlag",
-    "onset": 0.79
+    "onset": 0.5
   },
   "fr6_une_affiche_ex": {
     "file": "fr6_une_affiche_ex.m4a",
@@ -2857,7 +3120,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "0ba216cb4626d02c",
+    "stretch": true,
+    "hash": "8d26609c50373298",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2869,7 +3133,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "f19ddccfd6ceeb15",
+    "stretch": true,
+    "hash": "f2982a19a2d88ce8",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2881,7 +3146,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "741fa69ffe5f6925",
+    "stretch": true,
+    "hash": "f7e64a18bab1cb40",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2893,7 +3159,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "845eecfff4e2c523",
+    "stretch": true,
+    "hash": "b63c6d5f6e543caa",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2905,9 +3172,10 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "0670a8940a1acbc1",
-    "variant": "Tempo +0,05",
-    "onset": 0.9
+    "stretch": true,
+    "hash": "e4872769a832cc3f",
+    "variant": "Glottisschlag",
+    "onset": 0.33
   },
   "fr6_une_chanson": {
     "file": "fr6_une_chanson.m4a",
@@ -2917,7 +3185,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "5e4de869bcba6920",
+    "stretch": true,
+    "hash": "dff16ddc9fa241b3",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2929,7 +3198,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "27947f5ab30052ec",
+    "stretch": true,
+    "hash": "45286cabe6401b37",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2941,7 +3211,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "2e1aa3992a99566f",
+    "stretch": true,
+    "hash": "4cfe0f85c38e9058",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2953,7 +3224,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "41a2502a66565211",
+    "stretch": true,
+    "hash": "76e7e6123e89c82e",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2965,9 +3237,10 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "03053df5ade35ab5",
-    "variant": "Glottisschlag",
-    "onset": 1.69
+    "stretch": true,
+    "hash": "2144b6981d78b1c6",
+    "variant": "Standard",
+    "onset": 2.28
   },
   "fr6_une_ecole_ex": {
     "file": "fr6_une_ecole_ex.m4a",
@@ -2977,7 +3250,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "5541c8696db10a24",
+    "stretch": true,
+    "hash": "e8d4cb15de04dd5f",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2989,7 +3263,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "62acd8edea0e2861",
+    "stretch": true,
+    "hash": "3fa34b078dc341a5",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -3001,7 +3276,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "87b5d9fa9d40e1d4",
+    "stretch": true,
+    "hash": "9216cd16561d0d36",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -3013,7 +3289,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "d399aa31da078d3e",
+    "stretch": true,
+    "hash": "57ebf30960736b00",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -3025,7 +3302,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "07579a1dc4a2f79d",
+    "stretch": true,
+    "hash": "6cab5a911fd94e3a",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -3037,7 +3315,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "9a1cb35f9f403448",
+    "stretch": true,
+    "hash": "83849696435cf8d2",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -3049,7 +3328,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "ac23c60ad683e137",
+    "stretch": true,
+    "hash": "4f98232d875f5702",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -3061,7 +3341,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "782c171e743b526f",
+    "stretch": true,
+    "hash": "5fd608e8346afe9e",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -3073,7 +3354,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "e5805f8ac6a8fba0",
+    "stretch": true,
+    "hash": "be3a3202a0113e0b",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -3085,7 +3367,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "83013ac80ff08d5d",
+    "stretch": true,
+    "hash": "08b6f80844376151",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -3097,7 +3380,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "7502a794e70e9890",
+    "stretch": true,
+    "hash": "7a84b4ddf1a4d7b9",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -3109,7 +3393,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "cdba84726a923504",
+    "stretch": true,
+    "hash": "d05b8b9bc9c75ad6",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -3121,7 +3406,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "9764e3c5497871e8",
+    "stretch": true,
+    "hash": "e64c5880b743f695",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -3133,7 +3419,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "7a5fffd255214c06",
+    "stretch": true,
+    "hash": "4a6b09fba0014222",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -3145,7 +3432,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "2eb1f17a2c9aea36",
+    "stretch": true,
+    "hash": "1e185c5ed84b4021",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -3157,7 +3445,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "4e2372ce0e0ef8ff",
+    "stretch": true,
+    "hash": "d8c5d4bdeca1b103",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -3169,7 +3458,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "743e42db0d3aaf04",
+    "stretch": true,
+    "hash": "174c4938d8a09519",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -3181,7 +3471,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "c3c41bb879a97099",
+    "stretch": true,
+    "hash": "83b5d9ba5f2b0cdd",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -3193,9 +3484,10 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "dfbaec54b08e69c0",
-    "variant": "Tempo +0,05",
-    "onset": 1.64
+    "stretch": true,
+    "hash": "63a3586c15eb2d79",
+    "variant": "Glottisschlag",
+    "onset": 3.23
   },
   "fr6_une_tortue": {
     "file": "fr6_une_tortue.m4a",
@@ -3205,7 +3497,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "9735f280cd794ad4",
+    "stretch": true,
+    "hash": "ed22e1464453c4f1",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -3217,7 +3510,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "55a87b26fa5464b3",
+    "stretch": true,
+    "hash": "b4147edbfcecf47f",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -3229,7 +3523,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "cce72f5f67f5a7e7",
+    "stretch": true,
+    "hash": "5cdd56c8e6b70757",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -3241,7 +3536,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "1621470ca3d0c765",
+    "stretch": true,
+    "hash": "c62261c95256a730",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -3253,7 +3549,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "2b45b49ee17f947c",
+    "stretch": true,
+    "hash": "9b08ae3d6d8d4265",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -3265,7 +3562,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "d80923ced9c96ddf",
+    "stretch": true,
+    "hash": "7a85248b5fb5c84e",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -3277,7 +3575,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "08f313cc836fd0da",
+    "stretch": true,
+    "hash": "77a2e547ed293d4b",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -3289,7 +3588,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "fc05129494bd17ca",
+    "stretch": true,
+    "hash": "5c991fb04ab29589",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -3301,7 +3601,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "47118c8b626a0080",
+    "stretch": true,
+    "hash": "329c0d53605d2807",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -3313,7 +3614,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "23286b2737bf42ab",
+    "stretch": true,
+    "hash": "226763f81e42b7f1",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -3325,7 +3627,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "b2cc37802d89af5b",
+    "stretch": true,
+    "hash": "c4e0de0cc3ce5fc1",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -3337,7 +3640,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "5e37d3714c6bbff0",
+    "stretch": true,
+    "hash": "8c90b78711790cde",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -3349,7 +3653,8 @@
     "speed": 0.8,
     "lead": 0.8,
     "tail": 0.3,
-    "hash": "8ba684a228b624f8",
+    "stretch": true,
+    "hash": "1184e2dd510b50d6",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -3361,7 +3666,8 @@
     "speed": 0.75,
     "lead": 0.3,
     "tail": 0.2,
-    "hash": "d46d4e61862be1ee",
+    "stretch": true,
+    "hash": "703ee1b8f14d058d",
     "variant": "Standard",
     "onset": 0.0
   }

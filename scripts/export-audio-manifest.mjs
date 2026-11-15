@@ -25,15 +25,22 @@ const items = mod[src.list].flatMap((v) => [
     ? [{ id: `${v.id}_ex`, text: v.sayEx || mod.exampleText(v), lang: src.lang, kind: 'sentence', ...(v.sayExPhonemes ? { phonemes: v.sayExPhonemes } : {}) }]
     : []),
 ]);
-// Hörverstehen (2026-10-25): ein Dialog pro Hörtext, jede Zeile mit der Stimme ihres Sprechers (Art „listening“).
-if (course === 'en-6') {
-  const listening = await import(new URL('../src/data/en6/listening.js', import.meta.url));
-  for (const task of listening.EN6_LISTENING.filter((t) => !t.retired)) {
+// Hörverstehen (2026-10-25, Französisch seit 2026-11-15): ein Dialog pro Hörtext, jede Zeile mit der Stimme
+// ihres Sprechers (Art „listening“). Französisch langsamer (speed), zweiter Sprecher per Tonlage (shift).
+const LISTENING = {
+  'en-6': { module: '../src/data/en6/listening.js', list: 'EN6_LISTENING' },
+  'fr-6': { module: '../src/data/fr6/listening.js', list: 'FR6_LISTENING', speed: 0.8 },
+};
+if (LISTENING[course]) {
+  const { module, list, speed } = LISTENING[course];
+  const listening = await import(new URL(module, import.meta.url));
+  for (const task of listening[list].filter((t) => !t.retired)) {
     items.push({
       id: task.id,
       text: listening.listeningText(task),
-      lang: 'en',
+      lang: src.lang,
       kind: 'listening',
+      ...(speed ? { speed } : {}),
       segments: listening.listeningSegments(task),
     });
   }
