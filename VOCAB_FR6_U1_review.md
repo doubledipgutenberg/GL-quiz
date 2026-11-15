@@ -235,3 +235,42 @@ Schon drin: un stylo, un crayon, une gomme, un livre, un cahier, un sac à dos.
 
 **20 neue Vokabeln**, je 4 Karten. Lückentext- und Hörsätze selbst formuliert. Aussprache: „Chut“ mit hörbarem t
 (Laute vorgegeben).
+
+---
+
+## Lieferung 15.11.2026 – Unité 2, Atelier B2 bis B7 „ouf“ (Buch S. 169–170)
+
+Fotos: S. 169, 170. S. 169 bis zum Kasten „A l'école“ ist schon im Wortschatz.
+
+**Atelier B2** (S. 169)
+
+- être – sein ✓
+- devant – vor (örtlich) ✓
+
+📦 **Kasten être:** on est, nous sommes, vous êtes, ils sont / elles sont; *vous* auch höflich („Sie“) –
+keine eigenen Karten, wird im Quiz (Grammatik) geübt.
+
+**S. 170 (bis vor B7)**
+
+- habiter – wohnen ✓ (📦 j'habite … elles habitent)
+- où – wo; wohin ✓
+- un t-shirt – ein T-Shirt ✓
+- aimer qn/qc – jemanden/etwas lieben, jemanden/etwas mögen ✓ (📦 j'aime … elles aiment)
+- le rugby – das Rugby (Ballspiel) ✓
+- le judo – das Judo ✓
+- Qu'est-ce que …? – Was …? ✓
+- le sport – der Sport ✓
+- la musique – die Musik ✓
+- un frère – ein Bruder ✓
+- une sœur – eine Schwester ✓
+- sympa – nett ✓ (auch „sympathisch“)
+- détester qn/qc – jemanden/etwas verabscheuen ✓ (auch „hassen“; 📦 je déteste … elles détestent)
+- ça – das ✓
+- d'accord – einverstanden, o.k. ✓
+- alors – nun, jetzt, dann ✓
+- ouf – Uff! ✓
+
+Nicht als Karte: rue Nollet, rue Truffaut (Straßennamen). Ab „le rock“ = B7, nicht mehr dabei.
+
+**19 neue Vokabeln**, je 4 Karten. Lückentext- und Hörsätze selbst formuliert. Aussprache: „t-shirt“ französisch
+(Laute vorgegeben).
