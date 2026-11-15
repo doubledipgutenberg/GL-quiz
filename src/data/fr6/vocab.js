@@ -223,6 +223,40 @@ const BATCHES = [
       },
     ],
   },
+  {
+    // Buch S. 169–170 (Fotos vom 15.11.), Umfang laut Nutzer „bis B7 ouf“ (le rock = B7).
+    // Nicht als Karte: rue Nollet, rue Truffaut (Straßennamen, Übersetzung gleich).
+    exam: 'fr6-u1',
+    added: '2026-11-15',
+    sections: [
+      {
+        section: 'Unité 2 – Atelier B2',
+        items: [
+          { fr: 'être', de: 'sein', ex: 'Marie et Léo [sont] à Paris.' },
+          { fr: 'devant', de: 'vor (örtlich)', ex: 'Malabar est [devant] la maison.' },
+          { fr: 'habiter', de: 'wohnen', ex: 'Marie [habite] à Nice.' },
+          { fr: 'où', de: 'wo; wohin', ex: '[Où] est Malabar ?' },
+          // Die Sprachausgabe liest „t-shirt“ sonst englisch.
+          { fr: 'un t-shirt', de: 'ein T-Shirt', sayPhonemes: 'tiʃˈœʁt', sayExPhonemes: 'leˈo pˈɔʁt œ̃ tiʃˈœʁt.', ex: 'Léo porte [un t-shirt].' },
+          { fr: 'aimer qn/qc', de: 'jemanden/etwas lieben; jemanden/etwas mögen', alt: ['aimer'], altDe: ['lieben', 'mögen', 'jemanden lieben', 'etwas mögen'], say: 'aimer', ex: 'Léo [aime] Malabar.' },
+          { fr: 'le rugby', de: 'das Rugby (Ballspiel)', ex: '[Le rugby], c\'est super !' },
+          { fr: 'le judo', de: 'das Judo', ex: 'Marie regarde [le judo] avec Léo.' },
+          { fr: "Qu'est-ce que …?", de: 'Was …?', say: "Qu'est-ce que", ex: "[Qu'est-ce que] Léo cherche ?" },
+          { fr: 'le sport', de: 'der Sport', ex: 'Pour Léo, [le sport], c\'est fantastique.' },
+          { fr: 'la musique', de: 'die Musik', ex: 'Super ! Marie écoute [la musique].' },
+          { fr: 'un frère', de: 'ein Bruder', ex: 'Tu es [le frère] de Marie ?' },
+          { fr: 'une sœur', de: 'eine Schwester', ex: 'Elle est [la sœur] de Léo ?' },
+          { fr: 'sympa', de: 'nett', altDe: ['sympathisch'], ex: 'Malabar est [sympa] !' },
+          // „hassen“ steht nicht im Buch, ist aber die Übersetzung, die Kinder schreiben.
+          { fr: 'détester qn/qc', de: 'jemanden/etwas verabscheuen', alt: ['détester'], altDe: ['verabscheuen', 'hassen', 'etwas hassen'], say: 'détester', ex: 'Malabar [déteste] le chat.' },
+          { fr: 'ça', de: 'das', ex: "[Ça], c'est Malabar !" },
+          { fr: "d'accord", de: 'einverstanden; o.k.', altDe: ['okay', 'ok'], ex: "On regarde le rugby ? – [D'accord] !" },
+          { fr: 'alors', de: 'nun; jetzt; dann', ex: '[Alors], Léo, ça va ?' },
+          { fr: 'ouf', de: 'Uff!', say: 'Ouf !', ex: '[Ouf] ! Malabar est là !' },
+        ],
+      },
+    ],
+  },
 ];
 
 function slug(s) {
@@ -230,6 +264,7 @@ function slug(s) {
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')
     .toLowerCase()
+    .replace(/œ/g, 'oe') // „sœur“ → fr6_une_soeur (nicht „s_ur“)
     .replace(/\([^)]*\)/g, '')
     .replace(/[^a-z0-9]+/g, '_')
     .replace(/^_|_$/g, '')

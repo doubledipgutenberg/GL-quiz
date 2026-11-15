@@ -791,9 +791,10 @@ export const EXAMS = {
   'fr6-u1': {
     id: 'fr6-u1',
     course: 'fr-6',
-    label: 'Unité 1 – Bonjour, Paris!',
-    units: 'Au début + Unité 1 (A1–B6) + Unité 2 (bis A3 „une catastrophe“)',
-    subtitle: 'Französisch Unité 1',
+    // id bleibt fr6-u1 (Lernhistorie hängt daran), Inhalt = 1. Schulaufgabe laut Lernplan.
+    label: '1. Schulaufgabe – Unités 1 + 2',
+    units: 'Au début + Unité 1 + Unité 2 (bis B7 „ouf“) · Grammatik G1–G6',
+    subtitle: 'Französisch – 1. Schulaufgabe am 20.11.',
   },
 };
 

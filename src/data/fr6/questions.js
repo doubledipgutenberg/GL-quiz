@@ -1,12 +1,13 @@
-// Französisch Klasse 6 – Unité 1 „Bonjour, Paris!“ (Au début + Ateliers A1–B5).
-// Grammatik/Redemittel aus dem Vokabelteil (Merke-Kasten être, Vis-à-vis-Kästen),
+// Französisch Klasse 6 – 1. Schulaufgabe (20.11.): Unité 1 „Bonjour, Paris!“ + Unité 2 „Copain, copine“.
+// Grammatik/Redemittel aus dem Vokabelteil (Merke-Kasten être, Vis-à-vis-Kästen) und – ab „Unité 2“ unten –
+// aus dem Lernplan der Lehrerin und dem grammatischen Beiheft G1–G6 (S. 5–12, Fotos vom 15.11.).
 // Sätze angelehnt an die Beispielsätze des Buchs, aber selbst formuliert.
 // answerLang 'fr' → Akzent-Tasten + strenger Akzent-Check.
 
 const EXAM = 'fr6-u1';
 
 const T = {
-  etre: ['fr_etre', 'être (je suis, tu es, il/elle est)'],
+  etre: ['fr_etre', 'être (alle Formen)'],
   article: ['fr_article', 'un / une'],
   sappeler: ['fr_sappeler', "je m'appelle / tu t'appelles"],
   moitoi: ['fr_moi_toi', 'moi / toi'],
@@ -22,6 +23,13 @@ const T = {
   intrus: ['fr_intrus', 'Cherche l’intrus'],
   mots: ['fr_mots', 'Wortarten, Akzente & Zeichen'],
   lire: ['fr_lire', 'Schilder & Aufschriften verstehen'],
+  // Unité 2 (Lernplan zur 1. Schulaufgabe)
+  defini: ['fr_article_defini', "le / la / l'"],
+  pronoms: ['fr_pronoms', 'Personalpronomen (on, nous, vous, ils/elles)'],
+  verbesEr: ['fr_verbes_er', 'Verben auf -er'],
+  apostrophe: ['fr_apostrophe', "Apostroph: l', j', qu'"],
+  questions: ['fr_questions', 'Fragen mit und ohne Fragewort'],
+  parler: ['fr_parler', 'Sagen, wo du wohnst und was du magst'],
 };
 
 const q = (id, [topic, topicLabel], category, rest) => ({
@@ -60,6 +68,20 @@ const profilesText =
   'Lucas – Ville : Brest – Copine : Emma – Animal : deux chats\n' +
   'Chloé – Ville : Strasbourg – Copine : Sarah – Animal : –\n' +
   'Hugo – Ville : Nice – Copine : Léa – Animal : un perroquet';
+
+// Unité 2: wohnen, mögen, Geschwister – eigene Personen, nur Wörter bis B7 „ouf“.
+const readingText3 =
+  'Zoé : Salut ! Je m’appelle Zoé. Et toi ?\n' +
+  'Théo : Moi, c’est Théo. J’habite rue Lepic. Et toi, tu habites où ?\n' +
+  'Zoé : Moi aussi, j’habite rue Lepic ! Qu’est-ce que tu aimes, Théo ?\n' +
+  'Théo : J’aime le rugby et la musique.\n' +
+  'Zoé : Le rugby ? Bof … Je déteste le rugby ! Moi, j’aime le judo.\n' +
+  'Théo : Tiens ! Voilà Jade et Noé. Ils sont sympas ?\n' +
+  'Zoé : Oui ! Ils sont frère et sœur.\n' +
+  'Jade : Salut ! On regarde le judo à l’école ?\n' +
+  'Noé : D’accord ! Euh … Zut ! Où est le cartable ?\n' +
+  'Jade : Il est là, devant la maison.\n' +
+  'Noé : Ouf !';
 
 // Hinweis: In Freitext-Antworten (answerLang 'fr') keine Kommas in `correct` –
 // Komma und Semikolon trennen dort Alternativen. Weitere Lösungen → alternativeCorrect.
@@ -580,6 +602,430 @@ const questionsFR6 = [
     type: 'multiple_choice', difficulty: 2, text: readingText2,
     question: 'Warum ruft Manon „Vite, Coco !“?', options: ['Weil eine Katze kommt.', 'Weil es regnet.', 'Weil Nathan geht.'], correct: 'Weil eine Katze kommt.',
     hint: 'Wer ist Filou?', explanation: '„Attention, voilà Filou ! C’est un chat …“ – Katze und Papagei, das geht nicht gut!',
+  }),
+
+  // ===== Unité 2 – nach dem Lernplan zur 1. Schulaufgabe (Beiheft G3–G6, S. 7–12) =====
+
+  // ---------- le / la / l' (G3) ----------
+  q('def-1', T.defini, 'grammar', {
+    type: 'multiple_choice', question: '___ chien', options: ['le', 'la', "l'"], correct: 'le',
+    hint: 'un chien', explanation: 'le chien – maskulin (un → le)',
+  }),
+  q('def-2', T.defini, 'grammar', {
+    type: 'multiple_choice', question: '___ rue', options: ['le', 'la', "l'"], correct: 'la',
+    hint: 'une rue', explanation: 'la rue – feminin (une → la)',
+  }),
+  q('def-3', T.defini, 'grammar', {
+    type: 'multiple_choice', question: '___ école', options: ['le', 'la', "l'"], correct: "l'",
+    hint: 'Womit fängt „école“ an?', explanation: "l'école – vor Vokal steht l', egal ob männlich oder weiblich (une école).",
+  }),
+  q('def-4', T.defini, 'grammar', {
+    type: 'multiple_choice', question: '___ journal', options: ['le', 'la', "l'"], correct: 'le',
+    hint: 'un journal', explanation: 'le journal – maskulin (die Zeitung, aber un journal)',
+  }),
+  q('def-5', T.defini, 'grammar', {
+    type: 'multiple_choice', question: '___ ami', options: ['le', 'la', "l'"], correct: "l'",
+    hint: 'a, e, i, o, u am Anfang?', explanation: "l'ami – vor Vokal wird le zu l'.",
+  }),
+  q('def-6', T.defini, 'grammar', {
+    type: 'multiple_choice', question: 'Voilà ___ maison de Léo.', options: ['le', 'la', "l'"], correct: 'la',
+    hint: 'une maison', explanation: 'la maison – feminin. „das Haus“, aber im Französischen gibt es kein Neutrum.',
+  }),
+  q('def-7', T.defini, 'grammar', {
+    type: 'multiple_choice', question: 'Marie regarde ___ affiche.', options: ['le', 'la', "l'"], correct: "l'",
+    hint: 'une affiche – aber Vokal am Anfang!', explanation: "l'affiche – une affiche ist weiblich, vor Vokal trotzdem l'.",
+  }),
+  q('def-8', T.defini, 'grammar', {
+    type: 'multiple_choice', question: 'une BD → ___ BD', options: ['le', 'la', "l'"], correct: 'la',
+    hint: 'une → ?', explanation: 'une BD → la BD',
+  }),
+  q('def-9', T.defini, 'grammar', {
+    type: 'multiple_choice', question: 'Welcher Satz ist richtig?',
+    options: ["C'est l'amie de Léo.", "C'est la amie de Léo.", "C'est le amie de Léo."], correct: "C'est l'amie de Léo.",
+    hint: 'amie beginnt mit Vokal', explanation: "l'amie – vor Vokal nur l' mit Apostroph.",
+  }),
+  q('def-10', T.defini, 'grammar', {
+    type: 'multiple_choice', question: 'der Hund – die Katze – das Haus. Wie viele Geschlechter haben französische Nomen?',
+    options: ['zwei: maskulin und feminin', 'drei: maskulin, feminin und neutrum', 'nur eins'], correct: 'zwei: maskulin und feminin',
+    hint: 'le … oder la …', explanation: 'Im Französischen gibt es nur maskulin (le) und feminin (la): le chien, le chat, la maison.',
+  }),
+  q('def-11', T.defini, 'grammar', {
+    type: 'multiple_choice', question: 'die Katze = ___ chat', options: ['le', 'la', "l'"], correct: 'le',
+    hint: 'un chat', explanation: 'le chat – das Geschlecht kann anders sein als im Deutschen.',
+  }),
+
+  // ---------- être – alle Formen (G4) ----------
+  q('etre-6', T.etre, 'grammar', {
+    type: 'multiple_choice', question: 'Nous ___ de Paris.', options: ['sommes', 'êtes', 'sont'], correct: 'sommes',
+    hint: 'nous → ?', explanation: 'nous sommes = wir sind',
+  }),
+  q('etre-7', T.etre, 'grammar', {
+    type: 'multiple_choice', question: 'Vous ___ de Toulouse, madame ?', options: ['êtes', 'sommes', 'est'], correct: 'êtes',
+    hint: 'vous → ?', explanation: 'vous êtes – hier die höfliche Anrede: „Sind Sie aus Toulouse?“',
+  }),
+  q('etre-8', T.etre, 'grammar', {
+    type: 'multiple_choice', question: 'Marie et Léo ___ dans la maison de la presse.', options: ['sont', 'est', 'sommes'], correct: 'sont',
+    hint: 'Marie et Léo = ils', explanation: 'ils sont = sie sind',
+  }),
+  q('etre-9', T.etre, 'grammar', {
+    type: 'fill_gap', answerLang: 'fr', difficulty: 2, question: 'On ___ à Paris ! (être)', correct: 'est',
+    hint: 'on wie il und elle', explanation: 'on est = man ist / wir sind',
+  }),
+  q('etre-10', T.etre, 'grammar', {
+    type: 'fill_gap', answerLang: 'fr', difficulty: 2, question: 'Marie et moi, nous ___ de Nice. (être)', correct: 'sommes',
+    hint: 'nous → ?', explanation: 'nous sommes = wir sind',
+  }),
+  q('etre-11', T.etre, 'grammar', {
+    type: 'fill_gap', answerLang: 'fr', difficulty: 2, question: 'Léo et Marie, vous ___ où ? (être)', correct: 'êtes',
+    hint: 'vous → ? (mit Akzent!)', explanation: 'vous êtes = ihr seid',
+  }),
+  q('etre-12', T.etre, 'grammar', {
+    type: 'fill_gap', answerLang: 'fr', difficulty: 2, question: 'Manon et Clara ? Elles ___ sympas ! (être)', correct: 'sont',
+    hint: 'elles → ?', explanation: 'elles sont = sie sind',
+  }),
+  q('etre-13', T.etre, 'grammar', {
+    type: 'translate', answerLang: 'fr', difficulty: 2, question: 'Schreib auf Französisch: „Wir sind aus Paris.“',
+    correct: 'Nous sommes de Paris.', alternativeCorrect: ['On est de Paris.'],
+    hint: 'nous + être + de', explanation: 'Nous sommes de Paris. (auch: On est de Paris.)',
+  }),
+  q('etre-14', T.etre, 'grammar', {
+    type: 'multiple_choice', question: 'ihr seid / Sie sind = ?', options: ['vous êtes', 'vous sommes', 'nous êtes'], correct: 'vous êtes',
+    hint: 'vous …', explanation: 'vous êtes = ihr seid / Sie sind',
+  }),
+
+  // ---------- Personalpronomen (G4) ----------
+  q('pp-1', T.pronoms, 'grammar', {
+    type: 'multiple_choice', question: 'Paul et Hugo ? ___ sont de Brest.', options: ['Ils', 'Elles', 'Nous'], correct: 'Ils',
+    hint: 'zwei Jungen', explanation: 'ils = sie (Plural, männlich)',
+  }),
+  q('pp-2', T.pronoms, 'grammar', {
+    type: 'multiple_choice', question: 'Manon et Clara ? ___ sont super.', options: ['Elles', 'Ils', 'Vous'], correct: 'Elles',
+    hint: 'zwei Mädchen', explanation: 'elles = sie (Plural, weiblich)',
+  }),
+  q('pp-3', T.pronoms, 'grammar', {
+    type: 'multiple_choice', question: 'Où sont Marie et Léo ? – ___ sont dans la rue.', options: ['Ils', 'Elles', 'On'], correct: 'Ils',
+    hint: 'ein Mädchen und ein Junge', explanation: 'Gemischte Gruppe → ils.',
+  }),
+  q('pp-4', T.pronoms, 'grammar', {
+    type: 'multiple_choice', question: 'Où sont la gomme et la BD ? – ___ sont dans le cartable.', options: ['Elles', 'Ils', 'On'], correct: 'Elles',
+    hint: 'la gomme, la BD', explanation: 'Zwei feminine Nomen → elles (auch bei Sachen).',
+  }),
+  q('pp-5', T.pronoms, 'grammar', {
+    type: 'multiple_choice', question: 'Où sont le livre et le cahier ? – ___ sont là.', options: ['Ils', 'Elles', 'Vous'], correct: 'Ils',
+    hint: 'le livre, le cahier', explanation: 'Zwei maskuline Nomen → ils.',
+  }),
+  q('pp-6', T.pronoms, 'grammar', {
+    type: 'multiple_choice', question: 'Du sprichst eine Verkäuferin höflich an: „___ habitez à Paris, madame ?“', options: ['Vous', 'Tu', 'Nous'], correct: 'Vous',
+    hint: 'höfliche Anrede = „Sie“', explanation: 'vous = Sie (höflich, auch für eine Person)',
+  }),
+  q('pp-7', T.pronoms, 'grammar', {
+    type: 'multiple_choice', question: 'Du fragst zwei Freunde: „___ cherchez Malabar ?“', options: ['Vous', 'Tu', 'Ils'], correct: 'Vous',
+    hint: 'mehrere Personen = „ihr“', explanation: 'vous = ihr (mehrere Personen)',
+  }),
+  q('pp-8', T.pronoms, 'grammar', {
+    type: 'multiple_choice', question: 'Was bedeutet „on“?', options: ['man – und umgangssprachlich auch „wir“', 'nur „er“', '„ihr“'],
+    correct: 'man – und umgangssprachlich auch „wir“',
+    hint: 'On est copains.', explanation: 'on = man; in der Umgangssprache oft für „wir“.',
+  }),
+  q('pp-9', T.pronoms, 'grammar', {
+    type: 'fill_gap', answerLang: 'fr', difficulty: 2, question: 'Léo et moi, ___ sommes de Paris.', correct: 'nous',
+    hint: 'Léo und ich = wir', explanation: 'nous sommes = wir sind',
+  }),
+  q('pp-10', T.pronoms, 'grammar', {
+    type: 'multiple_choice', question: 'Welche Aussage stimmt?',
+    options: ['ils steht auch für gemischte Gruppen.', 'elles steht für gemischte Gruppen.', 'ils steht nur für Personen, nicht für Sachen.'],
+    correct: 'ils steht auch für gemischte Gruppen.',
+    hint: 'Marie et Léo → ?', explanation: 'ils = maskulin Plural und gemischte Gruppen; elles = nur feminin Plural.',
+  }),
+  q('pp-11', T.pronoms, 'grammar', {
+    type: 'multiple_choice', question: 'Deutsch sagt „sie“, Englisch „they“. Was sagt man im Französischen?',
+    options: ['ils oder elles – je nach Geschlecht', 'immer ils', 'immer elles'], correct: 'ils oder elles – je nach Geschlecht',
+    hint: 'Jungen / Mädchen', explanation: 'Im Französischen musst du zwischen ils und elles unterscheiden.',
+  }),
+
+  // ---------- Verben auf -er (G5) ----------
+  q('er-1', T.verbesEr, 'grammar', {
+    type: 'multiple_choice', question: 'Nous ___ un livre.', options: ['cherchons', 'cherchez', 'cherchent'], correct: 'cherchons',
+    hint: 'nous → -ons', explanation: 'nous cherchons = wir suchen',
+  }),
+  q('er-2', T.verbesEr, 'grammar', {
+    type: 'multiple_choice', question: 'Vous ___ la BD ?', options: ['regardez', 'regardons', 'regardent'], correct: 'regardez',
+    hint: 'vous → -ez', explanation: 'vous regardez = ihr seht an / Sie sehen an',
+  }),
+  q('er-3', T.verbesEr, 'grammar', {
+    type: 'multiple_choice', question: 'Tu ___ le rugby ?', options: ['aimes', 'aime', 'aimez'], correct: 'aimes',
+    hint: 'tu → -es', explanation: 'tu aimes = du magst',
+  }),
+  q('er-4', T.verbesEr, 'grammar', {
+    type: 'multiple_choice', question: 'Ils ___ rue Lepic.', options: ['habitent', 'habitez', 'habitons'], correct: 'habitent',
+    hint: 'ils → -ent', explanation: 'ils habitent = sie wohnen',
+  }),
+  q('er-5', T.verbesEr, 'grammar', {
+    type: 'fill_gap', answerLang: 'fr', difficulty: 2, question: 'Tu ___ un t-shirt ? (porter)', correct: 'portes',
+    hint: 'tu → -es', explanation: 'tu portes = du trägst',
+  }),
+  q('er-6', T.verbesEr, 'grammar', {
+    type: 'fill_gap', answerLang: 'fr', difficulty: 2, question: 'Marie ___ avec un monsieur. (parler)', correct: 'parle',
+    hint: 'elle → -e', explanation: 'elle parle = sie spricht',
+  }),
+  q('er-7', T.verbesEr, 'grammar', {
+    type: 'fill_gap', answerLang: 'fr', difficulty: 2, question: 'Nous ___ la musique. (écouter)', correct: 'écoutons',
+    hint: 'nous → -ons', explanation: 'nous écoutons = wir hören',
+  }),
+  q('er-8', T.verbesEr, 'grammar', {
+    type: 'fill_gap', answerLang: 'fr', difficulty: 2, question: 'Vous ___ où ? (travailler)', correct: 'travaillez',
+    hint: 'vous → -ez', explanation: 'vous travaillez = ihr arbeitet / Sie arbeiten',
+  }),
+  q('er-9', T.verbesEr, 'grammar', {
+    type: 'fill_gap', answerLang: 'fr', difficulty: 2, question: "Léo et Marie ___ devant l'école. (arriver)", correct: 'arrivent',
+    hint: 'ils → -ent', explanation: 'ils arrivent = sie kommen an',
+  }),
+  q('er-10', T.verbesEr, 'grammar', {
+    type: 'fill_gap', answerLang: 'fr', difficulty: 2, question: 'On ___ Malabar ? (chercher)', correct: 'cherche',
+    hint: 'on wie il/elle → -e', explanation: 'on cherche = man sucht / wir suchen',
+  }),
+  q('er-11', T.verbesEr, 'grammar', {
+    type: 'fill_gap', answerLang: 'fr', difficulty: 2, question: 'Elles ___ le sport. (détester)', correct: 'détestent',
+    hint: 'elles → -ent', explanation: 'elles détestent = sie verabscheuen',
+  }),
+  q('er-12', T.verbesEr, 'grammar', {
+    type: 'fill_gap', answerLang: 'fr', difficulty: 2, question: 'Ah, je ___ le livre ! (trouver)', correct: 'trouve',
+    hint: 'je → -e', explanation: 'je trouve = ich finde',
+  }),
+  q('er-13', T.verbesEr, 'grammar', {
+    type: 'multiple_choice', question: 'Welche Endungen haben die Verben auf -er (je, tu, il, nous, vous, ils)?',
+    options: ['-e, -es, -e, -ons, -ez, -ent', '-e, -es, -t, -ons, -ez, -ent', '-s, -s, -t, -ons, -ez, -ont'], correct: '-e, -es, -e, -ons, -ez, -ent',
+    hint: 'je cherche, tu cherches …', explanation: 'je cherche, tu cherches, il cherche, nous cherchons, vous cherchez, ils cherchent',
+  }),
+  q('er-14', T.verbesEr, 'grammar', {
+    type: 'multiple_choice', question: 'Welche Endungen hört man beim Sprechen?', options: ['nur -ons und -ez', 'alle', 'nur -es und -ent'], correct: 'nur -ons und -ez',
+    hint: 'regarde, regardes, regardent klingen gleich', explanation: 'Nur -ons [ɔ̃] und -ez [e] werden ausgesprochen.',
+  }),
+  q('er-15', T.verbesEr, 'grammar', {
+    type: 'translate', answerLang: 'fr', difficulty: 3, question: 'Schreib auf Französisch: „Wir wohnen in Paris.“',
+    correct: 'Nous habitons à Paris.', alternativeCorrect: ['On habite à Paris.'],
+    hint: 'habiter + à', explanation: 'Nous habitons à Paris. (auch: On habite à Paris.)',
+  }),
+  q('er-16', T.verbesEr, 'grammar', {
+    type: 'translate', answerLang: 'fr', difficulty: 3, question: 'Schreib auf Französisch: „Sie (Léo und Marie) suchen Malabar.“',
+    correct: 'Ils cherchent Malabar.', hint: 'gemischte Gruppe → ils', explanation: 'Ils cherchent Malabar.',
+  }),
+
+  // ---------- Apostroph (G3, G5) ----------
+  q('apo-1', T.apostrophe, 'grammar', {
+    type: 'multiple_choice', question: 'je + arrive = ?', options: ["j'arrive", 'je arrive'], correct: "j'arrive",
+    hint: 'arrive beginnt mit Vokal', explanation: "Vor Vokal wird je zu j'.",
+  }),
+  q('apo-2', T.apostrophe, 'grammar', {
+    type: 'multiple_choice', question: 'je + écoute = ?', options: ["j'écoute", 'je écoute'], correct: "j'écoute",
+    hint: 'é ist auch ein Vokal', explanation: "j'écoute – vor Vokal wird je zu j'.",
+  }),
+  q('apo-3', T.apostrophe, 'grammar', {
+    type: 'multiple_choice', question: 'je + regarde = ?', options: ['je regarde', "j'regarde"], correct: 'je regarde',
+    hint: 'r ist ein Konsonant', explanation: "Kein Apostroph – j' nur vor Vokal oder stummem h.",
+  }),
+  q('apo-4', T.apostrophe, 'grammar', {
+    type: 'multiple_choice', question: 'la + musique = ?', options: ['la musique', "l'musique"], correct: 'la musique',
+    hint: 'm ist ein Konsonant', explanation: "la musique – l' nur vor Vokal.",
+  }),
+  q('apo-5', T.apostrophe, 'grammar', {
+    type: 'multiple_choice', question: 'Warum schreibt man „j’habite“ und nicht „je habite“?',
+    options: ['Das h spricht man nicht – das Wort beginnt wie mit einem Vokal.', 'Weil habiter ein unregelmäßiges Verb ist.', 'Weil es kürzer ist.'],
+    correct: 'Das h spricht man nicht – das Wort beginnt wie mit einem Vokal.',
+    hint: 'stummes h', explanation: "Vor Vokal oder stummem h wird je zu j'.",
+  }),
+  q('apo-6', T.apostrophe, 'grammar', {
+    type: 'multiple_choice', question: 'Welcher Satz ist richtig?',
+    options: ["C'est l'école de Marie.", "Ce est la école de Marie.", "C'est la école de Marie."], correct: "C'est l'école de Marie.",
+    hint: 'ce + est, la + école', explanation: "ce + est → c'est, la + école → l'école",
+  }),
+  q('apo-7', T.apostrophe, 'grammar', {
+    type: 'multiple_choice', question: "Qu'est-ce ___ elle regarde ?", options: ["qu'", 'que'], correct: "qu'",
+    hint: 'elle beginnt mit Vokal', explanation: "que + elle → qu'elle: Qu'est-ce qu'elle regarde ?",
+  }),
+  q('apo-8', T.apostrophe, 'grammar', {
+    type: 'multiple_choice', question: 'Welche Aussage stimmt?',
+    options: ["j' steht vor einem Verb mit Vokal am Anfang.", 'le steht vor femininen Nomen.', 'une steht vor maskulinen Nomen.'],
+    correct: "j' steht vor einem Verb mit Vokal am Anfang.",
+    hint: "j'aime, j'arrive …", explanation: "j' steht vor Vokal (j'aime). le = maskulin, une = feminin.",
+  }),
+
+  // ---------- Fragen mit und ohne Fragewort (G6) ----------
+  q('qu-1', T.questions, 'grammar', {
+    type: 'multiple_choice', question: '– ___ est Malabar ? – Il est dans la rue.', options: ['Où', 'Qui', 'Comment'], correct: 'Où',
+    hint: 'Wo?', explanation: 'Où est Malabar ? = Wo ist Malabar?',
+  }),
+  q('qu-2', T.questions, 'grammar', {
+    type: 'multiple_choice', question: '– ___ tu cherches ? – Un stylo.', options: ["Qu'est-ce que", 'Où', 'Qui'], correct: "Qu'est-ce que",
+    hint: 'Was?', explanation: "Qu'est-ce que tu cherches ? = Was suchst du?",
+  }),
+  q('qu-3', T.questions, 'grammar', {
+    type: 'multiple_choice', question: "– ___ ? – C'est Hugo, un copain.", options: ['Qui est-ce', "Qu'est-ce que c'est", 'Que fait Hugo'], correct: 'Qui est-ce',
+    hint: 'nach einer Person fragen', explanation: 'Qui est-ce ? = Wer ist das?',
+  }),
+  q('qu-4', T.questions, 'grammar', {
+    type: 'multiple_choice', question: "– ___ ? – C'est une affiche.", options: ["Qu'est-ce que c'est", 'Qui est-ce', 'Tu habites où'], correct: "Qu'est-ce que c'est",
+    hint: 'nach einer Sache fragen', explanation: "Qu'est-ce que c'est ? = Was ist das?",
+  }),
+  q('qu-5', T.questions, 'grammar', {
+    type: 'multiple_choice', question: '– Tu habites ___ ? – Rue Lepic.', options: ['où', 'comment', 'qui'], correct: 'où',
+    hint: 'Wo wohnst du?', explanation: 'Tu habites où ? = Wo wohnst du?',
+  }),
+  q('qu-6', T.questions, 'grammar', {
+    type: 'multiple_choice', question: '– Que fait Marie ? – ___', options: ['Elle écoute la musique.', 'Elle est de Nice.', 'Oui, ça va.'], correct: 'Elle écoute la musique.',
+    hint: 'Was macht Marie?', explanation: 'Que fait … ? fragt, was jemand macht.',
+  }),
+  q('qu-7', T.questions, 'grammar', {
+    type: 'multiple_choice', question: 'Wie wird „Malabar est dans le magasin.“ zu einer Frage ohne Fragewort?',
+    options: ['Malabar est dans le magasin ? – die Stimme geht am Satzende hoch', 'Est Malabar dans le magasin ?', "Qu'est-ce que Malabar est dans le magasin ?"],
+    correct: 'Malabar est dans le magasin ? – die Stimme geht am Satzende hoch',
+    hint: 'Intonation', explanation: 'Ohne Fragewort: gleicher Satz, Fragezeichen, Stimme am Ende nach oben.',
+  }),
+  q('qu-8', T.questions, 'grammar', {
+    type: 'multiple_choice', question: 'Welche Frage hat KEIN Fragewort?', options: ['Tu aimes le judo ?', 'Tu habites où ?', 'Qui est-ce ?'], correct: 'Tu aimes le judo ?',
+    hint: 'où, qui … sind Fragewörter', explanation: 'Tu aimes le judo ? – Frage nur durch die Satzmelodie.',
+  }),
+  q('qu-9', T.questions, 'grammar', {
+    type: 'word_order', answerLang: 'fr', difficulty: 2, question: 'Bringe die Wörter in die richtige Reihenfolge:',
+    words: ['regardent', "Qu'est-ce", "qu'ils"], correct: "Qu'est-ce qu'ils regardent",
+    hint: 'Was sehen sie an?', explanation: "Qu'est-ce qu'ils regardent ? = Was sehen sie an?",
+  }),
+  q('qu-10', T.questions, 'grammar', {
+    type: 'word_order', answerLang: 'fr', difficulty: 2, question: 'Bringe die Wörter in die richtige Reihenfolge:',
+    words: ['est', 'chien', 'Où', 'le'], correct: 'Où est le chien',
+    hint: 'Wo ist der Hund?', explanation: 'Où est le chien ? = Wo ist der Hund?',
+  }),
+  q('qu-11', T.questions, 'grammar', {
+    type: 'word_order', answerLang: 'fr', difficulty: 2, question: 'Bringe die Wörter in die richtige Reihenfolge:',
+    words: ['Marie', 'fait', 'Que'], correct: 'Que fait Marie',
+    hint: 'Was macht Marie?', explanation: 'Que fait Marie ? = Was macht Marie?',
+  }),
+  q('qu-12', T.questions, 'grammar', {
+    type: 'word_order', answerLang: 'fr', difficulty: 2, question: 'Bringe die Wörter in die richtige Reihenfolge:',
+    words: ['aimes', 'que', 'tu', "Qu'est-ce"], correct: "Qu'est-ce que tu aimes",
+    hint: 'Was magst du?', explanation: "Qu'est-ce que tu aimes ? = Was magst du?",
+  }),
+  q('qu-13', T.questions, 'grammar', {
+    type: 'translate', answerLang: 'fr', difficulty: 3, question: 'Schreib auf Französisch: „Was suchst du?“',
+    correct: "Qu'est-ce que tu cherches?", hint: "Qu'est-ce que + tu …", explanation: "Qu'est-ce que tu cherches ? = Was suchst du?",
+  }),
+  q('qu-14', T.questions, 'grammar', {
+    type: 'translate', answerLang: 'fr', difficulty: 2, question: 'Schreib auf Französisch: „Wo wohnst du?“',
+    correct: 'Tu habites où?', hint: 'Tu habites …', explanation: 'Tu habites où ? = Wo wohnst du?',
+  }),
+  q('qu-15', T.questions, 'grammar', {
+    type: 'translate', answerLang: 'fr', difficulty: 3, question: 'Schreib auf Französisch, ohne Fragewort: „Suchst du das Buch?“',
+    correct: 'Tu cherches le livre?', hint: 'Aussagesatz + Fragezeichen', explanation: 'Tu cherches le livre ? – Frage durch die Satzmelodie.',
+  }),
+  q('qu-16', T.questions, 'grammar', {
+    type: 'multiple_choice', question: 'Antwort: „J’aime le judo.“ – Welche Frage passt?',
+    options: ["Qu'est-ce que tu aimes ?", 'Tu habites où ?', "Qu'est-ce que c'est ?"], correct: "Qu'est-ce que tu aimes ?",
+    hint: 'Was magst du?', explanation: "Qu'est-ce que tu aimes ? – J'aime le judo.",
+  }),
+  q('qu-17', T.questions, 'grammar', {
+    type: 'multiple_choice', question: 'Antwort: „Il est devant la maison.“ – Welche Frage passt?',
+    options: ['Où est Malabar ?', 'Que fait Malabar ?', 'Qui est-ce ?'], correct: 'Où est Malabar ?',
+    hint: 'devant = vor (örtlich)', explanation: 'Où est Malabar ? – Il est devant la maison.',
+  }),
+
+  // ---------- Sagen, wo du wohnst und was du magst (Vokabelseiten S. 170, Portfolio S. 27) ----------
+  q('vie-1', T.parler, 'grammar', {
+    type: 'translate', answerLang: 'fr', difficulty: 2, question: 'Schreib auf Französisch: „Ich wohne in Paris.“',
+    correct: "J'habite à Paris.", hint: "j'habite + à", explanation: "J'habite à Paris. – j' vor stummem h",
+  }),
+  q('vie-2', T.parler, 'grammar', {
+    type: 'translate', answerLang: 'fr', difficulty: 2, question: 'Du magst Judo. Sag es auf Französisch.',
+    correct: "J'aime le judo.", hint: "j'aime + le …", explanation: "J'aime le judo. – mit Artikel!",
+  }),
+  q('vie-3', T.parler, 'grammar', {
+    type: 'translate', answerLang: 'fr', difficulty: 3, question: 'Du magst Rugby überhaupt nicht. Sag es auf Französisch.',
+    correct: 'Je déteste le rugby.', hint: 'détester', explanation: 'Je déteste le rugby.',
+  }),
+  q('vie-4', T.parler, 'grammar', {
+    type: 'translate', answerLang: 'fr', difficulty: 2, question: 'Frag deine Freundin, was sie mag.',
+    correct: "Qu'est-ce que tu aimes?", hint: "Qu'est-ce que …", explanation: "Qu'est-ce que tu aimes ? = Was magst du?",
+  }),
+  q('vie-5', T.parler, 'grammar', {
+    type: 'multiple_choice', question: 'Welcher Satz ist richtig?', options: ["J'aime le sport.", "J'aime sport.", 'Je aime le sport.'], correct: "J'aime le sport.",
+    hint: 'Artikel und Apostroph', explanation: "Deutsch: Ich mag Sport. Französisch: J'aime le sport. – mit Artikel.",
+  }),
+  q('vie-6', T.parler, 'grammar', {
+    type: 'multiple_choice', question: 'Ein Freund fragt: „On regarde la BD ?“ Du bist einverstanden. Was sagst du?',
+    options: ["D'accord !", 'Zut !', 'Chut !'], correct: "D'accord !",
+    hint: 'einverstanden', explanation: "D'accord ! = Einverstanden! / O.k.!",
+  }),
+  q('vie-7', T.parler, 'grammar', {
+    type: 'multiple_choice', question: 'Du hast deinen Schlüssel gesucht und endlich gefunden. Was sagst du?',
+    options: ['Ouf !', 'Chut !', 'Zut !'], correct: 'Ouf !',
+    hint: 'erleichtert', explanation: 'Ouf ! = Uff! (erleichtert)',
+  }),
+  q('vie-8', T.parler, 'grammar', {
+    type: 'multiple_choice', question: 'Dein Heft fällt in eine Pfütze. Was rufst du?',
+    options: ['Zut !', "D'accord !", 'Super !'], correct: 'Zut !',
+    hint: 'Mist!', explanation: 'Zut ! = Mist! (umgangssprachlich)',
+  }),
+  q('vie-9', T.parler, 'grammar', {
+    type: 'multiple_choice', question: 'Deine Freundin wohnt in Nizza. Was sagt sie?',
+    options: ["J'habite à Nice.", "J'habite Nice.", 'Je habite à Nice.'], correct: "J'habite à Nice.",
+    hint: 'habiter à + Stadt', explanation: "J'habite à Nice. – mit à vor der Stadt.",
+  }),
+  q('vie-10', T.parler, 'grammar', {
+    type: 'multiple_choice', question: 'Wie verabschiedest du dich am Ende des Gesprächs von Hugo?',
+    options: ['Alors, au revoir, Hugo !', 'Alors, bonjour, Hugo !', "D'accord, Hugo ?"], correct: 'Alors, au revoir, Hugo !',
+    hint: 'alors = nun, dann', explanation: 'Alors, au revoir ! = Dann auf Wiedersehen!',
+  }),
+
+  // ---------- Wortarten (S. 12) ----------
+  q('mot-8', T.mots, 'grammar', {
+    type: 'multiple_choice', question: 'Wie nennt man un, une, le, la in der Grammatik?', options: ['Artikel', 'Personalpronomen', 'Verben'], correct: 'Artikel',
+    hint: 'Begleiter der Nomen', explanation: 'un/une = unbestimmter Artikel, le/la/l’ = bestimmter Artikel',
+  }),
+  q('mot-9', T.mots, 'grammar', {
+    type: 'multiple_choice', question: 'Wie nennt man je, tu, il, elle, on, nous, vous, ils, elles?', options: ['Personalpronomen', 'Artikel', 'Nomen'], correct: 'Personalpronomen',
+    hint: 'persönliche Fürwörter', explanation: 'je, tu, il … = Personalpronomen',
+  }),
+
+  // ---------- Leseverstehen 3 (Unité 2) ----------
+  q('read3-1', T.reading, 'reading', {
+    type: 'reading_true_false', difficulty: 2, text: readingText3,
+    question: 'Théo wohnt in der Rue Lepic.', correct: 'true',
+    hint: 'J’habite …', explanation: '„J’habite rue Lepic.“',
+  }),
+  q('read3-2', T.reading, 'reading', {
+    type: 'reading_true_false', difficulty: 2, text: readingText3,
+    question: 'Zoé wohnt in einer anderen Straße als Théo.', correct: 'false',
+    hint: 'Moi aussi …', explanation: '„Moi aussi, j’habite rue Lepic !“ – dieselbe Straße.',
+  }),
+  q('read3-3', T.reading, 'reading', {
+    type: 'reading_true_false', difficulty: 2, text: readingText3,
+    question: 'Zoé mag Rugby.', correct: 'false',
+    hint: 'Je déteste …', explanation: '„Je déteste le rugby !“ – Zoé mag Judo.',
+  }),
+  q('read3-4', T.reading, 'reading', {
+    type: 'reading_true_false', difficulty: 2, text: readingText3,
+    question: 'Jade und Noé sind Geschwister.', correct: 'true',
+    hint: 'frère et sœur', explanation: '„Ils sont frère et sœur.“',
+  }),
+  q('read3-5', T.reading, 'reading', {
+    type: 'multiple_choice', difficulty: 2, text: readingText3,
+    question: 'Was mag Théo?', options: ['Rugby und Musik', 'Judo und Musik', 'Rugby und Judo'], correct: 'Rugby und Musik',
+    hint: 'J’aime …', explanation: '„J’aime le rugby et la musique.“',
+  }),
+  q('read3-6', T.reading, 'reading', {
+    type: 'multiple_choice', difficulty: 2, text: readingText3,
+    question: 'Was schlägt Jade vor?', options: ['In der Schule Judo anschauen', 'Rugby spielen', 'Musik hören'], correct: 'In der Schule Judo anschauen',
+    hint: 'On regarde …', explanation: '„On regarde le judo à l’école ?“',
+  }),
+  q('read3-7', T.reading, 'reading', {
+    type: 'multiple_choice', difficulty: 2, text: readingText3,
+    question: 'Warum sagt Noé am Ende „Ouf !“?', options: ['Seine Schultasche ist wieder da.', 'Er mag kein Judo.', 'Jade ist nicht einverstanden.'],
+    correct: 'Seine Schultasche ist wieder da.',
+    hint: 'Où est le cartable ?', explanation: 'Noé sucht seinen Schulranzen – „Il est là, devant la maison.“ – Ouf !',
+  }),
+  q('read3-8', T.reading, 'reading', {
+    type: 'fill_gap', answerLang: 'fr', difficulty: 2, text: readingText3,
+    question: 'Zoé : Moi, j’aime ___.', correct: 'le judo',
+    hint: 'Was mag Zoé?', explanation: '„Moi, j’aime le judo.“',
   }),
 ];
 

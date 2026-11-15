@@ -47,6 +47,54 @@
     "variant": "Tempo +0,05",
     "onset": 0.9
   },
+  "fr6_aimer_qn_qc": {
+    "file": "fr6_aimer_qn_qc.m4a",
+    "text": "aimer",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "40ead2bf9e3c00b8",
+    "variant": "Glottisschlag",
+    "onset": 1.8
+  },
+  "fr6_aimer_qn_qc_ex": {
+    "file": "fr6_aimer_qn_qc_ex.m4a",
+    "text": "Léo aime Malabar.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "1ea7f7640c4b7d3d",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_alors": {
+    "file": "fr6_alors.m4a",
+    "text": "alors",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "35e4d1986b0c842d",
+    "variant": "Standard",
+    "onset": 2.25
+  },
+  "fr6_alors_ex": {
+    "file": "fr6_alors_ex.m4a",
+    "text": "Alors, Léo, ça va ?",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "2b56657eb3da4d4a",
+    "variant": "Tempo +0,1",
+    "onset": 1.72
+  },
   "fr6_arriver": {
     "file": "fr6_arriver.m4a",
     "text": "arriver",
@@ -335,6 +383,30 @@
     "variant": "Standard",
     "onset": 0.0
   },
+  "fr6_ca": {
+    "file": "fr6_ca.m4a",
+    "text": "ça",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "93c187b38b712473",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_ca_ex": {
+    "file": "fr6_ca_ex.m4a",
+    "text": "Ça, c'est Malabar !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "0fd5684cd6992082",
+    "variant": "Standard",
+    "onset": 0.0
+  },
   "fr6_ca_ne_va_pas": {
     "file": "fr6_ca_ne_va_pas.m4a",
     "text": "Ça ne va pas.",
@@ -481,6 +553,30 @@
     "variant": "Standard",
     "onset": 0.0
   },
+  "fr6_d_accord": {
+    "file": "fr6_d_accord.m4a",
+    "text": "d'accord",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "ad67d659d0973f3e",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_d_accord_ex": {
+    "file": "fr6_d_accord_ex.m4a",
+    "text": "On regarde le rugby ? – D'accord !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "e196b81b47cf1d9e",
+    "variant": "Tempo +0,1",
+    "onset": 0.64
+  },
   "fr6_dans": {
     "file": "fr6_dans.m4a",
     "text": "dans",
@@ -553,6 +649,30 @@
     "variant": "Standard",
     "onset": 0.0
   },
+  "fr6_detester_qn_qc": {
+    "file": "fr6_detester_qn_qc.m4a",
+    "text": "détester",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "057838c2a0532014",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_detester_qn_qc_ex": {
+    "file": "fr6_detester_qn_qc_ex.m4a",
+    "text": "Malabar déteste le chat.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "7733e1078b97fc56",
+    "variant": "Standard",
+    "onset": 0.0
+  },
   "fr6_deux": {
     "file": "fr6_deux.m4a",
     "text": "deux",
@@ -574,6 +694,30 @@
     "lead": 0.3,
     "tail": 0.2,
     "hash": "d6cb0f9596a0975f",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_devant": {
+    "file": "fr6_devant.m4a",
+    "text": "devant",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "a1ac3e72a8051048",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_devant_ex": {
+    "file": "fr6_devant_ex.m4a",
+    "text": "Malabar est devant la maison.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "5876022fa298511f",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -769,6 +913,30 @@
     "variant": "Standard",
     "onset": 0.0
   },
+  "fr6_etre": {
+    "file": "fr6_etre.m4a",
+    "text": "être",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "0e33af7cbe78dc98",
+    "variant": "Tempo +0,1",
+    "onset": 1.28
+  },
+  "fr6_etre_ex": {
+    "file": "fr6_etre_ex.m4a",
+    "text": "Marie et Léo sont à Paris.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "7eed14606b6b8630",
+    "variant": "Standard",
+    "onset": 0.0
+  },
   "fr6_euh": {
     "file": "fr6_euh.m4a",
     "text": "euh",
@@ -838,6 +1006,30 @@
     "lead": 0.3,
     "tail": 0.2,
     "hash": "b328b7389be8a451",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_habiter": {
+    "file": "fr6_habiter.m4a",
+    "text": "habiter",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "d66a1a29f3a50350",
+    "variant": "Glottisschlag",
+    "onset": 1.55
+  },
+  "fr6_habiter_ex": {
+    "file": "fr6_habiter_ex.m4a",
+    "text": "Marie habite à Nice.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "979ea965984bf8cd",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1006,6 +1198,102 @@
     "lead": 0.3,
     "tail": 0.2,
     "hash": "fd4a085da6161b2b",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_la_musique": {
+    "file": "fr6_la_musique.m4a",
+    "text": "musique",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "67a663edb6ac182a",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_la_musique_ex": {
+    "file": "fr6_la_musique_ex.m4a",
+    "text": "Super ! Marie écoute la musique.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "3c8cdd311de2c141",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_le_judo": {
+    "file": "fr6_le_judo.m4a",
+    "text": "judo",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "aad50a08083ead27",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_le_judo_ex": {
+    "file": "fr6_le_judo_ex.m4a",
+    "text": "Marie regarde le judo avec Léo.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "df1a792413936b5d",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_le_rugby": {
+    "file": "fr6_le_rugby.m4a",
+    "text": "rugby",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "b686eb98c8ac834c",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_le_rugby_ex": {
+    "file": "fr6_le_rugby_ex.m4a",
+    "text": "Le rugby, c'est super !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "13e5130902355abb",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_le_sport": {
+    "file": "fr6_le_sport.m4a",
+    "text": "sport",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "ce92755e30c90bf3",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_le_sport_ex": {
+    "file": "fr6_le_sport_ex.m4a",
+    "text": "Pour Léo, le sport, c'est fantastique.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "1a3e49da1b2d41b3",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1225,6 +1513,54 @@
     "variant": "Standard",
     "onset": 0.0
   },
+  "fr6_ou": {
+    "file": "fr6_ou.m4a",
+    "text": "où",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "5e95eddd2a5e3f1d",
+    "variant": "Glottisschlag",
+    "onset": 4.3
+  },
+  "fr6_ou_ex": {
+    "file": "fr6_ou_ex.m4a",
+    "text": "Où est Malabar ?",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "b466369b96021f5b",
+    "variant": "Standard",
+    "onset": 0.98
+  },
+  "fr6_ouf": {
+    "file": "fr6_ouf.m4a",
+    "text": "Ouf !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "a3609eb1cbddc850",
+    "variant": "Tempo +0,1",
+    "onset": 1.0
+  },
+  "fr6_ouf_ex": {
+    "file": "fr6_ouf_ex.m4a",
+    "text": "Ouf ! Malabar est là !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "8437258132528e51",
+    "variant": "Punkt am Ende",
+    "onset": 1.05
+  },
   "fr6_oui": {
     "file": "fr6_oui.m4a",
     "text": "oui",
@@ -1369,6 +1705,18 @@
     "variant": "Standard",
     "onset": 0.0
   },
+  "fr6_qu_est_ce_que": {
+    "file": "fr6_qu_est_ce_que.m4a",
+    "text": "Qu'est-ce que",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "e634635b2ef60018",
+    "variant": "Standard",
+    "onset": 0.0
+  },
   "fr6_qu_est_ce_que_c_est": {
     "file": "fr6_qu_est_ce_que_c_est.m4a",
     "text": "Qu'est-ce que c'est?",
@@ -1390,6 +1738,18 @@
     "lead": 0.3,
     "tail": 0.2,
     "hash": "cdd7179d6eca6c29",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_qu_est_ce_que_ex": {
+    "file": "fr6_qu_est_ce_que_ex.m4a",
+    "text": "Qu'est-ce que Léo cherche ?",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "3a0abc3ebc614fb4",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1630,6 +1990,30 @@
     "lead": 0.3,
     "tail": 0.2,
     "hash": "055f6fa2b6766077",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_sympa": {
+    "file": "fr6_sympa.m4a",
+    "text": "sympa",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "58d55ba5cd17d02e",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_sympa_ex": {
+    "file": "fr6_sympa_ex.m4a",
+    "text": "Malabar est sympa !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "1a133fabcc6fe4eb",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2113,6 +2497,30 @@
     "variant": "Standard",
     "onset": 1.27
   },
+  "fr6_un_frere": {
+    "file": "fr6_un_frere.m4a",
+    "text": "frère",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "28985e35523ec2cd",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_un_frere_ex": {
+    "file": "fr6_un_frere_ex.m4a",
+    "text": "Tu es le frère de Marie ?",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "a0160abfa8d9a1e4",
+    "variant": "Standard",
+    "onset": 0.0
+  },
   "fr6_un_garcon": {
     "file": "fr6_un_garcon.m4a",
     "text": "garçon",
@@ -2376,6 +2784,32 @@
     "lead": 0.3,
     "tail": 0.2,
     "hash": "2f65213ae734a6aa",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_un_t_shirt": {
+    "file": "fr6_un_t_shirt.m4a",
+    "text": "t-shirt",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "f6168feb8390cd55",
+    "phonemes": "tiʃˈœʁt",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_un_t_shirt_ex": {
+    "file": "fr6_un_t_shirt_ex.m4a",
+    "text": "Léo porte un t-shirt.",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "a3ae754d78ceda33",
+    "phonemes": "leˈo pˈɔʁt œ̃ tiʃˈœʁt.",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2738,6 +3172,30 @@
     "hash": "743e42db0d3aaf04",
     "variant": "Standard",
     "onset": 0.0
+  },
+  "fr6_une_soeur": {
+    "file": "fr6_une_soeur.m4a",
+    "text": "sœur",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "c3c41bb879a97099",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "fr6_une_soeur_ex": {
+    "file": "fr6_une_soeur_ex.m4a",
+    "text": "Elle est la sœur de Léo ?",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.75,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "dfbaec54b08e69c0",
+    "variant": "Tempo +0,05",
+    "onset": 1.64
   },
   "fr6_une_tortue": {
     "file": "fr6_une_tortue.m4a",
