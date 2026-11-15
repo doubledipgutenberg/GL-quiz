@@ -152,6 +152,12 @@ derselben Reihenfolge wie später in der Runde) – wie in der Schulaufgabe: ers
   kann eine Zeile als 3. Eintrag eine gesprochene Fassung haben (`['Kayla', '… "Danke".', '… "Danka".']`).
 - Die Fragen gehören zur Schulaufgabe (Historie, Lehrer-Bereich), laufen aber nicht im normalen Quiz und nicht in
   „Schwächen üben“ (`q.listening`). Im Verlauf des Lehrer-Bereichs: helle Säule mit gestricheltem Rand.
+- **Französisch (seit 2026-11-15):** `src/data/fr6/listening.js`, gleicher Aufbau, Anweisungen zweisprachig wie im
+  Buch („Vrai ou faux ? (Richtig oder falsch?)“), Aussagen auf Französisch (Knöpfe Vrai/Faux), Lücken auf
+  Französisch (`answerLang: 'fr'`), Ankreuz- und Kurzfragen auf Deutsch. Es gibt nur eine französische Stimme:
+  Ein zweiter Sprecher bekommt `shift` (z. B. 0.84 = tiefer; `shift_pitch` in `generate-audio.py`, Tempo bleibt).
+  Tempo 0,8 (`LISTENING` in `export-audio-manifest.mjs`). Jeder Hörtext trägt `audio` (Kurs, Sprache) – die
+  Oberfläche nimmt `task.audio`.
 - **Offline/Safari:** Das Offline-Skript liefert Aufnahmen auch in Teilstücken (Range-Anfragen) aus – sonst spielt
   Safari Audio aus dem Zwischenspeicher nicht ab (gefunden 2026-10-25, betraf auch die Vokabel-Aufnahmen).
 
@@ -212,7 +218,14 @@ fehlenden/kaputten Datei ein – nie bei `AbortError` (Unterbrechung) oder `NotA
 blockiert). Sonst spricht eine fremde Stimme in die 0,8 s Stille vor dem Wort (Fehler vom 2026-10-12). Fehlt eine Datei, spricht die Sprachausgabe des Browsers (`src/lib/audio.js`).
 
 Freigegebene Stimmen: Französisch `ff_siwis` mit Tempo 0.75 (bis 19.10.: 0.9 – Sätze waren zu schnell), Englisch (britisch) `bf_emma` mit 0.95,
-optional `bm_george`. Das Skript erzeugt nur neue oder geänderte Einträge. Das Modell und die
+optional `bm_george`.
+
+**Brummen am Anfang (Fehler vom 2026-11-15):** Bei langsamem Kokoro-Tempo (speed < 1) setzt `ff_siwis` vor viele
+Wörter und Sätze 60–100 ms tiefes, lautes Brummen (fast nur Energie unter 500 Hz) – es klingt wie ein verschluckter
+Artikel („un“/„le“). Gemessen: Tempo 0,8 → jedes zweite Wort mit stimmlosem Anlaut, Tempo 1,0 → fast keins.
+Deshalb hat Französisch `stretch`: Kokoro spricht mit Tempo 1,0, `time_stretch` (WSOLA) macht es danach ohne
+Tonhöhenänderung langsamer, `trim_ghost` schneidet Reste vor s/ch/f/t/k/p ab. Prüfen lässt sich das am Anteil
+tiefer Frequenzen in den ersten 100 ms nach dem Einsatz (nicht nur an der Lautstärke). Englisch ist unverändert. Das Skript erzeugt nur neue oder geänderte Einträge. Das Modell und die
 Python-Umgebung gehören **nicht** ins Repo (325 MB, rechnerspezifisch); das Setup-Skript stellt sie
 jederzeit wieder her.
 

@@ -382,5 +382,5 @@ function buildQuestions(task) {
 }
 
 // Alle Hörtexte (auch ausgemusterte – für alte Antworten); zur Auswahl nur die aktiven (siehe questions.js).
-export const EN6_LISTENING = TASKS.map((t) => ({ ...t, questions: buildQuestions(t) }));
+export const EN6_LISTENING = TASKS.map((t) => ({ ...t, audio: listeningAudio(t), questions: buildQuestions(t) }));
 export const EN6_LISTENING_QUESTIONS = EN6_LISTENING.flatMap((t) => t.questions);

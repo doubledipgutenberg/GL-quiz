@@ -975,6 +975,47 @@ const questionsFR6 = [
     hint: 'alors = nun, dann', explanation: 'Alors, au revoir ! = Dann auf Wiedersehen!',
   }),
 
+  // ---------- Feste Wendungen „On dit“ S. 21 + S. 34 (Lernplan Teil III) ----------
+  q('sal-6', T.salut, 'grammar', {
+    type: 'multiple_choice', question: 'Du begrüßt höflich ein junges Mädchen, das du nicht kennst.',
+    options: ['Bonjour, mademoiselle !', 'Bonjour, monsieur !', 'Salut, madame !'], correct: 'Bonjour, mademoiselle !',
+    hint: 'Fräulein = ?', explanation: 'Bonjour, mademoiselle ! – höflich zu einem Mädchen oder einer jungen Frau',
+  }),
+  q('sal-7', T.salut, 'grammar', {
+    type: 'translate', answerLang: 'fr', difficulty: 3, question: 'Stell Malabar vor: „Das ist Malabar. Er ist aus Paris.“',
+    correct: "C'est Malabar. Il est de Paris.", alternativeCorrect: ['Voilà Malabar. Il est de Paris.'],
+    hint: "C'est … Il est de …", explanation: "C'est Malabar. Il est de Paris. (oder: Voilà Malabar. …)",
+  }),
+  q('vie-11', T.parler, 'grammar', {
+    type: 'multiple_choice', question: "– Et Léo, qu'est-ce ___ aime ? – Il aime le rugby.", options: ["qu'il", 'que il', "qu'elle"], correct: "qu'il",
+    hint: 'que vor Vokal', explanation: "Qu'est-ce qu'il aime ? = Was mag er?",
+  }),
+  q('vie-12', T.parler, 'grammar', {
+    type: 'multiple_choice', question: "– Et Manon, qu'est-ce qu'elle aime ? – ___",
+    options: ['Elle aime la musique.', 'Il aime la musique.', 'Tu aimes la musique.'], correct: 'Elle aime la musique.',
+    hint: 'Manon = elle', explanation: "Qu'est-ce qu'elle aime ? – Elle aime la musique.",
+  }),
+  q('vie-13', T.parler, 'grammar', {
+    type: 'multiple_choice', question: '– Tu aimes aussi le rugby ? – Non, ___',
+    options: ['je déteste le rugby.', "j'aime aussi le rugby.", "d'accord !"], correct: 'je déteste le rugby.',
+    hint: 'Non …', explanation: "Oui, j'aime aussi le rugby. / Non, je déteste le rugby.",
+  }),
+  q('vie-14', T.parler, 'grammar', {
+    type: 'translate', answerLang: 'fr', difficulty: 3, question: 'Frag Hugo, ob er auch Judo mag.',
+    correct: 'Tu aimes aussi le judo?', alternativeCorrect: ['Hugo tu aimes aussi le judo?', 'Et toi tu aimes aussi le judo?'],
+    hint: 'Tu aimes aussi …', explanation: 'Tu aimes aussi le judo ? = Magst du auch Judo?',
+  }),
+  q('vie-15', T.parler, 'grammar', {
+    type: 'word_order', answerLang: 'fr', difficulty: 2, question: 'Bringe die Wörter in die richtige Reihenfolge:',
+    words: ["qu'elle", 'Manon', 'aime', 'Et', "qu'est-ce"], correct: "Et Manon qu'est-ce qu'elle aime",
+    hint: 'Und Manon, was mag sie?', explanation: "Et Manon, qu'est-ce qu'elle aime ?",
+  }),
+  q('vie-16', T.parler, 'grammar', {
+    type: 'multiple_choice', question: '– Tu habites où ? – ___',
+    options: ["J'habite à Ulm, Hauptstraße.", "J'aime le judo.", 'Je suis Lina.'], correct: "J'habite à Ulm, Hauptstraße.",
+    hint: 'Wo wohnst du?', explanation: "J'habite à + Stadt, dann die Straße.",
+  }),
+
   // ---------- Wortarten (S. 12) ----------
   q('mot-8', T.mots, 'grammar', {
     type: 'multiple_choice', question: 'Wie nennt man un, une, le, la in der Grammatik?', options: ['Artikel', 'Personalpronomen', 'Verben'], correct: 'Artikel',
