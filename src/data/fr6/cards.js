@@ -1,7 +1,8 @@
 // Erzeugt die Quiz-Karten für Französisch Klasse 6 aus FR6_VOCAB.
 //   _de     : französisches Wort sehen (und hören) → deutsch antworten
 //   _fr     : deutsches Wort sehen → französisch schreiben (Akzent-Tasten, Akzente streng)
-//   _gap    : Lückentext – Beispielsatz mit Lücke, das Wort einsetzen (deutsche Bedeutung als Hilfe)
+//   _gap    : Lückentext – Beispielsatz mit Lücke, das Wort einsetzen. Ohne Hilfe (Wunsch des Nutzers, 2026-11-16):
+//             keine deutsche Bedeutung in Klammern, kein Tipp mit dem Anfangsbuchstaben.
 //   _listen : nur hören → französisch schreiben
 // Alle Kartenarten gehören zum Wortschatz (Entscheidung des Nutzers: Audio ist Teil der Vokabeln,
 // kein eigener Modus).
@@ -79,11 +80,10 @@ export function toGapCard(v) {
     type: 'fill_gap',
     topicLabel: 'Wortschatz',
     instruction: 'Setz das passende Wort ein:',
-    question: `${gap.sentence} (${v.de})`,
+    question: gap.sentence,
     correct: gap.answer,
     alternativeCorrect: gap.alternatives,
     answerLang: 'fr',
-    hint: `Beginnt mit „${gap.answer.charAt(0)}…“`,
     explanation: `${exampleText(v)} – ${v.fr} = ${v.de}`,
   };
 }

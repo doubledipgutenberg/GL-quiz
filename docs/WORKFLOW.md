@@ -88,7 +88,8 @@ wörtlich übernommen. Material aus offensichtlich illegalen Quellen (z. B. Scha
   Übersetzung wie *ami*/*copain*). `say` = gesprochener Text, falls er abweichen soll. Die Datei hat
   **keine Importe** (sie wird auch von Node fürs Audio-Manifest gelesen).
   `src/data/fr6/cards.js` erzeugt daraus die Karten: `_de` (frz. sehen + 🔊 → deutsch), `_fr` (deutsch →
-  frz. schreiben), `_gap` (Lückentext: Beispielsatz mit Lücke + deutsche Bedeutung) und `_listen` (nur hören →
+  frz. schreiben), `_gap` (Lückentext: nur der Beispielsatz mit Lücke – seit 2026-11-16 **ohne Hilfe**, keine deutsche Bedeutung in
+  Klammern, kein Tipp mit dem Anfangsbuchstaben) und `_listen` (nur hören →
   frz. schreiben). Die Lücke steht im Beispielsatz `ex` in [eckigen Klammern], Alternativen mit `|`
   (`'Our ball [ended up] in the river.'`); `exampleText` entfernt die Klammern fürs Audio, `gapOf` baut die
   Lücke. Jede neue Vokabel braucht deshalb einen `ex`-Satz mit genau einer [Lücke]. Hör-Karten spielen erst das Wort, kurz danach
@@ -181,7 +182,7 @@ Weitere Regeln (2026-10-25, Wünsche des Nutzers):
 - „…“ darf fehlen. Echte Tippfehler bleiben falsch („nothig“).
 - **AE-Wörter deutlich markieren** (Vokabel mit „(AE)“ im englischen Wort → Karten haben `ae: true`): Hinweis
   „AE · amerikanisches Englisch“ oben auf der Karte, Aufgabentext „… auf amerikanischem Englisch (AE)?“, im
-  Lückentext „(Herbst – AE)“. Deutsch → Englisch: das britische Wort zählt weiter, die Rückmeldung nennt dann das
+  Lückentext reicht dieses Abzeichen (keine Klammer mehr hinter dem Satz). Deutsch → Englisch: das britische Wort zählt weiter, die Rückmeldung nennt dann das
   amerikanische („Richtig – auf amerikanischem Englisch heißt es „fall““). Im Lückentext zählt nur das AE-Wort.
 - **Nachträgliche Neubewertung** (`src/utils/regrade.js`): Der Lehrer-Bereich bewertet gespeicherte falsche
   Antworten mit dem heutigen Check neu (nur falsch → richtig); „fast richtig“-Meldungen, die der Check jetzt
@@ -422,6 +423,9 @@ curl -s -o /dev/null -w '%{http_code}' https://<slug>.space.fast/   # muss 403 l
   bf_emma. Fragen nach Grammatik G1–G3 und Practice pool der Unit.
 - Hör-Karten: erst das Wort, dann ein kurzer Beispielsatz (nur bei Hör-Karten).
 - Wortschatz hat vier Kartenarten: übersetzen, in der Fremdsprache schreiben, Lückentext, nach Gehör schreiben.
+- Wortschatz-Auswahl (Klasse 6): „Alle Vokabeln“ (Durchgang in Runden à 50), „Nur neue Vokabeln“ und seit
+  2026-11-16 „Nur Lückentexte“ (nur die `_gap`-Karten der Schulaufgabe, Runden à 50, offene Sätze zuerst =
+  nie beantwortet oder zuletzt falsch; `getGapVocabularyQuestions`, Modus `gaps` in `useQuiz`).
 - Dasselbe Wort **nie direkt hintereinander** (auch nicht in anderer Kartenart), möglichst 5 andere Karten
   dazwischen (`src/utils/spreadCards.js`, nach dem Mischen in `useQuiz` und bei Wiederholungen aus dem Lehrer-Bereich).
 - **Erst jedes Wort einmal** (2026-10-20): Nach der Hälfte einer Runde bzw. eines Durchgangs muss jedes Wort

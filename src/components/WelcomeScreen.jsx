@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { EXAMS, COURSES, DEFAULT_COURSE, examsForCourse, defaultExamForCourse, latestVocabBatch, listeningTasksFor } from '../data/questions';
+import { EXAMS, COURSES, DEFAULT_COURSE, examsForCourse, defaultExamForCourse, latestVocabBatch, listeningTasksFor, getGapVocabularyQuestions } from '../data/questions';
 import { getDraftSession, getSavedRounds, getFullExportPayload, getStudentHistory } from '../utils/storage';
 import StreakCalendar from './StreakCalendar';
 import ReviewPlan from './ReviewPlan';
@@ -104,7 +104,7 @@ export default function WelcomeScreen({
   const newBatch = latestVocabBatch(course.id);
 
   // Schritt für Schritt, immer nur eine Frage sichtbar: Fach → Schulaufgabe → Modus
-  // → (nur Wortschatz) alle oder neue Vokabeln. Die letzte Wahl startet das Quiz.
+  // → (nur Wortschatz) alle Vokabeln, neue Vokabeln oder nur Lückentexte. Die letzte Wahl startet das Quiz.
   const chooseCourse = (id) => {
     setPickListening(false);
     setCourseId(id);
@@ -135,8 +135,9 @@ export default function WelcomeScreen({
   const pass = step >= 3 && exam ? vocabPassStatus(playerName, exam) : null;
   const passProgress = pass && !pass.complete && pass.total ? pass.done / pass.total : null;
 
-  // Wortschatz: Gibt es datierte Vokabel-Lieferungen, kommt noch die Frage „alle oder nur die neuen?“.
+  // Wortschatz: Gibt es datierte Vokabel-Lieferungen, kommt noch die Frage „alle, nur die neuen oder nur Lückentexte?“.
   const chooseVocabulary = () => (newBatch ? setStep(4) : setShowPlan(true));
+  const gapCount = step >= 4 && exam ? getGapVocabularyQuestions(exam).length : 0;
 
   const showResume = hasDraft || hasSavedRounds;
 
@@ -358,7 +359,7 @@ export default function WelcomeScreen({
           )}
 
           {step === 4 && newBatch && (
-            <div className="grid gap-3 md:grid-cols-2">
+            <div className={`grid gap-3 ${gapCount > 0 ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
               <Choice
                 icon="book"
                 title={`Alle Vokabeln – in Runden à ${ROUND_SIZE}`}
@@ -372,6 +373,14 @@ export default function WelcomeScreen({
                 sub={`Die zuletzt hinzugefügten: ${newBatch.count} Wörter vom ${new Date(`${newBatch.added}T12:00:00`).toLocaleDateString('de-DE')}`}
                 onClick={() => start('newvocab')}
               />
+              {gapCount > 0 && (
+                <Choice
+                  icon="pencil"
+                  title="Nur Lückentexte"
+                  sub={`${gapCount} Sätze ohne Hilfe ergänzen – je ${ROUND_SIZE} pro Runde, offene zuerst`}
+                  onClick={() => start('gaps')}
+                />
+              )}
             </div>
           )}
 
