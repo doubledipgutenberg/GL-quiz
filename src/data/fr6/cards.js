@@ -2,7 +2,8 @@
 //   _de     : französisches Wort sehen (und hören) → deutsch antworten
 //   _fr     : deutsches Wort sehen → französisch schreiben (Akzent-Tasten, Akzente streng)
 //   _gap    : Lückentext – Beispielsatz mit Lücke, das Wort einsetzen. Ohne Hilfe (Wunsch des Nutzers, 2026-11-16):
-//             keine deutsche Bedeutung in Klammern, kein Tipp mit dem Anfangsbuchstaben.
+//             keine deutsche Bedeutung in Klammern, kein Anfangsbuchstabe. Tipp (erst nach Tippen) = Feld `tip`:
+//             inhaltlicher Kontext in der Fremdsprache, nie das Wort selbst oder seine Übersetzung (2026-11-16).
 //   _listen : nur hören → französisch schreiben
 // Alle Kartenarten gehören zum Wortschatz (Entscheidung des Nutzers: Audio ist Teil der Vokabeln,
 // kein eigener Modus).
@@ -83,6 +84,7 @@ export function toGapCard(v) {
     question: gap.sentence,
     correct: gap.answer,
     alternativeCorrect: gap.alternatives,
+    ...(v.tip ? { hint: v.tip } : {}),
     answerLang: 'fr',
     explanation: `${exampleText(v)} – ${v.fr} = ${v.de}`,
   };

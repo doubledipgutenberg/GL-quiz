@@ -88,11 +88,12 @@ wörtlich übernommen. Material aus offensichtlich illegalen Quellen (z. B. Scha
   Übersetzung wie *ami*/*copain*). `say` = gesprochener Text, falls er abweichen soll. Die Datei hat
   **keine Importe** (sie wird auch von Node fürs Audio-Manifest gelesen).
   `src/data/fr6/cards.js` erzeugt daraus die Karten: `_de` (frz. sehen + 🔊 → deutsch), `_fr` (deutsch →
-  frz. schreiben), `_gap` (Lückentext: nur der Beispielsatz mit Lücke – seit 2026-11-16 **ohne Hilfe**, keine deutsche Bedeutung in
-  Klammern, kein Tipp mit dem Anfangsbuchstaben) und `_listen` (nur hören →
+  frz. schreiben), `_gap` (Lückentext: nur der Beispielsatz mit Lücke – seit 2026-11-16 **ohne Übersetzung** in Klammern und ohne
+  Anfangsbuchstaben; „Tipp anzeigen“ zeigt das Feld `tip`: inhaltlicher Kontext in der gefragten Sprache, eine Andeutung –
+  nie das Wort, nie die Übersetzung, keine direkte Beschreibung. Französisch nur mit Wörtern, die die Kinder kennen) und `_listen` (nur hören →
   frz. schreiben). Die Lücke steht im Beispielsatz `ex` in [eckigen Klammern], Alternativen mit `|`
   (`'Our ball [ended up] in the river.'`); `exampleText` entfernt die Klammern fürs Audio, `gapOf` baut die
-  Lücke. Jede neue Vokabel braucht deshalb einen `ex`-Satz mit genau einer [Lücke]. Hör-Karten spielen erst das Wort, kurz danach
+  Lücke. Jede neue Vokabel braucht deshalb einen `ex`-Satz mit genau einer [Lücke] und einen `tip`. Hör-Karten spielen erst das Wort, kurz danach
   den Beispielsatz `ex` (eigene Formulierung, nur bekannte Wörter; Audio `<id>_ex.m4a`, `playSequence` in
   `src/lib/audio.js`). **Alle drei gehören zum Wortschatz**,
   es gibt keinen eigenen Hör-Modus (Entscheidung des Nutzers).
