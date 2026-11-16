@@ -2,7 +2,8 @@
 //   _de     : englisches Wort sehen (und hören) → deutsch antworten
 //   _en     : deutsches Wort sehen → englisch schreiben
 //   _gap    : Lückentext – Beispielsatz mit Lücke, das Wort einsetzen. Ohne Hilfe (Wunsch des Nutzers, 2026-11-16):
-//             keine deutsche Bedeutung in Klammern, kein Tipp mit dem Anfangsbuchstaben (AE zeigt das Abzeichen oben auf der Karte).
+//             keine deutsche Bedeutung in Klammern, kein Anfangsbuchstabe. Tipp (erst nach Tippen) = Feld `tip`:
+//             inhaltlicher Kontext in der Fremdsprache, nie das Wort selbst oder seine Übersetzung (2026-11-16) (AE zeigt das Abzeichen oben auf der Karte).
 //   _listen : nur hören → englisch schreiben
 // Alle Kartenarten gehören zum Wortschatz (Audio ist Teil der Vokabeln, kein eigener Modus).
 import { COURSE, EN6_VOCAB, speechText, exampleText, gapOf } from './vocab.js';
@@ -84,6 +85,7 @@ export function toGapCard(v) {
     question: gap.sentence,
     correct: gap.answer,
     alternativeCorrect: gap.alternatives,
+    ...(v.tip ? { hint: v.tip } : {}),
     explanation: `${exampleText(v)} – ${v.en} = ${v.de}`,
   };
 }
