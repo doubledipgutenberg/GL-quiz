@@ -843,6 +843,11 @@ export function getVocabularyQuestions(exam) {
   return [...getVocabSA2(), ...getVocabularyQuestionsSA4(), ...fr6AllCards(), ...en6AllCards()];
 }
 
+/** „Nur Lückentexte“ (Wunsch des Nutzers, 2026-11-16): nur die Lückentext-Karten aus dem Wortschatz der Schulaufgabe. */
+export function getGapVocabularyQuestions(exam) {
+  return getVocabularyQuestions(exam).filter((q) => q.type === 'fill_gap');
+}
+
 /** „Neue Vokabeln“: der zuletzt hinzugefügte Batch des Kurses. */
 export function getNewVocabularyQuestions(courseId) {
   return COURSE_VOCAB[courseId]?.newCards() ?? [];

@@ -1,7 +1,7 @@
 import { useReducer, useCallback, useEffect, useRef } from 'react';
-import questions, { EXAMS, getVocabularyQuestions, getNewVocabularyQuestions, DEFAULT_EXAM, listeningTaskById } from '../data/questions';
+import questions, { EXAMS, getVocabularyQuestions, getNewVocabularyQuestions, getGapVocabularyQuestions, DEFAULT_EXAM, listeningTaskById } from '../data/questions';
 import { checkAnswer, calculatePoints, getMaxPoints } from '../utils/scoring';
-import { planVocabRound, markVocabDone, vocabPassStatus } from '../utils/vocabPass';
+import { planVocabRound, markVocabDone, vocabPassStatus, ROUND_SIZE } from '../utils/vocabPass';
 import { spreadByWord } from '../utils/spreadCards';
 import { saveHighscore, upsertStudentSession, saveDraftSession, clearDraftSession, getDraftSession, addSavedRound, getStudentHistory } from '../utils/storage';
 
@@ -20,6 +20,21 @@ const QUESTIONS_PER_SESSION = 15;
 // Jede Runde hat eine ID; unter ihr wird sie nach jeder Antwort in der Historie gespeichert (Auto-Save).
 const newSessionId = () => `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
 
+// „Nur Lückentexte“ (2026-11-16): offene Sätze zuerst (nie beantwortet oder zuletzt falsch), dann die übrigen.
+function openFirst(pool, name) {
+  const lastCorrect = {};
+  try {
+    (getStudentHistory()[name]?.sessions || []).forEach((s) =>
+      (s.answers || []).forEach((a) => {
+        if (a?.questionId) lastCorrect[a.questionId] = a.isCorrect;
+      }),
+    );
+  } catch {
+    // wenn History kaputt ist, gelten alle Sätze als offen
+  }
+  return [...shuffle(pool.filter((q) => lastCorrect[q.id] !== true)), ...shuffle(pool.filter((q) => lastCorrect[q.id] === true))];
+}
+
 // Antwortoptionen bei jeder Runde neu mischen – sonst steht die richtige Antwort immer an derselben Stelle.
 function withShuffledOptions(list) {
   return list.map((q) =>
@@ -30,7 +45,7 @@ function withShuffledOptions(list) {
 const initialState = {
   phase: 'welcome',
   playerName: '',
-  mode: 'normal',           // 'normal' | 'vocabulary'
+  mode: 'normal',           // 'normal' | 'vocabulary' | 'newvocab' | 'gaps' | 'listening'
   exam: DEFAULT_EXAM,       // 'sa2' | 'sa4'
   questions: [],
   sessionId: null,
@@ -72,11 +87,16 @@ function reducer(state, action) {
         };
       }
       // Vokabel-Modi: alle Karten der Auswahl (inkl. Hör-Karten), gemischt (kein 15er-Limit)
-      if (mode === 'vocabulary' || mode === 'newvocab') {
+      if (mode === 'vocabulary' || mode === 'newvocab' || mode === 'gaps') {
         // „Alle Vokabeln“: die Karten der nächsten Runde kommen vorgeplant (action.questions, à 50).
+        // „Nur Lückentexte“: Runden à 50 Sätze, offene zuerst.
         const pool =
           action.questions ??
-          (mode === 'newvocab' ? getNewVocabularyQuestions(EXAMS[exam]?.course) : getVocabularyQuestions(exam));
+          (mode === 'newvocab'
+            ? getNewVocabularyQuestions(EXAMS[exam]?.course)
+            : mode === 'gaps'
+              ? openFirst(getGapVocabularyQuestions(exam), action.name).slice(0, ROUND_SIZE)
+              : getVocabularyQuestions(exam));
         if (pool.length === 0) return state;
         // Gemischt, aber dasselbe Wort nie direkt hintereinander und erst jedes Wort einmal (utils/spreadCards.js).
         // Runden im Durchgang kommen schon fertig geordnet aus planVocabRound (auch über Rundengrenzen hinweg).

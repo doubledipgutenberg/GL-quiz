@@ -1,7 +1,8 @@
 // Erzeugt die Quiz-Karten für Englisch Klasse 6 aus EN6_VOCAB (Aufbau wie src/data/fr6/cards.js).
 //   _de     : englisches Wort sehen (und hören) → deutsch antworten
 //   _en     : deutsches Wort sehen → englisch schreiben
-//   _gap    : Lückentext – Beispielsatz mit Lücke, das Wort einsetzen (deutsche Bedeutung als Hilfe)
+//   _gap    : Lückentext – Beispielsatz mit Lücke, das Wort einsetzen. Ohne Hilfe (Wunsch des Nutzers, 2026-11-16):
+//             keine deutsche Bedeutung in Klammern, kein Tipp mit dem Anfangsbuchstaben (AE zeigt das Abzeichen oben auf der Karte).
 //   _listen : nur hören → englisch schreiben
 // Alle Kartenarten gehören zum Wortschatz (Audio ist Teil der Vokabeln, kein eigener Modus).
 import { COURSE, EN6_VOCAB, speechText, exampleText, gapOf } from './vocab.js';
@@ -80,10 +81,9 @@ export function toGapCard(v) {
     type: 'fill_gap',
     topicLabel: 'Wortschatz',
     instruction: isAE(v) ? 'Setz das passende amerikanische Wort (AE) ein:' : 'Setz das passende Wort ein:',
-    question: `${gap.sentence} (${v.de}${isAE(v) ? ' – AE' : ''})`,
+    question: gap.sentence,
     correct: gap.answer,
     alternativeCorrect: gap.alternatives,
-    hint: `Beginnt mit „${gap.answer.charAt(0)}…“`,
     explanation: `${exampleText(v)} – ${v.en} = ${v.de}`,
   };
 }
