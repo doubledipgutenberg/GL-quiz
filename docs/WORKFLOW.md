@@ -156,13 +156,18 @@ derselben Reihenfolge wie später in der Runde) – wie in der Schulaufgabe: ers
   „Schwächen üben“ (`q.listening`). Im Verlauf des Lehrer-Bereichs: helle Säule mit gestricheltem Rand.
 - **Französisch (seit 2026-11-15):** `src/data/fr6/listening.js`, gleicher Aufbau, Anweisungen zweisprachig wie im
   Buch („Vrai ou faux ? (Richtig oder falsch?)“), Aussagen auf Französisch (Knöpfe Vrai/Faux), Lücken auf
-  Französisch (`answerLang: 'fr'`), Ankreuz- und Kurzfragen auf Deutsch. Es gibt nur eine französische Stimme:
-  Ein zweiter Sprecher bekommt `shift` (z. B. 0.84 = tiefer; `shift_pitch` in `generate-audio.py`, Tempo bleibt).
+  Französisch (`answerLang: 'fr'`), Ankreuz- und Kurzfragen auf Deutsch. **Jede Figur hat ihre eigene Stimme**, in
+  allen Hörtexten dieselbe (Wunsch des Nutzers, 2026-11-19: mit einer Stimme in anderer Tonlage war schwer zu
+  erkennen, wer spricht). Kokoro hat nur eine französische Stimme (`ff_siwis` = Lina); die anderen sprechen mit
+  Stimmen romanischer Sprachen und französischer Aussprache: Monsieur Petit `pm_alex`, Madame Roux `pf_dora`,
+  Malo `if_sara` (heller), Großmutter `ef_dora` (tiefer). `tempo` je Sprecher gleicht ihr schnelleres Sprechen
+  an Lina an, `shift` ändert die Tonlage (`shift_pitch` in `generate-audio.py`). Neue Figur → neue Stimme wählen
+  und das Tempo messen.
   Tempo 0,8 (`LISTENING` in `export-audio-manifest.mjs`). Jeder Hörtext trägt `audio` (Kurs, Sprache) – die
   Oberfläche nimmt `task.audio`.
   Hörtext 3 „Où est Pirate ?“ und 4 „Grand-mère arrive“ (2026-11-19) bauen auf 1–2 auf: Pirate, der Hund von
-  Madame Roux, ist weg; Lina mag Sport, Comics eher nicht. Ein dritter Sprecher klingt mit `shift` über 1 heller
-  (Malo 1.12). Englische Lehnwörter wie „t-shirt“ brauchen eine gesprochene Fassung („ticheurte“).
+  Madame Roux, ist weg; Lina mag Sport, Comics eher nicht. Englische Lehnwörter wie „t-shirt“ brauchen eine
+  gesprochene Fassung („ticheurte“).
 - **Offline/Safari:** Das Offline-Skript liefert Aufnahmen auch in Teilstücken (Range-Anfragen) aus – sonst spielt
   Safari Audio aus dem Zwischenspeicher nicht ab (gefunden 2026-10-25, betraf auch die Vokabel-Aufnahmen).
 

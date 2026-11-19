@@ -214,12 +214,14 @@ def speak(kokoro, text, voice, speed, lang, s, is_phonemes=False, shift=1.0):
 
 def synthesize_dialog(kokoro, it, s):
     """Hörverstehen: jede Zeile mit ihrer Stimme, dazwischen kurze Stille → eine Aufnahme.
-    Optional `shift` je Zeile (z. B. 0.85 = tiefer): gleiche Stimme, andere Tonlage, gleiches Tempo."""
+    Optional je Zeile `shift` (z. B. 0.85 = tiefer): andere Tonlage, gleiches Tempo, und `tempo` (z. B. 0.9 = langsamer):
+    Stimmen anderer Sprachen sprechen Französisch schneller als ff_siwis – so klingen alle Sprecher gleich schnell."""
     import numpy as np
 
     parts, rate = [], 24000
     for seg in it["segments"]:
-        audio, rate = speak(kokoro, seg["text"], seg["voice"], s["speed"], s["lang"], s, shift=float(seg.get("shift", 1.0)))
+        speed = s["speed"] * float(seg.get("tempo", 1.0))
+        audio, rate = speak(kokoro, seg["text"], seg["voice"], speed, s["lang"], s, shift=float(seg.get("shift", 1.0)))
         if parts:
             parts.append(np.zeros(int(rate * LISTENING_GAP), dtype=audio.dtype))
         parts.append(audio)

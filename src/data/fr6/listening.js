@@ -5,12 +5,19 @@
 // Madame Roux, seit 2026-11-19 auch Linas Bruder Malo und die Großmutter) – keine Handlung aus dem Buch oder aus
 // den Lesetexten in fr6/questions.js. Neue Hörtexte bauen auf den vorhandenen auf (dieselben Figuren, neue Lage).
 // Diese Datei hat KEINE Importe: scripts/export-audio-manifest.mjs liest sie direkt mit Node.
-// Stimmen: Für Französisch gibt es nur ff_siwis. Ein zweiter Sprecher bekommt eine tiefere Tonlage (`shift`,
-// siehe scripts/generate-audio.py), damit man die Sprecher auseinanderhält.
+// Stimmen (Wunsch des Nutzers, 2026-11-19: „schwer zu erkennen, wer wann spricht“): Jede Figur hat ihre eigene Stimme,
+// in allen Hörtexten dieselbe. Kokoro hat nur eine französische Stimme (ff_siwis, Lina); die anderen Figuren sprechen
+// mit Stimmen romanischer Sprachen und französischer Aussprache – Portugiesisch/Spanisch/Italienisch kennen Nasale
+// und Zungen-„r“ eher als Englisch. `tempo` gleicht ihr schnelleres Sprechen an Lina an (gemessen 2026-11-19),
+// `shift` ändert die Tonlage (siehe scripts/generate-audio.py).
 
 export const LISTENING_COURSE = 'fr-6';
 
 const LINA = { voice: 'ff_siwis' };
+const MONSIEUR_PETIT = { voice: 'pm_alex', tempo: 0.9 };
+const MADAME_ROUX = { voice: 'pf_dora', tempo: 0.9 };
+const MALO = { voice: 'if_sara', shift: 1.1, tempo: 0.86 };
+const GRAND_MERE = { voice: 'ef_dora', shift: 0.9, tempo: 0.93 };
 
 const TASKS = [
   {
@@ -20,7 +27,7 @@ const TASKS = [
     situation:
       'Lina braucht Sachen für die Schule. Sie ist in einem Schreibwarengeschäft in Paris und spricht mit dem ' +
       'Verkäufer, Monsieur Petit.',
-    speakers: { Lina: LINA, 'Monsieur Petit': { voice: 'ff_siwis', shift: 0.84 } },
+    speakers: { Lina: LINA, 'Monsieur Petit': MONSIEUR_PETIT },
     lines: [
       ['Monsieur Petit', 'Bonjour, mademoiselle !'],
       ['Lina', 'Bonjour, monsieur ! Je cherche un cartable pour l’école.'],
@@ -71,7 +78,7 @@ const TASKS = [
     // Baut auf fr6-l1 auf: Lina (rue Custine) interviewt ihre Nachbarin.
     title: 'L’interview',
     situation: 'Für die Schülerzeitung macht Lina ein Interview mit ihrer Nachbarin, Madame Roux.',
-    speakers: { Lina: LINA, 'Madame Roux': { voice: 'ff_siwis', shift: 0.9 } },
+    speakers: { Lina: LINA, 'Madame Roux': MADAME_ROUX },
     lines: [
       ['Lina', 'Bonjour, madame ! C’est pour le journal de l’école. Vous êtes d’accord ?'],
       ['Madame Roux', 'Bonjour, Lina ! Oui, d’accord. Viens !'],
@@ -117,7 +124,7 @@ const TASKS = [
     // Lina hilft suchen und fragt Monsieur Petit in seinem Geschäft.
     title: 'Où est Pirate ?',
     situation: 'Lina trifft ihre Nachbarin Madame Roux auf der Straße. Madame Roux ist ganz aufgeregt.',
-    speakers: { Lina: LINA, 'Madame Roux': { voice: 'ff_siwis', shift: 0.9 }, 'Monsieur Petit': { voice: 'ff_siwis', shift: 0.84 } },
+    speakers: { Lina: LINA, 'Madame Roux': MADAME_ROUX, 'Monsieur Petit': MONSIEUR_PETIT },
     lines: [
       ['Madame Roux', 'Lina ! Catastrophe !'],
       ['Lina', 'Bonjour, madame ! Ça va ?'],
@@ -167,10 +174,10 @@ const TASKS = [
     id: 'fr6-l4',
     exam: 'fr6-u1',
     // Wunsch des Nutzers (2026-11-19). Baut auf fr6-l1 auf: Lina mag Sport, Comics eher nicht. Neu: Linas Bruder Malo
-    // und die Großmutter, die in den Ferien kommt. Drei Stimmen: Malo höher (shift > 1), Großmutter tiefer.
+    // und die Großmutter, die in den Ferien kommt.
     title: 'Grand-mère arrive',
     situation: 'Linas Großmutter kommt in den Ferien nach Paris. Lina und ihr Bruder Malo warten vor dem Haus.',
-    speakers: { Lina: LINA, Malo: { voice: 'ff_siwis', shift: 1.12 }, 'Grand-mère': { voice: 'ff_siwis', shift: 0.86 } },
+    speakers: { Lina: LINA, Malo: MALO, 'Grand-mère': GRAND_MERE },
     lines: [
       ['Malo', 'Lina ! Viens vite ! Grand-mère arrive !'],
       ['Lina', 'Super ! … Bonjour, grand-mère ! Bienvenue à Paris !'],
