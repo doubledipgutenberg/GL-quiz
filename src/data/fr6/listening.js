@@ -2,7 +2,8 @@
 // „Hör- und Leseverstehen“ (Lernplan). Aufbau wie beim Englischen (src/data/en6/listening.js): erst hören, dann
 // Fragen. Aufgabenformen mit zweisprachiger Anweisung wie im Buch („Complète. (Ergänze.)“). Texte und Fragen selbst
 // formuliert, nur mit Wörtern bis Unité 2 B7 „ouf“ und der Grammatik G1–G6. Eigene Figuren (Lina, Monsieur Petit,
-// Madame Roux) – keine Handlung aus dem Buch oder aus den Lesetexten in fr6/questions.js.
+// Madame Roux, seit 2026-11-19 auch Linas Bruder Malo und die Großmutter) – keine Handlung aus dem Buch oder aus
+// den Lesetexten in fr6/questions.js. Neue Hörtexte bauen auf den vorhandenen auf (dieselben Figuren, neue Lage).
 // Diese Datei hat KEINE Importe: scripts/export-audio-manifest.mjs liest sie direkt mit Node.
 // Stimmen: Für Französisch gibt es nur ff_siwis. Ein zweiter Sprecher bekommt eine tiefere Tonlage (`shift`,
 // siehe scripts/generate-audio.py), damit man die Sprecher auseinanderhält.
@@ -107,6 +108,122 @@ const TASKS = [
       { kind: 'grid', text: 'Lina aime ___.', answer: 'la musique' },
       { kind: 'answer', text: 'Wofür macht Lina das Interview?', answer: 'Für die Schülerzeitung.', keywords: [['schülerzeitung', 'zeitung', 'journal', 'schule', 'école']] },
       { kind: 'answer', text: 'Was mag Madame Roux überhaupt nicht?', answer: 'Musik.', keywords: [['musik', 'musique']] },
+    ],
+  },
+  {
+    id: 'fr6-l3',
+    exam: 'fr6-u1',
+    // Wunsch des Nutzers (2026-11-19). Baut auf fr6-l1 und fr6-l2 auf: Pirate, der Hund von Madame Roux, ist weg;
+    // Lina hilft suchen und fragt Monsieur Petit in seinem Geschäft.
+    title: 'Où est Pirate ?',
+    situation: 'Lina trifft ihre Nachbarin Madame Roux auf der Straße. Madame Roux ist ganz aufgeregt.',
+    speakers: { Lina: LINA, 'Madame Roux': { voice: 'ff_siwis', shift: 0.9 }, 'Monsieur Petit': { voice: 'ff_siwis', shift: 0.84 } },
+    lines: [
+      ['Madame Roux', 'Lina ! Catastrophe !'],
+      ['Lina', 'Bonjour, madame ! Ça va ?'],
+      ['Madame Roux', 'Non, ça ne va pas ! Je cherche Pirate !'],
+      ['Lina', 'Pirate ? Il est dans la maison, non ?'],
+      ['Madame Roux', 'Non, il est dans la rue. Je cherche, je cherche … Zut !'],
+      ['Lina', 'D’accord. Je cherche avec vous, madame. Pirate ! Pirate ! Viens !'],
+      ['Madame Roux', 'Merci, Lina. Tu es sympa.'],
+      ['Lina', 'Tiens, voilà le magasin de Monsieur Petit. On entre ?'],
+      ['Madame Roux', 'Oui, d’accord.'],
+      ['Monsieur Petit', 'Bonjour, madame ! Bonjour, mademoiselle !'],
+      ['Lina', 'Bonjour, monsieur ! Nous cherchons Pirate, le chien de Madame Roux.'],
+      ['Monsieur Petit', 'Un chien ? Ici ? Non, pardon. Mais regardez, là, dans la rue ! Devant l’école … C’est un chien, non ?'],
+      ['Madame Roux', 'Oui ! C’est Pirate ! Merci, monsieur ! Vite, Lina !'],
+      ['Lina', 'Pirate ! Viens ! … Tiens, il porte un truc. Qu’est-ce que c’est ?'],
+      // „t-shirt“ liest die Sprachausgabe sonst englisch (wie in fr6/vocab.js: tiʃˈœʁt).
+      ['Madame Roux', 'Euh … c’est un t-shirt. Ah ! C’est le t-shirt pour le judo ! Je cherche ça aussi !', 'Euh … c’est un ticheurte. Ah ! C’est le ticheurte pour le judo ! Je cherche ça aussi !'],
+      ['Lina', 'Et Pirate trouve le t-shirt ici, à l’école ?', 'Et Pirate trouve le ticheurte ici, à l’école ?'],
+      ['Madame Roux', 'Oui ! Je travaille ici, dans l’école. Pirate, tu es fantastique !'],
+      ['Lina', 'Ouf ! Au revoir, madame ! À plus, Pirate !'],
+      ['Madame Roux', 'Au revoir, Lina ! Et merci !'],
+    ],
+    questions: [
+      { kind: 'rw', text: 'Madame Roux cherche un chat.', right: false, why: 'Faux – Sie sucht Pirate, « le chien de Madame Roux ».' },
+      { kind: 'rw', text: 'Pirate est dans la maison.', right: false, why: 'Faux – « Non, il est dans la rue. »' },
+      { kind: 'rw', text: 'Lina et Madame Roux entrent dans le magasin de Monsieur Petit.', right: true, why: 'Vrai – « On entre ? – Oui, d’accord. »' },
+      { kind: 'rw', text: 'Pirate est dans le magasin.', right: false, why: 'Faux – « Un chien ? Ici ? Non, pardon. »' },
+      { kind: 'rw', text: 'Madame Roux travaille dans l’école.', right: true, why: 'Vrai – « Je travaille ici, dans l’école. »' },
+      {
+        kind: 'tick',
+        text: 'Was stimmt?',
+        options: [
+          ['Lina hilft Madame Roux beim Suchen.', true],
+          ['Pirate ist im Geschäft von Monsieur Petit.', false],
+          ['Monsieur Petit sieht Pirate vor der Schule.', true],
+          ['Pirate trägt etwas im Maul.', true],
+          ['Madame Roux sucht auch ein Buch.', false],
+        ],
+      },
+      { kind: 'grid', text: 'Pirate est devant ___.', answer: 'l’école' },
+      { kind: 'grid', text: 'Pirate porte ___.', answer: 'un t-shirt', alt: ['le t-shirt'] },
+      { kind: 'answer', text: 'Warum ruft Madame Roux „Catastrophe !“?', answer: 'Sie findet ihren Hund Pirate nicht.', keywords: [['pirate', 'hund', 'chien']] },
+      { kind: 'answer', text: 'Wofür braucht Madame Roux das T-Shirt?', answer: 'Fürs Judo.', keywords: [['judo']] },
+    ],
+  },
+  {
+    id: 'fr6-l4',
+    exam: 'fr6-u1',
+    // Wunsch des Nutzers (2026-11-19). Baut auf fr6-l1 auf: Lina mag Sport, Comics eher nicht. Neu: Linas Bruder Malo
+    // und die Großmutter, die in den Ferien kommt. Drei Stimmen: Malo höher (shift > 1), Großmutter tiefer.
+    title: 'Grand-mère arrive',
+    situation: 'Linas Großmutter kommt in den Ferien nach Paris. Lina und ihr Bruder Malo warten vor dem Haus.',
+    speakers: { Lina: LINA, Malo: { voice: 'ff_siwis', shift: 1.12 }, 'Grand-mère': { voice: 'ff_siwis', shift: 0.86 } },
+    lines: [
+      ['Malo', 'Lina ! Viens vite ! Grand-mère arrive !'],
+      ['Lina', 'Super ! … Bonjour, grand-mère ! Bienvenue à Paris !'],
+      ['Grand-mère', 'Bonjour, Lina ! Bonjour, Malo ! Ouf, je suis là !'],
+      ['Malo', 'Ça va, grand-mère ?'],
+      ['Grand-mère', 'Oui, ça va bien, merci. Mais attention : les cartons !'],
+      ['Lina', 'Les cartons ? Un, deux, trois, quatre, cinq, six, sept … Sept cartons !'],
+      ['Grand-mère', 'Non, huit ! Regarde, là, devant la maison.'],
+      ['Malo', 'Huit cartons ? Qu’est-ce que c’est ?'],
+      // „BD“ liest die Sprachausgabe sonst als „boulevard“.
+      ['Grand-mère', 'Ça ? C’est pour vous ! Tiens, Malo, voilà une BD.', 'Ça ? C’est pour vous ! Tiens, Malo, voilà une bédé.'],
+      ['Malo', 'Une BD ! Fantastique ! J’aime la BD. Merci, grand-mère !', 'Une bédé ! Fantastique ! J’aime la bédé. Merci, grand-mère !'],
+      ['Grand-mère', 'Et pour toi, Lina, voilà une BD aussi.', 'Et pour toi, Lina, voilà une bédé aussi.'],
+      ['Lina', 'Euh … merci, grand-mère. Mais moi, la BD … bof.', 'Euh … merci, grand-mère. Mais moi, la bédé … bof.'],
+      ['Grand-mère', 'Zut ! Et le rugby, tu aimes ?'],
+      ['Lina', 'Oui ! J’aime le sport !'],
+      ['Grand-mère', 'Alors, voilà une affiche de rugby !'],
+      ['Lina', 'Oh, elle est super ! Merci ! Et la BD, c’est pour Malo.', 'Oh, elle est super ! Merci ! Et la bédé, c’est pour Malo.'],
+      ['Malo', 'Deux BD ! Super ! … Euh … regardez ! Le carton, là … il arrive !', 'Deux bédés ! Super ! … Euh … regardez ! Le carton, là … il arrive !'],
+      ['Lina', 'Attention ! Qu’est-ce que c’est ?'],
+      // Ohne „s“ gesprochen: Die Sprachausgabe hängt sonst ein „z“ an („vacances‿aussi“).
+      ['Grand-mère', 'Ah ! C’est Turbo, une tortue. Elle est en vacances aussi !', 'Ah ! C’est Turbo, une tortue. Elle est en vacance aussi !'],
+      ['Malo', 'Turbo ? Pour une tortue ? C’est bizarre !'],
+      ['Grand-mère', 'Mais non ! Regarde : elle arrive vite !'],
+      ['Lina', 'Vite ? Euh … bof !'],
+      ['Malo', 'Bienvenue à Paris, Turbo !'],
+    ],
+    questions: [
+      { kind: 'rw', text: 'Grand-mère arrive avec sept cartons.', right: false, why: 'Faux – « Non, huit ! »' },
+      { kind: 'rw', text: 'Malo aime la BD.', right: true, why: 'Vrai – « J’aime la BD. »' },
+      { kind: 'rw', text: 'Lina aime la BD.', right: false, why: 'Faux – « Mais moi, la BD … bof. »' },
+      { kind: 'rw', text: 'L’affiche est pour Malo.', right: false, why: 'Faux – Das Rugby-Plakat ist für Lina.' },
+      { kind: 'rw', text: 'Turbo est une tortue.', right: true, why: 'Vrai – « C’est Turbo, une tortue. »' },
+      {
+        kind: 'tick',
+        text: 'Was bringt die Großmutter mit?',
+        options: [
+          ['ein Rugby-Plakat', true],
+          ['ein T-Shirt', false],
+          ['zwei Comics', true],
+          ['ein Buch', false],
+          ['eine Schildkröte', true],
+        ],
+      },
+      { kind: 'grid', text: 'Grand-mère arrive avec ___ cartons.', answer: 'huit', alt: ['8'] },
+      { kind: 'grid', text: 'Malo regarde : le carton ___ !', answer: 'arrive' },
+      {
+        kind: 'answer',
+        text: 'Warum findet Malo den Namen „Turbo“ komisch?',
+        answer: 'Turbo ist eine Schildkröte – und Schildkröten sind langsam.',
+        keywords: [['schildkröte', 'schildkröten', 'tortue', 'langsam']],
+      },
+      { kind: 'answer', text: 'Was macht Lina mit ihrem Comic?', answer: 'Sie gibt ihn Malo.', keywords: [['malo', 'bruder']] },
     ],
   },
 ];

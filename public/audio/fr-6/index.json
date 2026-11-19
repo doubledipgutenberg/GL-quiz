@@ -25,6 +25,32 @@
     "variant": "Dialog",
     "onset": 0.0
   },
+  "fr6-l3": {
+    "file": "fr6-l3.m4a",
+    "text": "Madame Roux: Lina ! Catastrophe !\nLina: Bonjour, madame ! Ça va ?\nMadame Roux: Non, ça ne va pas ! Je cherche Pirate !\nLina: Pirate ? Il est dans la maison, non ?\nMadame Roux: Non, il est dans la rue. Je cherche, je cherche … Zut !\nLina: D’accord. Je cherche avec vous, madame. Pirate ! Pirate ! Viens !\nMadame Roux: Merci, Lina. Tu es sympa.\nLina: Tiens, voilà le magasin de Monsieur Petit. On entre ?\nMadame Roux: Oui, d’accord.\nMonsieur Petit: Bonjour, madame ! Bonjour, mademoiselle !\nLina: Bonjour, monsieur ! Nous cherchons Pirate, le chien de Madame Roux.\nMonsieur Petit: Un chien ? Ici ? Non, pardon. Mais regardez, là, dans la rue ! Devant l’école … C’est un chien, non ?\nMadame Roux: Oui ! C’est Pirate ! Merci, monsieur ! Vite, Lina !\nLina: Pirate ! Viens ! … Tiens, il porte un truc. Qu’est-ce que c’est ?\nMadame Roux: Euh … c’est un t-shirt. Ah ! C’est le t-shirt pour le judo ! Je cherche ça aussi !\nLina: Et Pirate trouve le t-shirt ici, à l’école ?\nMadame Roux: Oui ! Je travaille ici, dans l’école. Pirate, tu es fantastique !\nLina: Ouf ! Au revoir, madame ! À plus, Pirate !\nMadame Roux: Au revoir, Lina ! Et merci !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.6,
+    "tail": 0.8,
+    "stretch": true,
+    "hash": "80cd1f71a224d04e",
+    "variant": "Dialog",
+    "onset": 0.0
+  },
+  "fr6-l4": {
+    "file": "fr6-l4.m4a",
+    "text": "Malo: Lina ! Viens vite ! Grand-mère arrive !\nLina: Super ! … Bonjour, grand-mère ! Bienvenue à Paris !\nGrand-mère: Bonjour, Lina ! Bonjour, Malo ! Ouf, je suis là !\nMalo: Ça va, grand-mère ?\nGrand-mère: Oui, ça va bien, merci. Mais attention : les cartons !\nLina: Les cartons ? Un, deux, trois, quatre, cinq, six, sept … Sept cartons !\nGrand-mère: Non, huit ! Regarde, là, devant la maison.\nMalo: Huit cartons ? Qu’est-ce que c’est ?\nGrand-mère: Ça ? C’est pour vous ! Tiens, Malo, voilà une BD.\nMalo: Une BD ! Fantastique ! J’aime la BD. Merci, grand-mère !\nGrand-mère: Et pour toi, Lina, voilà une BD aussi.\nLina: Euh … merci, grand-mère. Mais moi, la BD … bof.\nGrand-mère: Zut ! Et le rugby, tu aimes ?\nLina: Oui ! J’aime le sport !\nGrand-mère: Alors, voilà une affiche de rugby !\nLina: Oh, elle est super ! Merci ! Et la BD, c’est pour Malo.\nMalo: Deux BD ! Super ! … Euh … regardez ! Le carton, là … il arrive !\nLina: Attention ! Qu’est-ce que c’est ?\nGrand-mère: Ah ! C’est Turbo, une tortue. Elle est en vacances aussi !\nMalo: Turbo ? Pour une tortue ? C’est bizarre !\nGrand-mère: Mais non ! Regarde : elle arrive vite !\nLina: Vite ? Euh … bof !\nMalo: Bienvenue à Paris, Turbo !",
+    "lang": "fr-fr",
+    "voice": "ff_siwis",
+    "speed": 0.8,
+    "lead": 0.6,
+    "tail": 0.8,
+    "stretch": true,
+    "hash": "e19fb5de39aebfa3",
+    "variant": "Dialog",
+    "onset": 0.0
+  },
   "fr6_a": {
     "file": "fr6_a.m4a",
     "text": "à",

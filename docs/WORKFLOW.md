@@ -160,6 +160,9 @@ derselben Reihenfolge wie später in der Runde) – wie in der Schulaufgabe: ers
   Ein zweiter Sprecher bekommt `shift` (z. B. 0.84 = tiefer; `shift_pitch` in `generate-audio.py`, Tempo bleibt).
   Tempo 0,8 (`LISTENING` in `export-audio-manifest.mjs`). Jeder Hörtext trägt `audio` (Kurs, Sprache) – die
   Oberfläche nimmt `task.audio`.
+  Hörtext 3 „Où est Pirate ?“ und 4 „Grand-mère arrive“ (2026-11-19) bauen auf 1–2 auf: Pirate, der Hund von
+  Madame Roux, ist weg; Lina mag Sport, Comics eher nicht. Ein dritter Sprecher klingt mit `shift` über 1 heller
+  (Malo 1.12). Englische Lehnwörter wie „t-shirt“ brauchen eine gesprochene Fassung („ticheurte“).
 - **Offline/Safari:** Das Offline-Skript liefert Aufnahmen auch in Teilstücken (Range-Anfragen) aus – sonst spielt
   Safari Audio aus dem Zwischenspeicher nicht ab (gefunden 2026-10-25, betraf auch die Vokabel-Aufnahmen).
 
