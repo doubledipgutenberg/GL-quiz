@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useMemo, useRef, useState } from 'react';
+import { flushSync } from 'react-dom';
 import { analyzeStudent } from '../utils/analytics';
 import { checkAnswer } from '../utils/scoring';
 import {
@@ -12,17 +13,41 @@ import {
   reviewFlag,
 } from '../utils/storage';
 import { courseOfQuestion } from '../utils/courseOf';
-import questions, { getVocabularyQuestions, latestVocabBatch } from '../data/questions';
+import questions, { getVocabularyQuestions, latestVocabBatch, listeningTaskById } from '../data/questions';
 import { Card, CardContent } from './ui/card';
 import { Button } from './ui/button';
 
-// Überschrift einer auf-/zuklappbaren Liste.
-function ListToggle({ open, onToggle, children }) {
+// Überschrift einer auf-/zuklappbaren Liste; der Pfeil zeigt nach rechts (zu) bzw. unten (auf).
+function ListToggle({ open, onToggle, big = false, children }) {
+  const size = big ? 18 : 12;
   return (
-    <button type="button" className="flex items-baseline gap-2 text-left" onClick={onToggle} aria-expanded={open}>
-      <span className="inline-block w-3 text-xs text-muted-foreground">{open ? '▾' : '▸'}</span>
+    <button type="button" className="flex items-center gap-2 text-left" onClick={onToggle} aria-expanded={open}>
+      <svg
+        viewBox="0 0 16 16"
+        width={size}
+        height={size}
+        aria-hidden="true"
+        className={`shrink-0 text-muted-foreground transition-transform duration-150 motion-reduce:transition-none ${open ? 'rotate-90' : ''}`}
+      >
+        <path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
       <span>{children}</span>
     </button>
+  );
+}
+
+// Große Sektion mit auf-/zuklappbarer Überschrift; `id` ist das Sprungziel der Navigationsleiste.
+function Section({ id, title, open, onToggle, actions, children }) {
+  return (
+    <section id={id} className={`detail-section${open ? ' detail-section--open' : ''}`}>
+      <div className="detail-section-head">
+        <h3>
+          <ListToggle open={open} onToggle={onToggle} big>{title}</ListToggle>
+        </h3>
+        {actions}
+      </div>
+      {open && children}
+    </section>
   );
 }
 
@@ -30,7 +55,7 @@ export default function StudentDetail({ name, courseId, courseLabel, sessions, o
   const [dismissals, setDismissals] = useState(() => getTeacherDismissals());
   const [markedCorrect, setMarkedCorrect] = useState(() => getTeacherMarkedCorrect());
   const [flagReviews, setFlagReviews] = useState(() => getFlagReviews());
-  // Auf-/zugeklappte Listen: key → true/false; ohne Eintrag gilt der Standard der Liste.
+  // Auf-/zugeklappte Listen und Sektionen: key → true/false; ohne Eintrag gilt der Standard.
   const [openLists, setOpenLists] = useState({});
   // Übungshinweise mit Seitenzahlen stammen aus dem Arbeitsheft von Klasse 5 – nur dort zeigen.
   const showBookHints = !courseId || courseId === 'en-5';
@@ -46,13 +71,12 @@ export default function StudentDetail({ name, courseId, courseLabel, sessions, o
     [sessions, studentDismissals, studentMarkedCorrect, courseId],
   );
 
-  // Verlauf: beim Öffnen ans Ende scrollen, damit die neuesten Runden sichtbar sind.
-  const trendScrollRef = useRef(null);
+  // Verlauf: beim Öffnen (auch nach dem Aufklappen) ans Ende scrollen, damit die neuesten Runden sichtbar sind.
   const trendCount = analysis?.scoreTrend?.length || 0;
-  useEffect(() => {
-    const el = trendScrollRef.current;
-    if (el) el.scrollLeft = el.scrollWidth;
+  const trendScrollRef = useCallback((el) => {
+    if (el && trendCount) el.scrollLeft = el.scrollWidth;
   }, [trendCount]);
+  const navRef = useRef(null);
 
   const questionById = useMemo(() => {
     const map = {};
@@ -162,9 +186,24 @@ export default function StudentDetail({ name, courseId, courseLabel, sessions, o
     .filter((m) => m.visibleAttempts.length > 0);
 
   // Trennung nach KATEGORIE (nicht Typ): alle Vokabel-Items (vocab_card, fill_gap, picture …)
-  // gehen in den Vokabel-Bereich; Grammatik/Reading/Mediation in den anderen.
+  // gehen in den Vokabel-Bereich, Hörverstehen in seine eigene Sektion, Grammatik/Reading/Mediation in den Rest.
   const vocabMistakes = visibleMistakes.filter((m) => m.def?.category === 'vocabulary');
-  const nonVocabMistakes = visibleMistakes.filter((m) => m.def?.category !== 'vocabulary');
+  const listeningMistakes = visibleMistakes.filter((m) => m.def?.category === 'listening');
+  const nonVocabMistakes = visibleMistakes.filter(
+    (m) => m.def?.category !== 'vocabulary' && m.def?.category !== 'listening',
+  );
+  // Hörverstehen nach Hörtext gruppiert, in der Reihenfolge der Hörtexte.
+  const listeningGroups = [];
+  listeningMistakes.forEach((m) => {
+    const taskId = m.def.listening;
+    let group = listeningGroups.find((g) => g.taskId === taskId);
+    if (!group) {
+      group = { taskId, title: listeningTaskById(taskId)?.title ?? taskId, items: [] };
+      listeningGroups.push(group);
+    }
+    group.items.push(m);
+  });
+  listeningGroups.sort((a, b) => a.taskId.localeCompare(b.taskId, 'de', { numeric: true }));
 
   // Alle beantworteten Vokabelkarten (auch die immer richtigen) mit Zählern aus den Runden.
   const vocabAnswered = new Map();
@@ -412,12 +451,292 @@ export default function StudentDetail({ name, courseId, courseLabel, sessions, o
     );
   };
 
+  const vocabSummary = (tiers) => {
+    const total = tiers.reduce((n, t) => n + t.items.length, 0);
+    const withMistakes = total - tiers[tiers.length - 1].items.length;
+    return `${withMistakes} von ${total} Karten mit Fehlern`;
+  };
+
+  // Alle großen Sektionen in Anzeige-Reihenfolge; Navigationsleiste und Seite benutzen dieselbe Liste.
+  // Lange Listen sind anfangs zugeklappt, ihre Überschrift zeigt die Anzahl.
+  const sections = [
+    analysis.scoreTrend.length > 1 && {
+      id: 'verlauf',
+      nav: 'Verlauf',
+      title: 'Verlauf',
+      defaultOpen: true,
+      actions: isOpen('verlauf', true) && (
+        <div className="trend-legend" aria-hidden="true">
+          <span><i className="trend-swatch trend-swatch--quiz" />Quiz</span>
+          <span><i className="trend-swatch trend-swatch--vocab" />Wortschatz</span>
+          <span><i className="trend-swatch trend-swatch--listening" />Hörverstehen</span>
+        </div>
+      ),
+      body: (
+        /* Viele Runden: innerhalb der Karte waagerecht scrollen, beim Öffnen stehen die neuesten rechts im Blick. */
+        <div className="trend-scroll" ref={trendScrollRef}>
+          <div className="trend-chart">
+            {analysis.scoreTrend.map((entry, i) => {
+              const kindLabel = { vocab: 'Wortschatz', listening: 'Hörverstehen' }[entry.kind] || 'Quiz';
+              const newDay = i === 0 || entry.day !== analysis.scoreTrend[i - 1].day;
+              return (
+                <div
+                  key={i}
+                  className="trend-bar-container"
+                  title={`${kindLabel} · ${entry.date} · ${entry.percentage} % (${entry.correct}/${entry.total})`}
+                  aria-label={`${kindLabel} am ${entry.date}: ${entry.percentage} Prozent`}
+                >
+                  <div className={`trend-bar trend-bar--${entry.kind}`} style={{ height: `${Math.max(entry.percentage, 14)}%` }}>
+                    <span className="trend-value">{entry.percentage}%</span>
+                  </div>
+                  <span className="trend-date">{newDay ? entry.day : ''}</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: 'kategorie',
+      nav: 'Kategorie',
+      title: 'Nach Kategorie',
+      defaultOpen: true,
+      body: (
+        <div className="category-bars">
+          {analysis.categoryResults.map(cat => (
+            <div key={cat.category} className="category-bar-row">
+              <span className="cat-label">{cat.label}</span>
+              <div className="cat-bar-bg">
+                <div
+                  className={`cat-bar-fill ${cat.percentage >= 80 ? 'bar-good' : cat.percentage >= 50 ? 'bar-ok' : 'bar-bad'}`}
+                  style={{ width: `${cat.percentage}%` }}
+                />
+              </div>
+              <span className="cat-pct">{cat.percentage}% ({cat.correct}/{cat.total})</span>
+            </div>
+          ))}
+        </div>
+      ),
+    },
+    {
+      id: 'thema',
+      nav: 'Thema',
+      title: 'Nach Thema (sortiert nach Schwäche)',
+      defaultOpen: true,
+      body: (
+        <div className="topic-detail-list">
+          {analysis.topicResults.map(topic => (
+            <div key={topic.topic} className={`topic-detail-item topic-${topic.strength}`}>
+              <div className="topic-detail-header">
+                <span className={`strength-dot strength-${topic.strength}`} />
+                <strong>{topic.label}</strong>
+                <span className="topic-pct">{topic.percentage}% ({topic.correct}/{topic.total})</span>
+              </div>
+              {showBookHints && topic.strength !== 'strong' && topic.practice && (
+                <div className="topic-practice">
+                  Übe: {topic.practice} ({topic.bookRef})
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      ),
+    },
+    analysis.recommendations.length > 0 && {
+      id: 'empfehlungen',
+      nav: 'Empfehlungen',
+      title: 'Empfehlungen',
+      defaultOpen: true,
+      body: (
+        <div className="recommendations">
+          {analysis.recommendations.map((rec, i) => (
+            <div key={i} className={`rec-item rec-${rec.priority}`}>
+              <span className={`rec-dot rec-dot-${rec.priority}`} aria-hidden="true" />
+              <div>
+                <p>{rec.text}</p>
+                {showBookHints && rec.practice && <p className="rec-practice">{rec.practice}</p>}
+              </div>
+            </div>
+          ))}
+        </div>
+      ),
+    },
+    // Falsch beantwortet — A) Grammatik / Reading / Mediation
+    nonVocabMistakes.length > 0 && {
+      id: 'grammatik',
+      nav: 'Grammatik',
+      count: nonVocabMistakes.length,
+      title: <>Falsch beantwortet: Grammatik, Reading &amp; Mediation ({nonVocabMistakes.length})</>,
+      defaultOpen: false,
+      actions: onCreateNormalReviewQuiz && normalReviewCount > 0 && (
+        <Button size="sm" onClick={startNormalReview}>
+          Schwächen üben ({normalReviewCount})
+        </Button>
+      ),
+      body: (
+        <>
+          <p className="admin-hint">
+            Jede Karte = ein konkretes Item. „Später richtig“ bedeutet, dass die Frage nach einem
+            ersten Fehler mindestens einmal korrekt beantwortet wurde. „Doch richtig“ zählt die Antwort in der
+            Auswertung als richtig.
+          </p>
+          <div className="space-y-3">{nonVocabMistakes.map(renderMistakeCard)}</div>
+        </>
+      ),
+    },
+    // Falsch beantwortet — B) Hörverstehen, nach Hörtext
+    listeningMistakes.length > 0 && {
+      id: 'hoeren',
+      nav: 'Hörverstehen',
+      count: listeningMistakes.length,
+      title: <>Falsch beantwortet: Hörverstehen ({listeningMistakes.length})</>,
+      defaultOpen: false,
+      body: (
+        <>
+          <p className="admin-hint">
+            Nach Hörtext sortiert. „Doch richtig“ zählt die Antwort in der Auswertung als richtig.
+          </p>
+          <div className="space-y-5">
+            {listeningGroups.map((g) => (
+              <div key={g.taskId} className="space-y-3">
+                <h4 className="border-b border-border pb-1 text-sm font-semibold">
+                  Hörtext: {g.title} <span className="text-xs font-normal text-muted-foreground">({g.items.length})</span>
+                </h4>
+                {g.items.map(renderMistakeCard)}
+              </div>
+            ))}
+          </div>
+        </>
+      ),
+    },
+    // Zur Prüfung: vom Kind als „fast richtig“ gemeldete Antworten
+    flags.length > 0 && {
+      id: 'pruefung',
+      nav: 'Zur Prüfung',
+      count: openFlags.length,
+      title: <>Zur Prüfung: „Na ja, schon fast richtig“ ({openFlags.length})</>,
+      defaultOpen: openFlags.length > 0,
+      body: (
+        <>
+          <p className="admin-hint">
+            Antworten, die {name} selbst als „fast richtig“ gemeldet hat. „Doch richtig“ zählt in der Auswertung als
+            richtig. Die Urteile wertet später der Coding-Agent aus, um den Antwort-Check zu verbessern
+            („Antwort-Review exportieren“ auf der Startseite des Lehrer-Bereichs).
+          </p>
+          {openFlags.length === 0 ? (
+            <p className="text-xs text-muted-foreground italic">Alles geprüft.</p>
+          ) : (
+            <div className="space-y-3">{openFlags.map(renderFlag)}</div>
+          )}
+          {decidedFlags.length > 0 && (
+            <div className="mt-4 space-y-3">
+              <ListToggle open={isOpen('flags-decided', false)} onToggle={() => toggle('flags-decided', false)}>
+                <span className="text-sm font-semibold">Schon entschieden</span>{' '}
+                <span className="text-xs text-muted-foreground">({decidedFlags.length})</span>
+              </ListToggle>
+              {isOpen('flags-decided', false) && <div className="space-y-3">{decidedFlags.map(renderFlag)}</div>}
+            </div>
+          )}
+        </>
+      ),
+    },
+    // Vokabeln: „Neue Vokabeln“ (Ausschnitt) und „Gesamter Wortschatz“, je 6 Stufen nach Erfolgsquote
+    ...(vocabAnswered.size > 0 ? vocabSections : []).map((section) => ({
+      id: `vokabeln-${section.key}`,
+      nav: section.title,
+      title: (
+        <>
+          {section.title}{' '}
+          <span className="text-sm font-normal text-muted-foreground">· {vocabSummary(section.tiers)}</span>
+        </>
+      ),
+      defaultOpen: false,
+      body: (
+        <>
+          <p className="admin-hint">
+            {section.subtitle} Stufen nach Erfolgsquote – am schwersten zuerst. Der Button je Stufe erstellt ein
+            Wiederholungs-Quiz mit dieser Stufe <strong>und allen schwierigeren darüber</strong>.
+          </p>
+          <div className="space-y-4">
+            {section.tiers.map((tier) => {
+              const listKey = `${section.key}-${tier.key}`;
+              const fallback = tier.key !== 'always' && tier.items.length > 0;
+              return (
+                <div key={tier.key} className="space-y-3">
+                  <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border pb-1">
+                    <ListToggle open={isOpen(listKey, fallback)} onToggle={() => toggle(listKey, fallback)}>
+                      <span className="text-sm font-semibold">{tier.label}</span>{' '}
+                      <span className="text-xs text-muted-foreground">
+                        ({tier.hint}) · {tier.items.length} Karte{tier.items.length === 1 ? '' : 'n'}
+                      </span>
+                    </ListToggle>
+                    {onCreateVocabReviewQuiz && tier.items.length > 0 && (
+                      <Button size="sm" onClick={() => onCreateVocabReviewQuiz(name, tier.cumulativeIds)}>
+                        {tier.key === 'always' ? 'Alle wiederholen' : 'Wiederholen: ab hier'} ({tier.cumulativeIds.length})
+                      </Button>
+                    )}
+                  </div>
+                  {isOpen(listKey, fallback) &&
+                    (tier.items.length === 0 ? (
+                      <p className="text-xs text-muted-foreground italic">Keine Karten auf dieser Stufe.</p>
+                    ) : tier.key === 'always' ? (
+                      <ul className="space-y-1.5">{tier.items.map(renderCorrectRow)}</ul>
+                    ) : (
+                      <div className="space-y-3">{tier.items.map(renderMistakeCard)}</div>
+                    ))}
+                </div>
+              );
+            })}
+          </div>
+        </>
+      ),
+    })),
+  ].filter(Boolean);
+
+  // Navigationsleiste: Sektion aufklappen, dann unter die (klebende) Leiste scrollen.
+  const jumpTo = (id) => {
+    flushSync(() => setOpenLists((o) => ({ ...o, [id]: true })));
+    const el = document.getElementById(id);
+    if (!el) return;
+    const offset = (navRef.current?.offsetHeight ?? 0) + 12;
+    const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - offset, behavior: reduce ? 'auto' : 'smooth' });
+  };
+  const setAllSections = (open) =>
+    setOpenLists((o) => ({ ...o, ...Object.fromEntries(sections.map((sec) => [sec.id, open])) }));
+
   return (
     <div className="student-detail">
       <div className="detail-header">
         {onBack && <button className="btn btn-back" onClick={onBack}>Zurück</button>}
         <h2>{name} — {courseLabel || 'Detailansicht'}</h2>
       </div>
+
+      <nav className="detail-nav" ref={navRef} aria-label="Sektionen">
+        <div className="detail-nav-links">
+          {sections.map((sec) => (
+            <Button
+              key={sec.id}
+              size="sm"
+              variant="outline"
+              aria-label={sec.count > 0 ? `${sec.nav} (${sec.count})` : undefined}
+              onClick={() => jumpTo(sec.id)}
+            >
+              {sec.nav}
+              {sec.count > 0 && <span className="text-muted-foreground">{sec.count}</span>}
+            </Button>
+          ))}
+        </div>
+        <div className="detail-nav-all">
+          <button type="button" className="vx-btn vx-btn--link" onClick={() => setAllSections(true)}>
+            Alle aufklappen
+          </button>
+          <button type="button" className="vx-btn vx-btn--link" onClick={() => setAllSections(false)}>
+            Alle zuklappen
+          </button>
+        </div>
+      </nav>
 
       {/* Overview stats */}
       <div className="detail-stats">
@@ -439,192 +758,18 @@ export default function StudentDetail({ name, courseId, courseLabel, sessions, o
         </div>
       </div>
 
-      {/* Score Trend */}
-      {analysis.scoreTrend.length > 1 && (
-        <div className="detail-section">
-          <div className="trend-head">
-            <h3>Verlauf</h3>
-            <div className="trend-legend" aria-hidden="true">
-              <span><i className="trend-swatch trend-swatch--quiz" />Quiz</span>
-              <span><i className="trend-swatch trend-swatch--vocab" />Wortschatz</span>
-              <span><i className="trend-swatch trend-swatch--listening" />Hörverstehen</span>
-            </div>
-          </div>
-          {/* Viele Runden: innerhalb der Karte waagerecht scrollen, beim Öffnen stehen die neuesten rechts im Blick. */}
-          <div className="trend-scroll" ref={trendScrollRef}>
-            <div className="trend-chart">
-              {analysis.scoreTrend.map((entry, i) => {
-                const kindLabel = { vocab: 'Wortschatz', listening: 'Hörverstehen' }[entry.kind] || 'Quiz';
-                const newDay = i === 0 || entry.day !== analysis.scoreTrend[i - 1].day;
-                return (
-                  <div
-                    key={i}
-                    className="trend-bar-container"
-                    title={`${kindLabel} · ${entry.date} · ${entry.percentage} % (${entry.correct}/${entry.total})`}
-                    aria-label={`${kindLabel} am ${entry.date}: ${entry.percentage} Prozent`}
-                  >
-                    <div className={`trend-bar trend-bar--${entry.kind}`} style={{ height: `${Math.max(entry.percentage, 14)}%` }}>
-                      <span className="trend-value">{entry.percentage}%</span>
-                    </div>
-                    <span className="trend-date">{newDay ? entry.day : ''}</span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Category Breakdown */}
-      <div className="detail-section">
-        <h3>Nach Kategorie</h3>
-        <div className="category-bars">
-          {analysis.categoryResults.map(cat => (
-            <div key={cat.category} className="category-bar-row">
-              <span className="cat-label">{cat.label}</span>
-              <div className="cat-bar-bg">
-                <div
-                  className={`cat-bar-fill ${cat.percentage >= 80 ? 'bar-good' : cat.percentage >= 50 ? 'bar-ok' : 'bar-bad'}`}
-                  style={{ width: `${cat.percentage}%` }}
-                />
-              </div>
-              <span className="cat-pct">{cat.percentage}% ({cat.correct}/{cat.total})</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Topic Details */}
-      <div className="detail-section">
-        <h3>Nach Thema (sortiert nach Schwäche)</h3>
-        <div className="topic-detail-list">
-          {analysis.topicResults.map(topic => (
-            <div key={topic.topic} className={`topic-detail-item topic-${topic.strength}`}>
-              <div className="topic-detail-header">
-                <span className={`strength-dot strength-${topic.strength}`} />
-                <strong>{topic.label}</strong>
-                <span className="topic-pct">{topic.percentage}% ({topic.correct}/{topic.total})</span>
-              </div>
-              {showBookHints && topic.strength !== 'strong' && topic.practice && (
-                <div className="topic-practice">
-                  Übe: {topic.practice} ({topic.bookRef})
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Recommendations */}
-      {analysis.recommendations.length > 0 && (
-        <div className="detail-section">
-          <h3>Empfehlungen</h3>
-          <div className="recommendations">
-            {analysis.recommendations.map((rec, i) => (
-              <div key={i} className={`rec-item rec-${rec.priority}`}>
-                <span className={`rec-dot rec-dot-${rec.priority}`} aria-hidden="true" />
-                <div>
-                  <p>{rec.text}</p>
-                  {showBookHints && rec.practice && <p className="rec-practice">{rec.practice}</p>}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Falsch beantwortet — A) Grammatik / Reading / Mediation */}
-      {nonVocabMistakes.length > 0 && (
-        <div className="detail-section">
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <h3>
-              <ListToggle open={isOpen('grammar', true)} onToggle={() => toggle('grammar', true)}>
-                Falsch beantwortet: Grammatik, Reading &amp; Mediation ({nonVocabMistakes.length})
-              </ListToggle>
-            </h3>
-            {onCreateNormalReviewQuiz && normalReviewCount > 0 && (
-              <Button size="sm" onClick={startNormalReview}>
-                Schwächen üben ({normalReviewCount})
-              </Button>
-            )}
-          </div>
-          <p className="admin-hint">
-            Jede Karte = ein konkretes Item. „Später richtig“ bedeutet, dass die Frage nach einem
-            ersten Fehler mindestens einmal korrekt beantwortet wurde. „Doch richtig“ zählt die Antwort in der
-            Auswertung als richtig.
-          </p>
-          {isOpen('grammar', true) && <div className="space-y-3">{nonVocabMistakes.map(renderMistakeCard)}</div>}
-        </div>
-      )}
-
-      {/* Zur Prüfung: vom Kind als „fast richtig“ gemeldete Antworten */}
-      {flags.length > 0 && (
-        <div className="detail-section">
-          <h3>Zur Prüfung: „Na ja, schon fast richtig“ ({openFlags.length})</h3>
-          <p className="admin-hint">
-            Antworten, die {name} selbst als „fast richtig“ gemeldet hat. „Doch richtig“ zählt in der Auswertung als
-            richtig. Die Urteile wertet später der Coding-Agent aus, um den Antwort-Check zu verbessern
-            („Antwort-Review exportieren“ auf der Startseite des Lehrer-Bereichs).
-          </p>
-          {openFlags.length === 0 ? (
-            <p className="text-xs text-muted-foreground italic">Alles geprüft.</p>
-          ) : (
-            <div className="space-y-3">{openFlags.map(renderFlag)}</div>
-          )}
-          {decidedFlags.length > 0 && (
-            <div className="mt-4 space-y-3">
-              <ListToggle open={isOpen('flags-decided', false)} onToggle={() => toggle('flags-decided', false)}>
-                <span className="text-sm font-semibold">Schon entschieden</span>{' '}
-                <span className="text-xs text-muted-foreground">({decidedFlags.length})</span>
-              </ListToggle>
-              {isOpen('flags-decided', false) && <div className="space-y-3">{decidedFlags.map(renderFlag)}</div>}
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* Vokabeln: „Neue Vokabeln“ (Ausschnitt) und „Gesamter Wortschatz“, je 6 Stufen nach Erfolgsquote */}
-      {vocabAnswered.size > 0 &&
-        vocabSections.map((section) => (
-          <div key={section.key} className="detail-section">
-            <h3>{section.title}</h3>
-            <p className="admin-hint">
-              {section.subtitle} Stufen nach Erfolgsquote – am schwersten zuerst. Der Button je Stufe erstellt ein
-              Wiederholungs-Quiz mit dieser Stufe <strong>und allen schwierigeren darüber</strong>.
-            </p>
-            <div className="space-y-4">
-              {section.tiers.map((tier) => {
-                const listKey = `${section.key}-${tier.key}`;
-                const fallback = tier.key !== 'always' && tier.items.length > 0;
-                return (
-                  <div key={tier.key} className="space-y-3">
-                    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border pb-1">
-                      <ListToggle open={isOpen(listKey, fallback)} onToggle={() => toggle(listKey, fallback)}>
-                        <span className="text-sm font-semibold">{tier.label}</span>{' '}
-                        <span className="text-xs text-muted-foreground">
-                          ({tier.hint}) · {tier.items.length} Karte{tier.items.length === 1 ? '' : 'n'}
-                        </span>
-                      </ListToggle>
-                      {onCreateVocabReviewQuiz && tier.items.length > 0 && (
-                        <Button size="sm" onClick={() => onCreateVocabReviewQuiz(name, tier.cumulativeIds)}>
-                          {tier.key === 'always' ? 'Alle wiederholen' : 'Wiederholen: ab hier'} ({tier.cumulativeIds.length})
-                        </Button>
-                      )}
-                    </div>
-                    {isOpen(listKey, fallback) &&
-                      (tier.items.length === 0 ? (
-                        <p className="text-xs text-muted-foreground italic">Keine Karten auf dieser Stufe.</p>
-                      ) : tier.key === 'always' ? (
-                        <ul className="space-y-1.5">{tier.items.map(renderCorrectRow)}</ul>
-                      ) : (
-                        <div className="space-y-3">{tier.items.map(renderMistakeCard)}</div>
-                      ))}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        ))}
+      {sections.map((sec) => (
+        <Section
+          key={sec.id}
+          id={sec.id}
+          title={sec.title}
+          open={isOpen(sec.id, sec.defaultOpen)}
+          onToggle={() => toggle(sec.id, sec.defaultOpen)}
+          actions={sec.actions || null}
+        >
+          {sec.body}
+        </Section>
+      ))}
     </div>
   );
 }

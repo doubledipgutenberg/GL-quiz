@@ -407,6 +407,11 @@ curl -s -o /dev/null -w '%{http_code}' https://<slug>.space.fast/   # muss 403 l
   „Vokabeln gekonnt“ und Wiederholungs-Quizze automatisch getrennt. Vokabeln stehen in zwei Bereichen:
   „Neue Vokabeln“ (jüngster Batch) und „Gesamter Wortschatz“ – dieselben Antworten, die neuen sind nur ein
   Ausschnitt. Je 6 Stufen von „Nie richtig“ bis „Immer richtig“, jede Liste auf-/zuklappbar.
+  Seit 2026-11-20 (Wunsch des Nutzers) ist jede große Sektion auf-/zuklappbar; lange Listen (Fehler,
+  Vokabeln) sind anfangs zu, die Überschrift zeigt die Anzahl. Eine Navigationsleiste klebt oben, springt zur
+  Sektion und klappt sie auf; dazu „Alle aufklappen/zuklappen“. Hörverstehen-Fehler stehen in einer eigenen
+  Sektion, nach Hörtext gruppiert (nicht bei Grammatik). Neue Sektion = ein Eintrag in `sections` in
+  `StudentDetail.jsx`; Leiste und Seite benutzen dieselbe Liste.
   Übungshinweise mit Arbeitsheft-Seiten gibt es nur für Englisch 5. Einträge ohne Kursangabe (Altbestand) zählen zu Englisch 5. Wichtig: Jede neue
   Frage bzw. Karte braucht `exam` oder `course`.
 
