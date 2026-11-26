@@ -1,5 +1,6 @@
 // Englisch Klasse 6 – Vokabeln (Band 2 des Englisch-Lehrwerks; der Name steht nirgends im Repo).
-// Quelle: Vokabelteil des Buchs (S. 195–199) + Vokabelheft der Kinder (siehe VOCAB_EN6_U1_review.md).
+// Quelle: Vokabelteil des Buchs (Unit 1: S. 195–201, Unit 2: S. 205–207) + Vokabelheft der Kinder
+// (siehe VOCAB_EN6_U1_review.md und VOCAB_EN6_U2_review.md).
 // Diese Datei hat KEINE Importe, damit scripts/export-audio-manifest.mjs sie direkt mit Node lesen kann.
 //
 // Aufbau wie src/data/fr6/vocab.js: Jede Lieferung ist ein BATCH mit dem Datum, an dem sie ins Quiz
@@ -255,11 +256,82 @@ const BATCHES = [
       },
     ],
   },
+  {
+    // Unit 2, Buch S. 205–207 (Fotos vom 26.11.): von „drum“ bis einschließlich „stage“ (Wunsch des Nutzers),
+    // mit dem grünen Kasten „Music“ (S. 205). Kasten „Comparing things“ (S. 206) = Grammatik, keine Karten.
+    // Abschrift: VOCAB_EN6_U2_review.md.
+    exam: 'en6-u2',
+    added: '2026-11-26',
+    sections: [
+      {
+        section: 'Unit 2 – Station 1: The most awesome music! (S. 205)',
+        items: [
+          { en: 'drum', de: 'Trommel', ex: 'Listen! Somebody next door is playing a [drum].', tip: "Boom, boom, boom – it's so loud, I can't sleep!" },
+          { en: 'singer', de: 'Sänger/-in', ex: 'The [singer] of our band is my best friend.', tip: 'She stands at the front with the microphone.' },
+          { en: 'instrument', de: 'Instrument', ex: 'Can you play an [instrument]?', tip: 'The piano, the guitar or the violin, maybe?' },
+          // Buch: [kæ'hɒn] – Kokoro sagt sonst „kadschon“.
+          { en: 'cajón', de: 'Cajón', alt: ['cajon'], altDe: ['Cajon'], sayPhonemes: 'kahˈɒn', ex: 'At the beach party, Leo played the [cajón|cajon].', tip: 'He sat on a wooden box and hit it with his hands.', sayExPhonemes: 'at ðə bˈiːtʃ pˈɑːti, lˈiːəʊ plˈeɪd ðə kahˈɒn.' },
+          { en: 'wooden', de: 'hölzern; aus Holz', ex: 'Grandpa made a [wooden] box for my toys.', tip: 'He cut an old tree in the forest and worked on it for days.' },
+          { en: 'less', de: 'weniger', ex: 'I want to watch [less] TV and read more books.', tip: 'Only half an hour a day from now on!' },
+          { en: 'one, ones (pl)', de: 'eine/-r/-s', alt: ['one', 'ones'], ex: "I don't like the red shoes. I want the blue [ones].", tip: 'Blue is my favourite colour!' },
+          { en: 'member', de: 'Mitglied', ex: 'My sister is a [member] of the swimming club.', tip: 'She goes there every Tuesday and has a club card.' },
+        ],
+      },
+      {
+        // Grüner Kasten „Music“ (S. 205): jede Wendung eine Karte; guitar/drums/cajón/maracas stehen schon einzeln.
+        section: 'Unit 2 – Kasten: Music',
+        items: [
+          { en: 'to play an instrument', de: 'ein Instrument spielen', ex: 'Everybody in my family can [play an instrument].', tip: 'Dad has a guitar, Mum has a piano, and I have drums – we make a lot of noise!' },
+          { en: 'to play the piano', de: 'Klavier spielen', ex: 'My grandma can [play the piano] really well.', tip: 'Black and white keys – and beautiful music!' },
+          { en: 'to play the trombone', de: 'Posaune spielen', ex: 'In the school band, Ben [plays the trombone].', tip: "It's long, loud and made of metal, and one part moves in and out." },
+          // „live“ im Satz sonst wie „liv“ → Laute direkt.
+          { en: 'to perform live', de: 'live auftreten', ex: 'Our favourite band will [perform live] in Munich next week.', tip: "We've got tickets, so we can see them in person, not just on TV!", sayExPhonemes: 'ˌaʊə fˈeɪvɹɪt bˈand wɪl pəfˈɔːm lˈaɪv ɪn mjˈuːnɪk nˈɛkst wˈiːk.' },
+          { en: 'to perform on stage', de: 'auf der Bühne auftreten', ex: 'At the school party, our class will [perform on stage].', tip: 'The whole school will watch us in the big hall!' },
+          { en: 'to play a gig', de: 'einen Auftritt haben', ex: 'The band [played a gig] in a small café last night.', tip: 'About 30 people came to listen, and they loved the songs.' },
+          { en: 'to have a rehearsal', de: 'eine Probe abhalten', ex: 'We [have a rehearsal] for our play every Friday.', tip: 'The show is next month, and we still forget some lines.' },
+          { en: 'to dance to a rhythm', de: 'zu einem Rhythmus tanzen', ex: "This song is great – let's [dance to the rhythm|dance to a rhythm]!", tip: 'Boom-boom-clap, boom-boom-clap – move your feet!' },
+          { en: 'to play music', de: 'Musik machen; Musik abspielen', ex: 'My brother and his friends [play music] in the garage.', tip: 'Guitars, drums and lots of noise every Saturday!' },
+          { en: 'to listen to music', de: 'Musik hören', ex: 'I always [listen to music] when I do my homework.', tip: "I've got my headphones on, and my favourite songs are on." },
+          { en: 'to go to a concert', de: 'zu einem Konzert gehen', ex: 'For my birthday I want to [go to a concert].', tip: 'My favourite band is in town next month!' },
+          { en: 'to go to a musical', de: 'zu einem Musical gehen', ex: 'At Christmas we always [go to a musical] in the city.', tip: 'The actors sing and dance on stage to tell a story.' },
+        ],
+      },
+      {
+        section: 'Unit 2 – Station 1 (S. 206–207)',
+        items: [
+          { en: 'few', de: 'wenige', ex: 'Very [few] people came to the party.', tip: 'It was raining, so only four guests were there.' },
+          { en: 'would', de: 'würde/-st/-n/-t', ex: 'I [would] love a new bike.', tip: "But it's very expensive, so I'm not sure I'll get one." },
+          { en: 'at first', de: 'zuerst; zunächst', ex: '[At first] the water was cold, but then it was great.', tip: 'We jumped into the lake – brrr! Five minutes later we were happy.' },
+          // Buch: [mə'rækəz] – Kokoro sagt sonst „ma-RAA-kas“.
+          { en: 'maracas', de: 'Rumba-Rasseln', altDe: ['Rumbarasseln'], sayPhonemes: 'məɹˈakəz', ex: 'Shake the [maracas] to the music!', tip: 'They make a sound like rain on a roof.', sayExPhonemes: 'ʃˈeɪk ðə məɹˈakəz tə ðə mjˈuːzɪk!' },
+          { en: 'to join', de: 'beitreten; sich anschließen; verbinden', ex: 'Can I [join] your team?', tip: "I'm good at football, and I want to play with you!" },
+          { en: 'origin', de: 'Ursprung; Herkunft; Abstammung', ex: 'The word "pizza" is of Italian [origin].', tip: 'It comes from Italy, like spaghetti.' },
+          { en: 'Cuban-American', de: 'Amerikaner/-in kubanischer Abstammung', alt: ['Cuban American'], ex: 'My friend Carla is [Cuban-American|Cuban American].', tip: 'She lives in Miami, but her grandparents came from Cuba.' },
+          { en: 'Spanish', de: 'spanisch; Spanisch; Spanier/-in', ex: 'My cousin is learning [Spanish] at school.', tip: 'She wants to visit Madrid next summer.' },
+          { en: 'common', de: 'üblich; gewöhnlich; (weit) verbreitet; gebräuchlich', ex: "'Smith' is a very [common] name in England.", tip: 'There are lots and lots of people with this name.' },
+          { en: 'missing', de: 'fehlend; verschwunden', ex: 'Our cat is [missing]! Have you seen her?', tip: "We can't find her anywhere – not in the garden, not in the house." },
+          { en: 'basic', de: 'grundlegend; Grund-', ex: 'First we learn the [basic] rules of the game.', tip: 'Easy things first – the difficult things come later.' },
+          { en: 'biology', de: 'Biologie', ex: 'In [biology] we learn about plants and animals.', tip: 'Today we looked at a frog and a flower.' },
+          { en: 'subject', de: 'Schulfach; Thema', ex: 'What is your best [subject] at school?', tip: 'Maths, English, Music or PE?' },
+          { en: 'rainy', de: 'regnerisch', ex: 'On [rainy] days we stay indoors.', tip: 'Grey sky, wet streets and lots of umbrellas.' },
+          { en: 'ocean', de: 'Ozean', ex: 'Sharks and whales live in the [ocean].', tip: "It's big, deep and full of salt water." },
+          { en: 'hair', de: 'Haar; Haare', minAnswers: 1, ex: 'My little sister has long red [hair].', tip: 'Mum brushes it every morning.' },
+          { en: 'to welcome', de: 'willkommen heißen', ex: "Let's [welcome] our new neighbours with a cake!", tip: "They moved in yesterday – let's say hello and be friendly." },
+          // Buch: „High School (weiterführende Schule in den USA, Oberstufe)“ – ein Komma würde die Lösung zerteilen.
+          { en: 'high school', de: 'High School (weiterführende Schule in den USA); Oberstufe', altDe: ['weiterführende Schule in den USA'], ex: 'My cousin in Texas goes to [high school].', tip: "She's 16, and she's in 11th grade." },
+          { en: 'style', de: 'Stil', ex: 'I really like your [style]! Where did you get that jacket?', tip: 'Your clothes always look cool and different.' },
+          { en: 'stage', de: 'Bühne', ex: 'The band is playing on a big [stage] in the park.', tip: 'Everybody can see them, because they are higher than the people.' },
+        ],
+      },
+    ],
+  },
 ];
 
 function slug(s) {
   return s
     .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '') // cajón → cajon
     .replace(/\([^)]*\)/g, '')
     .replace(/[^a-z0-9]+/g, '_')
     .replace(/^_|_$/g, '')

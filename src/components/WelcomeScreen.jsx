@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { EXAMS, COURSES, DEFAULT_COURSE, examsForCourse, defaultExamForCourse, latestVocabBatch, listeningTasksFor, getGapVocabularyQuestions } from '../data/questions';
+import { EXAMS, COURSES, DEFAULT_COURSE, examsForCourse, defaultExamForCourse, latestVocabBatch, listeningTasksFor, getGapVocabularyQuestions, hasQuizQuestions } from '../data/questions';
 import { getDraftSession, getSavedRounds, getFullExportPayload, getStudentHistory } from '../utils/storage';
 import StreakCalendar from './StreakCalendar';
 import ReviewPlan from './ReviewPlan';
@@ -122,6 +122,8 @@ export default function WelcomeScreen({
 
   // Hörtexte der Schulaufgabe und das letzte Ergebnis je Hörtext (aus der eigenen Historie).
   const listeningTasks = exam ? listeningTasksFor(exam) : [];
+  // Ohne Fragen (z. B. Englisch Unit 2, bisher nur Vokabeln) gibt es kein „Normales Quiz“.
+  const hasQuiz = exam ? hasQuizQuestions(exam) : false;
   const lastListening = (task) => {
     const sessions = getStudentHistory()[playerName]?.sessions || [];
     for (let i = sessions.length - 1; i >= 0; i--) {
@@ -332,8 +334,10 @@ export default function WelcomeScreen({
           )}
 
           {step === 3 && !pickListening && (
-            <div className={`grid gap-3 ${listeningTasks.length ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
-              <Choice icon="grammar" title="Normales Quiz" sub="Gemischte Fragen aus dem ganzen Stoff" onClick={() => start('normal')} />
+            <div className={`grid gap-3 ${hasQuiz && listeningTasks.length ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
+              {hasQuiz && (
+                <Choice icon="grammar" title="Normales Quiz" sub="Gemischte Fragen aus dem ganzen Stoff" onClick={() => start('normal')} />
+              )}
               <Choice
                 icon="book"
                 title="Wortschatz"
