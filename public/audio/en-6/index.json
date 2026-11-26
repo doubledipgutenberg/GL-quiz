@@ -203,6 +203,30 @@
     "variant": "Glottisschlag",
     "onset": 2.29
   },
+  "en6_at_first": {
+    "file": "en6_at_first.m4a",
+    "text": "at first",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "ac4118c4a213a1d1",
+    "variant": "Tempo +0,05",
+    "onset": 1.58
+  },
+  "en6_at_first_ex": {
+    "file": "en6_at_first_ex.m4a",
+    "text": "At first the water was cold, but then it was great.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "7271cc08c7795114",
+    "variant": "Glottisschlag",
+    "onset": 2.54
+  },
   "en6_barrel": {
     "file": "en6_barrel.m4a",
     "text": "barrel",
@@ -224,6 +248,30 @@
     "lead": 0.3,
     "tail": 0.2,
     "hash": "3e922a4973d525ad",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_basic": {
+    "file": "en6_basic.m4a",
+    "text": "basic",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "deafd2285824f76e",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_basic_ex": {
+    "file": "en6_basic_ex.m4a",
+    "text": "First we learn the basic rules of the game.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "217f43a1569f74eb",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -299,6 +347,30 @@
     "variant": "Standard",
     "onset": 0.0
   },
+  "en6_biology": {
+    "file": "en6_biology.m4a",
+    "text": "biology",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "48d2ecf15690b29c",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_biology_ex": {
+    "file": "en6_biology_ex.m4a",
+    "text": "In biology we learn about plants and animals.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "3aa9dcf53717c8b5",
+    "variant": "Glottisschlag",
+    "onset": 1.84
+  },
   "en6_bird": {
     "file": "en6_bird.m4a",
     "text": "bird",
@@ -370,6 +442,32 @@
     "hash": "49eb96b233fd3518",
     "variant": "Tempo +0,1",
     "onset": 2.21
+  },
+  "en6_cajon": {
+    "file": "en6_cajon.m4a",
+    "text": "cajón",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "e0190e9594b591e7",
+    "phonemes": "kahˈɒn",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_cajon_ex": {
+    "file": "en6_cajon_ex.m4a",
+    "text": "At the beach party, Leo played the cajón.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "eeed9d9c672a243b",
+    "phonemes": "at ðə bˈiːtʃ pˈɑːti, lˈiːəʊ plˈeɪd ðə kahˈɒn.",
+    "variant": "Glottisschlag",
+    "onset": 2.75
   },
   "en6_cheap": {
     "file": "en6_cheap.m4a",
@@ -443,6 +541,30 @@
     "variant": "Tempo +0,1",
     "onset": 3.95
   },
+  "en6_common": {
+    "file": "en6_common.m4a",
+    "text": "common",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "3be2ef451ddbfeec",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_common_ex": {
+    "file": "en6_common_ex.m4a",
+    "text": "'Smith' is a very common name in England.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "0246cad1cf765cc7",
+    "variant": "Standard",
+    "onset": 0.0
+  },
   "en6_competition": {
     "file": "en6_competition.m4a",
     "text": "competition",
@@ -514,6 +636,30 @@
     "hash": "234899429c36e7bf",
     "variant": "Standard",
     "onset": 1.25
+  },
+  "en6_cuban_american": {
+    "file": "en6_cuban_american.m4a",
+    "text": "Cuban-American",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "2bd8e0780715076b",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_cuban_american_ex": {
+    "file": "en6_cuban_american_ex.m4a",
+    "text": "My friend Carla is Cuban-American.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "2b25bd07f7d8fdc5",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_daughter": {
     "file": "en6_daughter.m4a",
@@ -634,6 +780,30 @@
     "hash": "315c9dc12d4dcc12",
     "variant": "Tempo +0,05",
     "onset": 2.13
+  },
+  "en6_drum": {
+    "file": "en6_drum.m4a",
+    "text": "drum",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "df2054e934cf39c6",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_drum_ex": {
+    "file": "en6_drum_ex.m4a",
+    "text": "Listen! Somebody next door is playing a drum.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "f47426092e767f24",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_during": {
     "file": "en6_during.m4a",
@@ -947,6 +1117,30 @@
     "variant": "Standard",
     "onset": 3.92
   },
+  "en6_few": {
+    "file": "en6_few.m4a",
+    "text": "few",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "b67828128d84df91",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_few_ex": {
+    "file": "en6_few_ex.m4a",
+    "text": "Very few people came to the party.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "f8a1b7eb1111b11c",
+    "variant": "Standard",
+    "onset": 0.0
+  },
   "en6_field": {
     "file": "en6_field.m4a",
     "text": "field",
@@ -1064,6 +1258,54 @@
     "lead": 0.3,
     "tail": 0.2,
     "hash": "f108c5afdd6c4922",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_hair": {
+    "file": "en6_hair.m4a",
+    "text": "hair",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "07d5c3af0474a500",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_hair_ex": {
+    "file": "en6_hair_ex.m4a",
+    "text": "My little sister has long red hair.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "09d8b11a348f3dbb",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_high_school": {
+    "file": "en6_high_school.m4a",
+    "text": "high school",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "81f229d9e551a3bc",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_high_school_ex": {
+    "file": "en6_high_school_ex.m4a",
+    "text": "My cousin in Texas goes to high school.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "856bcb439ccd527f",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -1307,6 +1549,30 @@
     "variant": "Glottisschlag",
     "onset": 2.8
   },
+  "en6_instrument": {
+    "file": "en6_instrument.m4a",
+    "text": "instrument",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "62177fde1b071ee8",
+    "variant": "Glottisschlag",
+    "onset": 1.76
+  },
+  "en6_instrument_ex": {
+    "file": "en6_instrument_ex.m4a",
+    "text": "Can you play an instrument?",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "daaf31854345be7b",
+    "variant": "Standard",
+    "onset": 0.0
+  },
   "en6_judge": {
     "file": "en6_judge.m4a",
     "text": "judge",
@@ -1354,6 +1620,30 @@
     "hash": "3909e8a4806e8c54",
     "variant": "Standard",
     "onset": 0.0
+  },
+  "en6_less": {
+    "file": "en6_less.m4a",
+    "text": "less",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "07ab3aa0f8bf41ec",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_less_ex": {
+    "file": "en6_less_ex.m4a",
+    "text": "I want to watch less TV and read more books.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "dd1c93d17267d2ce",
+    "variant": "Glottisschlag",
+    "onset": 2.96
   },
   "en6_life": {
     "file": "en6_life.m4a",
@@ -1451,6 +1741,32 @@
     "variant": "Standard",
     "onset": 0.0
   },
+  "en6_maracas": {
+    "file": "en6_maracas.m4a",
+    "text": "maracas",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "d69cc406d19a8eaa",
+    "phonemes": "məɹˈakəz",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_maracas_ex": {
+    "file": "en6_maracas_ex.m4a",
+    "text": "Shake the maracas to the music!",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "7e795b5664531294",
+    "phonemes": "ʃˈeɪk ðə məɹˈakəz tə ðə mjˈuːzɪk!",
+    "variant": "Standard",
+    "onset": 0.0
+  },
   "en6_math": {
     "file": "en6_math.m4a",
     "text": "Math",
@@ -1499,6 +1815,30 @@
     "variant": "Standard",
     "onset": 0.0
   },
+  "en6_member": {
+    "file": "en6_member.m4a",
+    "text": "member",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "4d88781b07ec3ea6",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_member_ex": {
+    "file": "en6_member_ex.m4a",
+    "text": "My sister is a member of the swimming club.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "408d8a9d8b88f876",
+    "variant": "Standard",
+    "onset": 0.0
+  },
   "en6_meter": {
     "file": "en6_meter.m4a",
     "text": "meter",
@@ -1522,6 +1862,30 @@
     "hash": "dcd980276b85c63a",
     "variant": "Standard",
     "onset": 0.0
+  },
+  "en6_missing": {
+    "file": "en6_missing.m4a",
+    "text": "missing",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "3375525224412512",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_missing_ex": {
+    "file": "en6_missing_ex.m4a",
+    "text": "Our cat is missing! Have you seen her?",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "55c32d0b255b5995",
+    "variant": "Glottisschlag",
+    "onset": 2.52
   },
   "en6_moment": {
     "file": "en6_moment.m4a",
@@ -1715,6 +2079,30 @@
     "variant": "Tempo +0,05",
     "onset": 1.74
   },
+  "en6_ocean": {
+    "file": "en6_ocean.m4a",
+    "text": "ocean",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "155647b9e3f4509e",
+    "variant": "Glottisschlag",
+    "onset": 2.05
+  },
+  "en6_ocean_ex": {
+    "file": "en6_ocean_ex.m4a",
+    "text": "Sharks and whales live in the ocean.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "e91387ec51b599ea",
+    "variant": "Standard",
+    "onset": 0.0
+  },
   "en6_one_hundred_thousand": {
     "file": "en6_one_hundred_thousand.m4a",
     "text": "one hundred thousand",
@@ -1762,6 +2150,30 @@
     "hash": "8d7466a10de6ce6b",
     "variant": "Tempo +0,1",
     "onset": 0.92
+  },
+  "en6_one_ones": {
+    "file": "en6_one_ones.m4a",
+    "text": "one, ones",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "bbf7240642eb5fa0",
+    "variant": "Tempo +0,1",
+    "onset": 0.77
+  },
+  "en6_one_ones_ex": {
+    "file": "en6_one_ones_ex.m4a",
+    "text": "I don't like the red shoes. I want the blue ones.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "2a81276431763e11",
+    "variant": "Glottisschlag",
+    "onset": 2.51
   },
   "en6_one_point_five": {
     "file": "en6_one_point_five.m4a",
@@ -1832,6 +2244,30 @@
     "lead": 0.3,
     "tail": 0.2,
     "hash": "a203c1dd7e126cf2",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_origin": {
+    "file": "en6_origin.m4a",
+    "text": "origin",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "5fd6077c062a48cf",
+    "variant": "Glottisschlag",
+    "onset": 2.6
+  },
+  "en6_origin_ex": {
+    "file": "en6_origin_ex.m4a",
+    "text": "The word \"pizza\" is of Italian origin.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "33540a0d33654403",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2195,6 +2631,30 @@
     "variant": "Standard",
     "onset": 0.0
   },
+  "en6_rainy": {
+    "file": "en6_rainy.m4a",
+    "text": "rainy",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "752ba0ce2c35b401",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_rainy_ex": {
+    "file": "en6_rainy_ex.m4a",
+    "text": "On rainy days we stay indoors.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "48bb4053f9af64d4",
+    "variant": "Glottisschlag",
+    "onset": 2.34
+  },
   "en6_ready": {
     "file": "en6_ready.m4a",
     "text": "ready",
@@ -2435,6 +2895,30 @@
     "variant": "Standard",
     "onset": 0.0
   },
+  "en6_singer": {
+    "file": "en6_singer.m4a",
+    "text": "singer",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "3ca188661079097f",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_singer_ex": {
+    "file": "en6_singer_ex.m4a",
+    "text": "The singer of our band is my best friend.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "6dd08da68ea6b9d0",
+    "variant": "Standard",
+    "onset": 0.0
+  },
   "en6_space": {
     "file": "en6_space.m4a",
     "text": "space",
@@ -2456,6 +2940,54 @@
     "lead": 0.3,
     "tail": 0.2,
     "hash": "94936d997a27283a",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_spanish": {
+    "file": "en6_spanish.m4a",
+    "text": "Spanish",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "06f8d33adb25be11",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_spanish_ex": {
+    "file": "en6_spanish_ex.m4a",
+    "text": "My cousin is learning Spanish at school.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "b945afba5671fbed",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_stage": {
+    "file": "en6_stage.m4a",
+    "text": "stage",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "b01b56208d11fb9f",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_stage_ex": {
+    "file": "en6_stage_ex.m4a",
+    "text": "The band is playing on a big stage in the park.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "8e8c7c9db057ec93",
     "variant": "Standard",
     "onset": 0.0
   },
@@ -2482,6 +3014,54 @@
     "hash": "36174799de6f709e",
     "variant": "Standard",
     "onset": 0.0
+  },
+  "en6_style": {
+    "file": "en6_style.m4a",
+    "text": "style",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "c5841370a824ec35",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_style_ex": {
+    "file": "en6_style_ex.m4a",
+    "text": "I really like your style! Where did you get that jacket?",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "eba6dc667bb64b83",
+    "variant": "Tempo +0,05",
+    "onset": 3.91
+  },
+  "en6_subject": {
+    "file": "en6_subject.m4a",
+    "text": "subject",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "944befd41e4b2b47",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_subject_ex": {
+    "file": "en6_subject_ex.m4a",
+    "text": "What is your best subject at school?",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "34edf06ad0211855",
+    "variant": "Tempo +0,05",
+    "onset": 1.04
   },
   "en6_ten_thousand": {
     "file": "en6_ten_thousand.m4a",
@@ -2651,6 +3231,30 @@
     "variant": "Standard",
     "onset": 0.0
   },
+  "en6_to_dance_to_a_rhythm": {
+    "file": "en6_to_dance_to_a_rhythm.m4a",
+    "text": "to dance to a rhythm",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "bf3eb76771114cdb",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_to_dance_to_a_rhythm_ex": {
+    "file": "en6_to_dance_to_a_rhythm_ex.m4a",
+    "text": "This song is great – let's dance to the rhythm!",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "56eb290e9b73e2fb",
+    "variant": "Standard",
+    "onset": 0.0
+  },
   "en6_to_end_up": {
     "file": "en6_to_end_up.m4a",
     "text": "to end up",
@@ -2795,6 +3399,54 @@
     "variant": "Glottisschlag",
     "onset": 2.94
   },
+  "en6_to_go_to_a_concert": {
+    "file": "en6_to_go_to_a_concert.m4a",
+    "text": "to go to a concert",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "d86e066272feab80",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_to_go_to_a_concert_ex": {
+    "file": "en6_to_go_to_a_concert_ex.m4a",
+    "text": "For my birthday I want to go to a concert.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "6b00f4e96f9662fc",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_to_go_to_a_musical": {
+    "file": "en6_to_go_to_a_musical.m4a",
+    "text": "to go to a musical",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "7e54b4efc3038bb9",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_to_go_to_a_musical_ex": {
+    "file": "en6_to_go_to_a_musical_ex.m4a",
+    "text": "At Christmas we always go to a musical in the city.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "841910c08fc0c9dd",
+    "variant": "Glottisschlag",
+    "onset": 2.37
+  },
   "en6_to_grow_up": {
     "file": "en6_to_grow_up.m4a",
     "text": "to grow up",
@@ -2867,6 +3519,30 @@
     "variant": "Standard",
     "onset": 3.75
   },
+  "en6_to_have_a_rehearsal": {
+    "file": "en6_to_have_a_rehearsal.m4a",
+    "text": "to have a rehearsal",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "72a3f83ed8be68df",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_to_have_a_rehearsal_ex": {
+    "file": "en6_to_have_a_rehearsal_ex.m4a",
+    "text": "We have a rehearsal for our play every Friday.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "b4f819a8cb32ae2f",
+    "variant": "Standard",
+    "onset": 1.2
+  },
   "en6_to_have_to": {
     "file": "en6_to_have_to.m4a",
     "text": "to have to",
@@ -2891,6 +3567,30 @@
     "variant": "Tempo +0,1",
     "onset": 4.11
   },
+  "en6_to_join": {
+    "file": "en6_to_join.m4a",
+    "text": "to join",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "cece33c56edf2a54",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_to_join_ex": {
+    "file": "en6_to_join_ex.m4a",
+    "text": "Can I join your team?",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "184bdd1189dcfbed",
+    "variant": "Standard",
+    "onset": 0.0
+  },
   "en6_to_leave": {
     "file": "en6_to_leave.m4a",
     "text": "to leave",
@@ -2914,6 +3614,30 @@
     "hash": "15c77e81c77433b4",
     "variant": "Glottisschlag",
     "onset": 2.53
+  },
+  "en6_to_listen_to_music": {
+    "file": "en6_to_listen_to_music.m4a",
+    "text": "to listen to music",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "7cdfa6d04b2c6933",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_to_listen_to_music_ex": {
+    "file": "en6_to_listen_to_music_ex.m4a",
+    "text": "I always listen to music when I do my homework.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "b2533156e1a31d1b",
+    "variant": "Standard",
+    "onset": 4.31
   },
   "en6_to_look_up": {
     "file": "en6_to_look_up.m4a",
@@ -2986,6 +3710,175 @@
     "hash": "f8cf92863c64caf2",
     "variant": "Standard",
     "onset": 0.0
+  },
+  "en6_to_perform_live": {
+    "file": "en6_to_perform_live.m4a",
+    "text": "to perform live",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "52667c74ae495c11",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_to_perform_live_ex": {
+    "file": "en6_to_perform_live_ex.m4a",
+    "text": "Our favourite band will perform live in Munich next week.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "b771bec14c658fe6",
+    "phonemes": "ˌaʊə fˈeɪvɹɪt bˈand wɪl pəfˈɔːm lˈaɪv ɪn mjˈuːnɪk nˈɛkst wˈiːk.",
+    "variant": "Standard",
+    "onset": 3.85
+  },
+  "en6_to_perform_on_stage": {
+    "file": "en6_to_perform_on_stage.m4a",
+    "text": "to perform on stage",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "17263ae33919ac6e",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_to_perform_on_stage_ex": {
+    "file": "en6_to_perform_on_stage_ex.m4a",
+    "text": "At the school party, our class will perform on stage.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "a541d382f54d5937",
+    "variant": "Glottisschlag",
+    "onset": 2.86
+  },
+  "en6_to_play_a_gig": {
+    "file": "en6_to_play_a_gig.m4a",
+    "text": "to play a gig",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "7d6d2cd956e6bf37",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_to_play_a_gig_ex": {
+    "file": "en6_to_play_a_gig_ex.m4a",
+    "text": "The band played a gig in a small café last night.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "101ce929da8660da",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_to_play_an_instrument": {
+    "file": "en6_to_play_an_instrument.m4a",
+    "text": "to play an instrument",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "8c8cf82d488250b6",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_to_play_an_instrument_ex": {
+    "file": "en6_to_play_an_instrument_ex.m4a",
+    "text": "Everybody in my family can play an instrument.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "1b2d9735a32c8f1b",
+    "variant": "Glottisschlag",
+    "onset": 2.54
+  },
+  "en6_to_play_music": {
+    "file": "en6_to_play_music.m4a",
+    "text": "to play music",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "51a614ed1fcaf527",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_to_play_music_ex": {
+    "file": "en6_to_play_music_ex.m4a",
+    "text": "My brother and his friends play music in the garage.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "4c590c69e54f09b6",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_to_play_the_piano": {
+    "file": "en6_to_play_the_piano.m4a",
+    "text": "to play the piano",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "a2dc627b7e64e38c",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_to_play_the_piano_ex": {
+    "file": "en6_to_play_the_piano_ex.m4a",
+    "text": "My grandma can play the piano really well.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "bcd62148862acfbe",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_to_play_the_trombone": {
+    "file": "en6_to_play_the_trombone.m4a",
+    "text": "to play the trombone",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "1f2f777ceabd94dd",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_to_play_the_trombone_ex": {
+    "file": "en6_to_play_the_trombone_ex.m4a",
+    "text": "In the school band, Ben plays the trombone.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "28fe1949d12d99f0",
+    "variant": "Glottisschlag",
+    "onset": 2.42
   },
   "en6_to_point": {
     "file": "en6_to_point.m4a",
@@ -3226,6 +4119,30 @@
     "hash": "5493b5bba1f6f916",
     "variant": "Standard",
     "onset": 4.32
+  },
+  "en6_to_welcome": {
+    "file": "en6_to_welcome.m4a",
+    "text": "to welcome",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "86798566bf8fc4bd",
+    "variant": "Standard",
+    "onset": 0.0
+  },
+  "en6_to_welcome_ex": {
+    "file": "en6_to_welcome_ex.m4a",
+    "text": "Let's welcome our new neighbours with a cake!",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "e7ca9cd70a00e0b9",
+    "variant": "Standard",
+    "onset": 0.0
   },
   "en6_to_worry": {
     "file": "en6_to_worry.m4a",
@@ -3492,6 +4409,30 @@
     "variant": "Tempo +0,05",
     "onset": 1.32
   },
+  "en6_wooden": {
+    "file": "en6_wooden.m4a",
+    "text": "wooden",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "61d06e7b17ce07a5",
+    "variant": "Punkt am Ende",
+    "onset": 1.92
+  },
+  "en6_wooden_ex": {
+    "file": "en6_wooden_ex.m4a",
+    "text": "Grandpa made a wooden box for my toys.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "22eb21856b9a86a8",
+    "variant": "Standard",
+    "onset": 0.0
+  },
   "en6_worried": {
     "file": "en6_worried.m4a",
     "text": "worried",
@@ -3515,6 +4456,30 @@
     "hash": "c670f1a48769f282",
     "variant": "Standard",
     "onset": 0.0
+  },
+  "en6_would": {
+    "file": "en6_would.m4a",
+    "text": "would",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.8,
+    "lead": 0.8,
+    "tail": 0.3,
+    "hash": "1d0fb6db9773f4a5",
+    "variant": "Tempo +0,05",
+    "onset": 1.09
+  },
+  "en6_would_ex": {
+    "file": "en6_would_ex.m4a",
+    "text": "I would love a new bike.",
+    "lang": "en-gb",
+    "voice": "bf_emma",
+    "speed": 0.95,
+    "lead": 0.3,
+    "tail": 0.2,
+    "hash": "d1b0f33a3133f426",
+    "variant": "Standard",
+    "onset": 4.05
   },
   "en6_yearbook": {
     "file": "en6_yearbook.m4a",

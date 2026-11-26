@@ -435,6 +435,10 @@ curl -s -o /dev/null -w '%{http_code}' https://<slug>.space.fast/   # muss 403 l
   (115) orientieren sich am Cahier (S. 7–17) und an Bilan/Grammaire/Alphabet im Buch (S. 24–26).
 - Englisch 6, Unit 1: Vokabeln bis „to fix“ (Buch S. 195–198, Abschrift `VOCAB_EN6_U1_review.md`), Stimme
   bf_emma. Fragen nach Grammatik G1–G3 und Practice pool der Unit.
+- Englisch 6, Unit 2 (2026-11-26): Vokabeln von „drum“ bis „stage“ (Buch S. 205–207, Abschrift
+  `VOCAB_EN6_U2_review.md`) inkl. Kasten „Music“ (jede Wendung eine Karte), ohne den Grammatik-Kasten „Comparing
+  things“. Eigene Schulaufgabe `en6-u2` („Unit 2“), bisher nur Vokabeln: Ohne Fragen zeigt die Startseite kein
+  „Normales Quiz“ (`hasQuizQuestions`).
 - Hör-Karten: erst das Wort, dann ein kurzer Beispielsatz (nur bei Hör-Karten).
 - Wortschatz hat vier Kartenarten: übersetzen, in der Fremdsprache schreiben, Lückentext, nach Gehör schreiben.
 - Wortschatz-Auswahl (Klasse 6): „Alle Vokabeln“ (Durchgang in Runden à 50), „Nur neue Vokabeln“ und seit

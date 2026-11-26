@@ -789,6 +789,14 @@ export const EXAMS = {
     units: 'S. 195–201 („embarrassing“ bis „fishing“, mit grünen Kästen) · G1–G3 · Zeiten',
     subtitle: 'Englisch Unit 1',
   },
+  'en6-u2': {
+    id: 'en6-u2',
+    course: 'en-6',
+    // Bisher nur Vokabeln (2026-11-26); ohne eigene Fragen bietet die Startseite kein „Normales Quiz“ an.
+    label: 'Unit 2',
+    units: 'S. 205–207 („drum“ bis „stage“, mit Kasten „Music“)',
+    subtitle: 'Englisch Unit 2',
+  },
   'fr6-u1': {
     id: 'fr6-u1',
     course: 'fr-6',
@@ -865,5 +873,8 @@ export function latestVocabBatch(courseId) {
 const LISTENING_TASKS = [...EN6_LISTENING, ...FR6_LISTENING];
 export const listeningTasksFor = (exam) => LISTENING_TASKS.filter((t) => t.exam === exam && !t.retired);
 export const listeningTaskById = (id) => LISTENING_TASKS.find((t) => t.id === id) || null;
+
+/** Hat die Schulaufgabe Fragen fürs normale Quiz? (Unit 2 in Englisch hat bisher nur Vokabeln.) */
+export const hasQuizQuestions = (exam) => allQuestions.some((q) => q.exam === exam && !q.listening);
 
 export default allQuestions;

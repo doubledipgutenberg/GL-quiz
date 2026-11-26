@@ -120,6 +120,15 @@ const CASES = [
   [cards.fr6_un_ami_une_amie_fr, 'un ami, une chat', false, 'Französisch: ein Teil falsch'],
   [cards.fr6_un_magasin_fr, 'une magasin', false, 'Französisch: falscher Artikel bleibt falsch'],
   [cards.fr6_a_fr, 'a', false, 'Französisch: fehlender Akzent bleibt falsch'],
+
+  // Englisch Unit 2 (2026-11-26)
+  [cards.en6_high_school_de, 'High School', true, 'high school: Klammer-Erklärung darf fehlen'],
+  [cards.en6_high_school_de, 'Oberstufe', true, 'high school: zweite Bedeutung'],
+  [cards.en6_would_de, 'würdest', true, 'would: Form statt „würde/-st/-n/-t“'],
+  [cards.en6_one_ones_en, 'ones', true, 'one, ones (pl): Plural allein'],
+  [cards.en6_cajon_en, 'cajon', true, 'cajón: Akzent darf fehlen (alt)'],
+  [cards.en6_spanish_de, 'Spanisch', false, 'Spanish: spanisch/Spanisch ist eine Bedeutung, zwei nötig'],
+  [cards.en6_spanish_de, 'Spanisch, Spanier', true, 'Spanish: zwei Bedeutungen'],
 ];
 
 let fail = 0;
